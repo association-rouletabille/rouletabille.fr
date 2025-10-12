@@ -58,7 +58,7 @@ jobs:
         with:
           # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
           # If node-version and node-version-file are both provided the action will use version from node-version.
-          node-version-file: './nvmrc'
+          node-version-file: './.nvmrc'
 
       - run: npm install
 
