@@ -1,0 +1,26 @@
+{% css %}
+  {% include "style.scss" %}
+{% endcss %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ title }}</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="viewport" content="width=device-width">
+  <meta name="version" content="v{{ deployedAt }}+{{ commitSha }}">
+  <link href="{% getBundleFileUrl "css" %}" rel="stylesheet">
+</head>
+
+<body>
+  <section>
+
+  {{ content | safe }}
+
+  </section>
+
+  <span class="rotated">v{{ deployedAt }}+{{ commitSha }}</span>
+</body>
+
+</html>
