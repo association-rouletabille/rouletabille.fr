@@ -38,6 +38,14 @@ body {
   margin: 0 0 0 0;
 }
 
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+code, pre {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
 .top {
   display: flex;
   flex-direction: column;
