@@ -6,7 +6,7 @@ img {
 
 .rock > img {
   margin: 0 auto;
-  width: 80vh;
+  width: min(70vh, 70vw);
 }
 
 @keyframes gentle-rock {
