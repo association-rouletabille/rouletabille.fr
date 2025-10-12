@@ -1,21 +1,21 @@
-import process from "node:process";
-import { Buffer } from "node:buffer";
-import path from "node:path";
+import process from 'node:process';
+import { Buffer } from 'node:buffer';
+import path from 'node:path';
 
-import htmlmin from "html-minifier-terser";
-import { transform } from "lightningcss";
-import * as sass from "sass";
+import htmlmin from 'html-minifier-terser';
+import { transform } from 'lightningcss';
+import * as sass from 'sass';
 
 export default async function (eleventyConfig) {
-  eleventyConfig.setInputDirectory("templates");
+  eleventyConfig.setInputDirectory('templates');
 
-  eleventyConfig.addPassthroughCopy({ static: "/" });
+  eleventyConfig.addPassthroughCopy({ static: '/' });
 
-  eleventyConfig.addBundle("css", {
+  eleventyConfig.addBundle('css', {
     transforms: [
       async function (content) {
         // this.type returns the bundle name.
-        if (this.type === "css") {
+        if (this.type === 'css') {
           const { code } = transform({
             code: Buffer.from(content),
             minify: true,
@@ -30,8 +30,8 @@ export default async function (eleventyConfig) {
     ],
   });
 
-  eleventyConfig.addTransform("html-minify", (content, path) => {
-    if (path && path.endsWith(".html")) {
+  eleventyConfig.addTransform('html-minify', (content, path) => {
+    if (path && path.endsWith('.html')) {
       return htmlmin.minify(content, {
         collapseBooleanAttributes: true,
         collapseInlineTagWhitespace: false,
@@ -50,8 +50,8 @@ export default async function (eleventyConfig) {
     return content;
   });
 
-  eleventyConfig.addExtension("scss", {
-    outputFileExtension: "css",
+  eleventyConfig.addExtension('scss', {
+    outputFileExtension: 'css',
 
     // opt-out of Eleventy Layouts
     useLayouts: false,
@@ -60,12 +60,12 @@ export default async function (eleventyConfig) {
       let parsed = path.parse(inputPath);
 
       // Don’t compile file names that start with an underscore
-      if (parsed.name.startsWith("_")) {
+      if (parsed.name.startsWith('_')) {
         return;
       }
 
       let result = sass.compileString(inputContent, {
-        loadPaths: [parsed.dir || ".", this.config.dir.includes],
+        loadPaths: [parsed.dir || '.', this.config.dir.includes],
       });
 
       // Map dependencies for incremental builds
@@ -77,12 +77,12 @@ export default async function (eleventyConfig) {
     },
   });
 
-  eleventyConfig.addTemplateFormats("scss");
+  eleventyConfig.addTemplateFormats('scss');
 
-  eleventyConfig.addGlobalData("deployedAt", () =>
+  eleventyConfig.addGlobalData('deployedAt', () =>
     new Date().toISOString().substring(0, 10),
   );
-  eleventyConfig.addGlobalData("commitSha", () =>
-    (process.env.COMMIT_SHA || "deadbeefc0ffee").substring(0, 7),
+  eleventyConfig.addGlobalData('commitSha', () =>
+    (process.env.COMMIT_SHA || 'deadbeefc0ffee').substring(0, 7),
   );
 }

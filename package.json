@@ -9,35 +9,25 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "@eslint/js": "^9.13.0",
-    "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.14.1",
-    "eslint": "^9.25.0",
-    "eslint-config-prettier": "^10.1.2",
-    "eslint-plugin-prettier": "^5.2.6",
-    "fs-extra": "^11.3.0",
+    "@11ty/eleventy": "^3.1.2",
+    "@eslint/js": "^9.37.0",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
     "html-minifier-terser": "^7.2.0",
     "husky": "^9.1.7",
-    "lightningcss": "^1.29.3",
+    "lightningcss": "^1.30.2",
     "lint-staged": "^16.2.4",
-    "prettier": "^3.5.3",
-    "sass": "^1.86.3",
-    "tsx": "^4.19.3",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.30.1",
-    "wrangler": "^4.12.0"
+    "prettier": "^3.6.2",
+    "sass": "^1.93.2"
   },
   "resolutions": {
     "@types/node": "^22"
   },
   "scripts": {
     "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
-    "build:generate-version": "npx tsx ./src/generate_version.ts",
     "lint": "npx eslint --cache --cache-location .cache/ .",
     "lint-staged": "npx lint-staged",
-    "build:minify": "npx tsx ./src/minify.ts",
-    "prelint": "npx tsc --noEmit",
     "prepare": "npx husky"
   },
   "lint-staged": {
