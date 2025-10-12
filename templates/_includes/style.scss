@@ -1,107 +1,115 @@
-body {
-  background-color: #192422;
-  color: #FFB65C;
-}
-
-.bold {
-  font-weight: bold;
-  animation: bounce 0.35s ease infinite alternate;
-}
-
-@keyframes bounce {
-  from {
-    transform: translateY(20%);
-  }
-
-  to {
-    transform: translateY(-40%);
-  }
-}
-
-.block {
+img {
+  max-width: 100%;
+  height: auto;
   display: block;
 }
 
-.dim {
-  color: #06829D;
+.rock > img {
+  margin: 0 auto;
+  width: 80vh;
 }
 
-.rotated {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  transform: rotate(-90deg) translate(100%, 0%);
-  transform-origin: bottom right;
-  color: #192422;
-  padding: 0.1em 0.3em;
-  font-family: sans-serif;
-  transition: color 1s ease;
-  &:hover {
-    color: grey;
+@keyframes gentle-rock {
+  0% {
+    transform: rotate(-15deg);
   }
-}
-
-section {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-}
-
-.big {
-  text-align: center;
-  font-family: monospace;
-  font-weight: lighter;
-  line-height: .6em;
-}
-
-@media screen and (max-width: 320px) {
-  .big {
-    font-size: 3.5em;
+  50% {
+    transform: rotate(15deg);
   }
-
-  .rotated {
-    font-size: 0.8em;
+  100% {
+    transform: rotate(-15deg);
   }
 }
 
-@media screen and (min-width: 321px) and (max-width: 480px) {
-  .big {
-    font-size: 3.8em;
-  }
+.rock {
+  animation: gentle-rock 4s ease-in-out infinite;
+  display: block;
+}
 
-  .rotated {
-    font-size: 0.8em;
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rock {
+    animation: none;
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 600px) {
-  .big {
-    font-size: 5.5em;
-  }
-
-  .rotated {
-    font-size: 0.9em;
-  }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-@media screen and (min-width: 601px) {
-  .big {
-    font-size: 7.0em;
-  }
-
-  .rotated {
-    font-size: 1em;
-  }
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: stretch;
+  height: 100vh;
 }
 
-@media screen and (min-width: 801px) {
-  .big {
-    font-size: 9.2em;
-  }
+html {
+  color-scheme: light dark;
+  font-family: System UI;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  max-width: min(70ch, 100% - 3rem);
+  margin-inline: auto;
+}
 
-  .rotated {
-    font-size: 1em;
+a {
+  color: #fefefe;
+  text-decoration: none;
+}
+
+a:hover {
+  color: gold;
+}
+
+.flex-table {
+  margin-top: 0.5rem;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+
+.flex-cell {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row; /* keep image and text side-by-side */
+  align-items: center; /* vertical centering */
+  justify-content: center; /* center content horizontally in the cell */
+  gap: 0.2rem;
+  white-space: nowrap; /* keep items on a single line */
+}
+
+.test
+{
+    /* Allow text to wrap when it exceeds available width */
+  white-space: normal;
+  max-width: 40ch; /* limit line length for wrapping */
+  overflow-wrap: anywhere; /* break long words/URLs if needed */
+  word-break: break-word;
+}
+.flex-row .flex-cell.left {
+  background: #fefefe; /* light white background */
+  padding: 1rem 2rem;
+}
+
+.flex-row .flex-cell.right {
+  background: #222222; /* dark background */
+  padding: 1rem 2rem;
+}
+
+/* Ensure images inside cells don't stretch and remain their intrinsic size */
+.flex-cell img {
+  flex: 0 0 auto; /* don't grow or shrink */
+}
+
+@media screen and (max-width: 480px) {
+  .flex-row {
+    flex-direction: column;
   }
 }
