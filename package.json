@@ -1,0 +1,40 @@
+{
+  "name": "rouletabille.fr",
+  "version": "0.0.1",
+  "repository": "https://github.com/association-rouletabille/rouletabille.fr.git",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "22.x"
+  },
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@eslint/js": "^9.38.0",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "html-minifier-terser": "^7.2.0",
+    "husky": "^9.1.7",
+    "lightningcss": "^1.30.2",
+    "lint-staged": "^16.2.4",
+    "prettier": "^3.6.2",
+    "sass": "^1.93.2"
+  },
+  "resolutions": {
+    "@types/node": "^22"
+  },
+  "scripts": {
+    "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
+    "lint": "npx eslint . --cache --cache-location .cache/ --fix",
+    "format": "npx prettier . --write",
+    "lint-staged": "npx lint-staged",
+    "prepare": "npx husky"
+  },
+  "lint-staged": {
+    "!(*.toml)": [
+      "npm run lint",
+      "npm run format"
+    ]
+  }
+}

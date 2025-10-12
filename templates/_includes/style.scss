@@ -5,8 +5,8 @@ img {
 }
 
 .rock > img {
-  margin: 0 auto;
-  width: 80vh;
+  margin: 0 0 0 0;
+  width: min(70vh, 70vw);
 }
 
 @keyframes gentle-rock {
@@ -24,6 +24,7 @@ img {
 .rock {
   animation: gentle-rock 4s ease-in-out infinite;
   display: block;
+  align-self: center; /* center horizontally in the column flex container */
 }
 
 /* Respect users who prefer reduced motion */
@@ -34,7 +35,21 @@ img {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  margin: 0 0 0 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+code,
+pre {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 }
 
 .top {
@@ -46,11 +61,11 @@ body {
 }
 
 html {
-  color-scheme: light dark;
+  background-color: #222222;
   font-family: System UI;
   font-size: 1.25rem;
   line-height: 1.5;
-  max-width: min(70ch, 100% - 4rem);
+  max-width: min(70ch, 100% - 3rem);
   margin-inline: auto;
 }
 
@@ -83,6 +98,23 @@ a:hover {
   justify-content: center; /* center content horizontally in the cell */
   gap: 0.2rem;
   white-space: nowrap; /* keep items on a single line */
+}
+
+.test {
+  /* Allow text to wrap when it exceeds available width */
+  white-space: normal;
+  max-width: 40ch; /* limit line length for wrapping */
+  overflow-wrap: anywhere; /* break long words/URLs if needed */
+  word-break: break-word;
+}
+.flex-row .flex-cell.left {
+  background: #fefefe; /* light white background */
+  padding: 1rem 2rem;
+}
+
+.flex-row .flex-cell.right {
+  background: #222222; /* dark background */
+  padding: 1rem 2rem;
 }
 
 /* Ensure images inside cells don't stretch and remain their intrinsic size */
