@@ -54,6 +54,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - uses: actions/setup-node@v5
+        with:
+          # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
+          # If node-version and node-version-file are both provided the action will use version from node-version.
+          node-version-file: './nvmrc'
+
       - run: npm install
 
       - run: npm run build
