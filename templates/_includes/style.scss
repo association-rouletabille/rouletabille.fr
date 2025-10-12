@@ -5,7 +5,7 @@ img {
 }
 
 .rock > img {
-  margin: 0 auto;
+  margin: 0 0 0 0;
   width: min(70vh, 70vw);
 }
 
@@ -24,6 +24,7 @@ img {
 .rock {
   animation: gentle-rock 4s ease-in-out infinite;
   display: block;
+  align-self: center; /* center horizontally in the column flex container */
 }
 
 /* Respect users who prefer reduced motion */
