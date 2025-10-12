@@ -2,6 +2,8 @@ import process from 'node:process';
 import { Buffer } from 'node:buffer';
 import path from 'node:path';
 
+import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
+
 import htmlmin from 'html-minifier-terser';
 import { transform } from 'lightningcss';
 import * as sass from 'sass';
@@ -85,4 +87,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addGlobalData('commitSha', () =>
     (process.env.COMMIT_SHA || 'deadbeefc0ffee').substring(0, 7),
   );
+
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+  return {
+    // prefix used by GitHub Pages, usually your project name
+    pathPrefix: "/rouletabille.fr/"
+  }
 }
