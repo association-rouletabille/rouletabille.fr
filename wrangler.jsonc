@@ -1,9 +1,0 @@
-{
-  "name": "rouletabille-fr",
-  "compatibility_date": "2025-01-01",
-  "assets": {
-    "directory": "./_site",
-    "html_handling": "drop-trailing-slash",
-    "not_found_handling": "404-page"
-  }
-}
