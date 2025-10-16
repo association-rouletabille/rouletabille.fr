@@ -89,8 +89,4 @@ export default async function (eleventyConfig) {
   );
 
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
-  return {
-    // prefix used by GitHub Pages, usually your project name
-    pathPrefix: "/rouletabille.fr/"
-  }
 }
