@@ -33,6 +33,9 @@
   "lint-staged": {
     "*.{ts,js}": [
       "npx eslint --fix --cache --cache-location .cache/"
+    ],
+    "**/*": [
+      "npx prettier . --write"
     ]
   }
 }
