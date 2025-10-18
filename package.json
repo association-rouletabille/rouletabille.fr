@@ -28,7 +28,7 @@
     "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
     "lint": "npx eslint --cache --cache-location .cache/ .",
     "lint-staged": "npx lint-staged",
-    "prepare": "husky"
+    "prepare": "npx husky"
   },
   "lint-staged": {
     "*.{ts,js}": [
