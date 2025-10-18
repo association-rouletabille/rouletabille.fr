@@ -9,7 +9,8 @@ img {
   width: min(70vh, 70vw);
 }
 
-@keyframes gentle-rock {
+@keyframes gentle-rock
+{
   0% {
     transform: rotate(-15deg);
   }
