@@ -10,8 +10,8 @@
   "private": true,
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@eslint/js": "^9.37.0",
-    "eslint": "^9.37.0",
+    "@eslint/js": "^9.38.0",
+    "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "html-minifier-terser": "^7.2.0",
@@ -26,17 +26,15 @@
   },
   "scripts": {
     "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
-    "lint": "npx eslint --cache --cache-location .cache/ .",
+    "lint": "npx eslint . --cache --cache-location .cache/ --fix",
+    "format": "npx prettier . --write",
     "lint-staged": "npx lint-staged",
     "prepare": "npx husky"
   },
   "lint-staged": {
-    "*.{ts,js}": [
-      "npx eslint . --fix --cache --cache-location .cache/",
-      "npx prettier . --write"
-    ],
-    "!(*.js|*.ts|*.toml)": [
-      "npx prettier . --write"
+    "!(*.toml)": [
+      "npm run lint",
+      "npm run format"
     ]
   }
 }
