@@ -9,8 +9,7 @@ img {
   width: min(70vh, 70vw);
 }
 
-@keyframes gentle-rock
-{
+@keyframes gentle-rock {
   0% {
     transform: rotate(-15deg);
   }
@@ -36,16 +35,21 @@ img {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
   margin: 0 0 0 0;
 }
 
-h1, h2, h3 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+h1,
+h2,
+h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-code, pre {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+code,
+pre {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 }
 
 .top {
@@ -96,9 +100,8 @@ a:hover {
   white-space: nowrap; /* keep items on a single line */
 }
 
-.test
-{
-    /* Allow text to wrap when it exceeds available width */
+.test {
+  /* Allow text to wrap when it exceeds available width */
   white-space: normal;
   max-width: 40ch; /* limit line length for wrapping */
   overflow-wrap: anywhere; /* break long words/URLs if needed */
