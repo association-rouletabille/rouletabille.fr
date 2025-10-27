@@ -1,0 +1,12 @@
+{
+  "name": "rouletabille-fr",
+  "compatibility_date": "2025-10-16",
+  "assets": {
+    "directory": "./_site",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "build": {
+    "command": "npm run build"
+  }
+}
