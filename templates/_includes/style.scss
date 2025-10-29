@@ -1,14 +1,3 @@
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.rock > img {
-  margin: 0 0 0 0;
-  width: min(70vh, 70vw);
-}
-
 @keyframes gentle-rock {
   0% {
     transform: rotate(-15deg);
@@ -25,6 +14,9 @@ img {
   animation: gentle-rock 4s ease-in-out infinite;
   display: block;
   align-self: center; /* center horizontally in the column flex container */
+  height: min(70vh, 70vw);
+  width: min(70vh, 70vw);
+  color: #fefefe;
 }
 
 /* Respect users who prefer reduced motion */
