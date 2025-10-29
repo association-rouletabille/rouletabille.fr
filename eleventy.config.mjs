@@ -1,6 +1,11 @@
 import process from 'node:process';
 import { Buffer } from 'node:buffer';
 import path from 'node:path';
+import fs from 'node:fs';
+import fsPromises from 'node:fs/promises';
+
+import ssgload from 'svg-sprite-generator/lib/source/folder.js';
+import ssgGetspriteXml from 'svg-sprite-generator/lib/writer.js';
 
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
 
@@ -9,6 +14,26 @@ import { transform } from 'lightningcss';
 import * as sass from 'sass';
 
 export default async function (eleventyConfig) {
+  eleventyConfig.on('eleventy.before', async () => {
+    const staticAssetsDir = path.join(import.meta.dirname, 'static', 'assets');
+
+    fs.mkdirSync(staticAssetsDir, { recursive: true });
+
+    const generatedSpritePath = path.join(staticAssetsDir, 'sprites.svg');
+
+    const sourceSvgDirectory = path.join(import.meta.dirname, 'assets');
+
+    if (fs.existsSync(generatedSpritePath)) {
+      return;
+    }
+
+    const res = await ssgload(sourceSvgDirectory)();
+
+    var svgs = ssgGetspriteXml.getSpriteXml(res);
+
+    await fsPromises.writeFile(generatedSpritePath, svgs, 'utf-8');
+  });
+
   eleventyConfig.setInputDirectory('templates');
 
   eleventyConfig.addPassthroughCopy({ static: '/' });

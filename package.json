@@ -19,7 +19,8 @@
     "lightningcss": "^1.30.2",
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+    "svg-sprite-generator": "^0.0.7"
   },
   "resolutions": {
     "@types/node": "^22"
