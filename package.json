@@ -11,6 +11,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@eslint/js": "^9.38.0",
+    "eleventy-plugin-icons": "^4.5.4",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
@@ -19,8 +20,7 @@
     "lightningcss": "^1.30.2",
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
-    "sass": "^1.93.2",
-    "svg-sprite-generator": "^0.0.7"
+    "sass": "^1.93.2"
   },
   "resolutions": {
     "@types/node": "^22"
