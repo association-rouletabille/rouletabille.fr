@@ -1,5 +1,5 @@
 {
   "name": "rouletabille-fr",
   "compatibility_date": "2025-10-28",
-  "pages_build_output_dir": "_site"
+  "pages_build_output_dir": "dist"
 }

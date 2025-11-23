@@ -92,4 +92,10 @@ export default async function (eleventyConfig) {
   );
 
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+
+  return {
+    dir: {
+      output: 'dist',
+    },
+  };
 }
