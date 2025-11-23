@@ -6,9 +6,19 @@ import pluginIcons from 'eleventy-plugin-icons';
 
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy';
 
-import htmlmin from 'html-minifier-terser';
+import minifyHtml from '@minify-html/node';
 import { transform } from 'lightningcss';
 import * as sass from 'sass';
+
+function transformHTML(content, outputPath) {
+  if (!outputPath.endsWith('.html')) {
+    return content;
+  }
+
+  const minified = minifyHtml.minify(Buffer.from(content), {});
+
+  return minified;
+}
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginIcons, {
@@ -43,25 +53,7 @@ export default async function (eleventyConfig) {
     ],
   });
 
-  eleventyConfig.addTransform('html-minify', (content, path) => {
-    if (path && path.endsWith('.html')) {
-      return htmlmin.minify(content, {
-        collapseBooleanAttributes: true,
-        collapseInlineTagWhitespace: false,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true,
-        removeComments: true,
-        removeEmptyAttributes: true,
-        removeOptionalTags: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
-      });
-    }
-
-    return content;
-  });
+  eleventyConfig.addTransform('htmlmin', transformHTML);
 
   eleventyConfig.addExtension('scss', {
     outputFileExtension: 'css',
