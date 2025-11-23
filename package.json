@@ -4,7 +4,7 @@
   "repository": "https://github.com/association-rouletabille/rouletabille.fr.git",
   "license": "UNLICENSED",
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "type": "module",
   "private": true,
