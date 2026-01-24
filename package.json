@@ -20,10 +20,8 @@
     "lightningcss": "^1.30.2",
     "lint-staged": "^16.2.7",
     "prettier": "^3.6.2",
-    "sass": "^1.94.2"
-  },
-  "resolutions": {
-    "@types/node": "^22"
+    "sass": "^1.94.2",
+    "wrangler": "^4.54.0"
   },
   "scripts": {
     "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
@@ -33,7 +31,7 @@
     "prepare": "npx husky"
   },
   "lint-staged": {
-    "(*.mjs|*.css|*.html|*.md)": [
+    "(*.js|*.css|*.html|*.md)": [
       "npm run lint",
       "npm run format"
     ]
