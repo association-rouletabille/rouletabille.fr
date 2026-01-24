@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="fr">
+
+  <head>
+    <title @text="title"></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="version" :content="`v${deployedAt}+${commitSha}`">
+    <meta name="description" :content="`${description}`">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" :href="getBundleFileUrl('css')" as="style" webc:keep />
+    <link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
+  </head>
+
+  <body @raw="this.content" />
+
+</html>
