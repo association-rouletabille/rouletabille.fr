@@ -1,5 +1,21 @@
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "rouletabille-fr",
   "compatibility_date": "2025-10-28",
-  "pages_build_output_dir": "dist"
+
+  "assets": {
+    "directory": "./dist/",
+    "not_found_handling": "404-page",
+    "html_handling": "drop-trailing-slash"
+  },
+
+  "workers_dev": true,
+  "preview_urls": true,
+
+  "routes": [
+    {
+      "pattern": "rouletabille.fr",
+      "custom_domain": true
+    }
+  ]
 }
