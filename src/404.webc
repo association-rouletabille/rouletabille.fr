@@ -1,0 +1,7 @@
+---
+layout: base.webc
+title: 404 - :-(
+description: Page non disponible
+permalink: 404.html
+---
+<not-found></not-found>

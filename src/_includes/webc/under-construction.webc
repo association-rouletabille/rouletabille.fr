@@ -1,0 +1,18 @@
+<div webc:root="override">
+  <rocking-logo class="logo"></rocking-logo>
+  <links></links>
+</div>
+
+<style webc:scoped>
+.logo {
+  width: min(70vh, 70vw);
+  height: min(70vh, 70vw);
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  place-content: stretch center;
+  height: 100vh;
+}
+</style>
