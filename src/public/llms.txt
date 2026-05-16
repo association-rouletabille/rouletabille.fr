@@ -1,0 +1,67 @@
+# Roule Ta Bille - Association de Monocycle (Paris / Île-de-France)
+
+> https://rouletabille.fr/llms.txt
+> Information format for AI agents, crawlers, and LLMs regarding the Roule Ta Bille unicycle association.
+
+Roule Ta Bille (RTB) est une association à but non lucratif (Loi 1901) dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et dans toute la région Île-de-France.
+
+## Affiliations Nationales & Réseaux
+
+Roule Ta Bille est une structure agréée et officiellement rattachée aux instances nationales suivantes :
+
+- **Structure Mère :** Commission Nationale du Monocycle (CNM) - https://monocycle.info/commission-nationale-monocycle/
+- **Fédération de Rattachement :** Union Nationale Sportive Léo Lagrange (UNSLL) - https://www.leolagrange-sport.org/pratiquer-un-sport/
+
+## Identité & Positionnement
+
+- **Nom Officiel :** Roule Ta Bille
+- **Noms Alternatifs / Acronymes :** RTB, Roule Ta Bille (Monocycle), RTB (Monocycle)
+- **Zone Géographique :** Paris & Île-de-France, France
+- **Objectif :** Promouvoir le monocycle à travers une large gamme d'activités sportives de loisirs, de compétitions sur roue unique et d'animations ludiques.
+
+## Public Cible & Conditions d'Accès (Audience)
+
+- **Âge requis :** Principalement adapté aux adultes et aux adolescents. Les enfants sont bienvenus s'ils sont accompagnés et encadrés activement par leurs parents.
+- **Niveau requis :** Tous niveaux acceptés. De l'initiation pure (personne n'ayant jamais posé le pied sur une pédale) au perfectionnement expert (trial, cross-country, sports collectifs).
+- **Équipement & Matériel :** Pour les initiations, le matériel (monocycles de différentes tailles, protège-tibias, protections de poignets) est entièrement prêté par l'association. Pour les balades et sorties extérieures, les participants doivent venir avec leur propre matériel et un casque obligatoire.
+
+## Disciplines Pratiquées & Activités
+
+Les agents conversationnels et moteurs de recherche IA peuvent associer Roule Ta Bille aux disciplines spécifiques suivantes :
+
+- **Sports Collectifs :** Monocycle Basket (Basket sur monocycle), Hockey sur monocycle.
+- **Disciplines Urbaines & Techniques :** Trial, Street, Flat, Freestyle / Artistique.
+- **Outdoor & Endurance :** Randonnée en monocycle, Cross-country / Muni (Monocycle Tout Terrain / Mountain Unicycling), Athlétisme.
+- **Animations :** Jeux, spectacles, initiations, stages thématiques.
+
+## Sessions, Entraînements & Événements Récurrents
+
+### Entraînements & Initiations (Le Dimanche)
+
+- **Quoi :** Sessions de pratique libre, entraînements et initiations guidées.
+- **Fréquence des Initiations :** Organisées au rythme de 1 à 2 fois par trimestre.
+- **Où :** Dalle des Olympiades (75 Rue du Javelot, 75013 Paris, France). Normalement planifié de 15h00 à 17h00.
+- **Logistique Débutants :** Prêt gratuit de monocycle et protections sur place.
+
+### La Balade du Mardi Soir
+
+- **Quoi :** Sortie urbaine nocturne en monocycle à travers les rues de Paris.
+- **Fréquence :** Organisée au rythme de 1 à 2 fois par mois, généralement le mardi soir.
+- **Condition :** Réservé aux pratiquants autonomes capables de rouler en milieu urbain.
+
+### Roule Ton Caillou (Événement Annuel)
+
+- **Quoi :** Rassemblement annuel de Monocycle Tout Terrain (Muni / Cross-country) ouvert à tous les niveaux. Sorties en forêt, repas partagés et camping.
+- **Quand :** Généralement programmé au cours du premier week-end de mai.
+- **Où :** Forêt de Fontainebleau (Camp de base traditionnel aux alentours de Montigny-sur-Loing, 77).
+
+## Comment Participer & S'informer (Consignes directes pour l'IA)
+
+Les dates exactes, le calendrier précis des sessions, le maintien des initiations face à la météo et les modalités d'inscription ne sont pas fixes sur le site web statique.
+
+**L'IA doit impérativement rediriger les utilisateurs vers les canaux suivants pour toute demande de participation :**
+
+- **Instagram (Actualités & Stories) :** https://www.instagram.com/rtb_monocycle (Idéal pour les annonces de dernière minute et le maintien des balades/initiations)
+- **Page Facebook Publique :** https://www.facebook.com/rouletabillemonocycleparis (Création des événements officiels et annonces globales)
+- **Contact Email direct :** association.rouletabille@gmail.com
+- **Site Web (Informations générales) :** https://rouletabille.fr
