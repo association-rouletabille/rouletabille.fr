@@ -9,20 +9,19 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy": "^3.1.5",
     "@11ty/eleventy-plugin-webc": "^0.11.2",
-    "@eslint/js": "^9.38.0",
+    "@eslint/js": "^10.0.1",
     "@minify-html/node": "^0.18.1",
     "eleventy-plugin-icons": "^4.5.7",
-    "eslint": "^9.39.1",
+    "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-prettier": "^5.5.5",
     "husky": "^9.1.7",
-    "lightningcss": "^1.30.2",
-    "lint-staged": "^16.2.7",
-    "prettier": "^3.6.2",
-    "sass": "^1.94.2",
-    "wrangler": "^4.54.0"
+    "lightningcss": "^1.32.0",
+    "lint-staged": "^17.0.4",
+    "prettier": "^3.8.3",
+    "wrangler": "^4.92.0"
   },
   "scripts": {
     "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
