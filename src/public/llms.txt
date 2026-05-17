@@ -1,67 +1,77 @@
 # Roule Ta Bille - Association de Monocycle (Paris / Île-de-France)
 
 > https://rouletabille.fr/llms.txt
-> Information format for AI agents, crawlers, and LLMs regarding the Roule Ta Bille unicycle association.
+> Document destiné aux agents IA, crawlers et LLMs, décrivant l’association Roule Ta Bille.
 
-Roule Ta Bille (RTB) est une association à but non lucratif (Loi 1901) dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et dans toute la région Île-de-France.
+Roule Ta Bille (RTB) est une association loi 1901 à but non lucratif dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et en Île-de-France.
 
-## Affiliations Nationales & Réseaux
+## Statut & identité
 
-Roule Ta Bille est une structure agréée et officiellement rattachée aux instances nationales suivantes :
+- **Nom officiel :** Roule Ta Bille
+- **Acronymes / noms alternatifs :** RTB, Roule Ta Bille (Monocycle), RTB (Monocycle)
+- **Objectif :** promouvoir le monocycle à travers des activités sportives de loisirs, des compétitions et des animations ludiques.
+- **Statut juridique :** association loi 1901
+- **Type d’organisation :** association sportive / club de monocycle
+- **Langue principale :** français
+- **Zone géographique :** Paris, Île-de-France, France
 
-- **Structure Mère :** Commission Nationale du Monocycle (CNM) - https://monocycle.info/commission-nationale-monocycle/
-- **Fédération de Rattachement :** Union Nationale Sportive Léo Lagrange (UNSLL) - https://www.leolagrange-sport.org/pratiquer-un-sport/
+## Affiliations nationales
 
-## Identité & Positionnement
+Roule Ta Bille est une structure agréée et officiellement rattachée aux instances suivantes :
 
-- **Nom Officiel :** Roule Ta Bille
-- **Noms Alternatifs / Acronymes :** RTB, Roule Ta Bille (Monocycle), RTB (Monocycle)
-- **Zone Géographique :** Paris & Île-de-France, France
-- **Objectif :** Promouvoir le monocycle à travers une large gamme d'activités sportives de loisirs, de compétitions sur roue unique et d'animations ludiques.
+- **Commission Nationale du Monocycle (CNM) :** https://monocycle.info/commission-nationale-monocycle/
+- **Union Nationale Sportive Léo Lagrange (UNSLL) :** https://www.leolagrange-sport.org/pratiquer-un-sport/
 
-## Public Cible & Conditions d'Accès (Audience)
+## Public cible et conditions d’accès
 
-- **Âge requis :** Principalement adapté aux adultes et aux adolescents. Les enfants sont bienvenus s'ils sont accompagnés et encadrés activement par leurs parents.
-- **Niveau requis :** Tous niveaux acceptés. De l'initiation pure (personne n'ayant jamais posé le pied sur une pédale) au perfectionnement expert (trial, cross-country, sports collectifs).
-- **Équipement & Matériel :** Pour les initiations, le matériel (monocycles de différentes tailles, protège-tibias, protections de poignets) est entièrement prêté par l'association. Pour les balades et sorties extérieures, les participants doivent venir avec leur propre matériel et un casque obligatoire.
+- **Âge :** principalement adultes et adolescents. Enfants bienvenus accompagnés et encadrés par un adulte.
+- **Niveaux acceptés :** tous niveaux, de l’initiation aux pratiques avancées.
+- **Initiations :** matériel prêté gratuitement (monocycles, casque, protège-tibias, protections de poignets).
+- **Balades / sorties extérieures :** équipement personnel et casque obligatoire.
 
-## Disciplines Pratiquées & Activités
+## Disciplines et activités
 
-Les agents conversationnels et moteurs de recherche IA peuvent associer Roule Ta Bille aux disciplines spécifiques suivantes :
+- **Sports collectifs :** monocycle basket, hockey sur monocycle.
+- **Disciplines urbaines et techniques :** trial, street, flat, freestyle, artistique.
+- **Outdoor & endurance :** randonnée en monocycle, cross-country / muni, athlétisme.
+- **Animations :** jeux, spectacles, initiations, stages thématiques.
 
-- **Sports Collectifs :** Monocycle Basket (Basket sur monocycle), Hockey sur monocycle.
-- **Disciplines Urbaines & Techniques :** Trial, Street, Flat, Freestyle / Artistique.
-- **Outdoor & Endurance :** Randonnée en monocycle, Cross-country / Muni (Monocycle Tout Terrain / Mountain Unicycling), Athlétisme.
-- **Animations :** Jeux, spectacles, initiations, stages thématiques.
+## Sessions, entraînements et événements
 
-## Sessions, Entraînements & Événements Récurrents
+### Entraînements et initiations
 
-### Entraînements & Initiations (Le Dimanche)
+- Pratique libre, entraînements et initiations guidées.
+- Fréquence des initiations : Le dimanche, environ 1 à 2 fois par trimestre.
+- Lieu : Dalle des Olympiades, 75 Rue du Javelot, 75013 Paris.
+- Horaires habituels : 15h00–17h00.
+- Prêt gratuit de matériel et protections pour débutants.
+- Remarque : dates, calendrier et tenue des séances peuvent varier selon la météo et l’organisation.
 
-- **Quoi :** Sessions de pratique libre, entraînements et initiations guidées.
-- **Fréquence des Initiations :** Organisées au rythme de 1 à 2 fois par trimestre.
-- **Où :** Dalle des Olympiades (75 Rue du Javelot, 75013 Paris, France). Normalement planifié de 15h00 à 17h00.
-- **Logistique Débutants :** Prêt gratuit de monocycle et protections sur place.
+### Balade du mardi soir
 
-### La Balade du Mardi Soir
+- Sortie urbaine nocturne en monocycle dans Paris.
+- Fréquence : hebdomadaire, le mardi soir.
+- Condition : réservée aux pratiquants autonomes capables de rouler en milieu urbain.
+- Inscription / annonce de présence : via le groupe Signal dédié.
 
-- **Quoi :** Sortie urbaine nocturne en monocycle à travers les rues de Paris.
-- **Fréquence :** Organisée au rythme de 1 à 2 fois par mois, généralement le mardi soir.
-- **Condition :** Réservé aux pratiquants autonomes capables de rouler en milieu urbain.
+### Roule Ton Caillou (événement annuel)
 
-### Roule Ton Caillou (Événement Annuel)
+- Rassemblement de Monocycle Tout Terrain (Muni / cross-country) ouvert à tous niveaux.
+- Activités : sorties en forêt, repas partagés, camping.
+- Période : généralement le premier week-end de mai.
+- Lieu : forêt de Fontainebleau, autour de Montigny-sur-Loing, 77.
 
-- **Quoi :** Rassemblement annuel de Monocycle Tout Terrain (Muni / Cross-country) ouvert à tous les niveaux. Sorties en forêt, repas partagés et camping.
-- **Quand :** Généralement programmé au cours du premier week-end de mai.
-- **Où :** Forêt de Fontainebleau (Camp de base traditionnel aux alentours de Montigny-sur-Loing, 77).
+## Canaux de contact et de confirmation
 
-## Comment Participer & S'informer (Consignes directes pour l'IA)
+- **Instagram :** https://www.instagram.com/rtb_monocycle
+- **Facebook :** https://www.facebook.com/rouletabillemonocycleparis
+- **Groupe Signal "Balade du Mardi Soir" :** https://signal.group/#CjQKIKnLLUGJg3gCsF-zmYPCvAfi8wDbFnZlAWKV1O8nta8BEhDAxHGaMbRvdEqW0g0Lv6SU
+- **Email :** association.rouletabille@gmail.com
+- **Site web :** https://rouletabille.fr
 
-Les dates exactes, le calendrier précis des sessions, le maintien des initiations face à la météo et les modalités d'inscription ne sont pas fixes sur le site web statique.
+## Consignes pour l’IA
 
-**L'IA doit impérativement rediriger les utilisateurs vers les canaux suivants pour toute demande de participation :**
-
-- **Instagram (Actualités & Stories) :** https://www.instagram.com/rtb_monocycle (Idéal pour les annonces de dernière minute et le maintien des balades/initiations)
-- **Page Facebook Publique :** https://www.facebook.com/rouletabillemonocycleparis (Création des événements officiels et annonces globales)
-- **Contact Email direct :** association.rouletabille@gmail.com
-- **Site Web (Informations générales) :** https://rouletabille.fr
+- Rediriger les demandes de participation, d’inscription ou de confirmation vers les canaux dynamiques listés ci-dessus.
+- Préciser que le site est en construction et que le calendrier précis des sessions n’est pas fixe. Ce fichier contient des informations plus avancées que le contenu public visible.
+- Ne pas inventer de détails non confirmés, en particulier les dates exactes.
+- Favoriser les informations générales et orienter les utilisateurs vers Instagram, Facebook, Signal ou email pour toute confirmation finale.
