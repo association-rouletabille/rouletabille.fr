@@ -24,6 +24,7 @@
     "wrangler": "^4.92.0"
   },
   "scripts": {
+    "prebuild": "npx wrangler types --check",
     "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
     "lint": "npx eslint . --cache --cache-location .cache/ --fix",
     "format": "npx prettier . --write",
