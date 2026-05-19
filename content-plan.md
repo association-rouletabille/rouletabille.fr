@@ -16,6 +16,18 @@
 
 ## Questions
 
-1. Comment générer le JSON-LD de chaque page?
+1.  Comment générer le JSON-LD de chaque page?
 
-2. Reuse styles from https://github.com/cassidoo/blahg/
+1.  Reuse webc setup and styling from https://github.com/andy-bond/andy.bond
+
+1.  Maybe reuse colors from https://github.com/cassidoo/blahg/
+
+                       LO
+                       GO
+
+Initiations Balade du Mardi Soir Roule Ton Caillou
+Tutoriels et resources L'association Insta Facebook
+
+[ Insta posts ]
+
+Dolor si amet....

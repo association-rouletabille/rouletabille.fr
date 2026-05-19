@@ -2,5 +2,8 @@
 layout: root.webc
 ---
 <topstyles webc:nokeep>
-  <main webc:nokeep @raw="this.content" />
+  <header></header>
+  <nav></nav>
+  <main @raw="this.content"></main>
+  <footer></footer>
 </topstyles>
