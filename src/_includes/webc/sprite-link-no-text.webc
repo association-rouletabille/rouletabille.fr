@@ -1,0 +1,17 @@
+<a webc:root="override" target="_blank">
+  <icon :name="`${this.icon}`"></icon>
+</a>
+
+<style webc:scoped>
+:host {
+  display: flex;
+  align-items: center;
+  color: #fefefe;
+  text-decoration: none;
+}
+
+:host svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+</style>

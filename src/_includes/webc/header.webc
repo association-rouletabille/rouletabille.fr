@@ -1,5 +1,8 @@
 <header webc:root="override">
+<div>
+  <p></p>rouletabille.fr</p>
   <p @text="this.title"></p>
+  </div>
   <svg>
     <use href="/assets/sprites.svg#icon-logo" />
   </svg>
@@ -13,12 +16,12 @@
   color: #fefefe;
 }
 
-:host p {
-  width: 50%;
+:host div {
+  width: 70%;
   text-align: center;
 }
 :host svg {
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 30%;
 }
 </style>

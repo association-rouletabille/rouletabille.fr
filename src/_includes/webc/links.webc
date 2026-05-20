@@ -9,7 +9,6 @@
 
 <style webc:scoped>
 :host {
-  padding-top: 10vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
