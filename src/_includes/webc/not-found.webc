@@ -2,14 +2,45 @@
 <div webc:root="override">
   <span class="large">404</span>
   <svg>
-    <use href="/assets/sprites.svg#icon-unicycle" />
+    <g>
+      <use href="/assets/sprites.svg#icon-unicycle" />
+    </g>
   </svg>
   <span class="small">Cette page n'existe pas 😢</span>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
+  <p>a</p>
 </div>
 
 <style webc:scoped>
 :host {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,7 +49,12 @@
 
 :host svg {
   height: min(15vh, 15vw);
+}
+
+:host svg g {
   transform: rotate(-138deg);
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .large {

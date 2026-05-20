@@ -1,6 +1,7 @@
 ---
 layout: base.webc
 title: 404 :-(
+header: Not found is no fun
 description: Page non disponible
 permalink: 404.html
 eleventyExcludeFromCollections: true

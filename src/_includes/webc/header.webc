@@ -1,0 +1,24 @@
+<header webc:root="override">
+  <p @text="this.title"></p>
+  <svg>
+    <use href="/assets/sprites.svg#icon-logo" />
+  </svg>
+</header>
+
+<style webc:scoped>
+:host {
+	position: relative;
+  display: flex;
+  align-items: center;
+  color: #fefefe;
+}
+
+:host p {
+  width: 50%;
+  text-align: center;
+}
+:host svg {
+  width: 50%;
+  height: 50%;
+}
+</style>

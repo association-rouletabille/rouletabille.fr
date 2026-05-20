@@ -1,9 +1,9 @@
 ---
 layout: root.webc
 ---
-<topstyles webc:nokeep>
-  <header></header>
+<pagestyle webc:nokeep>
+  <header :title="this.header"></header>
   <nav></nav>
   <main @raw="this.content"></main>
   <footer></footer>
-</topstyles>
+</pagestyle>

@@ -1,0 +1,13 @@
+<style>
+html,
+body {
+	margin: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	max-width: 70ch;
+	background-color: #252525;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: #efefef;
+}
+</style>
