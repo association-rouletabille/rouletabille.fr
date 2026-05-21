@@ -4,7 +4,7 @@
   </svg>
   <div class="content">
     <div class="top-row">
-      <span class="site-name">Monocycle & fun</span>
+      <span class="site-name">Monocycle sportif</span>
     </div>
     <x class="nav-row">
       <a href="/initiations-monocycle">Initiations</a>
@@ -33,6 +33,17 @@
   z-index: 100;
   background-color: #252525;
   padding-block: 0.5rem;
+}
+
+:host::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 1.5rem;
+  background: linear-gradient(to bottom, #252525, transparent);
+  pointer-events: none;
 }
 
 :host > svg {
