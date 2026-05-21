@@ -2,8 +2,7 @@
 layout: root.webc
 ---
 <pagestyle webc:nokeep>
-  <header :title="this.header"></header>
-  <nav></nav>
+  <header></header>
   <main @raw="this.content"></main>
   <footer></footer>
 </pagestyle>
