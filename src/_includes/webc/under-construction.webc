@@ -8,6 +8,7 @@
   width: min(70vh, 70vw);
   height: min(70vh, 70vw);
   padding-bottom: 10vh;
+  z-index: -1;
 }
 
 :host {
