@@ -2,8 +2,6 @@
 html,
 body {
 	margin: auto;
-	padding-left: 20px;
-	padding-right: 20px;
 	max-width: 100ch;
 	background-color: #252525;
 	word-wrap: break-word;

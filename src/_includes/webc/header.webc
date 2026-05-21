@@ -1,50 +1,90 @@
 <header webc:root="override">
-<svg>
-  <use href="/assets/sprites.svg#icon-logo" />
-</svg>
-<ul>
-<li><a href="/initiations-monocycle">Initiations</a></li>
-<li><a href="/balades-du-mardi-soir">Balades</a></li>
-<li><sprite-link-no-text
-    href="https://www.instagram.com/rtb_monocycle"
-    icon="Instagram"></sprite-link-no-text></li>
-<li><sprite-link-no-text
-    href="https://www.facebook.com/rouletabillemonocycleparis"
-    icon="2023_Facebook_icon"></sprite-link-no-text></li>
-</ul>
-
+  <svg aria-hidden="true">
+    <use href="/assets/sprites.svg#icon-logo" />
+  </svg>
+  <div class="content">
+    <div class="top-row">
+      <span class="site-name">Monocycle & fun</span>
+    </div>
+    <x class="nav-row">
+      <a href="/initiations-monocycle">Initiations</a>
+      <span aria-hidden="true"> - </span>
+      <a href="/balades-du-mardi-soir">Balades</a>
+         <sprite-link-no-text
+          href="https://www.instagram.com/rtb_monocycle"
+          icon="Instagram"></sprite-link-no-text>
+        <sprite-link-no-text
+          href="https://www.facebook.com/rouletabillemonocycleparis"
+          icon="2023_Facebook_icon"></sprite-link-no-text>
+    </x>
+  </div>
 </header>
 
 <style webc:scoped>
 :host {
-	position: relative;
-  color: #fefefe;
-}
-
-
-:host ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
   align-items: center;
   justify-content: center;
-  gap: 0.7rem;
+  gap: 1rem;
+  color: #fefefe;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #252525;
+  padding-block: 0.5rem;
+}
+
+:host > svg {
+  width: 5rem;
+  height: 5rem;
+  align-self: center;
+  display: block;
+
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-name {
+  font-family: monospace;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.social {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav-row span {
+  color: #fefefe;
 }
 
 a {
   color: #fefefe;
   font-weight: bold;
   font-family: monospace;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  text-decoration: underline;
 }
 
 a:hover {
   color: gold;
-}
-
-:host > svg {
-  width: 25%;
-  height: 25%;
 }
 </style>
