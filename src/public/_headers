@@ -11,8 +11,14 @@
 /*.css
   cache-control: public,max-age=31536000,immutable
 
-/*.txt
+https://:version.:subdomain.workers.dev/*
+  x-robots-tag: noindex
+
+/robots.txt
   content-type: text/plain; charset=utf-8
 
-/*.xml
+/llms.txt
+  content-type: text/plain; charset=utf-8
+
+/sitemap.xml
   content-type: application/xml; charset=utf-8
