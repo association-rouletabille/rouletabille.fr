@@ -1,104 +1,317 @@
 <header webc:root="override">
-  <a href="/"><svg aria-hidden="true">
-    <use href="/assets/sprites.svg#icon-logo" />
-  </svg></a>
-  <div class="content">
-    <div class="top-row">
-      <span class="site-name">Monocycle & fun</span>
+  <a href="/" class="logo-link" aria-label="Accueil">
+    <svg aria-hidden="true">
+      <use href="/assets/sprites.svg#icon-logo" />
+    </svg>
+    <div class="site-name-group">
+      <span class="site-name">Monocycle &amp; fun</span>
+      <span class="site-subtitle">Paris / Île de France</span>
     </div>
-    <x class="nav-row">
-      <a href="/initiations-monocycle">Initiations</a>
-      <a href="/balades-du-mardi-soir">Balades</a>
-      <a href="https://www.instagram.com/rtb_monocycle"><icon name="Instagram"></icon></a>
-      <a href="https://www.facebook.com/rouletabillemonocycleparis"><icon name="2023_Facebook_icon"></icon></a>
-    </x>
-  </div>
+  </a>
+
+  <!-- Hidden checkbox — pure-CSS toggle, no JS -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+
+  <!-- Hamburger (three bars): visible on mobile only -->
+  <label for="nav-toggle" class="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <!-- Navigation: same HTML for sidebar (desktop) and overlay (mobile) -->
+  <nav aria-label="Navigation principale">
+    <ul>
+      <li><a href="/initiations-monocycle">Initiations monocycle</a></li>
+      <li><a href="/balades-du-mardi-soir">Balades du Mardi Soir</a></li>
+      <li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
+      <li class="nav-section-start"><a href="/tutoriels-et-resources">Tutoriels et resources</a></li>
+      <li class="nav-section-start"><a href="/association">L'association</a></li>
+      <li class="nav-section-start">
+        <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
+          <icon name="Instagram"></icon>
+          <span>rtb_monocycle</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
+          <icon name="2023_Facebook_icon"></icon>
+          <span>rouletabillemonocycleparis</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <style webc:scoped>
+/* =====================
+   Shared
+   ===================== */
+
 :host {
-  display: grid;
-  grid-template-columns: auto auto;
+  background-color: #f4f0e5;
+  color: #0e0e0e;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.logo-link {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  color: #fefefe;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: #f15025;
-  padding-block: 0.5rem;
+  gap: 0.6rem;
+  color: #0e0e0e;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
-:host::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 1.5rem;
-  background: linear-gradient(to bottom, #252525, transparent);
-  pointer-events: none;
-}
-
-:host > a > svg {
-  width: 5rem;
-  height: 5rem;
-  align-self: center;
+.logo-link svg {
+  width: 4.5rem;
+  height: 4.5rem;
   display: block;
-
 }
 
-.content {
+.site-name-group {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-}
-
-.top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
 }
 
 .site-name {
   font-family: monospace;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: bold;
+  line-height: 1.2;
 }
 
-.social {
-  display: flex;
-  gap: 0.6rem;
+.site-subtitle {
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #555;
+  line-height: 1.3;
+  margin-top: 0.25rem;
 }
 
-.nav-row {
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li.nav-section-start {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+nav a {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
+  color: #0e0e0e;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  position: relative;
+  padding-left: 0;
+  transition: padding-left 0.25s ease;
+}
+
+nav a::before {
+  content: '⫸'; /* → */
+  color: #e05c00;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(-0.5em);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  font-size: 1em;
   line-height: 1;
 }
 
-.nav-row svg {
-  width: 1.5rem;
-  height: 1.5rem;
+nav a:hover {
+  padding-left: 1.4em;
+}
+
+nav a:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+nav a svg {
+  flex-shrink: 0;
   display: block;
 }
 
-a {
-  color: #fefefe;
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 0.9rem;
-  text-decoration: underline;
-  line-height: 1;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
+/* =====================
+   Desktop (≥800px): left sidebar column
+   ===================== */
+
+@media (min-width: 800px) {
+  :host {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  nav {
+    flex: 1;
+    width: 100%;
+    transform: none;
+    visibility: visible;
+    transition: none;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  nav a {
+    padding: 0.6rem 0;
+    font-size: 1rem;
+  }
+
+  nav a svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
 }
 
-a:hover {
-  color: gold;
+/* =====================
+   Mobile (<800px): sticky top banner + fullscreen overlay
+   ===================== */
+
+@media (max-width: 799px) {
+  :host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  :host::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #f4f0e5;
+    z-index: 250; /* above nav (200), below logo + hamburger (300) */
+  }
+
+  :host::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 0.75rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+    pointer-events: none;
+  }
+
+  /* Logo elevated above nav panel during slide animation */
+  .logo-link {
+    position: relative;
+    z-index: 300;
+  }
+
+  /* Three-bar hamburger — animates to X when overlay is open */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1.5rem;
+    height: 1.25rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 300; /* above the overlay (z-index: 200) within the same stacking context */
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #0e0e0e;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+    transform-origin: center;
+  }
+
+  /* Bars morph into X */
+  .nav-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .nav-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* Slide-down nav panel — anchored just below the topbar */
+  nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 5.5rem; /* matches header height: 4.5rem logo + 0.5rem×2 padding */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f4f0e5;
+    z-index: 200;
+    overflow-y: auto;
+    padding: 1.5rem 2rem 2rem 1rem;
+    box-sizing: border-box;
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0s 0.2s;
+  }
+
+  .nav-toggle:checked ~ nav {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 0.2s ease;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 0.6rem 0;
+  }
+
+  nav a svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
 }
 </style>
+
