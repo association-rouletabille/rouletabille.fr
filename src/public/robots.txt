@@ -1,7 +1,0 @@
-User-Agent: *
-Allow: /
-
-Disallow: /404.html
-
-# AI and LLMs friendly specifications
-Info: /llms.txt

@@ -2,6 +2,7 @@ import process from 'node:process';
 import { Buffer } from 'node:buffer';
 
 import pluginWebc from '@11ty/eleventy-plugin-webc';
+import dirOutputPlugin from '@11ty/eleventy-plugin-directory-output';
 
 import pluginIcons from 'eleventy-plugin-icons';
 
@@ -36,6 +37,8 @@ function transformHTML(content, outputPath) {
 }
 
 export default async function (eleventyConfig) {
+  eleventyConfig.addPlugin(dirOutputPlugin);
+
   eleventyConfig.addPlugin(pluginIcons, {
     mode: 'sprite',
     sources: [{ name: 'custom', path: './src/assets', default: true }],
