@@ -184,7 +184,7 @@ social a svg {
   :host {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: calc(300px + max(var(--header-pad-inline), env(safe-area-inset-left)));
     flex-shrink: 0;
     padding: var(--header-pad-block) var(--header-pad-inline);
     padding-left: max(var(--header-pad-inline), env(safe-area-inset-left));
