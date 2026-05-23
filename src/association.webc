@@ -1,0 +1,79 @@
+---
+layout: base.webc
+title: L'association — Roule Ta Bille
+description: >-
+  Roule Ta Bille (RTB) est une association loi 1901 dédiée au monocycle à Paris
+  et en Île-de-France. Découvrez nos disciplines, nos activités et comment nous rejoindre.
+permalink: /association.html
+---
+<article>
+  <h1>L'association</h1>
+
+  <section>
+    <p>
+      <strong>Roule Ta Bille</strong> (RTB) est une association loi 1901 à but non lucratif
+      dédiée à la découverte, au partage et au développement de la pratique du monocycle
+      à Paris et en Île-de-France.
+    </p>
+    <p>
+      Notre objectif : promouvoir le monocycle à travers des activités sportives de loisirs,
+      des compétitions et des animations ludiques, pour tous les âges et tous les niveaux.
+    </p>
+  </section>
+
+  <section>
+    <h2>Disciplines &amp; activités</h2>
+    <h3>Sports collectifs</h3>
+    <ul>
+      <li>Monocycle basket</li>
+      <li>Hockey sur monocycle</li>
+    </ul>
+    <h3>Disciplines urbaines &amp; techniques</h3>
+    <ul>
+      <li>Trial, street, flat</li>
+      <li>Freestyle &amp; artistique</li>
+    </ul>
+    <h3>Outdoor &amp; endurance</h3>
+    <ul>
+      <li>Randonnée en monocycle</li>
+      <li>Cross-country / Muni (Mountain Unicycling)</li>
+      <li>Athlétisme</li>
+    </ul>
+    <h3>Animations</h3>
+    <ul>
+      <li>Initiations, jeux, spectacles</li>
+      <li>Stages thématiques</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Affiliations</h2>
+    <p>Roule Ta Bille est officiellement rattachée aux instances suivantes :</p>
+    <ul>
+      <li>
+        <a href="https://monocycle.info/commission-nationale-monocycle/" target="_blank" rel="noopener noreferrer">
+          Commission Nationale du Monocycle (CNM)
+        </a>
+      </li>
+      <li>
+        <a href="https://www.leolagrange-sport.org/pratiquer-un-sport/" target="_blank" rel="noopener noreferrer">
+          Union Nationale Sportive Léo Lagrange (UNSLL)
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Nous contacter</h2>
+    <ul>
+      <li><a href="mailto:association.rouletabille@gmail.com">association.rouletabille@gmail.com</a></li>
+      <li><a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">Instagram : @rtb_monocycle</a></li>
+      <li><a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">Facebook : rouletabillemonocycleparis</a></li>
+      <li>
+        <a href="https://signal.group/#CjQKIKnLLUGJg3gCsF-zmYPCvAfi8wDbFnZlAWKV1O8nta8BEhDAxHGaMbRvdEqW0g0Lv6SU" target="_blank" rel="noopener noreferrer">
+          Groupe Signal « Balade du Mardi Soir »
+        </a>
+      </li>
+    </ul>
+  </section>
+</article>

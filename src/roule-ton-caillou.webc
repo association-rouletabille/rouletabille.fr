@@ -1,0 +1,53 @@
+---
+layout: base.webc
+title: Roule Ton Caillou
+description: >-
+  Roule Ton Caillou est le rassemblement annuel de monocycle tout terrain (Muni)
+  organisé par Roule Ta Bille, dans la forêt de Fontainebleau.
+permalink: /roule-ton-caillou.html
+---
+<article>
+  <h1>Roule Ton Caillou</h1>
+
+  <section>
+    <p>
+      Roule Ton Caillou est le grand rassemblement annuel de Roule Ta Bille,
+      dédié au monocycle tout terrain — aussi appelé <strong>Muni</strong> (Mountain Unicycling)
+      ou cross-country. Ouvert à tous les niveaux, c'est un week-end de partage,
+      de nature et de monocycle dans un cadre exceptionnel.
+    </p>
+  </section>
+
+  <section>
+    <h2>Programme</h2>
+    <ul>
+      <li>Sorties guidées en forêt (tous niveaux)</li>
+      <li>Repas partagés en plein air</li>
+      <li>Camping sur place</li>
+      <li>Ambiance conviviale et esprit club</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Quand &amp; où</h2>
+    <ul>
+      <li><strong>Période :</strong> généralement le premier week-end de mai</li>
+      <li><strong>Lieu :</strong> forêt de Fontainebleau, autour de Montigny-sur-Loing (77)</li>
+      <li><strong>Remarque :</strong> les dates exactes sont confirmées via nos réseaux — suivez-nous pour ne pas manquer l'annonce.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Participer</h2>
+    <p>
+      L'événement est ouvert à tous les pratiquants de monocycle, quel que soit le niveau.
+      Que vous soyez à l'aise sur les chemins ou que ce soit votre premier Muni,
+      vous êtes le·la bienvenu·e !
+    </p>
+    <ul>
+      <li><a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">Instagram : @rtb_monocycle</a></li>
+      <li><a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">Facebook : rouletabillemonocycleparis</a></li>
+      <li><a href="mailto:association.rouletabille@gmail.com">association.rouletabille@gmail.com</a></li>
+    </ul>
+  </section>
+</article>

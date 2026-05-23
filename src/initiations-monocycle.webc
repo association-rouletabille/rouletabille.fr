@@ -2,7 +2,66 @@
 layout: base.webc
 title: Initiations au monocycle
 description: >-
-  Encadrement dans l'apprentissage et le développement de la pratique du monocycle
+  Encadrement dans l'apprentissage et le développement de la pratique du monocycle.
+  Séances organisées à Paris 13e, tous niveaux bienvenus.
 permalink: /initiations-monocycle.html
 ---
-Hello World!
+<article>
+  <h1>Initiations monocycle</h1>
+
+  <section>
+    <p>
+      Roule Ta Bille organise régulièrement des séances d'initiation au monocycle,
+      ouvertes à tous — débutants comme pratiquants souhaitant progresser.
+      Encadrées par des membres expérimentés, ces initiations sont l'occasion de
+      découvrir le monocycle dans une ambiance conviviale et bienveillante.
+    </p>
+  </section>
+
+  <section>
+    <h2>Infos pratiques</h2>
+    <ul>
+      <li><strong>Lieu :</strong> Dalle des Olympiades, 75 Rue du Javelot, 75013 Paris</li>
+      <li><strong>Fréquence :</strong> le dimanche, environ 1 à 2 fois par trimestre</li>
+      <li><strong>Horaires :</strong> 15h00 – 17h00</li>
+      <li><strong>Remarque :</strong> les dates peuvent varier selon la météo et l'organisation. Suivez nos réseaux pour les annonces.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Public &amp; niveaux</h2>
+    <p>
+      Les initiations sont ouvertes à tous les niveaux, principalement aux adultes
+      et adolescents. Les enfants sont les bienvenus accompagnés et encadrés par un adulte.
+      Aucune expérience préalable n'est nécessaire.
+    </p>
+  </section>
+
+  <section>
+    <h2>Matériel fourni</h2>
+    <p>
+      Tout le matériel est prêté gratuitement pour les débutants :
+    </p>
+    <ul>
+      <li>Monocycles en différentes tailles</li>
+      <li>Casque</li>
+      <li>Protège-tibias</li>
+      <li>Protections de poignets</li>
+    </ul>
+    <p>Venez juste avec l'envie d'essayer !</p>
+  </section>
+
+  <section>
+    <h2>Nous rejoindre</h2>
+    <p>
+      Pour confirmer votre participation ou être tenu·e informé·e des prochaines dates,
+      suivez-nous sur Instagram ou Facebook, ou contactez-nous par email.
+    </p>
+    <ul>
+      <li><a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">Instagram : @rtb_monocycle</a></li>
+      <li><a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">Facebook : rouletabillemonocycleparis</a></li>
+      <li><a href="mailto:association.rouletabille@gmail.com">association.rouletabille@gmail.com</a></li>
+    </ul>
+  </section>
+</article>
+

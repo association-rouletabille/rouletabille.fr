@@ -1,0 +1,59 @@
+---
+layout: base.webc
+title: Balades du Mardi Soir
+description: >-
+  Sortie urbaine nocturne en monocycle dans Paris, chaque mardi soir.
+  Réservée aux pratiquants autonomes capables de rouler en milieu urbain.
+permalink: /balades-du-mardi-soir.html
+---
+<article>
+  <h1>Balades du Mardi Soir</h1>
+
+  <section>
+    <p>
+      Chaque mardi soir, Roule Ta Bille organise une balade nocturne en monocycle
+      dans les rues de Paris. C'est le rendez-vous hebdomadaire des monocyclistes
+      parisiens : une sortie conviviale pour explorer la ville autrement, à une roue.
+    </p>
+  </section>
+
+  <section>
+    <h2>Fréquence &amp; format</h2>
+    <ul>
+      <li><strong>Fréquence :</strong> hebdomadaire, le mardi soir</li>
+      <li><strong>Format :</strong> sortie urbaine libre en groupe</li>
+      <li><strong>Lieu de départ :</strong> annoncé via le groupe Signal (variable selon les semaines)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Conditions de participation</h2>
+    <p>
+      La balade du mardi soir est réservée aux pratiquants <strong>autonomes</strong>,
+      capables de rouler de façon sûre en milieu urbain (circulation, trottoirs, croisements).
+      Il ne s'agit pas d'une séance d'initiation — si vous débutez, commencez par une
+      <a href="/initiations-monocycle">initiation</a> !
+    </p>
+    <ul>
+      <li>Casque et protections personnelles obligatoires</li>
+      <li>Monocycle personnel requis</li>
+      <li>Respect du code de la route et des autres usagers</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Comment rejoindre</h2>
+    <p>
+      Les annonces de présence et les détails de chaque sortie se font via le
+      groupe Signal dédié à la Balade du Mardi Soir. Rejoignez le groupe pour
+      être informé·e chaque semaine.
+    </p>
+    <ul>
+      <li>
+        <a href="https://signal.group/#CjQKIKnLLUGJg3gCsF-zmYPCvAfi8wDbFnZlAWKV1O8nta8BEhDAxHGaMbRvdEqW0g0Lv6SU" target="_blank" rel="noopener noreferrer">Rejoindre le groupe Signal « Balade du Mardi Soir »</a>
+      </li>
+      <li><a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">Instagram : @rtb_monocycle</a></li>
+      <li><a href="mailto:association.rouletabille@gmail.com">association.rouletabille@gmail.com</a></li>
+    </ul>
+  </section>
+</article>

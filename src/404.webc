@@ -5,4 +5,52 @@ description: Page non disponible
 permalink: /404.html
 eleventyExcludeFromCollections: true
 ---
-<not-found></not-found>
+<article>
+  <h1>404 - Page non disponible</h1>
+  <p>Cette page n'existe pas&nbsp;😢</p>
+  <svg aria-hidden="true">
+    <g>
+      <use href="/assets/sprites.svg#icon-unicycle" />
+    </g>
+  </svg>
+  <p>La page que vous demandez n’existe pas. Vous avez pu être mené ici par un lien cassé, à moins que vous n’ayez fait une faute de frappe dans l’adresse que vous vouliez atteindre.</p>
+</article>
+
+<style>
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60dvh;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.page-not-found .error-code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-hero);
+  font-weight: bold;
+  color: rgb(var(--palette-accent));
+  line-height: 1;
+}
+
+article svg {
+  width: 8rem;
+  height: 8rem;
+  color: rgb(var(--palette-light));
+}
+
+article svg g {
+  transform: rotate(-138deg);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.page-not-found p {
+  font-size: var(--fs-lg);
+  margin: 0;
+  max-width: none;
+}
+
+</style>
