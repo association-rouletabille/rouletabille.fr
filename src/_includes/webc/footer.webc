@@ -1,4 +1,10 @@
 <footer webc:root="override">
+  <svg aria-hidden="true">
+    <g>
+      <use href="/assets/sprites.svg#icon-unicycle" />
+    </g>
+  </svg>
+
     <ul>
       <li >
         <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
@@ -18,6 +24,8 @@
 <style webc:scoped>
   :host {
       padding-bottom: 4em;
+  max-width: 70ch;
+display: flex; flex-direction: column; align-items: center;
   }
 
 :host ul {
@@ -26,7 +34,10 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  padding: 0;
   }
+
+:host > svg { display: block; width: 5rem; height: 5rem; }
 
 :host  a svg {
   flex-shrink: 0;
