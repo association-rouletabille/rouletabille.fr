@@ -7,13 +7,9 @@ eleventyExcludeFromCollections: true
 ---
 <article>
   <h1>404 - Page non disponible</h1>
-  <svg aria-hidden="true">
-    <g>
-      <use href="/assets/sprites.svg#icon-unicycle" />
-    </g>
-  </svg>
-  <p>Cette page n'existe pas&nbsp;😢</p>
-  <p>La page que vous demandez n’existe pas. Vous avez pu être mené ici par un lien cassé, à moins que vous n’ayez fait une faute de frappe dans l’adresse que vous vouliez atteindre.</p>
+  <icon name="unicycle"></icon>
+  <p>La page que vous souhaitez consulter est introuvable&nbsp;😢</p>
+  <p>Vous avez pu être mené ici par un lien cassé, à moins que vous n’ayez fait une faute de frappe dans l’adresse que vous vouliez atteindre.</p>
 </article>
 
 <style>
@@ -24,7 +20,7 @@ article svg {
   color: rgb(var(--palette-light));
 }
 
-article svg g {
+article svg {
   transform: rotate(-138deg);
   transform-box: fill-box;
   transform-origin: center;

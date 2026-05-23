@@ -1,24 +1,19 @@
 <footer webc:root="override">
-  <svg aria-hidden="true">
-    <g>
-      <use href="/assets/sprites.svg#icon-unicycle" />
-    </g>
-  </svg>
-
-    <ul>
-      <li >
-        <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
-          <icon name="Instagram"></icon>
-          <span>rtb_monocycle</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
-          <icon name="2023_Facebook_icon"></icon>
-          <span>rouletabillemonocycleparis</span>
-        </a>
-      </li>
-    </ul>
+  <icon name="unicycle"></icon>
+  <ul>
+    <li >
+      <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
+        <icon name="Instagram"></icon>
+        <span>rtb_monocycle</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
+        <icon name="2023_Facebook_icon"></icon>
+        <span>rouletabillemonocycleparis</span>
+      </a>
+    </li>
+  </ul>
 </footer>
 
 <style webc:scoped>

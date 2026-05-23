@@ -1,8 +1,6 @@
 <header webc:root="override">
   <a href="/" class="logo-link" aria-label="Accueil">
-    <svg aria-hidden="true">
-      <use href="/assets/sprites.svg#icon-logo" />
-    </svg>
+    <icon name="logo"></icon>
     <div class="site-name-group">
       <span class="site-name">Monocycle &amp; fun</span>
       <span class="site-subtitle">Paris / Île de France</span>
@@ -28,14 +26,14 @@
       <li class="nav-section-start"><a href="/tutoriels-et-resources">Tutoriels et resources</a></li>
       <li class="nav-section-start"><a href="/association">L'association</a></li>
     </ul>
-  <social>
-        <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
-          <icon name="Instagram"></icon>
-        </a>
-        <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
-          <icon name="2023_Facebook_icon"></icon>
-        </a>
-<social>
+    <social>
+      <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
+        <icon name="Instagram"></icon>
+      </a>
+      <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
+        <icon name="2023_Facebook_icon"></icon>
+      </a>
+    <social>
   </nav>
 
 </header>
