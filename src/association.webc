@@ -64,16 +64,18 @@ permalink: /association.html
   </section>
 
   <section>
+    <h2>Informations légales</h2>
+    <ul>
+    <li><strong>Date de création:</strong> 26/10/2005</li>
+    <li><strong>RNA:</strong> W913000310</li>
+    <li><strong>SIREN:</strong> 812407344</li>
+    </ul>
+  </section>
+
+  <section>
     <h2>Nous contacter</h2>
     <ul>
       <li><a href="mailto:association.rouletabille@gmail.com">association.rouletabille@gmail.com</a></li>
-      <li><a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">Instagram : @rtb_monocycle</a></li>
-      <li><a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">Facebook : rouletabillemonocycleparis</a></li>
-      <li>
-        <a href="https://signal.group/#CjQKIKnLLUGJg3gCsF-zmYPCvAfi8wDbFnZlAWKV1O8nta8BEhDAxHGaMbRvdEqW0g0Lv6SU" target="_blank" rel="noopener noreferrer">
-          Groupe Signal « Balade du Mardi Soir »
-        </a>
-      </li>
     </ul>
   </section>
 </article>

@@ -1,43 +1,52 @@
 <footer webc:root="override">
-<ul>
-<li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
-<li><a href="/tutoriels-et-resources">Tutoriels et resources</a></li>
-<li><a href="/association">L'association</a></li>
-</ul>
-<links></links>
+    <ul>
+      <li >
+        <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
+          <icon name="Instagram"></icon>
+          <span>rtb_monocycle</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
+          <icon name="2023_Facebook_icon"></icon>
+          <span>rouletabillemonocycleparis</span>
+        </a>
+      </li>
+    </ul>
 </footer>
 
 <style webc:scoped>
-:host {
-  position: sticky;
-  top: 0;
-  text-align: center;
-  background: rgba(var(--palette-dark), 0.7);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-  margin-bottom: 50px;
-  padding-top: 10px;
-  padding-bottom: max(10px, env(safe-area-inset-bottom));
-}
+  :host {
+      padding-bottom: 4em;
+  }
 
-ul {
+:host ul {
   list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.7rem;
+  gap: 1rem;
+  }
+
+:host  a svg {
+  flex-shrink: 0;
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-right: -0.2em;
 }
 
-a {
-  color: rgb(var(--palette-white));
-  font-weight: bold;
-  font-family: var(--font-mono);
-  font-size: var(--fs-lg);
-}
-
-a:hover {
+:host  a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
   color: rgb(var(--palette-accent));
+  position: relative;
+}
+
+:host  a:hover {
+  text-decoration: none;
 }
 
 </style>
