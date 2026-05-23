@@ -3,6 +3,8 @@ layout: root.webc
 ---
 <pagestyle webc:nokeep>
   <header></header>
-  <main @raw="this.content"></main>
-  <footer></footer>
+  <content>
+    <main @raw="this.content"></main>
+    <footer></footer>
+  </content>
 </pagestyle>
