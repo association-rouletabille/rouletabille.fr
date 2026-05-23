@@ -50,10 +50,11 @@
 
 :host {
   --c-header-bg: #f4f0e5;
-  --c-header-fg: #0e0e0e;
+  --palette-fg: 14, 14, 14;
+  --c-header-fg: rgba(var(--palette-fg), 1);
   --c-header-accent: #e05c00;
   --c-header-muted: #555;
-  --c-header-divider: rgba(255, 255, 255, 0.35);
+  --c-header-divider: rgba(var(--palette-fg), 0.15);
   --header-font: monospace;
   --logo-size: 4.5rem;
   --header-pad-block: 0.5rem;
@@ -154,7 +155,7 @@ nav a::before {
 }
 
 nav a:hover {
-  padding-left: 1.4em;
+  padding-left: 1.3em;
 }
 
 nav a:hover::before {
@@ -167,6 +168,7 @@ nav a svg {
   display: block;
   width: 1.4rem;
   height: 1.4rem;
+  margin-right: -0.2em;
 }
 
 /* =====================
