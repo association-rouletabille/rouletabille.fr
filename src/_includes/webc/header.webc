@@ -27,20 +27,17 @@
       <li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
       <li class="nav-section-start"><a href="/tutoriels-et-resources">Tutoriels et resources</a></li>
       <li class="nav-section-start"><a href="/association">L'association</a></li>
-      <li class="nav-section-start">
+    </ul>
+  <social>
         <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
           <icon name="Instagram"></icon>
-          <span>rtb_monocycle</span>
         </a>
-      </li>
-      <li>
         <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
           <icon name="2023_Facebook_icon"></icon>
-          <span>rouletabillemonocycleparis</span>
         </a>
-      </li>
-    </ul>
+<social>
   </nav>
+
 </header>
 
 <style webc:scoped>
@@ -126,7 +123,7 @@ nav li.nav-section-start {
   border-top: 1px solid var(--c-header-divider);
 }
 
-nav a {
+nav ul a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -140,7 +137,7 @@ nav a {
   transition: padding-left 0.25s ease;
 }
 
-nav a::before {
+nav ul a::before {
   content: '⫸'; /* → */
   color: var(--c-header-accent);
   position: absolute;
@@ -154,20 +151,28 @@ nav a::before {
   line-height: 1;
 }
 
-nav a:hover {
+nav ul a:hover {
   padding-left: 1.3em;
 }
 
-nav a:hover::before {
+nav ul a:hover::before {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
 }
 
-nav a svg {
+social {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2em;
+  gap: 2em;
+  justify-content: center;
+}
+
+social a svg {
   flex-shrink: 0;
   display: block;
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 3rem;
+  height: 3rem;
   margin-right: -0.2em;
 }
 
