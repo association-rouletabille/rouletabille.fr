@@ -7,12 +7,12 @@ eleventyExcludeFromCollections: true
 ---
 <article>
   <h1>404 - Page non disponible</h1>
-  <p>Cette page n'existe pas&nbsp;😢</p>
   <svg aria-hidden="true">
     <g>
       <use href="/assets/sprites.svg#icon-unicycle" />
     </g>
   </svg>
+  <p>Cette page n'existe pas&nbsp;😢</p>
   <p>La page que vous demandez n’existe pas. Vous avez pu être mené ici par un lien cassé, à moins que vous n’ayez fait une faute de frappe dans l’adresse que vous vouliez atteindre.</p>
 </article>
 
