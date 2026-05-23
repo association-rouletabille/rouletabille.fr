@@ -1,5 +1,5 @@
 <header webc:root="override">
-  <a href="/home" class="logo-link" aria-label="Accueil">
+  <a href="/" class="logo-link" aria-label="Accueil">
     <svg aria-hidden="true">
       <use href="/assets/sprites.svg#icon-logo" />
     </svg>

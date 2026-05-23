@@ -1,6 +1,0 @@
----
-layout: root.webc
----
-<topstyles webc:nokeep>
-  <main webc:nokeep @raw="this.content" />
-</topstyles>
