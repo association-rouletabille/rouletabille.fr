@@ -92,6 +92,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .site-name {
@@ -251,9 +253,14 @@ social a svg {
   }
 
   /* Logo elevated above nav panel during slide animation */
+  /* min-width:0 + overflow:hidden prevent the logo from growing wider than the
+     available flex space and overlapping the hamburger label, which would cause
+     a click on the logo to also toggle the checkbox (menu flash). */
   .logo-link {
     position: relative;
     z-index: 300;
+    min-width: 0;
+    overflow: hidden;
   }
 
   /* Three-bar hamburger — animates to X when overlay is open */
@@ -264,7 +271,7 @@ social a svg {
     width: 1.5rem;
     height: 1.25rem;
     cursor: pointer;
-    flex-shrink: 0;
+    flex-shrink: 0; /* never shrink toward the logo */
     position: relative;
     z-index: 300; /* above the overlay (z-index: 200) within the same stacking context */
   }
@@ -318,6 +325,19 @@ social a svg {
     transform: translateY(0);
     visibility: visible;
     transition: transform 0.2s ease;
+  }
+
+  /* Prevent the nav from animating its initial hidden state on page load.
+     Without this, Blink fires the transition from default values
+     (transform:none / visibility:visible) to the declared hidden state,
+     producing a "roll-up" flash every time a page is loaded.
+     @starting-style sets the before-change style = the resting style,
+     so start === end and no transition plays on first paint. */
+  @starting-style {
+    nav {
+      transform: translateY(-100%);
+      visibility: hidden;
+    }
   }
 }
 
