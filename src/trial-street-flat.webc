@@ -1,6 +1,6 @@
 ---
 layout: base.webc
-title: Trail, street & flat
+title: Trial, street & flat
 description: >-
   TODO: description
 permalink: /trial-street-flat.html
@@ -10,69 +10,43 @@ permalink: /trial-street-flat.html
 
   <section>
     <p>
-      <strong>Roule Ta Bille</strong> (RTB) est une association loi 1901 à but non lucratif
-      dédiée à la découverte, au partage et au développement de la pratique du monocycle
-      à Paris et en Île-de-France.
+      Tous les mercredis soirs, nous donnons rendez-vous aux plus fous d’entre-nous dans le sous-sol reculé du Kremlin Bicêtre pour commettre l’indicible sur monocycle…
     </p>
     <p>
-      Notre objectif : promouvoir le monocycle à travers des activités sportives de loisirs,
-      des compétitions et des animations ludiques, pour tous les âges et tous les niveaux.
+      Trial, street, flat, l’urbain s’invite sous fond de musique grâce à l’association <a href="https://www.instagram.com/club_street_riders" target="_blank" rel="noopener noreferrer">Street Rider</a>. Skates et monocycles se mêlent à la danse.
+    </p>
+    <p>
+      <strong>TODO:</strong> Lien vidéo montage
     </p>
   </section>
 
   <section>
-    <h2>Disciplines &amp; activités</h2>
-    <h3>Sports collectifs</h3>
+    <h2>Conditions de participation</h2>
+    <p>
+      Que vous soyez déjà initié à ces disciplines ou que vous souhaitiez les découvrir vous êtes les bienvenu·es !
+      La session du mercredi est organisée principalement par Street Rider, une petite cotisation pour leur association est à prévoir si vous êtes un mordu de l’urbain.
+    </p>
+
+    <p>
+      Les séances sont ouvertes à tous les niveaux. En revanche, il est nécessaire de venir avec un monocycle adapté : une roue de 20 pouces.
+      Casque et protections évidemment obligatoires (il y a des limites au goût du danger…)
+    </p>
+  </section>
+
+  <section>
+    <h2>Infos pratiques</h2>
     <ul>
-      <li>Monocycle basket</li>
-      <li>Hockey sur monocycle</li>
-    </ul>
-    <h3>Disciplines urbaines &amp; techniques</h3>
-    <ul>
-      <li>Trial, street, flat</li>
-      <li>Freestyle &amp; artistique</li>
-    </ul>
-    <h3>Outdoor &amp; endurance</h3>
-    <ul>
-      <li>Randonnée en monocycle</li>
-      <li>Cross-country / Muni (Mountain Unicycling)</li>
-      <li>Athlétisme</li>
-    </ul>
-    <h3>Animations</h3>
-    <ul>
-      <li>Initiations, jeux, spectacles</li>
-      <li>Stages thématiques</li>
+      <li><strong>Lieu :</strong> Dans le parking souterrain du <a href="https://maps.app.goo.gl/tsPARngGrHeat5gz8" target="_blank" rel="noopener noreferrer">24 rue Pasteur au Kremlin Bicêtre</a></li>
+      <li><strong>Fréquence :</strong> tous les mercredis</li>
+      <li><strong>Horaires :</strong> 18h30 – 22h30</li>
     </ul>
   </section>
 
   <section>
-    <h2>Affiliations</h2>
-    <p>Roule Ta Bille est officiellement rattachée aux instances suivantes :</p>
-    <ul>
-      <li>
-        <a href="https://monocycle.info/commission-nationale-monocycle/" target="_blank" rel="noopener noreferrer">
-          Commission Nationale du Monocycle (CNM)
-        </a>
-      </li>
-      <li>
-        <a href="https://www.leolagrange-sport.org/pratiquer-un-sport/" target="_blank" rel="noopener noreferrer">
-          Union Nationale Sportive Léo Lagrange (UNSLL)
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Informations légales</h2>
-    <ul>
-    <li><strong>Date de création:</strong> 26/10/2005</li>
-    <li><strong>RNA:</strong> W913000310</li>
-    <li><strong>SIREN:</strong> 812407344</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Nous contacter</h2>
+    <h2>Pour participer</h2>
+    <p>
+      Envoyez nous un mail afin que l’on puisse vous mettre en contact avec un habitué du mercredi soir.
+    </p>
     <ul>
       <li><a href="mailto:association.rouletabille@gmail.com?subject=Trial,%20street%20et%20flat">association.rouletabille@gmail.com</a></li>
     </ul>
