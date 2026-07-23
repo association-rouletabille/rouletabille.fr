@@ -1,0 +1,80 @@
+---
+layout: base.webc
+title: Trail, street & flat
+description: >-
+  TODO: description
+permalink: /trial-street-flat.html
+---
+<article>
+  <h1>Trial, street & flat</h1>
+
+  <section>
+    <p>
+      <strong>Roule Ta Bille</strong> (RTB) est une association loi 1901 à but non lucratif
+      dédiée à la découverte, au partage et au développement de la pratique du monocycle
+      à Paris et en Île-de-France.
+    </p>
+    <p>
+      Notre objectif : promouvoir le monocycle à travers des activités sportives de loisirs,
+      des compétitions et des animations ludiques, pour tous les âges et tous les niveaux.
+    </p>
+  </section>
+
+  <section>
+    <h2>Disciplines &amp; activités</h2>
+    <h3>Sports collectifs</h3>
+    <ul>
+      <li>Monocycle basket</li>
+      <li>Hockey sur monocycle</li>
+    </ul>
+    <h3>Disciplines urbaines &amp; techniques</h3>
+    <ul>
+      <li>Trial, street, flat</li>
+      <li>Freestyle &amp; artistique</li>
+    </ul>
+    <h3>Outdoor &amp; endurance</h3>
+    <ul>
+      <li>Randonnée en monocycle</li>
+      <li>Cross-country / Muni (Mountain Unicycling)</li>
+      <li>Athlétisme</li>
+    </ul>
+    <h3>Animations</h3>
+    <ul>
+      <li>Initiations, jeux, spectacles</li>
+      <li>Stages thématiques</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Affiliations</h2>
+    <p>Roule Ta Bille est officiellement rattachée aux instances suivantes :</p>
+    <ul>
+      <li>
+        <a href="https://monocycle.info/commission-nationale-monocycle/" target="_blank" rel="noopener noreferrer">
+          Commission Nationale du Monocycle (CNM)
+        </a>
+      </li>
+      <li>
+        <a href="https://www.leolagrange-sport.org/pratiquer-un-sport/" target="_blank" rel="noopener noreferrer">
+          Union Nationale Sportive Léo Lagrange (UNSLL)
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Informations légales</h2>
+    <ul>
+    <li><strong>Date de création:</strong> 26/10/2005</li>
+    <li><strong>RNA:</strong> W913000310</li>
+    <li><strong>SIREN:</strong> 812407344</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Nous contacter</h2>
+    <ul>
+      <li><a href="mailto:association.rouletabille@gmail.com">association.rouletabille@gmail.com</a></li>
+    </ul>
+  </section>
+</article>
