@@ -33,7 +33,11 @@
    ===================== */
 
 html {
-  background-color: rgb(var(--palette-dark));
+  background: linear-gradient(
+    to right,
+    rgb(var(--palette-cream)) calc(50vw + 150px - 50ch),
+    rgb(var(--palette-dark)) calc(50vw + 150px - 50ch)
+  );
 }
 
 body {
