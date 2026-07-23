@@ -2,7 +2,7 @@
   <a href="/" class="logo-link" aria-label="Accueil">
     <icon name="logo"></icon>
     <div class="site-name-group">
-      <span class="site-name">Monocycle &amp; fun</span>
+      <span class="site-name">Monocycle</span>
       <span class="site-subtitle">Paris / Île de France</span>
     </div>
   </a>
@@ -20,20 +20,24 @@
   <!-- Navigation: same HTML for sidebar (desktop) and overlay (mobile) -->
   <nav aria-label="Navigation principale">
     <ul>
-      <li><a href="/initiations-monocycle">Initiations monocycle</a></li>
+      <li><a href="/association">L'association</a></li>
+      <li class="nav-section-start"><a href="/initiations-monocycle">Initiations monocycle</a></li>
       <li><a href="/balades-du-mardi-soir">Balades du Mardi Soir</a></li>
       <li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
       <li class="nav-section-start"><a href="/tutoriels-et-resources">Tutoriels et resources</a></li>
       <li class="nav-section-start"><a href="/association">L'association</a></li>
     </ul>
     <social>
+      <a href="mailto:association.rouletabille@gmail.com?subject=Contact%20depuis%20le%20site%20web" target="_blank" rel="noopener noreferrer">
+        <icon name="email"></icon>
+      </a>
       <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
         <icon name="Instagram"></icon>
       </a>
       <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
         <icon name="2023_Facebook_icon"></icon>
       </a>
-    <social>
+    </social>
   </nav>
 
 </header>
