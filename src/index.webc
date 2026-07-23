@@ -22,14 +22,14 @@ changeFreq: hourly
   </section>
 
   <section>
-    <h2>Initiations monocycle</h2>
+    <h2>Initiations gratuites</h2>
     <p>
       L’idéal pour découvrir le monocycle ou se perfectionner.
       Nos sessions d'initiation accueillent tous les niveaux à Paris 13<sup>e</sup>.
       Ouvertes à tous, le matériel est fourni !
     </p>
     <p>
-      <a href="/initiations-monocycle">Découvrir les initiations →</a>
+      <a href="/initiations-monocycle-gratuites">Découvrir les initiations →</a>
     </p>
   </section>
 
@@ -44,7 +44,7 @@ changeFreq: hourly
   </section>
 
   <section>
-    <h2>Trial, street & flat</h2>
+    <h2>Trial, street &amp; flat</h2>
     <p>
       <strong>TODO:</strong> Joli texte résumant la proposition
     </p>
