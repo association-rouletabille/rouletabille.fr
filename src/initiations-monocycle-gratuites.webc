@@ -9,33 +9,30 @@ permalink: /initiations-monocycle-gratuites.html
 <article>
   <h1>Initiations gratuites</h1>
 
-  <section>
+  <card>
     <p>
-      Certains week-ends, nous proposons des sessions d’initiations sur la dalle des Olympiades (Paris 13e).
+      Certains week-ends, nous proposons des sessions d'initiations sur la dalle des Olympiades (Paris 13e).
       Débutants comme pratiquants souhaitant progresser, tout le monde est bienvenu et du matériel est mis à disposition
-      (monocycles d’initiation, trial, distance… tailles enfant et adulte !).
+      (monocycles d'initiation, trial, distance… tailles enfant et adulte !).
     </p>
-  </section>
+  </card>
 
-  <section>
-    <h2>Infos pratiques</h2>
+  <card heading="Infos pratiques">
     <ul>
       <li><strong>Lieu :</strong> Dalle des Olympiades, dans le 13e arrondissement, <a href="https://maps.app.goo.gl/tna4xEyHVtCZwoA47" target="_blank" rel="noopener noreferrer">au pied de la tour Athènes</a></li>
       <li><strong>Fréquence :</strong> le samedi ou le dimanche, environ une fois tous les deux mois</li>
       <li><strong>Horaires :</strong> 15h00 – 17h00</li>
       <li><strong>Remarque :</strong> les dates peuvent varier selon la météo et l'organisation. Suivez nos réseaux pour les annonces</li>
     </ul>
-  </section>
+  </card>
 
-  <section>
-    <h2>Public et niveaux</h2>
+  <card heading="Public et niveaux">
     <p>
       Les initiations sont ouvertes à tous les niveaux et tous les âges. Aucune expérience préalable n'est requise.
     </p>
-  </section>
+  </card>
 
-  <section>
-    <h2>Matériel fourni</h2>
+  <card heading="Matériel fourni">
     <p>
       Tout le matériel est prêté gratuitement :
     </p>
@@ -46,14 +43,13 @@ permalink: /initiations-monocycle-gratuites.html
       <li>Protections de poignets</li>
     </ul>
     <p>Venez comme vous êtes ! (mais avec un peu de motivation quand même)</p>
-  </section>
+  </card>
 
-  <section>
-    <h2>Pour participer</h2>
+  <card heading="Pour participer">
     <p>
       Les annonces des prochaines sessions sont publiées sur nos réseaux !
       N'hésitez pas à nous contacter pour toute information complémentaire.
     </p>
-  </section>
+  </card>
 </article>
 

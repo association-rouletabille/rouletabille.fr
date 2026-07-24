@@ -7,11 +7,11 @@ eleventyExcludeFromCollections: true
 ---
 <article>
   <h1>404 - Page non disponible</h1>
-  <section>
+  <card>
   <icon name="unicycle"></icon>
   <p>La page que vous souhaitez consulter est introuvable&nbsp;😢</p>
   <p>Vous avez pu être mené ici par un lien cassé, à moins que vous n’ayez fait une faute de frappe dans l’adresse que vous vouliez atteindre.</p>
-  </section>
+  </card>
 </article>
 
 <style>

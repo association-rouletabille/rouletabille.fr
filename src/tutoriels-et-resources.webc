@@ -8,7 +8,7 @@ permalink: /tutoriels-et-resources.html
 <article>
   <h1>Tutoriels et resources</h1>
 
-  <section>
+  <card>
     <p>
       <strong>TODO :</strong> Texte d'introduction
     </p>
@@ -24,6 +24,6 @@ permalink: /tutoriels-et-resources.html
       <strong>TODO :</strong> Compléter les liens
     </p>
 
-  </section>
+  </card>
 
 </article>

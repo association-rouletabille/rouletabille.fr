@@ -9,7 +9,7 @@ permalink: /association.html
 <article>
   <h1>Qui sommes-nous ?</h1>
 
-  <section>
+  <card>
     <p>
       <strong>Roule Ta Bille (RTB)</strong> est une association loi 1901 à but non lucratif dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et en Île-de-France.
 
@@ -17,10 +17,9 @@ permalink: /association.html
     <p>
       Notre objectif est de faire connaître et partager la pratique du monocycle, tout en favorisant le lien social autour de notre sport.
     </p>
-  </section>
+  </card>
 
-  <section>
-    <h2>Disciplines et activités</h2>
+  <card heading="Disciplines et activités">
    <p>Parmi toutes les <a href="https://fr.wikipedia.org/wiki/Monocycle#Les_disciplines_du_monocycle" target="_blank" rel="noopener noreferrer">disciplines existantes</a>, voici celles* proposées par notre asso :</p>
 
 <ul>
@@ -34,10 +33,9 @@ permalink: /association.html
 
 <sub>(*) Nous sommes cependant ouverts à toutes propositions extérieures qui nous permettraient d’explorer de nouveaux horizons 😉</sub>
 
-  </section>
+  </card>
 
-  <section>
-    <h2>Affiliations</h2>
+  <card heading="Affiliations">
     <p>Roule Ta Bille est officiellement rattachée aux instances suivantes :</p>
     <ul>
       <li>
@@ -51,21 +49,19 @@ permalink: /association.html
         </a>
       </li>
     </ul>
-  </section>
+  </card>
 
-  <section>
-    <h2>Informations légales</h2>
+  <card heading="Informations légales">
     <ul>
     <li><strong>Date de création:</strong> 26/10/2005</li>
     <li><strong>RNA:</strong> W913000310</li>
     <li><strong>SIREN:</strong> 812407344</li>
     </ul>
-  </section>
+  </card>
 
-  <section>
-    <h2>Nous contacter</h2>
+  <card heading="Nous contacter">
     <ul>
       <li><a href="mailto:association.rouletabille@gmail.com">association.rouletabille@gmail.com</a></li>
     </ul>
-  </section>
+  </card>
 </article>
