@@ -17,10 +17,19 @@
 </footer>
 
 <style webc:scoped>
-  :host {
-      padding-bottom: 4em;
-display: flex; flex-direction: column; align-items: center;
-  }
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-block: 2rem max(4rem, env(safe-area-inset-bottom));
+}
+
+:host > svg {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+}
 
 :host ul {
   list-style: none;
@@ -29,29 +38,26 @@ display: flex; flex-direction: column; align-items: center;
   justify-content: center;
   gap: 1rem;
   padding: 0;
-  }
+  margin: 0;
+}
 
-:host > svg { display: block; width: 5rem; height: 5rem; }
+:host a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(var(--palette-accent));
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
 
-:host  a svg {
+:host a:hover {
+  text-decoration: underline;
+}
+
+:host a svg {
   flex-shrink: 0;
   display: block;
   width: 1.4rem;
   height: 1.4rem;
-  margin-right: -0.2em;
 }
-
-:host  a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  color: rgb(var(--palette-accent));
-  position: relative;
-}
-
-:host  a:hover {
-  text-decoration: none;
-}
-
 </style>

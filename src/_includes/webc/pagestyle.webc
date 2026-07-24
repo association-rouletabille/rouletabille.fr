@@ -13,7 +13,7 @@
   --palette-muted: 85, 85, 85;
   --palette-white: 254, 254, 254;
 
-  /* Type scale (rem-based, no vh/vw) */
+  /* Type scale */
   --fs-xs: 0.75rem;
   --fs-sm: 0.85rem;
   --fs-base: 1rem;
@@ -23,32 +23,50 @@
   --fs-xxl: 2rem;
   --fs-hero: 5rem;
 
-  /* Shared tokens */
+  /* Fonts */
   --font-mono: monospace;
   --font-body: system-ui, sans-serif;
+
+  /* Layout */
+  --sidebar-w: 300px;
+
+  /* Header geometry — shared with header component via CSS lazy substitution:
+     overriding --logo-size on any ancestor auto-corrects --header-h on descendants */
+  --logo-size: 4.5rem;
+  --header-pad-block: 0.5rem;
+  --safe-top: max(0.5rem, env(safe-area-inset-top));
+  --safe-right: max(1rem, env(safe-area-inset-right));
+  --safe-bottom: max(2rem, env(safe-area-inset-bottom));
+  --safe-left: max(1rem, env(safe-area-inset-left));
+  --header-h: calc(var(--logo-size) + var(--header-pad-block) + var(--safe-top));
 }
 
 /* =====================
-   Base
+   Base reset
    ===================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   background: linear-gradient(
     to right,
-    rgb(var(--palette-cream)) calc(50vw + 150px - 50ch),
-    rgb(var(--palette-dark)) calc(50vw + 150px - 50ch)
+    rgb(var(--palette-cream)) calc(50vw - 150px - 50ch),
+    rgb(var(--palette-dark)) calc(50vw - 150px - 50ch)
   );
 }
 
 body {
   margin: 0;
   background-color: rgb(var(--palette-dark));
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   color: rgb(var(--palette-light));
   font-family: var(--font-body);
   font-size: var(--fs-base);
   line-height: 1.6;
+  overflow-wrap: break-word;
 }
 
 /* =====================
@@ -56,14 +74,12 @@ body {
    ===================== */
 
 main {
+  flex: 1;
   max-width: 100ch;
+  width: 100%;
   margin-inline: auto;
-  padding-inline: 1rem;
-  padding-inline-start: max(1rem, env(safe-area-inset-left));
-  padding-inline-end: max(1rem, env(safe-area-inset-right));
+  padding-inline: var(--safe-left) var(--safe-right);
   padding-block: 2rem;
-  padding-bottom: max(2rem, env(safe-area-inset-bottom));
-  box-sizing: border-box;
 }
 
 /* Headings */
@@ -129,27 +145,32 @@ main section:first-child {
 }
 
 /* =====================
-   Desktop layout (≥800px): sidebar grid
+   Desktop layout (≥800px): two-column grid
    ===================== */
 
 @media (min-width: 800px) {
   body {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: var(--sidebar-w) 1fr;
     min-height: 100dvh;
-    max-width: calc(300px + 100ch);
+    max-width: calc(var(--sidebar-w) + 100ch);
     margin-inline: auto;
   }
+}
 
-  header {
-    grid-column: 1;
-  }
+/* Right-column wrapper — explicit display needed (custom elements default to inline) */
+site-content {
+  display: flex;
+  flex-direction: column;
+}
 
-  content {
-    grid-column: 2;
-    margin-inline: 0;
-    padding-inline: 2rem;
-    padding-right: max(2rem, env(safe-area-inset-right));
+/* =====================
+   Mobile menu open: lock body scroll
+   ===================== */
+
+@media (max-width: 799px) {
+  body:has(#nav-toggle:checked) {
+    overflow: hidden;
   }
 }
 </style>
