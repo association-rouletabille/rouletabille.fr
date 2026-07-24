@@ -606,11 +606,163 @@ document.querySelectorAll('.palette-card').forEach((card) => {
 Open `palette-showcase.html` directly in browser (no server needed — it's fully static).
 Check:
 
-1. All 20 cards render with correct colors
-2. Dark mode cards: nav light, content dark
-3. Light mode cards: nav tinted, content light, text dark
+1. All 28 cards render with correct colors
+2. Dark mode cards (1–10, 21–24): nav light, content dark
+3. Light mode cards (11–20, 25–28): nav tinted, content light, text dark
 4. Accent is visible in both demo zones of every card
 5. WCAG badges show computed ratios
+
+---
+
+## Bonus Palettes — Trend Research (palettes 21–28)
+
+Eight additional palette directions inspired by contemporary website design trends. Same 9-token format, same dark/light structural rules.
+
+Format: `nav-bg | nav-fg | nav-dim | content-bg | content-fg | accent | content-surface | page-bg | bright`
+
+### Section C — Bonus Dark Mode (palettes 21–24)
+
+---
+
+**21. Cobalt Moonlight** _(dark)_
+Vibe: polished, modern, technical
+
+```
+nav-bg:          242, 246, 252   cool near-white, blue tint
+nav-fg:           10,  18,  42   deep navy-black
+nav-dim:          78,  98, 145   slate blue
+content-bg:        8,  18,  50   deep cobalt navy
+content-fg:      208, 222, 248   icy pale blue-silver
+accent:           50, 218, 252   vivid icy cyan
+content-surface:  18,  32,  75   slightly lighter cobalt
+page-bg:          52,  82, 148   medium cobalt blue
+bright:          248, 252, 255   near-white
+```
+
+---
+
+**22. Velvet Orchard** _(dark)_
+Vibe: moody, organic, earthy
+
+```
+nav-bg:          246, 242, 230   warm cream parchment
+nav-fg:           24,  28,  14   near-black olive
+nav-dim:          92,  98,  68   muted olive
+content-bg:       22,  38,  18   deep moss green
+content-fg:      222, 232, 208   soft light olive
+accent:          212, 155,  38   warm amber
+content-surface:  35,  55,  28   slightly lighter moss
+page-bg:          85, 108,  62   medium olive green
+bright:          255, 252, 238   warm near-white
+```
+
+---
+
+**23. Saffron Noir** _(dark)_
+Vibe: cinematic, editorial, bold
+
+```
+nav-bg:          245, 238, 222   warm parchment
+nav-fg:           12,  10,   8   cinematic near-black
+nav-dim:          88,  78,  62   warm gray-brown
+content-bg:       15,  12,  10   near-black cinematic
+content-fg:      238, 228, 212   warm parchment light
+accent:          215,  95,  25   burnt saffron orange
+content-surface:  28,  24,  20   slightly lighter near-black
+page-bg:          72,  62,  50   warm dark gray
+bright:          255, 250, 235   warm near-white
+```
+
+---
+
+**24. Aurora Slate** _(dark)_
+Vibe: modern, tech-forward, crisp
+
+```
+nav-bg:          244, 244, 252   cool near-white, indigo tint
+nav-fg:           20,  14,  52   deep indigo-black
+nav-dim:          98,  92, 158   muted indigo
+content-bg:       18,  14,  58   deep indigo
+content-fg:      215, 218, 248   pale lavender-white
+accent:           42, 218, 208   teal aurora
+content-surface:  30,  25,  85   slightly lighter indigo
+page-bg:          85,  88, 158   medium slate-indigo
+bright:          248, 250, 255   near-white
+```
+
+---
+
+### Section D — Bonus Light Mode (palettes 25–28)
+
+> Same structural rules as Section B: `content-bg` is light, `content-fg` is dark, `content-surface` is slightly darker than `content-bg`, `accent` must achieve WCAG 4.5:1 on the light `content-bg`.
+
+---
+
+**25. Desert Bloom** _(light)_
+Vibe: tactile, approachable, warm
+
+```
+nav-bg:          228, 210, 192   warm clay sandy
+nav-fg:           55,  30,  15   dark sienna-brown
+nav-dim:         132,  98,  72   muted copper-brown
+content-bg:      252, 245, 235   warm cream
+content-fg:       55,  30,  15   dark sienna text
+accent:          168,  72,  28   copper-rust (≈6.75:1 on cream)
+content-surface: 238, 228, 215   slightly darker cream card
+page-bg:         192, 168, 142   medium warm tan
+bright:          255, 250, 240   near-white
+```
+
+---
+
+**26. Misty Orchard** _(light)_
+Vibe: calm, airy, botanical
+
+```
+nav-bg:          218, 232, 215   sage green
+nav-fg:           18,  42,  20   dark forest
+nav-dim:          78, 112,  80   medium sage
+content-bg:      250, 250, 246   warm stone
+content-fg:       22,  42,  24   dark forest-green text
+accent:           28, 100,  42   deep forest green (≈5.96:1 on stone)
+content-surface: 232, 236, 228   slightly darker stone card
+page-bg:         162, 188, 160   medium sage
+bright:          255, 255, 252   near-white
+```
+
+---
+
+**27. Velvet Teal** _(light)_
+Vibe: restrained, premium, minimal
+
+```
+nav-bg:          210, 228, 238   pale slate-blue mist
+nav-fg:           14,  38,  58   dark teal-navy
+nav-dim:          72, 112, 138   medium slate
+content-bg:      248, 252, 254   near-white pale mist
+content-fg:       14,  38,  58   dark teal-navy text
+accent:           12, 108, 140   deep teal (≈5.02:1 on pale mist)
+content-surface: 228, 240, 248   slightly darker mist card
+page-bg:         152, 188, 208   medium slate-teal
+bright:          255, 255, 255   white
+```
+
+---
+
+**28. Rose Quartz Studio** _(light)_
+Vibe: fashion-forward, elegant, warm
+
+```
+nav-bg:          242, 222, 228   muted rose
+nav-fg:           55,  18,  28   dark burgundy-black
+nav-dim:         138,  82,  95   muted rose-brown
+content-bg:      255, 250, 252   warm ivory, rose tint
+content-fg:       55,  18,  28   dark burgundy text
+accent:          120,  22,  45   dark burgundy (≈9.23:1 on ivory)
+content-surface: 242, 230, 235   blush-tinted card (slightly darker)
+page-bg:         198, 165, 175   medium rose
+bright:          255, 255, 255   white
+```
 
 ---
 
