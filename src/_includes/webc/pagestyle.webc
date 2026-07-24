@@ -5,15 +5,15 @@
 
   :root {
     /* Primitive palette (raw RGB triplets for rgba() composition) */
-    --palette-nav-bg: 244, 240, 229;
-    --palette-page-bg: 160, 153, 135;
-    --palette-content-bg: 37, 37, 37;
-    --palette-content-fg: 239, 239, 239;
-    --palette-nav-fg: 14, 14, 14;
-    --palette-accent: 224, 92, 0;
-    --palette-nav-dim: 85, 85, 85;
-    --palette-bright: 254, 254, 254;
-    --palette-content-surface: 47, 42, 40;
+    --palette-nav-bg: 242, 243, 244;
+    --palette-page-bg: 80, 80, 90;
+    --palette-content-bg: 10, 10, 12;
+    --palette-content-fg: 235, 235, 230;
+    --palette-nav-fg: 12, 12, 15;
+    --palette-accent: 234, 179, 8;
+    --palette-nav-dim: 90, 90, 100;
+    --palette-bright: 254, 254, 252;
+    --palette-content-surface: 22, 22, 28;
 
     /* Type scale */
     --fs-xs: 0.75rem;
