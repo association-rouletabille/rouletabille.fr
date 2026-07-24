@@ -26,7 +26,10 @@
     "wrangler": "^4.113.0"
   },
   "scripts": {
-    "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
+    "build:dist": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
+    "build:dev": "npx @11ty/eleventy",
+    "clean": "npx rimraf dist",
+    "serve": "npx @11ty/eleventy --serve",
     "lint": "npx eslint . --cache --cache-location .cache/ --fix",
     "format": "npx prettier . --write",
     "lint-staged": "npx lint-staged",

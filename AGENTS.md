@@ -16,14 +16,17 @@ This file helps AI coding agents understand the project structure, build process
 ### Commands
 
 - `npm install` — Install dependencies (Node 24.x required)
-- `npm run build` — Build Eleventy site + validate Wrangler types; outputs to `dist/`
+- `npm run build:dev` — Build Eleventy site for local dev/agent use; outputs to `dist/`; fully cross-platform
+- `npm run build:dist` — Build for Wrangler deployment (bash-only; injects real git SHA); outputs to `dist/`
+- `npm run clean` — Delete `dist/` folder cross-platform (safe even if absent)
+- `npm run serve` — Start Eleventy dev server at http://localhost:8080 with hot reload; cross-platform
 - `npm run lint` — Run ESLint with auto-fix
 - `npm run format` — Format code with Prettier
 - `npm run prepare` — Set up Husky git hooks
 
 ### Build Process
 
-1. **Git commit SHA**: `COMMIT_SHA` env var passed to Eleventy (fallback: `deadbeefc0ffee`)
+1. **Git commit SHA**: `COMMIT_SHA` env var passed to Eleventy (fallback: `deadbeefc0ffee`, truncated to `deadbeef` in the `<meta name="version">` tag). Only meaningful for Wrangler deployment — `build:dist` sets it via bash; `build:dev` and `serve` intentionally omit it and use the fallback
 2. **Eleventy**:
    - Input: `src/` → Output: `dist/`
    - Layouts: `src/_layouts/*.webc`
@@ -107,12 +110,12 @@ WebC components are located in `src/_includes/webc/` and used in layouts/pages:
 
 1. Create `src/[name].webc` or `src/[name]/index.webc`
 2. Use layout: `<is-layout name="root">` to include in base template
-3. Build: `npm run build`
+3. Build: `npm run build:dev`
 
 ### Updating Worker code
 
 1. Edit `src/worker.ts` (TypeScript)
-2. Run `npm run build` to validate types
+2. Run `npm run build:dev` to validate types
 3. Crons auto-trigger on schedule (preview: `wrangler publish --dry-run`)
 
 ### Adding Instagram integration (Release 2+)
@@ -127,6 +130,62 @@ WebC components are located in `src/_includes/webc/` and used in layouts/pages:
 - **Pre-commit**: lint-staged runs ESLint + Prettier on staged files (via Husky)
 - **Manual**: `npm run lint`, `npm run format`
 
+## Local Development & Agent Testing
+
+### Purging dist/
+
+```sh
+npm run clean
+```
+
+Deletes the entire `dist/` folder cross-platform (uses `npx rimraf`). Safe to run even if the folder does not exist. Do this before any full rebuild to guarantee a clean output slate.
+
+### Building the site
+
+```sh
+# Cross-platform — use for local dev and all agent workflows
+npm run build:dev
+
+# Clean build
+npm run clean && npm run build:dev
+```
+
+`build:dev` runs Eleventy without setting `COMMIT_SHA`; the fallback `deadbeef` SHA appears in the `<meta name="version">` tag, which is fine for local inspection.
+
+> **Deployment only**: use `npm run build:dist` (bash-only; injects the real git SHA) when building for Wrangler deployment.
+
+### Running Eleventy in serve mode
+
+```sh
+# Start dev server (cross-platform)
+npm run serve
+
+# Clean then serve
+npm run clean && npm run serve
+```
+
+Starts the Eleventy dev server at **http://localhost:8080** with file watching and hot reload. Changes to `src/` are picked up automatically without restarting. Uses the `deadbeef` SHA fallback — irrelevant for local inspection.
+
+### Using Playwright to inspect the site
+
+Playwright is **not installed** as a project dependency. Use `npx playwright` — it fetches the browser on first use.
+
+1. Start the dev server in one terminal: `npm run serve`
+2. In a second terminal, use one of:
+
+```sh
+# Open a headed browser for manual exploration
+npx playwright open http://localhost:8080
+
+# Record interactions into a reusable script
+npx playwright codegen http://localhost:8080
+
+# Run an automated test file
+npx playwright test --project=chromium
+```
+
+All site pages are navigable at `http://localhost:8080/{path}` (e.g., `/association`, `/adhesion`, `/balades-du-mardi-soir`).
+
 ## Key Decisions & Constraints
 
 - **No client-side JavaScript by default**: Static HTML + WebC; Workers provide optional APIs
@@ -137,7 +196,7 @@ WebC components are located in `src/_includes/webc/` and used in layouts/pages:
 
 ## Troubleshooting
 
-- **Build fails**: Check `npm run build` output; verify Node 24.x, Wrangler types with `wrangler types --check`
+- **Build fails**: Check `npm run build:dev` output (cross-platform) or `npm run build:dist` (bash); verify Node 24.x, Wrangler types with `wrangler types --check`
 - **Cache miss on /api/latest-posts**: Normal on first request; scheduled cron populates after 30 min
 - **Worker preview issues**: Ensure `assets.directory` points to `./dist/` in wrangler.jsonc
 - **TypeScript errors**: Run `npx wrangler types --check` to regenerate worker-configuration.d.ts
@@ -146,5 +205,5 @@ WebC components are located in `src/_includes/webc/` and used in layouts/pages:
 
 1. Run `npm run lint` to auto-fix style issues
 2. Run `npm run format` to format code
-3. Verify `npm run build` succeeds with exit code 0
+3. Verify `npm run build:dist` succeeds with exit code 0 (requires bash shell — Git Bash, WSL, or macOS/Linux)
 4. For Worker changes, test with `wrangler publish --dry-run` (optional)
