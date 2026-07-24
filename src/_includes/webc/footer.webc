@@ -45,13 +45,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: rgb(var(--palette-accent));
-  text-decoration: none;
-  text-underline-offset: 0.2em;
-}
-
-:host a:hover {
-  text-decoration: underline;
 }
 
 :host a svg {

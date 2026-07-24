@@ -126,12 +126,12 @@ main li {
 }
 
 /* Links */
-main a {
+a {
   color: rgb(var(--palette-accent));
   text-underline-offset: 0.2em;
 }
 
-main a:hover {
+a:hover {
   text-decoration: none;
 }
 

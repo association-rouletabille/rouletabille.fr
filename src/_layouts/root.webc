@@ -10,7 +10,6 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" :href="getBundleFileUrl('css')" as="style" webc:keep />
     <link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
-    <link rel="preload" :href="getSvgSpriteUrl()" as="image" webc:keep>
     <link rel="help" type="text/plain" href="/llms.txt">
     <template webc:nokeep @raw="$data.site.jsonLd()"></template>
   </head>
