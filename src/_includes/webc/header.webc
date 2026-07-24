@@ -49,8 +49,8 @@
    ===================== */
 
 :host {
-  background-color: rgb(var(--palette-cream));
-  color: rgb(var(--palette-near-black));
+  background-color: rgb(var(--palette-nav-bg));
+  color: rgb(var(--palette-nav-fg));
 }
 
 .nav-toggle {
@@ -92,7 +92,7 @@
 .site-subtitle {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
-  color: rgb(var(--palette-muted));
+  color: rgb(var(--palette-nav-dim));
   line-height: 1.3;
   margin-top: 0.25rem;
 }
@@ -109,13 +109,13 @@ nav ul {
 nav li.nav-section-start {
   margin-top: 0.75rem;
   padding-top: 0.75rem;
-  border-top: 1px solid rgba(var(--palette-near-black), 0.15);
+  border-top: 1px solid rgba(var(--palette-nav-fg), 0.15);
 }
 
 nav ul a {
   display: flex;
   align-items: center;
-  color: rgb(var(--palette-near-black));
+  color: rgb(var(--palette-nav-fg));
   font-family: var(--font-mono);
   font-weight: bold;
   font-size: var(--fs-base);
@@ -174,7 +174,7 @@ social a svg {
     padding: var(--safe-top) 1rem var(--safe-bottom) var(--safe-left);
     gap: 2rem;
     align-items: flex-start;
-    box-shadow: -4px 0 12px rgba(var(--palette-near-black), 0.2);
+    box-shadow: -4px 0 12px rgba(var(--palette-nav-fg), 0.2);
   }
 
   .hamburger {
@@ -251,7 +251,7 @@ social a svg {
     right: 0;
     bottom: 0;
     z-index: 5;
-    background-color: rgb(var(--palette-cream));
+    background-color: rgb(var(--palette-nav-bg));
     overflow-y: auto;
     padding: 1.5rem var(--safe-right) var(--safe-bottom) var(--safe-left);
   }

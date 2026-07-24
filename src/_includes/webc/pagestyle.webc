@@ -5,13 +5,15 @@
 
 :root {
   /* Primitive palette (raw RGB triplets for rgba() composition) */
-  --palette-cream: 244, 240, 229;
-  --palette-dark: 37, 37, 37;
-  --palette-light: 239, 239, 239;
-  --palette-near-black: 14, 14, 14;
+  --palette-nav-bg: 244, 240, 229;
+  --palette-page-bg: 160, 153, 135;
+  --palette-content-bg: 37, 37, 37;
+  --palette-content-fg: 239, 239, 239;
+  --palette-nav-fg: 14, 14, 14;
   --palette-accent: 224, 92, 0;
-  --palette-muted: 85, 85, 85;
-  --palette-white: 254, 254, 254;
+  --palette-nav-dim: 85, 85, 85;
+  --palette-bright: 254, 254, 254;
+  --palette-content-surface: 47, 42, 40;
 
   /* Type scale */
   --fs-xs: 0.75rem;
@@ -52,17 +54,14 @@
 }
 
 html {
-  background: linear-gradient(
-    to right,
-    rgb(var(--palette-cream)) calc(50vw - 150px - 50ch),
-    rgb(var(--palette-dark)) calc(50vw - 150px - 50ch)
-  );
+  background: rgb(var(--palette-page-bg));
 }
 
 body {
   margin: 0;
-  background-color: rgb(var(--palette-dark));
-  color: rgb(var(--palette-light));
+  min-height: 100dvh;
+  background-color: rgb(var(--palette-content-bg));
+  color: rgb(var(--palette-content-fg));
   font-family: var(--font-body);
   font-size: var(--fs-base);
   line-height: 1.6;
@@ -138,6 +137,9 @@ a:hover {
 /* Sections */
 main section {
   margin-block: 2.5rem;
+  background-color: rgb(var(--palette-content-surface));
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
 }
 
 main section:first-child {
@@ -152,9 +154,9 @@ main section:first-child {
   body {
     display: grid;
     grid-template-columns: var(--sidebar-w) 1fr;
-    min-height: 100dvh;
     max-width: calc(var(--sidebar-w) + 100ch);
     margin-inline: auto;
+    box-shadow: 16px 0 16px -16px rgba(0, 0, 0, 0.5);
   }
 }
 
