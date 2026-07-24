@@ -320,313 +320,126 @@
         color: rgb(var(--palette-accent));
       }
 
-      .p1 {
-        --palette-nav-bg: 244, 240, 229;
-        --palette-nav-fg: 14, 14, 14;
-        --palette-nav-dim: 85, 85, 85;
-        --palette-content-bg: 37, 37, 37;
-        --palette-content-fg: 239, 239, 239;
-        --palette-accent: 224, 92, 0;
-        --palette-content-surface: 52, 47, 45;
-        --palette-page-bg: 160, 153, 135;
-        --palette-bright: 254, 254, 254;
+      /* ------------------------------------------------------------ */
+      /* Sticky menu: section anchors + mode filters + responsive     */
+      /* ------------------------------------------------------------ */
+      html {
+        scroll-behavior: smooth;
       }
-      .p2 {
-        --palette-nav-bg: 247, 248, 250;
-        --palette-nav-fg: 15, 23, 42;
-        --palette-nav-dim: 71, 85, 105;
-        --palette-content-bg: 15, 23, 42;
-        --palette-content-fg: 226, 232, 240;
-        --palette-accent: 56, 189, 248;
-        --palette-content-surface: 30, 41, 59;
-        --palette-page-bg: 100, 116, 139;
-        --palette-bright: 248, 250, 252;
+
+      .mode-section {
+        scroll-margin-top: 96px;
       }
-      .p3 {
-        --palette-nav-bg: 248, 249, 245;
-        --palette-nav-fg: 20, 30, 20;
-        --palette-nav-dim: 80, 95, 80;
-        --palette-content-bg: 18, 40, 22;
-        --palette-content-fg: 220, 240, 222;
-        --palette-accent: 132, 204, 22;
-        --palette-content-surface: 28, 55, 32;
-        --palette-page-bg: 90, 120, 90;
-        --palette-bright: 254, 255, 254;
+
+      .showcase-menu {
+        position: sticky;
+        top: 8px;
+        z-index: 50;
+        margin: 20px 0 12px;
+        padding: 12px 16px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(17, 24, 39, 0.88);
+        backdrop-filter: blur(12px);
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
       }
-      .p4 {
-        --palette-nav-bg: 242, 237, 230;
-        --palette-nav-fg: 30, 20, 25;
-        --palette-nav-dim: 100, 80, 85;
-        --palette-content-bg: 45, 20, 40;
-        --palette-content-fg: 240, 225, 235;
-        --palette-accent: 251, 113, 133;
-        --palette-content-surface: 65, 35, 58;
-        --palette-page-bg: 135, 90, 115;
-        --palette-bright: 255, 250, 252;
+
+      .menu-toggle {
+        display: none;
       }
-      .p5 {
-        --palette-nav-bg: 245, 247, 252;
-        --palette-nav-fg: 15, 25, 50;
-        --palette-nav-dim: 80, 95, 130;
-        --palette-content-bg: 20, 30, 65;
-        --palette-content-fg: 210, 225, 248;
-        --palette-accent: 34, 211, 238;
-        --palette-content-surface: 30, 45, 85;
-        --palette-page-bg: 95, 115, 160;
-        --palette-bright: 248, 252, 255;
+
+      .menu-hamburger {
+        display: none;
       }
-      .p6 {
-        --palette-nav-bg: 243, 236, 218;
-        --palette-nav-fg: 42, 30, 18;
-        --palette-nav-dim: 110, 85, 65;
-        --palette-content-bg: 55, 30, 20;
-        --palette-content-fg: 240, 225, 210;
-        --palette-accent: 245, 158, 11;
-        --palette-content-surface: 75, 45, 33;
-        --palette-page-bg: 155, 120, 90;
-        --palette-bright: 254, 250, 244;
+
+      .menu-body {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
       }
-      .p7 {
-        --palette-nav-bg: 242, 243, 244;
-        --palette-nav-fg: 12, 12, 15;
-        --palette-nav-dim: 90, 90, 100;
-        --palette-content-bg: 10, 10, 12;
-        --palette-content-fg: 235, 235, 230;
-        --palette-accent: 234, 179, 8;
-        --palette-content-surface: 22, 22, 28;
-        --palette-page-bg: 80, 80, 90;
-        --palette-bright: 254, 254, 252;
+
+      .menu-anchors {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
       }
-      .p8 {
-        --palette-nav-bg: 246, 247, 243;
-        --palette-nav-fg: 18, 35, 28;
-        --palette-nav-dim: 75, 100, 88;
-        --palette-content-bg: 15, 50, 45;
-        --palette-content-fg: 215, 240, 235;
-        --palette-accent: 52, 211, 153;
-        --palette-content-surface: 25, 70, 63;
-        --palette-page-bg: 80, 130, 118;
-        --palette-bright: 248, 255, 252;
+
+      .menu-anchors a {
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--page-fg);
+        text-decoration: none;
+        font-size: 0.82rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition:
+          background 0.15s ease,
+          border-color 0.15s ease;
       }
-      .p9 {
-        --palette-nav-bg: 245, 240, 250;
-        --palette-nav-fg: 38, 18, 45;
-        --palette-nav-dim: 110, 80, 120;
-        --palette-content-bg: 38, 18, 55;
-        --palette-content-fg: 238, 225, 248;
-        --palette-accent: 232, 121, 249;
-        --palette-content-surface: 58, 32, 78;
-        --palette-page-bg: 125, 90, 145;
-        --palette-bright: 254, 250, 255;
+
+      .menu-anchors a:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.2);
       }
-      .p10 {
-        --palette-nav-bg: 246, 247, 250;
-        --palette-nav-fg: 15, 20, 35;
-        --palette-nav-dim: 80, 90, 115;
-        --palette-content-bg: 18, 28, 55;
-        --palette-content-fg: 218, 228, 248;
-        --palette-accent: 99, 179, 237;
-        --palette-content-surface: 28, 42, 80;
-        --palette-page-bg: 90, 110, 155;
-        --palette-bright: 248, 250, 255;
+
+      .menu-anchors .count {
+        display: inline-block;
+        margin-left: 6px;
+        padding: 1px 6px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        font-size: 0.7rem;
+        color: #cbd5e1;
       }
-      .p11 {
-        --palette-nav-bg: 244, 240, 229;
-        --palette-nav-fg: 14, 14, 14;
-        --palette-nav-dim: 85, 85, 85;
-        --palette-content-bg: 255, 255, 253;
-        --palette-content-fg: 22, 22, 22;
-        --palette-accent: 13, 116, 103;
-        --palette-content-surface: 238, 235, 228;
-        --palette-page-bg: 200, 196, 188;
-        --palette-bright: 255, 255, 255;
+
+      .menu-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-left: auto;
       }
-      .p12 {
-        --palette-nav-bg: 219, 232, 245;
-        --palette-nav-fg: 10, 25, 60;
-        --palette-nav-dim: 70, 95, 140;
-        --palette-content-bg: 248, 250, 253;
-        --palette-content-fg: 10, 25, 60;
-        --palette-accent: 29, 78, 216;
-        --palette-content-surface: 224, 234, 245;
-        --palette-page-bg: 160, 185, 210;
-        --palette-bright: 255, 255, 255;
+
+      .menu-filters .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.82rem;
+        cursor: pointer;
+        user-select: none;
+        color: var(--page-fg);
+        transition: opacity 0.15s ease;
       }
-      .p13 {
-        --palette-nav-bg: 212, 228, 210;
-        --palette-nav-fg: 20, 38, 18;
-        --palette-nav-dim: 80, 108, 78;
-        --palette-content-bg: 248, 246, 240;
-        --palette-content-fg: 28, 38, 22;
-        --palette-accent: 172, 58, 20;
-        --palette-content-surface: 234, 228, 215;
-        --palette-page-bg: 162, 185, 158;
-        --palette-bright: 254, 254, 250;
+
+      .menu-filters .chip input {
+        accent-color: #f59e0b;
+        margin: 0;
       }
-      .p14 {
-        --palette-nav-bg: 225, 205, 178;
-        --palette-nav-fg: 35, 22, 10;
-        --palette-nav-dim: 100, 75, 50;
-        --palette-content-bg: 254, 250, 243;
-        --palette-content-fg: 35, 22, 10;
-        --palette-accent: 146, 64, 14;
-        --palette-content-surface: 240, 232, 218;
-        --palette-page-bg: 190, 168, 140;
-        --palette-bright: 255, 253, 248;
+
+      .menu-filters .chip:has(input:not(:checked)) {
+        opacity: 0.45;
       }
-      .p15 {
-        --palette-nav-bg: 240, 236, 228;
-        --palette-nav-fg: 20, 32, 22;
-        --palette-nav-dim: 88, 102, 85;
-        --palette-content-bg: 245, 246, 245;
-        --palette-content-fg: 22, 32, 24;
-        --palette-accent: 21, 90, 30;
-        --palette-content-surface: 225, 228, 224;
-        --palette-page-bg: 175, 185, 172;
-        --palette-bright: 255, 255, 254;
+
+      /* Filter behaviour: hide cards whose mode is excluded. */
+      body.hide-light-nav .palette-card[data-mode^='LN-'] {
+        display: none;
       }
-      .p16 {
-        --palette-nav-bg: 228, 225, 245;
-        --palette-nav-fg: 25, 18, 50;
-        --palette-nav-dim: 98, 85, 140;
-        --palette-content-bg: 252, 251, 255;
-        --palette-content-fg: 25, 18, 50;
-        --palette-accent: 88, 28, 135;
-        --palette-content-surface: 236, 232, 248;
-        --palette-page-bg: 175, 168, 210;
-        --palette-bright: 255, 255, 255;
+      body.hide-dark-nav .palette-card[data-mode^='DN-'] {
+        display: none;
       }
-      .p17 {
-        --palette-nav-bg: 238, 216, 198;
-        --palette-nav-fg: 45, 22, 12;
-        --palette-nav-dim: 120, 80, 60;
-        --palette-content-bg: 254, 248, 242;
-        --palette-content-fg: 45, 22, 12;
-        --palette-accent: 140, 40, 10;
-        --palette-content-surface: 240, 228, 215;
-        --palette-page-bg: 192, 160, 135;
-        --palette-bright: 255, 252, 248;
+      body.hide-dark-content .palette-card[data-mode$='-DC'] {
+        display: none;
       }
-      .p18 {
-        --palette-nav-bg: 220, 223, 228;
-        --palette-nav-fg: 15, 22, 35;
-        --palette-nav-dim: 80, 93, 110;
-        --palette-content-bg: 255, 255, 255;
-        --palette-content-fg: 15, 22, 35;
-        --palette-accent: 30, 80, 160;
-        --palette-content-surface: 238, 241, 246;
-        --palette-page-bg: 172, 178, 190;
-        --palette-bright: 255, 255, 255;
-      }
-      .p19 {
-        --palette-nav-bg: 210, 240, 220;
-        --palette-nav-fg: 12, 35, 18;
-        --palette-nav-dim: 60, 105, 72;
-        --palette-content-bg: 248, 252, 248;
-        --palette-content-fg: 12, 35, 18;
-        --palette-accent: 22, 130, 48;
-        --palette-content-surface: 228, 242, 230;
-        --palette-page-bg: 148, 195, 162;
-        --palette-bright: 254, 255, 254;
-      }
-      .p20 {
-        --palette-nav-bg: 245, 220, 220;
-        --palette-nav-fg: 45, 15, 20;
-        --palette-nav-dim: 120, 65, 72;
-        --palette-content-bg: 255, 249, 248;
-        --palette-content-fg: 45, 15, 20;
-        --palette-accent: 130, 15, 40;
-        --palette-content-surface: 240, 225, 224;
-        --palette-page-bg: 195, 158, 158;
-        --palette-bright: 255, 255, 255;
-      }
-      .p21 {
-        --palette-nav-bg: 242, 246, 252;
-        --palette-nav-fg: 10, 18, 42;
-        --palette-nav-dim: 78, 98, 145;
-        --palette-content-bg: 8, 18, 50;
-        --palette-content-fg: 208, 222, 248;
-        --palette-accent: 50, 218, 252;
-        --palette-content-surface: 18, 32, 75;
-        --palette-page-bg: 52, 82, 148;
-        --palette-bright: 248, 252, 255;
-      }
-      .p22 {
-        --palette-nav-bg: 246, 242, 230;
-        --palette-nav-fg: 24, 28, 14;
-        --palette-nav-dim: 92, 98, 68;
-        --palette-content-bg: 22, 38, 18;
-        --palette-content-fg: 222, 232, 208;
-        --palette-accent: 212, 155, 38;
-        --palette-content-surface: 35, 55, 28;
-        --palette-page-bg: 85, 108, 62;
-        --palette-bright: 255, 252, 238;
-      }
-      .p23 {
-        --palette-nav-bg: 245, 238, 222;
-        --palette-nav-fg: 12, 10, 8;
-        --palette-nav-dim: 88, 78, 62;
-        --palette-content-bg: 15, 12, 10;
-        --palette-content-fg: 238, 228, 212;
-        --palette-accent: 215, 95, 25;
-        --palette-content-surface: 28, 24, 20;
-        --palette-page-bg: 72, 62, 50;
-        --palette-bright: 255, 250, 235;
-      }
-      .p24 {
-        --palette-nav-bg: 244, 244, 252;
-        --palette-nav-fg: 20, 14, 52;
-        --palette-nav-dim: 98, 92, 158;
-        --palette-content-bg: 18, 14, 58;
-        --palette-content-fg: 215, 218, 248;
-        --palette-accent: 42, 218, 208;
-        --palette-content-surface: 30, 25, 85;
-        --palette-page-bg: 85, 88, 158;
-        --palette-bright: 248, 250, 255;
-      }
-      .p25 {
-        --palette-nav-bg: 228, 210, 192;
-        --palette-nav-fg: 55, 30, 15;
-        --palette-nav-dim: 132, 98, 72;
-        --palette-content-bg: 252, 245, 235;
-        --palette-content-fg: 55, 30, 15;
-        --palette-accent: 168, 72, 28;
-        --palette-content-surface: 238, 228, 215;
-        --palette-page-bg: 192, 168, 142;
-        --palette-bright: 255, 250, 240;
-      }
-      .p26 {
-        --palette-nav-bg: 218, 232, 215;
-        --palette-nav-fg: 18, 42, 20;
-        --palette-nav-dim: 78, 112, 80;
-        --palette-content-bg: 250, 250, 246;
-        --palette-content-fg: 22, 42, 24;
-        --palette-accent: 28, 100, 42;
-        --palette-content-surface: 232, 236, 228;
-        --palette-page-bg: 162, 188, 160;
-        --palette-bright: 255, 255, 252;
-      }
-      .p27 {
-        --palette-nav-bg: 210, 228, 238;
-        --palette-nav-fg: 14, 38, 58;
-        --palette-nav-dim: 72, 112, 138;
-        --palette-content-bg: 248, 252, 254;
-        --palette-content-fg: 14, 38, 58;
-        --palette-accent: 12, 108, 140;
-        --palette-content-surface: 228, 240, 248;
-        --palette-page-bg: 152, 188, 208;
-        --palette-bright: 255, 255, 255;
-      }
-      .p28 {
-        --palette-nav-bg: 242, 222, 228;
-        --palette-nav-fg: 55, 18, 28;
-        --palette-nav-dim: 138, 82, 95;
-        --palette-content-bg: 255, 250, 252;
-        --palette-content-fg: 55, 18, 28;
-        --palette-accent: 120, 22, 45;
-        --palette-content-surface: 242, 230, 235;
-        --palette-page-bg: 198, 165, 175;
-        --palette-bright: 255, 255, 255;
+      body.hide-light-content .palette-card[data-mode$='-LC'] {
+        display: none;
       }
 
       @media (max-width: 760px) {
@@ -640,6 +453,61 @@
           width: 100%;
         }
       }
+
+      @media (max-width: 700px) {
+        .showcase-menu {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+
+        .menu-hamburger {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 22px;
+          height: 18px;
+          cursor: pointer;
+          align-self: flex-end;
+        }
+
+        .menu-hamburger span {
+          display: block;
+          height: 2px;
+          width: 100%;
+          background: var(--page-fg);
+          border-radius: 2px;
+          transition:
+            transform 0.22s ease,
+            opacity 0.18s ease;
+          transform-origin: center;
+        }
+
+        .menu-body {
+          display: none;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 12px;
+        }
+
+        .menu-toggle:checked ~ .menu-body {
+          display: flex;
+        }
+
+        .menu-toggle:checked ~ .menu-hamburger span:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+        .menu-toggle:checked ~ .menu-hamburger span:nth-child(2) {
+          opacity: 0;
+        }
+        .menu-toggle:checked ~ .menu-hamburger span:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .menu-filters {
+          margin-left: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -647,11 +515,49 @@
       <header class="hero">
         <h1>rouletabille.fr — Palette Showcase</h1>
         <p>
-          Twenty baseline palettes plus eight bonus trend-research concepts for
-          the static site. Each card mirrors the live navigation, content, card,
-          and footer styling using the same nine design tokens.
+          A curated exploration of colour identities for the static site.
+          Ninety-nine palettes across sixteen themed sections mirror the live
+          navigation, content, card, and footer using the same nine design
+          tokens. Use the filter chips below to browse by nav / content mode.
         </p>
       </header>
+
+      <nav
+        class="showcase-menu"
+        id="showcase-menu"
+        aria-label="Palette navigation and filters"
+      >
+        <input
+          type="checkbox"
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Toggle menu"
+        />
+        <label for="menu-toggle" class="menu-hamburger" aria-hidden="true"
+          ><span></span><span></span><span></span
+        ></label>
+        <div class="menu-body">
+          <div class="menu-anchors" id="menu-anchors"></div>
+          <div class="menu-filters">
+            <label class="chip"
+              ><input type="checkbox" data-filter="light-nav" checked /> Light
+              nav</label
+            >
+            <label class="chip"
+              ><input type="checkbox" data-filter="dark-nav" checked /> Dark
+              nav</label
+            >
+            <label class="chip"
+              ><input type="checkbox" data-filter="dark-content" checked /> Dark
+              content</label
+            >
+            <label class="chip"
+              ><input type="checkbox" data-filter="light-content" checked />
+              Light content</label
+            >
+          </div>
+        </div>
+      </nav>
 
       <section class="legend" aria-label="Palette token legend">
         <h2>How to read the showcase</h2>
@@ -687,3108 +593,702 @@
         </div>
       </section>
 
-      <section class="mode-section">
-        <h2>🌑 Dark Mode Palettes</h2>
-        <div class="palette-grid">
-          <article class="palette-card p1">
-            <div class="card-head">
-              <h3>#1 Charcoal &amp; Ember</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Earthy, baseline reference</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Charcoal and Ember palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p2">
-            <div class="card-head">
-              <h3>#2 Marine &amp; Ivory</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Nautical, athletic, clean</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Marine and Ivory palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p3">
-            <div class="card-head">
-              <h3>#3 Forest &amp; Mist</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Nature, outdoors, organic</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Forest and Mist palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p4">
-            <div class="card-head">
-              <h3>#4 Dusk &amp; Coral</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Evening warmth, creative</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Dusk and Coral palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p5">
-            <div class="card-head">
-              <h3>#5 Nordic Ice</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Scandinavian minimal, crisp</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Nordic Ice palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p6">
-            <div class="card-head">
-              <h3>#6 Terra &amp; Sand</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Mediterranean, earth, warm</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Terra and Sand palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p7">
-            <div class="card-head">
-              <h3>#7 Midnight &amp; Gold</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Classic, elegant, luxury</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Midnight and Gold palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p8">
-            <div class="card-head">
-              <h3>#8 Jade &amp; Stone</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Fresh, organic, spa-like</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Jade and Stone palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p9">
-            <div class="card-head">
-              <h3>#9 Plum &amp; Rose</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Creative, sophisticated, bold</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Plum and Rose palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p10">
-            <div class="card-head">
-              <h3>#10 Steel &amp; Arctic</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Modern, technical, sharp</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Steel and Arctic palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="mode-section">
-        <h2>☀️ Light Mode Palettes</h2>
-        <div class="palette-grid">
-          <article class="palette-card p11">
-            <div class="card-head">
-              <h3>#11 Paper &amp; Ink</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Classic editorial, timeless</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Paper and Ink palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p12">
-            <div class="card-head">
-              <h3>#12 Blueprint</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Technical, structured, precise</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Blueprint palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p13">
-            <div class="card-head">
-              <h3>#13 Garden Path</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Botanical, organic, outdoors</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Garden Path palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p14">
-            <div class="card-head">
-              <h3>#14 Morning Coffee</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Cozy, warm, inviting</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Morning Coffee palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p15">
-            <div class="card-head">
-              <h3>#15 Birch Forest</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Naturalist, Scandinavian-light, airy</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Birch Forest palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p16">
-            <div class="card-head">
-              <h3>#16 Periwinkle</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Refined, calm, creative</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Periwinkle palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p17">
-            <div class="card-head">
-              <h3>#17 Seashell</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Mediterranean coast, warm, relaxed</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Seashell palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p18">
-            <div class="card-head">
-              <h3>#18 Misty Mountain</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Clean, minimal, focus</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Misty Mountain palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p19">
-            <div class="card-head">
-              <h3>#19 Meadow</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Fresh, energetic, sporty</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Meadow palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p20">
-            <div class="card-head">
-              <h3>#20 Sunset Blush</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Elegant, festive, warm</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Sunset Blush palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="mode-section">
-        <h2>✨ Bonus Dark Palettes — Trend Research</h2>
-        <div class="palette-grid">
-          <article class="palette-card p21">
-            <div class="card-head">
-              <h3>#21 Cobalt Moonlight</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Polished, modern, technical</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Cobalt Moonlight palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p22">
-            <div class="card-head">
-              <h3>#22 Velvet Orchard</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Moody, organic, earthy</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Velvet Orchard palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p23">
-            <div class="card-head">
-              <h3>#23 Saffron Noir</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Cinematic, editorial, bold</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Saffron Noir palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p24">
-            <div class="card-head">
-              <h3>#24 Aurora Slate</h3>
-              <span class="chip">[DARK]</span>
-            </div>
-            <p class="tagline">Modern, tech-forward, crisp</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Aurora Slate palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="mode-section">
-        <h2>☀️ Bonus Light Palettes — Trend Research</h2>
-        <div class="palette-grid">
-          <article class="palette-card p25">
-            <div class="card-head">
-              <h3>#25 Desert Bloom</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Tactile, approachable, warm</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Desert Bloom palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p26">
-            <div class="card-head">
-              <h3>#26 Misty Orchard</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Calm, airy, botanical</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Misty Orchard palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p27">
-            <div class="card-head">
-              <h3>#27 Velvet Teal</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Restrained, premium, minimal</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Velvet Teal palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-
-          <article class="palette-card p28">
-            <div class="card-head">
-              <h3>#28 Rose Quartz Studio</h3>
-              <span class="chip">[LIGHT]</span>
-            </div>
-            <p class="tagline">Fashion-forward, elegant, warm</p>
-            <div
-              class="demo-shell"
-              role="img"
-              aria-label="Preview of the Rose Quartz Studio palette"
-            >
-              <aside class="demo-nav">
-                <div class="icon"></div>
-                <div class="site-name">🚲 Monocycle</div>
-                <div class="site-subtitle">Paris / IdF</div>
-                <hr />
-                <a class="nav-link is-hover" href="#">L'asso</a>
-                <a href="#">Initiations</a>
-                <a href="#">Balades</a>
-                <hr />
-                <a href="#">Adhérer</a>
-              </aside>
-              <div class="demo-content">
-                <h1>Heading in accent</h1>
-                <p>
-                  Body text uses the content foreground token and links stay
-                  visible in accent color.
-                </p>
-                <a href="#">A link in accent</a>
-                <div class="demo-card">
-                  <h2>Card heading</h2>
-                  <p>
-                    Surface cards use the content-surface token to create
-                    structure.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swatches">
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-bg))"
-                ></span
-                ><span class="name">nav-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-fg))"
-                ></span
-                ><span class="name">nav-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-nav-dim))"
-                ></span
-                ><span class="name">nav-dim</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-bg))"
-                ></span
-                ><span class="name">content-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-fg))"
-                ></span
-                ><span class="name">content-fg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-accent))"
-                ></span
-                ><span class="name">accent</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-content-surface))"
-                ></span
-                ><span class="name">content-surface</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-page-bg))"
-                ></span
-                ><span class="name">page-bg</span>
-              </div>
-              <div class="swatch-item">
-                <span
-                  class="swatch"
-                  style="background: rgb(var(--palette-bright))"
-                ></span
-                ><span class="name">bright</span>
-              </div>
-            </div>
-            <div class="badges">
-              <span class="badge nav">nav AA —</span>
-              <span class="badge content">content AA —</span>
-              <span class="badge accent">accent note —</span>
-            </div>
-          </article>
-        </div>
-      </section>
+      <main id="showcase"></main>
     </div>
 
     <script>
+      // ------------------------------------------------------------------
+      // Palette data — single source of truth. Add a new palette by
+      // pushing an object here; the renderer + WCAG badges pick it up.
+      // ------------------------------------------------------------------
+      const SECTION_META = {
+        A: { emoji: '🌑', title: 'Baseline Dark' },
+        B: { emoji: '☀️', title: 'Baseline Light' },
+        C: { emoji: '✨', title: 'Bonus Dark — Trend Research' },
+        D: { emoji: '☀️', title: 'Bonus Light — Trend Research' },
+        E: { emoji: '⚡', title: 'Flashy / Neon / Vibrant' },
+        F: { emoji: '🕯️', title: 'Gloomy / Gothic / Moody' },
+        G: { emoji: '📓', title: 'Manga / Anime' },
+        H: { emoji: '🍵', title: 'Zen / Japandi' },
+        I: { emoji: '⬛', title: 'High Contrast / OLED' },
+        J: { emoji: '📼', title: 'Retro / Nostalgic' },
+        K: { emoji: '🌌', title: 'Nature Phenomena' },
+        L: { emoji: '🎨', title: 'Editorial Art Movements' },
+        M: { emoji: '🌒', title: 'Dark Nav Showcase' },
+        N: { emoji: '🌍', title: 'Cultural Inspirations' },
+        O: { emoji: '☕', title: 'Food & Drink' },
+        P: { emoji: '🚴', title: 'Sport & Performance' },
+      };
+
+      const SECTION_ORDER = [
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G',
+        'H',
+        'I',
+        'J',
+        'K',
+        'L',
+        'M',
+        'N',
+        'O',
+        'P',
+      ];
+
+      // Nav / content brightness classification.
+      //   LN-DC = light nav + dark content   (baseline dark)
+      //   LN-LC = light nav + light content  (baseline light)
+      //   DN-DC = dark nav  + dark content   (cohesive full-dark)
+      //   DN-LC = dark nav  + light content  (dramatic tonal split)
+      const MODE_LABEL = {
+        'LN-DC': 'DARK',
+        'LN-LC': 'LIGHT',
+        'DN-DC': 'DARK',
+        'DN-LC': 'LIGHT',
+      };
+
+      const PALETTES = [
+        // ---------- Section A — Baseline Dark ----------
+        {
+          id: 'p1',
+          section: 'A',
+          name: 'Charcoal & Ember',
+          tagline: 'Earthy, baseline reference',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [244, 240, 229],
+            'nav-fg': [14, 14, 14],
+            'nav-dim': [85, 85, 85],
+            'content-bg': [37, 37, 37],
+            'content-fg': [239, 239, 239],
+            accent: [224, 92, 0],
+            'content-surface': [52, 47, 45],
+            'page-bg': [160, 153, 135],
+            bright: [254, 254, 254],
+          },
+        },
+        {
+          id: 'p2',
+          section: 'A',
+          name: 'Marine & Ivory',
+          tagline: 'Nautical, athletic, clean',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [247, 248, 250],
+            'nav-fg': [15, 23, 42],
+            'nav-dim': [71, 85, 105],
+            'content-bg': [15, 23, 42],
+            'content-fg': [226, 232, 240],
+            accent: [56, 189, 248],
+            'content-surface': [30, 41, 59],
+            'page-bg': [100, 116, 139],
+            bright: [248, 250, 252],
+          },
+        },
+        {
+          id: 'p3',
+          section: 'A',
+          name: 'Forest & Mist',
+          tagline: 'Nature, outdoors, organic',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [248, 249, 245],
+            'nav-fg': [20, 30, 20],
+            'nav-dim': [80, 95, 80],
+            'content-bg': [18, 40, 22],
+            'content-fg': [220, 240, 222],
+            accent: [132, 204, 22],
+            'content-surface': [28, 55, 32],
+            'page-bg': [90, 120, 90],
+            bright: [254, 255, 254],
+          },
+        },
+        {
+          id: 'p4',
+          section: 'A',
+          name: 'Dusk & Coral',
+          tagline: 'Evening warmth, creative',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [242, 237, 230],
+            'nav-fg': [30, 20, 25],
+            'nav-dim': [100, 80, 85],
+            'content-bg': [45, 20, 40],
+            'content-fg': [240, 225, 235],
+            accent: [251, 113, 133],
+            'content-surface': [65, 35, 58],
+            'page-bg': [135, 90, 115],
+            bright: [255, 250, 252],
+          },
+        },
+        {
+          id: 'p5',
+          section: 'A',
+          name: 'Nordic Ice',
+          tagline: 'Scandinavian minimal, crisp',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [245, 247, 252],
+            'nav-fg': [15, 25, 50],
+            'nav-dim': [80, 95, 130],
+            'content-bg': [20, 30, 65],
+            'content-fg': [210, 225, 248],
+            accent: [34, 211, 238],
+            'content-surface': [30, 45, 85],
+            'page-bg': [95, 115, 160],
+            bright: [248, 252, 255],
+          },
+        },
+        {
+          id: 'p6',
+          section: 'A',
+          name: 'Terra & Sand',
+          tagline: 'Mediterranean, earth, warm',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [243, 236, 218],
+            'nav-fg': [42, 30, 18],
+            'nav-dim': [110, 85, 65],
+            'content-bg': [55, 30, 20],
+            'content-fg': [240, 225, 210],
+            accent: [245, 158, 11],
+            'content-surface': [75, 45, 33],
+            'page-bg': [155, 120, 90],
+            bright: [254, 250, 244],
+          },
+        },
+        {
+          id: 'p7',
+          section: 'A',
+          name: 'Midnight & Gold',
+          tagline: 'Classic, elegant, luxury',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [242, 243, 244],
+            'nav-fg': [12, 12, 15],
+            'nav-dim': [90, 90, 100],
+            'content-bg': [10, 10, 12],
+            'content-fg': [235, 235, 230],
+            accent: [234, 179, 8],
+            'content-surface': [22, 22, 28],
+            'page-bg': [80, 80, 90],
+            bright: [254, 254, 252],
+          },
+        },
+        {
+          id: 'p8',
+          section: 'A',
+          name: 'Jade & Stone',
+          tagline: 'Fresh, organic, spa-like',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [246, 247, 243],
+            'nav-fg': [18, 35, 28],
+            'nav-dim': [75, 100, 88],
+            'content-bg': [15, 50, 45],
+            'content-fg': [215, 240, 235],
+            accent: [52, 211, 153],
+            'content-surface': [25, 70, 63],
+            'page-bg': [80, 130, 118],
+            bright: [248, 255, 252],
+          },
+        },
+        {
+          id: 'p9',
+          section: 'A',
+          name: 'Plum & Rose',
+          tagline: 'Creative, sophisticated, bold',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [245, 240, 250],
+            'nav-fg': [38, 18, 45],
+            'nav-dim': [110, 80, 120],
+            'content-bg': [38, 18, 55],
+            'content-fg': [238, 225, 248],
+            accent: [232, 121, 249],
+            'content-surface': [58, 32, 78],
+            'page-bg': [125, 90, 145],
+            bright: [254, 250, 255],
+          },
+        },
+        {
+          id: 'p10',
+          section: 'A',
+          name: 'Steel & Arctic',
+          tagline: 'Modern, technical, sharp',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [246, 247, 250],
+            'nav-fg': [15, 20, 35],
+            'nav-dim': [80, 90, 115],
+            'content-bg': [18, 28, 55],
+            'content-fg': [218, 228, 248],
+            accent: [99, 179, 237],
+            'content-surface': [28, 42, 80],
+            'page-bg': [90, 110, 155],
+            bright: [248, 250, 255],
+          },
+        },
+
+        // ---------- Section B — Baseline Light ----------
+        {
+          id: 'p11',
+          section: 'B',
+          name: 'Paper & Ink',
+          tagline: 'Classic editorial, timeless',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [244, 240, 229],
+            'nav-fg': [14, 14, 14],
+            'nav-dim': [85, 85, 85],
+            'content-bg': [255, 255, 253],
+            'content-fg': [22, 22, 22],
+            accent: [13, 116, 103],
+            'content-surface': [238, 235, 228],
+            'page-bg': [200, 196, 188],
+            bright: [255, 255, 255],
+          },
+        },
+        {
+          id: 'p12',
+          section: 'B',
+          name: 'Blueprint',
+          tagline: 'Technical, structured, precise',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [219, 232, 245],
+            'nav-fg': [10, 25, 60],
+            'nav-dim': [70, 95, 140],
+            'content-bg': [248, 250, 253],
+            'content-fg': [10, 25, 60],
+            accent: [29, 78, 216],
+            'content-surface': [224, 234, 245],
+            'page-bg': [160, 185, 210],
+            bright: [255, 255, 255],
+          },
+        },
+        {
+          id: 'p13',
+          section: 'B',
+          name: 'Garden Path',
+          tagline: 'Botanical, organic, outdoors',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [212, 228, 210],
+            'nav-fg': [20, 38, 18],
+            'nav-dim': [80, 108, 78],
+            'content-bg': [248, 246, 240],
+            'content-fg': [28, 38, 22],
+            accent: [172, 58, 20],
+            'content-surface': [234, 228, 215],
+            'page-bg': [162, 185, 158],
+            bright: [254, 254, 250],
+          },
+        },
+        {
+          id: 'p14',
+          section: 'B',
+          name: 'Morning Coffee',
+          tagline: 'Cozy, warm, inviting',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [225, 205, 178],
+            'nav-fg': [35, 22, 10],
+            'nav-dim': [100, 75, 50],
+            'content-bg': [254, 250, 243],
+            'content-fg': [35, 22, 10],
+            accent: [146, 64, 14],
+            'content-surface': [240, 232, 218],
+            'page-bg': [190, 168, 140],
+            bright: [255, 253, 248],
+          },
+        },
+        {
+          id: 'p15',
+          section: 'B',
+          name: 'Birch Forest',
+          tagline: 'Naturalist, Scandinavian-light, airy',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [240, 236, 228],
+            'nav-fg': [20, 32, 22],
+            'nav-dim': [88, 102, 85],
+            'content-bg': [245, 246, 245],
+            'content-fg': [22, 32, 24],
+            accent: [21, 90, 30],
+            'content-surface': [225, 228, 224],
+            'page-bg': [175, 185, 172],
+            bright: [255, 255, 254],
+          },
+        },
+        {
+          id: 'p16',
+          section: 'B',
+          name: 'Periwinkle',
+          tagline: 'Refined, calm, creative',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [228, 225, 245],
+            'nav-fg': [25, 18, 50],
+            'nav-dim': [98, 85, 140],
+            'content-bg': [252, 251, 255],
+            'content-fg': [25, 18, 50],
+            accent: [88, 28, 135],
+            'content-surface': [236, 232, 248],
+            'page-bg': [175, 168, 210],
+            bright: [255, 255, 255],
+          },
+        },
+        {
+          id: 'p17',
+          section: 'B',
+          name: 'Seashell',
+          tagline: 'Mediterranean coast, warm, relaxed',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [238, 216, 198],
+            'nav-fg': [45, 22, 12],
+            'nav-dim': [120, 80, 60],
+            'content-bg': [254, 248, 242],
+            'content-fg': [45, 22, 12],
+            accent: [140, 40, 10],
+            'content-surface': [240, 228, 215],
+            'page-bg': [192, 160, 135],
+            bright: [255, 252, 248],
+          },
+        },
+        {
+          id: 'p18',
+          section: 'B',
+          name: 'Misty Mountain',
+          tagline: 'Clean, minimal, focus',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [220, 223, 228],
+            'nav-fg': [15, 22, 35],
+            'nav-dim': [80, 93, 110],
+            'content-bg': [255, 255, 255],
+            'content-fg': [15, 22, 35],
+            accent: [30, 80, 160],
+            'content-surface': [238, 241, 246],
+            'page-bg': [172, 178, 190],
+            bright: [255, 255, 255],
+          },
+        },
+        {
+          id: 'p19',
+          section: 'B',
+          name: 'Meadow',
+          tagline: 'Fresh, energetic, sporty',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [210, 240, 220],
+            'nav-fg': [12, 35, 18],
+            'nav-dim': [60, 105, 72],
+            'content-bg': [248, 252, 248],
+            'content-fg': [12, 35, 18],
+            accent: [22, 130, 48],
+            'content-surface': [228, 242, 230],
+            'page-bg': [148, 195, 162],
+            bright: [254, 255, 254],
+          },
+        },
+        {
+          id: 'p20',
+          section: 'B',
+          name: 'Sunset Blush',
+          tagline: 'Elegant, festive, warm',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [245, 220, 220],
+            'nav-fg': [45, 15, 20],
+            'nav-dim': [120, 65, 72],
+            'content-bg': [255, 249, 248],
+            'content-fg': [45, 15, 20],
+            accent: [130, 15, 40],
+            'content-surface': [240, 225, 224],
+            'page-bg': [195, 158, 158],
+            bright: [255, 255, 255],
+          },
+        },
+
+        // ---------- Section C — Bonus Dark (trend research) ----------
+        {
+          id: 'p21',
+          section: 'C',
+          name: 'Cobalt Moonlight',
+          tagline: 'Polished, modern, technical',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [242, 246, 252],
+            'nav-fg': [10, 18, 42],
+            'nav-dim': [78, 98, 145],
+            'content-bg': [8, 18, 50],
+            'content-fg': [208, 222, 248],
+            accent: [50, 218, 252],
+            'content-surface': [18, 32, 75],
+            'page-bg': [52, 82, 148],
+            bright: [248, 252, 255],
+          },
+        },
+        {
+          id: 'p22',
+          section: 'C',
+          name: 'Velvet Orchard',
+          tagline: 'Moody, organic, earthy',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [246, 242, 230],
+            'nav-fg': [24, 28, 14],
+            'nav-dim': [92, 98, 68],
+            'content-bg': [22, 38, 18],
+            'content-fg': [222, 232, 208],
+            accent: [212, 155, 38],
+            'content-surface': [35, 55, 28],
+            'page-bg': [85, 108, 62],
+            bright: [255, 252, 238],
+          },
+        },
+        {
+          id: 'p23',
+          section: 'C',
+          name: 'Saffron Noir',
+          tagline: 'Cinematic, editorial, bold',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [245, 238, 222],
+            'nav-fg': [12, 10, 8],
+            'nav-dim': [88, 78, 62],
+            'content-bg': [15, 12, 10],
+            'content-fg': [238, 228, 212],
+            accent: [215, 95, 25],
+            'content-surface': [28, 24, 20],
+            'page-bg': [72, 62, 50],
+            bright: [255, 250, 235],
+          },
+        },
+        {
+          id: 'p24',
+          section: 'C',
+          name: 'Aurora Slate',
+          tagline: 'Modern, tech-forward, crisp',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': [244, 244, 252],
+            'nav-fg': [20, 14, 52],
+            'nav-dim': [98, 92, 158],
+            'content-bg': [18, 14, 58],
+            'content-fg': [215, 218, 248],
+            accent: [42, 218, 208],
+            'content-surface': [30, 25, 85],
+            'page-bg': [85, 88, 158],
+            bright: [248, 250, 255],
+          },
+        },
+
+        // ---------- Section D — Bonus Light (trend research) ----------
+        {
+          id: 'p25',
+          section: 'D',
+          name: 'Desert Bloom',
+          tagline: 'Tactile, approachable, warm',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [228, 210, 192],
+            'nav-fg': [55, 30, 15],
+            'nav-dim': [132, 98, 72],
+            'content-bg': [252, 245, 235],
+            'content-fg': [55, 30, 15],
+            accent: [168, 72, 28],
+            'content-surface': [238, 228, 215],
+            'page-bg': [192, 168, 142],
+            bright: [255, 250, 240],
+          },
+        },
+        {
+          id: 'p26',
+          section: 'D',
+          name: 'Misty Orchard',
+          tagline: 'Calm, airy, botanical',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [218, 232, 215],
+            'nav-fg': [18, 42, 20],
+            'nav-dim': [78, 112, 80],
+            'content-bg': [250, 250, 246],
+            'content-fg': [22, 42, 24],
+            accent: [28, 100, 42],
+            'content-surface': [232, 236, 228],
+            'page-bg': [162, 188, 160],
+            bright: [255, 255, 252],
+          },
+        },
+        {
+          id: 'p27',
+          section: 'D',
+          name: 'Velvet Teal',
+          tagline: 'Restrained, premium, minimal',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [210, 228, 238],
+            'nav-fg': [14, 38, 58],
+            'nav-dim': [72, 112, 138],
+            'content-bg': [248, 252, 254],
+            'content-fg': [14, 38, 58],
+            accent: [12, 108, 140],
+            'content-surface': [228, 240, 248],
+            'page-bg': [152, 188, 208],
+            bright: [255, 255, 255],
+          },
+        },
+        {
+          id: 'p28',
+          section: 'D',
+          name: 'Rose Quartz Studio',
+          tagline: 'Fashion-forward, elegant, warm',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': [242, 222, 228],
+            'nav-fg': [55, 18, 28],
+            'nav-dim': [138, 82, 95],
+            'content-bg': [255, 250, 252],
+            'content-fg': [55, 18, 28],
+            accent: [120, 22, 45],
+            'content-surface': [242, 230, 235],
+            'page-bg': [198, 165, 175],
+            bright: [255, 255, 255],
+          },
+        },
+      ];
+
+      // ------------------------------------------------------------------
+      // Renderer
+      // ------------------------------------------------------------------
+      const TOKEN_ORDER = [
+        'nav-bg',
+        'nav-fg',
+        'nav-dim',
+        'content-bg',
+        'content-fg',
+        'accent',
+        'content-surface',
+        'page-bg',
+        'bright',
+      ];
+
+      function injectPaletteVars() {
+        const rules = PALETTES.map((p) => {
+          const vars = TOKEN_ORDER.map(
+            (t) => `--palette-${t}: ${p.tokens[t].join(', ')};`,
+          ).join(' ');
+          return `.${p.id} { ${vars} }`;
+        }).join('\n');
+        const styleEl = document.createElement('style');
+        styleEl.id = 'palette-vars';
+        styleEl.textContent = rules;
+        document.head.appendChild(styleEl);
+      }
+
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      function cardMarkup(p) {
+        const number = p.id.slice(1);
+        const swatches = TOKEN_ORDER.map(
+          (t) => `
+              <div class="swatch-item">
+                <span
+                  class="swatch"
+                  style="background: rgb(var(--palette-${t}))"
+                ></span
+                ><span class="name">${t}</span>
+              </div>`,
+        ).join('');
+        return `
+            <div class="card-head">
+              <h3>#${number} ${escapeHtml(p.name)}</h3>
+              <span class="chip">[${MODE_LABEL[p.mode]}]</span>
+            </div>
+            <p class="tagline">${escapeHtml(p.tagline)}</p>
+            <div
+              class="demo-shell"
+              role="img"
+              aria-label="Preview of the ${escapeHtml(p.name)} palette"
+            >
+              <aside class="demo-nav">
+                <div class="icon"></div>
+                <div class="site-name">🚲 Monocycle</div>
+                <div class="site-subtitle">Paris / IdF</div>
+                <hr />
+                <a class="nav-link is-hover" href="#">L'asso</a>
+                <a href="#">Initiations</a>
+                <a href="#">Balades</a>
+                <hr />
+                <a href="#">Adhérer</a>
+              </aside>
+              <div class="demo-content">
+                <h1>Heading in accent</h1>
+                <p>
+                  Body text uses the content foreground token and links stay
+                  visible in accent color.
+                </p>
+                <a href="#">A link in accent</a>
+                <div class="demo-card">
+                  <h2>Card heading</h2>
+                  <p>
+                    Surface cards use the content-surface token to create
+                    structure.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swatches">${swatches}
+            </div>
+            <div class="badges">
+              <span class="badge nav">nav AA —</span>
+              <span class="badge content">content AA —</span>
+              <span class="badge accent">accent note —</span>
+            </div>`;
+      }
+
+      function renderPalettes() {
+        const showcase = document.getElementById('showcase');
+        const bySection = new Map();
+        for (const p of PALETTES) {
+          if (!bySection.has(p.section)) bySection.set(p.section, []);
+          bySection.get(p.section).push(p);
+        }
+        for (const sec of SECTION_ORDER) {
+          const list = bySection.get(sec);
+          if (!list || list.length === 0) continue;
+          const meta = SECTION_META[sec];
+          const section = document.createElement('section');
+          section.className = 'mode-section';
+          section.id = `section-${sec}`;
+          section.innerHTML = `<h2>${meta.emoji} ${escapeHtml(meta.title)}</h2><div class="palette-grid"></div>`;
+          const grid = section.querySelector('.palette-grid');
+          for (const p of list) {
+            const article = document.createElement('article');
+            article.className = `palette-card ${p.id}`;
+            article.dataset.mode = p.mode;
+            article.innerHTML = cardMarkup(p);
+            grid.appendChild(article);
+          }
+          showcase.appendChild(section);
+        }
+      }
+
+      // ------------------------------------------------------------------
+      // WCAG contrast badges — computed once after render.
+      // ------------------------------------------------------------------
       function luminance(r, g, b) {
         return [r, g, b]
           .map((c) => {
@@ -3805,60 +1305,124 @@
         return (hi + 0.05) / (lo + 0.05);
       }
 
-      document.querySelectorAll('.palette-card').forEach((card) => {
-        const style = getComputedStyle(card);
-        const get = (token) =>
-          style.getPropertyValue(token).trim().split(',').map(Number);
+      function computeBadges() {
+        document.querySelectorAll('.palette-card').forEach((card) => {
+          const style = getComputedStyle(card);
+          const get = (token) =>
+            style.getPropertyValue(token).trim().split(',').map(Number);
 
-        const getRatioText = (bg, fg) => {
-          const ratio = contrast(luminance(...bg), luminance(...fg));
-          return ratio.toFixed(2);
-        };
+          const navBg = get('--palette-nav-bg');
+          const navFg = get('--palette-nav-fg');
+          const contentBg = get('--palette-content-bg');
+          const contentFg = get('--palette-content-fg');
+          const accent = get('--palette-accent');
 
-        const navBg = get('--palette-nav-bg');
-        const navFg = get('--palette-nav-fg');
-        const contentBg = get('--palette-content-bg');
-        const contentFg = get('--palette-content-fg');
-        const accent = get('--palette-accent');
+          const navRatio = contrast(luminance(...navBg), luminance(...navFg));
+          const contentRatio = contrast(
+            luminance(...contentBg),
+            luminance(...contentFg),
+          );
+          const accentRatio = contrast(
+            luminance(...contentBg),
+            luminance(...accent),
+          );
 
-        const navRatio = contrast(luminance(...navBg), luminance(...navFg));
-        const contentRatio = contrast(
-          luminance(...contentBg),
-          luminance(...contentFg),
+          const navBadge = card.querySelector('.badge.nav');
+          const contentBadge = card.querySelector('.badge.content');
+          const accentBadge = card.querySelector('.badge.accent');
+
+          if (navBadge) {
+            navBadge.textContent = `nav AA ${navRatio >= 4.5 ? '✓' : '✗'} ${navRatio.toFixed(2)}:1`;
+            navBadge.style.color =
+              navRatio >= 4.5
+                ? 'rgb(var(--palette-accent))'
+                : 'rgb(var(--palette-content-fg))';
+          }
+
+          if (contentBadge) {
+            contentBadge.textContent = `content AA ${contentRatio >= 4.5 ? '✓' : '✗'} ${contentRatio.toFixed(2)}:1`;
+            contentBadge.style.color =
+              contentRatio >= 4.5
+                ? 'rgb(var(--palette-accent))'
+                : 'rgb(var(--palette-content-fg))';
+          }
+
+          if (accentBadge) {
+            accentBadge.textContent = `accent on content ${accentRatio >= 3 ? '✓' : '✗'} ${accentRatio.toFixed(2)}:1`;
+            accentBadge.style.color =
+              accentRatio >= 3
+                ? 'rgb(var(--palette-accent))'
+                : 'rgb(var(--palette-content-fg))';
+          }
+        });
+      }
+
+      // ------------------------------------------------------------------
+      // Menu — section anchors + filter chips. Anchors are built after
+      // renderPalettes() so they reflect only sections that actually have
+      // palettes. Filter chips toggle body-level classes that hide cards
+      // via CSS attribute selectors on data-mode.
+      // ------------------------------------------------------------------
+      function renderMenu() {
+        const container = document.getElementById('menu-anchors');
+        if (!container) return;
+        for (const sec of SECTION_ORDER) {
+          const section = document.getElementById(`section-${sec}`);
+          if (!section) continue;
+          const meta = SECTION_META[sec];
+          const link = document.createElement('a');
+          link.href = `#section-${sec}`;
+          link.dataset.section = sec;
+          link.innerHTML = `${sec} \u00b7 ${escapeHtml(meta.title)} <span class="count">0</span>`;
+          container.appendChild(link);
+        }
+      }
+
+      function updateCounts() {
+        // Card display is driven by body.hide-* classes and each card's
+        // data-mode. Use the card's own computed display so a section that
+        // was previously hidden does not mask its children's real state.
+        for (const sec of SECTION_ORDER) {
+          const section = document.getElementById(`section-${sec}`);
+          if (!section) continue;
+          const cards = section.querySelectorAll('.palette-card');
+          let visible = 0;
+          cards.forEach((c) => {
+            if (getComputedStyle(c).display !== 'none') visible++;
+          });
+          section.hidden = visible === 0;
+          const link = document.querySelector(
+            `#menu-anchors a[data-section="${sec}"]`,
+          );
+          if (link) {
+            const countEl = link.querySelector('.count');
+            if (countEl) countEl.textContent = String(visible);
+            link.hidden = visible === 0;
+          }
+        }
+      }
+
+      function initMenu() {
+        const chips = document.querySelectorAll(
+          '.menu-filters input[data-filter]',
         );
-        const accentRatio = contrast(
-          luminance(...contentBg),
-          luminance(...accent),
-        );
+        chips.forEach((input) => {
+          input.addEventListener('change', () => {
+            document.body.classList.toggle(
+              `hide-${input.dataset.filter}`,
+              !input.checked,
+            );
+            updateCounts();
+          });
+        });
+        updateCounts();
+      }
 
-        const navBadge = card.querySelector('.badge.nav');
-        const contentBadge = card.querySelector('.badge.content');
-        const accentBadge = card.querySelector('.badge.accent');
-
-        if (navBadge) {
-          navBadge.textContent = `nav AA ${navRatio >= 4.5 ? '✓' : '✗'} ${navRatio.toFixed(2)}:1`;
-          navBadge.style.color =
-            navRatio >= 4.5
-              ? 'rgb(var(--palette-accent))'
-              : 'rgb(var(--palette-content-fg))';
-        }
-
-        if (contentBadge) {
-          contentBadge.textContent = `content AA ${contentRatio >= 4.5 ? '✓' : '✗'} ${contentRatio.toFixed(2)}:1`;
-          contentBadge.style.color =
-            contentRatio >= 4.5
-              ? 'rgb(var(--palette-accent))'
-              : 'rgb(var(--palette-content-fg))';
-        }
-
-        if (accentBadge) {
-          accentBadge.textContent = `accent on content ${accentRatio >= 3 ? '✓' : '✗'} ${accentRatio.toFixed(2)}:1`;
-          accentBadge.style.color =
-            accentRatio >= 3
-              ? 'rgb(var(--palette-accent))'
-              : 'rgb(var(--palette-content-fg))';
-        }
-      });
+      injectPaletteVars();
+      renderPalettes();
+      computeBadges();
+      renderMenu();
+      initMenu();
     </script>
   </body>
 </html>
