@@ -6,14 +6,12 @@ description: >-
   organisé par Roule Ta Bille, dans la forêt de Fontainebleau.
 permalink: /roule-ton-caillou.html
 ---
+
 <article>
   <h1>Roule Ton Caillou</h1>
 
   <card>
-    <p>
-      Une à deux fois par an, nous partons en Seine-et-Marne pour profiter des sentiers escarpés de la forêt de Fontainebleau en monocycle tout-terrain.
-      Repas et hébergement sont compris.
-    </p>
+    <p>Une à deux fois par an, nous partons en Seine-et-Marne pour profiter des sentiers escarpés de la forêt de Fontainebleau en monocycle tout-terrain. Repas et hébergement sont compris.</p>
     <p>
       <strong>TODO: Insérer affiches et photos</strong>
     </p>
@@ -36,9 +34,6 @@ permalink: /roule-ton-caillou.html
   </card>
 
   <card heading="Pour participer">
-    <p>
-      L'événement est ouvert aux pratiquants sachant déjà rouler en autonomie.
-      Que vous soyez déjà à l'aise sur les chemins ou que ce soit votre premier muni, vous êtes les bienvenu·es !
-    </p>
+    <p>L'événement est ouvert aux pratiquants sachant déjà rouler en autonomie. Que vous soyez déjà à l'aise sur les chemins ou que ce soit votre premier muni, vous êtes les bienvenu·es !</p>
   </card>
 </article>

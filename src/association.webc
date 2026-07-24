@@ -6,56 +6,47 @@ description: >-
   et en Île-de-France. Découvrez nos disciplines, nos activités et comment nous rejoindre.
 permalink: /association.html
 ---
+
 <article>
   <h1>Qui sommes-nous ?</h1>
 
   <card>
-    <p>
-      <strong>Roule Ta Bille (RTB)</strong> est une association loi 1901 à but non lucratif dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et en Île-de-France.
-
-    </p>
-    <p>
-      Notre objectif est de faire connaître et partager la pratique du monocycle, tout en favorisant le lien social autour de notre sport.
-    </p>
+    <p><strong>Roule Ta Bille (RTB)</strong> est une association loi 1901 à but non lucratif dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et en Île-de-France.</p>
+    <p>Notre objectif est de faire connaître et partager la pratique du monocycle, tout en favorisant le lien social autour de notre sport.</p>
   </card>
 
   <card heading="Disciplines et activités">
-   <p>Parmi toutes les <a href="https://fr.wikipedia.org/wiki/Monocycle#Les_disciplines_du_monocycle" target="_blank" rel="noopener noreferrer">disciplines existantes</a>, voici celles* proposées par notre asso :</p>
+    <p>Parmi toutes les <a href="https://fr.wikipedia.org/wiki/Monocycle#Les_disciplines_du_monocycle" target="_blank" rel="noopener noreferrer">disciplines existantes</a>, voici celles* proposées par notre asso :</p>
 
-<ul>
-<li><a href="/balades-du-mardi-soir">Balade</a> parisienne les mardis soir</li>
-<li><a href="/trial-street-flat">Trial, street, flat</a> les mercredis soir</li>
-<li><a href="/roule-ton-caillou">Muni (tout terrain)</a> en Île de France lors d'événements ponctuels</li>
-<li>Randonnée du 11 novembre : parcours de 50 km reliant Pantin à Meaux, le long du canal de l’Ourcq.</li>
-<li>Participation à des rendez-vous sportifs et festifs comme Sentez-vous Sport (CNOSF) ou le défilé des vendanges de Montmartre.</li>
-<li>Présence groupée aux grandes compétitions du monocycle, en France comme à l’international : la <a href="https://fr.wikipedia.org/wiki/Monocycle#Coupe_de_France" target="_blank" rel="noopener noreferrer">CFM</a> (Coupe de France de Monocycle, annuelle) et <a href="https://fr.wikipedia.org/wiki/Monocycle#Unicon_(Championnat_du_monde)" target="_blank" rel="noopener noreferrer">l’Unicon</a> (championnats du monde, tous les deux ans).</li>
-</ul>
+    <ul>
+      <li><a href="/balades-du-mardi-soir">Balade</a> parisienne les mardis soir</li>
+      <li><a href="/trial-street-flat">Trial, street, flat</a> les mercredis soir</li>
+      <li><a href="/roule-ton-caillou">Muni (tout terrain)</a> en Île de France lors d'événements ponctuels</li>
+      <li>Randonnée du 11 novembre : parcours de 50 km reliant Pantin à Meaux, le long du canal de l’Ourcq.</li>
+      <li>Participation à des rendez-vous sportifs et festifs comme Sentez-vous Sport (CNOSF) ou le défilé des vendanges de Montmartre.</li>
+      <li>Présence groupée aux grandes compétitions du monocycle, en France comme à l’international : la <a href="https://fr.wikipedia.org/wiki/Monocycle#Coupe_de_France" target="_blank" rel="noopener noreferrer">CFM</a> (Coupe de France de Monocycle, annuelle) et <a href="https://fr.wikipedia.org/wiki/Monocycle#Unicon_(Championnat_du_monde)" target="_blank" rel="noopener noreferrer">l’Unicon</a> (championnats du monde, tous les deux ans).</li>
+    </ul>
 
-<sub>(*) Nous sommes cependant ouverts à toutes propositions extérieures qui nous permettraient d’explorer de nouveaux horizons 😉</sub>
-
+    <sub>(*) Nous sommes cependant ouverts à toutes propositions extérieures qui nous permettraient d’explorer de nouveaux horizons 😉</sub>
   </card>
 
   <card heading="Affiliations">
     <p>Roule Ta Bille est officiellement rattachée aux instances suivantes :</p>
     <ul>
       <li>
-        <a href="https://monocycle.info/commission-nationale-monocycle/" target="_blank" rel="noopener noreferrer">
-          Commission Nationale du Monocycle (CNM)
-        </a>
+        <a href="https://monocycle.info/commission-nationale-monocycle/" target="_blank" rel="noopener noreferrer">Commission Nationale du Monocycle (CNM)</a>
       </li>
       <li>
-        <a href="https://www.leolagrange-sport.org/pratiquer-un-sport/" target="_blank" rel="noopener noreferrer">
-          Union Nationale Sportive Léo Lagrange (UNSLL)
-        </a>
+        <a href="https://www.leolagrange-sport.org/pratiquer-un-sport/" target="_blank" rel="noopener noreferrer">Union Nationale Sportive Léo Lagrange (UNSLL)</a>
       </li>
     </ul>
   </card>
 
   <card heading="Informations légales">
     <ul>
-    <li><strong>Date de création:</strong> 26/10/2005</li>
-    <li><strong>RNA:</strong> W913000310</li>
-    <li><strong>SIREN:</strong> 812407344</li>
+      <li><strong>Date de création:</strong> 26/10/2005</li>
+      <li><strong>RNA:</strong> W913000310</li>
+      <li><strong>SIREN:</strong> 812407344</li>
     </ul>
   </card>
 

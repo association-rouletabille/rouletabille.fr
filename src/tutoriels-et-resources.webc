@@ -5,25 +5,18 @@ description: >-
   Le plein d'informations intéressantes. A consommer sans modération !
 permalink: /tutoriels-et-resources.html
 ---
+
 <article>
   <h1>Tutoriels et resources</h1>
 
   <card>
-    <p>
-      <strong>TODO :</strong> Texte d'introduction
-    </p>
-    <p>
-      <ul>
-        <li><a href="https://forum.monocycle.info/" target="_blank" rel="noopener noreferrer">https://forum.monocycle.info/</a></li>
-        <li><a href="https://unicyclist.com/" target="_blank" rel="noopener noreferrer">https://unicyclist.com/</a></li>
-        <li><a href="https://www.youtube.com/@CommissionNationaleMonocycle" target="_blank" rel="noopener noreferrer">https://www.youtube.com/@CommissionNationaleMonocycle</a></li>
-      </ul>
-    </p>
+    <p><strong>TODO :</strong> Texte d'introduction</p>
+    <ul>
+      <li><a href="https://forum.monocycle.info/" target="_blank" rel="noopener noreferrer">https://forum.monocycle.info/</a></li>
+      <li><a href="https://unicyclist.com/" target="_blank" rel="noopener noreferrer">https://unicyclist.com/</a></li>
+      <li><a href="https://www.youtube.com/@CommissionNationaleMonocycle" target="_blank" rel="noopener noreferrer">https://www.youtube.com/@CommissionNationaleMonocycle</a></li>
+    </ul>
 
-    <p>
-      <strong>TODO :</strong> Compléter les liens
-    </p>
-
+    <p><strong>TODO :</strong> Compléter les liens</p>
   </card>
-
 </article>

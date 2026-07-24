@@ -5,28 +5,28 @@ description: Page non disponible
 permalink: /404.html
 eleventyExcludeFromCollections: true
 ---
+
 <article>
   <h1>404 - Page non disponible</h1>
   <card>
-  <icon name="unicycle"></icon>
-  <p>La page que vous souhaitez consulter est introuvable&nbsp;😢</p>
-  <p>Vous avez pu être mené ici par un lien cassé, à moins que vous n’ayez fait une faute de frappe dans l’adresse que vous vouliez atteindre.</p>
+    <icon name="unicycle"></icon>
+    <p>La page que vous souhaitez consulter est introuvable&nbsp;😢</p>
+    <p>Vous avez pu être mené ici par un lien cassé, à moins que vous n’ayez fait une faute de frappe dans l’adresse que vous vouliez atteindre.</p>
   </card>
 </article>
 
 <style>
+  article svg {
+    display: block;
+    margin-inline: auto;
+    width: 8rem;
+    height: 8rem;
+    color: rgb(var(--palette-content-fg));
+  }
 
-article svg {
-  display: block;
-  margin-inline: auto;
-  width: 8rem;
-  height: 8rem;
-  color: rgb(var(--palette-content-fg));
-}
-
-article svg {
-  transform: rotate(-138deg);
-  transform-box: fill-box;
-  transform-origin: center;
-}
+  article svg {
+    transform: rotate(-138deg);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
 </style>

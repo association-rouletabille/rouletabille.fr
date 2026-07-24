@@ -36,7 +36,7 @@
     "prepare": "npx husky"
   },
   "lint-staged": {
-    "(*.js|*.css|*.html|*.md)": [
+    "(*.js|*.css|*.html|*.md|*.webc)": [
       "npm run lint",
       "npm run format"
     ]
