@@ -1,6 +1,6 @@
 # rouletabille.fr — Palette Showcase
 
-> **Keep this file in sync with [`palette-showcase.html`](palette-showcase.html).** The interactive showcase page and this Markdown catalogue share the same palette data. Any addition, removal, or value change made here **must** be mirrored in the `PALETTES` array inside `palette-showcase.html` — and vice-versa. The two files are the canonical reference for the site's design tokens and should never drift.
+> **Keep this file in sync with [`src/public/palette-showcase.html`](src/public/palette-showcase.html).** The interactive showcase page and this Markdown catalogue share the same palette data. Any addition, removal, or value change made here **must** be mirrored in the `PALETTES` array inside `palette-showcase.html` — and vice-versa. The two files are the canonical reference for the site's design tokens and should never drift.
 
 Each palette below is defined by nine CSS custom properties (exposed in the showcase as `--palette-<token>`). Values are given as the raw `r, g, b` triple used inside `rgb()` and as the equivalent `#RRGGBB` hex code for quick reference.
 
