@@ -1619,3 +1619,743 @@ _Track blue + medal gold + wood + white_
 | `--palette-content-surface` | 242, 240, 232 | `#F2F0E8` |
 | `--palette-page-bg`         | 155, 100, 55  | `#9B6437` |
 | `--palette-bright`          | 255, 253, 248 | `#FFFDF8` |
+
+## 💥 Section Q — Chromatic Clash
+
+### Crimson vs Teal
+
+_Red-blue collision cooled by amber_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 234, 184, 188 | `#EAB8BC` |
+| `--palette-nav-fg`          | 58, 3, 8      | `#3A0308` |
+| `--palette-nav-dim`         | 137, 84, 89   | `#895459` |
+| `--palette-content-bg`      | 21, 40, 38    | `#152826` |
+| `--palette-content-fg`      | 230, 240, 239 | `#E6F0EF` |
+| `--palette-accent`          | 250, 204, 66  | `#FACC42` |
+| `--palette-content-surface` | 35, 53, 51    | `#233533` |
+| `--palette-page-bg`         | 170, 147, 56  | `#AA9338` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Ultraviolet Meadow
+
+_Violet + acid green, ochre punch_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 222, 184, 234 | `#DEB8EA` |
+| `--palette-nav-fg`          | 44, 3, 58     | `#2C033A` |
+| `--palette-nav-dim`         | 124, 84, 137  | `#7C5489` |
+| `--palette-content-bg`      | 31, 40, 21    | `#1F2815` |
+| `--palette-content-fg`      | 235, 240, 230 | `#EBF0E6` |
+| `--palette-accent`          | 250, 158, 66  | `#FA9E42` |
+| `--palette-content-surface` | 44, 53, 35    | `#2C3523` |
+| `--palette-page-bg`         | 173, 117, 50  | `#AD7532` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Ember & Aegean
+
+_Rust nav, deep sea reading_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 234, 196, 184 | `#EAC4B8` |
+| `--palette-nav-fg`          | 58, 17, 3     | `#3A1103` |
+| `--palette-nav-dim`         | 137, 98, 84   | `#896254` |
+| `--palette-content-bg`      | 21, 31, 40    | `#151F28` |
+| `--palette-content-fg`      | 230, 235, 240 | `#E6EBF0` |
+| `--palette-accent`          | 250, 235, 66  | `#FAEB42` |
+| `--palette-content-surface` | 35, 44, 53    | `#232C35` |
+| `--palette-page-bg`         | 170, 164, 57  | `#AAA439` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Jade & Magenta
+
+_Botanical against theatre pink_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 184, 234, 205 | `#B8EACD` |
+| `--palette-nav-fg`          | 3, 58, 26     | `#033A1A` |
+| `--palette-nav-dim`         | 84, 137, 107  | `#54896B` |
+| `--palette-content-bg`      | 40, 21, 34    | `#281522` |
+| `--palette-content-fg`      | 240, 230, 236 | `#F0E6EC` |
+| `--palette-accent`          | 66, 189, 250  | `#42BDFA` |
+| `--palette-content-surface` | 53, 35, 47    | `#35232F` |
+| `--palette-page-bg`         | 57, 130, 174  | `#3982AE` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Butter & Cobalt
+
+_Warm signage, cold long-form_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 234, 230, 184 | `#EAE6B8` |
+| `--palette-nav-fg`          | 58, 54, 3     | `#3A3603` |
+| `--palette-nav-dim`         | 137, 133, 84  | `#898554` |
+| `--palette-content-bg`      | 24, 21, 40    | `#181528` |
+| `--palette-content-fg`      | 231, 230, 240 | `#E7E6F0` |
+| `--palette-accent`          | 250, 81, 66   | `#FA5142` |
+| `--palette-content-surface` | 38, 35, 53    | `#262335` |
+| `--palette-page-bg`         | 171, 60, 57   | `#AB3C39` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+## 🖨️ Section R — Riso / Duotone
+
+### Riso Pink & Federal
+
+_Zine cover, ink still tacky_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 245, 239, 224 | `#F5EFE0` |
+| `--palette-nav-fg`          | 61, 85, 136   | `#3D5588` |
+| `--palette-nav-dim`         | 144, 154, 176 | `#909AB0` |
+| `--palette-content-bg`      | 249, 245, 235 | `#F9F5EB` |
+| `--palette-content-fg`      | 61, 85, 136   | `#3D5588` |
+| `--palette-accent`          | 153, 0, 87    | `#990057` |
+| `--palette-content-surface` | 234, 230, 221 | `#EAE6DD` |
+| `--palette-page-bg`         | 187, 86, 139  | `#BB568B` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Riso Kraft & Aqua
+
+_Community poster, deep bordeaux_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 232, 220, 196 | `#E8DCC4` |
+| `--palette-nav-fg`          | 99, 54, 78    | `#63364E` |
+| `--palette-nav-dim`         | 159, 129, 131 | `#9F8183` |
+| `--palette-content-bg`      | 240, 232, 217 | `#F0E8D9` |
+| `--palette-content-fg`      | 145, 78, 114  | `#914E72` |
+| `--palette-accent`          | 0, 144, 153   | `#009099` |
+| `--palette-content-surface` | 226, 218, 204 | `#E2DACC` |
+| `--palette-page-bg`         | 84, 175, 175  | `#54AFAF` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Riso Violet & Neon Coral
+
+_Punk chapbook, screaming coral_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 245, 239, 224 | `#F5EFE0` |
+| `--palette-nav-fg`          | 118, 91, 167  | `#765BA7` |
+| `--palette-nav-dim`         | 175, 158, 193 | `#AF9EC1` |
+| `--palette-content-bg`      | 249, 245, 235 | `#F9F5EB` |
+| `--palette-content-fg`      | 118, 91, 167  | `#765BA7` |
+| `--palette-accent`          | 153, 0, 3     | `#990003` |
+| `--palette-content-surface` | 234, 230, 221 | `#EAE6DD` |
+| `--palette-page-bg`         | 187, 86, 84   | `#BB5654` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Riso Forest & Burgundy
+
+_Herbarium plate + wine stain_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 245, 239, 224 | `#F5EFE0` |
+| `--palette-nav-fg`          | 0, 122, 59    | `#007A3B` |
+| `--palette-nav-dim`         | 110, 175, 133 | `#6EAF85` |
+| `--palette-content-bg`      | 249, 245, 235 | `#F9F5EB` |
+| `--palette-content-fg`      | 0, 122, 59    | `#007A3B` |
+| `--palette-accent`          | 145, 78, 114  | `#914E72` |
+| `--palette-content-surface` | 234, 230, 221 | `#EAE6DD` |
+| `--palette-page-bg`         | 181, 136, 156 | `#B5889C` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Riso Ink & Yellow
+
+_Black + hi-vis yellow on kraft_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 232, 220, 196 | `#E8DCC4` |
+| `--palette-nav-fg`          | 42, 42, 42    | `#2A2A2A` |
+| `--palette-nav-dim`         | 128, 122, 111 | `#807A6F` |
+| `--palette-content-bg`      | 240, 232, 217 | `#F0E8D9` |
+| `--palette-content-fg`      | 42, 42, 42    | `#2A2A2A` |
+| `--palette-accent`          | 143, 130, 0   | `#8F8200` |
+| `--palette-content-surface` | 226, 218, 204 | `#E2DACC` |
+| `--palette-page-bg`         | 177, 166, 76  | `#B1A64C` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+## ☢️ Section S — Toxic / Bioluminescent
+
+### Radium Dial
+
+_Watchface glow after the lights die_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 17, 19, 11    | `#11130B` |
+| `--palette-nav-fg`          | 228, 234, 215 | `#E4EAD7` |
+| `--palette-nav-dim`         | 133, 137, 123 | `#85897B` |
+| `--palette-content-bg`      | 11, 12, 8     | `#0B0C08` |
+| `--palette-content-fg`      | 237, 240, 230 | `#EDF0E6` |
+| `--palette-accent`          | 186, 255, 26  | `#BAFF1A` |
+| `--palette-content-surface` | 26, 27, 23    | `#1A1B17` |
+| `--palette-page-bg`         | 125, 170, 20  | `#7DAA14` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Neon Frog
+
+_Dendrobates green, do-not-touch bright_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 11, 19, 13    | `#0B130D` |
+| `--palette-nav-fg`          | 215, 234, 218 | `#D7EADA` |
+| `--palette-nav-dim`         | 123, 137, 126 | `#7B897E` |
+| `--palette-content-bg`      | 8, 12, 9      | `#080C09` |
+| `--palette-content-fg`      | 230, 240, 231 | `#E6F0E7` |
+| `--palette-accent`          | 10, 255, 51   | `#0AFF33` |
+| `--palette-content-surface` | 23, 27, 24    | `#171B18` |
+| `--palette-page-bg`         | 9, 170, 36    | `#09AA24` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### UV Reactor
+
+_Blacklight violet, subterranean_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 17, 11, 19    | `#110B13` |
+| `--palette-nav-fg`          | 229, 215, 234 | `#E5D7EA` |
+| `--palette-nav-dim`         | 134, 123, 137 | `#867B89` |
+| `--palette-content-bg`      | 11, 8, 12     | `#0B080C` |
+| `--palette-content-fg`      | 237, 230, 240 | `#EDE6F0` |
+| `--palette-accent`          | 207, 61, 255  | `#CF3DFF` |
+| `--palette-content-surface` | 26, 23, 27    | `#1A171B` |
+| `--palette-page-bg`         | 138, 42, 170  | `#8A2AAA` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Deep Bioluminescence
+
+_Anglerfish lure at 800 m_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 11, 18, 19    | `#0B1213` |
+| `--palette-nav-fg`          | 215, 231, 234 | `#D7E7EA` |
+| `--palette-nav-dim`         | 123, 135, 137 | `#7B8789` |
+| `--palette-content-bg`      | 8, 12, 12     | `#080C0C` |
+| `--palette-content-fg`      | 230, 238, 240 | `#E6EEF0` |
+| `--palette-accent`          | 26, 217, 255  | `#1AD9FF` |
+| `--palette-content-surface` | 23, 27, 27    | `#171B1B` |
+| `--palette-page-bg`         | 20, 145, 170  | `#1491AA` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Hazmat Yellow
+
+_Trefoil sign, keep back three metres_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 19, 18, 11    | `#13120B` |
+| `--palette-nav-fg`          | 234, 232, 215 | `#EAE8D7` |
+| `--palette-nav-dim`         | 137, 136, 123 | `#89887B` |
+| `--palette-content-bg`      | 12, 12, 8     | `#0C0C08` |
+| `--palette-content-fg`      | 240, 239, 230 | `#F0EFE6` |
+| `--palette-accent`          | 255, 236, 26  | `#FFEC1A` |
+| `--palette-content-surface` | 27, 27, 23    | `#1B1B17` |
+| `--palette-page-bg`         | 170, 158, 20  | `#AA9E14` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+## 🎬 Section T — Split-Tone Cinematic
+
+### Teal & Orange
+
+_Blockbuster grade, standard issue_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 9, 24, 32     | `#091820` |
+| `--palette-nav-fg`          | 243, 186, 138 | `#F3BA8A` |
+| `--palette-nav-dim`         | 138, 113, 90  | `#8A715A` |
+| `--palette-content-bg`      | 12, 32, 42    | `#0C202A` |
+| `--palette-content-fg`      | 246, 203, 167 | `#F6CBA7` |
+| `--palette-accent`          | 235, 140, 60  | `#EB8C3C` |
+| `--palette-content-surface` | 27, 45, 55    | `#1B2D37` |
+| `--palette-page-bg`         | 157, 102, 54  | `#9D6636` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Amelie
+
+_Magenta shadows, absinthe highlights_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 30, 9, 32     | `#1E0920` |
+| `--palette-nav-fg`          | 180, 234, 174 | `#B4EAAE` |
+| `--palette-nav-dim`         | 113, 133, 110 | `#71856E` |
+| `--palette-content-bg`      | 40, 12, 42    | `#280C2A` |
+| `--palette-content-fg`      | 199, 239, 194 | `#C7EFC2` |
+| `--palette-accent`          | 130, 220, 120 | `#82DC78` |
+| `--palette-content-surface` | 53, 27, 55    | `#351B37` |
+| `--palette-page-bg`         | 99, 147, 93   | `#63935D` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Blade Runner
+
+_Deep noir blue, sodium-lamp gold_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 6, 15, 32     | `#060F20` |
+| `--palette-nav-fg`          | 255, 222, 162 | `#FFDEA2` |
+| `--palette-nav-dim`         | 143, 129, 104 | `#8F8168` |
+| `--palette-content-bg`      | 8, 20, 42     | `#08142A` |
+| `--palette-content-fg`      | 255, 230, 185 | `#FFE6B9` |
+| `--palette-accent`          | 255, 200, 100 | `#FFC864` |
+| `--palette-content-surface` | 23, 34, 55    | `#172237` |
+| `--palette-page-bg`         | 169, 137, 80  | `#A98950` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Fincher Reverse
+
+_Sepia gutter, cyan skin_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 34, 15, 11    | `#220F0B` |
+| `--palette-nav-fg`          | 156, 222, 234 | `#9CDEEA` |
+| `--palette-nav-dim`         | 101, 129, 134 | `#658186` |
+| `--palette-content-bg`      | 45, 20, 15    | `#2D140F` |
+| `--palette-content-fg`      | 181, 230, 239 | `#B5E6EF` |
+| `--palette-accent`          | 90, 200, 220  | `#5AC8DC` |
+| `--palette-content-surface` | 58, 34, 29    | `#3A221D` |
+| `--palette-page-bg`         | 74, 137, 148  | `#4A8994` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+## 🧱 Section U — Brutalist / Anti-Design
+
+### Concrete & Traffic
+
+_Brut concrete, road-sign red_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 214, 214, 214 | `#D6D6D6` |
+| `--palette-nav-fg`          | 10, 10, 10    | `#0A0A0A` |
+| `--palette-nav-dim`         | 102, 102, 102 | `#666666` |
+| `--palette-content-bg`      | 237, 237, 237 | `#EDEDED` |
+| `--palette-content-fg`      | 10, 10, 10    | `#0A0A0A` |
+| `--palette-accent`          | 255, 51, 0    | `#FF3300` |
+| `--palette-content-surface` | 223, 223, 223 | `#DFDFDF` |
+| `--palette-page-bg`         | 249, 116, 83  | `#F97453` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Bunker & Hi-Vis
+
+_Grey slab, high-vis workwear_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 214, 214, 214 | `#D6D6D6` |
+| `--palette-nav-fg`          | 10, 10, 10    | `#0A0A0A` |
+| `--palette-nav-dim`         | 102, 102, 102 | `#666666` |
+| `--palette-content-bg`      | 237, 237, 237 | `#EDEDED` |
+| `--palette-content-fg`      | 10, 10, 10    | `#0A0A0A` |
+| `--palette-accent`          | 143, 133, 0   | `#8F8500` |
+| `--palette-content-surface` | 223, 223, 223 | `#DFDFDF` |
+| `--palette-page-bg`         | 176, 169, 83  | `#B0A953` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Slab & Cyan
+
+_Dark concrete, glowing signage_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 58, 58, 58    | `#3A3A3A` |
+| `--palette-nav-fg`          | 245, 245, 245 | `#F5F5F5` |
+| `--palette-nav-dim`         | 161, 161, 161 | `#A1A1A1` |
+| `--palette-content-bg`      | 42, 42, 42    | `#2A2A2A` |
+| `--palette-content-fg`      | 245, 245, 245 | `#F5F5F5` |
+| `--palette-accent`          | 0, 229, 255   | `#00E5FF` |
+| `--palette-content-surface` | 55, 55, 55    | `#373737` |
+| `--palette-page-bg`         | 15, 164, 180  | `#0FA4B4` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Beton & Neon Pink
+
+_Anti-design pink screaming out_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 214, 214, 214 | `#D6D6D6` |
+| `--palette-nav-fg`          | 10, 10, 10    | `#0A0A0A` |
+| `--palette-nav-dim`         | 102, 102, 102 | `#666666` |
+| `--palette-content-bg`      | 237, 237, 237 | `#EDEDED` |
+| `--palette-content-fg`      | 10, 10, 10    | `#0A0A0A` |
+| `--palette-accent`          | 255, 0, 168   | `#FF00A8` |
+| `--palette-content-surface` | 223, 223, 223 | `#DFDFDF` |
+| `--palette-page-bg`         | 249, 83, 192  | `#F953C0` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+## 🖌️ Section V — CMYK Registration
+
+### Registration Yellow
+
+_Yellow plate over kiss-cut white_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 255, 242, 0   | `#FFF200` |
+| `--palette-nav-fg`          | 10, 10, 10    | `#0A0A0A` |
+| `--palette-nav-dim`         | 120, 114, 6   | `#787206` |
+| `--palette-content-bg`      | 253, 253, 248 | `#FDFDF8` |
+| `--palette-content-fg`      | 10, 10, 10    | `#0A0A0A` |
+| `--palette-accent`          | 236, 0, 140   | `#EC008C` |
+| `--palette-content-surface` | 238, 238, 233 | `#EEEEE9` |
+| `--palette-page-bg`         | 242, 89, 178  | `#F259B2` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Registration Cyan
+
+_Process cyan bar, pink flourish_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 0, 174, 239   | `#00AEEF` |
+| `--palette-nav-fg`          | 10, 10, 10    | `#0A0A0A` |
+| `--palette-nav-dim`         | 6, 84, 113    | `#065471` |
+| `--palette-content-bg`      | 253, 253, 248 | `#FDFDF8` |
+| `--palette-content-fg`      | 10, 10, 10    | `#0A0A0A` |
+| `--palette-accent`          | 236, 0, 140   | `#EC008C` |
+| `--palette-content-surface` | 238, 238, 233 | `#EEEEE9` |
+| `--palette-page-bg`         | 242, 89, 178  | `#F259B2` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Registration Black
+
+_Full ink nav, magenta highlight_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 10, 10, 10    | `#0A0A0A` |
+| `--palette-nav-fg`          | 217, 217, 217 | `#D9D9D9` |
+| `--palette-nav-dim`         | 124, 124, 124 | `#7C7C7C` |
+| `--palette-content-bg`      | 253, 253, 248 | `#FDFDF8` |
+| `--palette-content-fg`      | 10, 10, 10    | `#0A0A0A` |
+| `--palette-accent`          | 236, 0, 140   | `#EC008C` |
+| `--palette-content-surface` | 238, 238, 233 | `#EEEEE9` |
+| `--palette-page-bg`         | 242, 89, 178  | `#F259B2` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Registration Magenta
+
+_Fuchsia banner, process cyan accent_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 236, 0, 140   | `#EC008C` |
+| `--palette-nav-fg`          | 10, 10, 10    | `#0A0A0A` |
+| `--palette-nav-dim`         | 112, 6, 69    | `#700645` |
+| `--palette-content-bg`      | 253, 253, 248 | `#FDFDF8` |
+| `--palette-content-fg`      | 10, 10, 10    | `#0A0A0A` |
+| `--palette-accent`          | 0, 111, 153   | `#006F99` |
+| `--palette-content-surface` | 238, 238, 233 | `#EEEEE9` |
+| `--palette-page-bg`         | 89, 161, 186  | `#59A1BA` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+## 🎨 Section W — Neo-Fauvism
+
+### Charing Cross Bridge
+
+_Derain: vermilion Thames, cobalt sky_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 247, 239, 217 | `#F7EFD9` |
+| `--palette-nav-fg`          | 31, 11, 58    | `#1F0B3A` |
+| `--palette-nav-dim`         | 128, 114, 130 | `#807282` |
+| `--palette-content-bg`      | 249, 243, 227 | `#F9F3E3` |
+| `--palette-content-fg`      | 31, 11, 58    | `#1F0B3A` |
+| `--palette-accent`          | 230, 57, 70   | `#E63946` |
+| `--palette-content-surface` | 234, 228, 213 | `#EAE4D5` |
+| `--palette-page-bg`         | 237, 122, 125 | `#ED7A7D` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Green Stripe
+
+_Matisse: pink cheek, seagreen brow_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 253, 236, 200 | `#FDECC8` |
+| `--palette-nav-fg`          | 14, 42, 71    | `#0E2A47` |
+| `--palette-nav-dim`         | 122, 129, 129 | `#7A8181` |
+| `--palette-content-bg`      | 254, 241, 214 | `#FEF1D6` |
+| `--palette-content-fg`      | 14, 42, 71    | `#0E2A47` |
+| `--palette-accent`          | 216, 17, 89   | `#D81159` |
+| `--palette-content-surface` | 239, 227, 201 | `#EFE3C9` |
+| `--palette-page-bg`         | 229, 95, 133  | `#E55F85` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Vlaminck Barges
+
+_Violet water, vermilion hulls_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 240, 227, 208 | `#F0E3D0` |
+| `--palette-nav-fg`          | 42, 10, 63    | `#2A0A3F` |
+| `--palette-nav-dim`         | 131, 108, 128 | `#836C80` |
+| `--palette-content-bg`      | 244, 234, 220 | `#F4EADC` |
+| `--palette-content-fg`      | 42, 10, 63    | `#2A0A3F` |
+| `--palette-accent`          | 180, 36, 122  | `#B4247A` |
+| `--palette-content-surface` | 229, 220, 207 | `#E5DCCF` |
+| `--palette-page-bg`         | 202, 105, 156 | `#CA699C` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Estaque Trees
+
+_Braque hills, jade against orange_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 255, 238, 208 | `#FFEED0` |
+| `--palette-nav-fg`          | 32, 23, 74    | `#20174A` |
+| `--palette-nav-dim`         | 132, 120, 134 | `#847886` |
+| `--palette-content-bg`      | 255, 242, 220 | `#FFF2DC` |
+| `--palette-content-fg`      | 32, 23, 74    | `#20174A` |
+| `--palette-accent`          | 15, 138, 110  | `#0F8A6E` |
+| `--palette-content-surface` | 240, 227, 207 | `#F0E3CF` |
+| `--palette-page-bg`         | 99, 174, 149  | `#63AE95` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+## ☀️ Section X — Solarized Family
+
+### Solarized Light
+
+_Schoonover 2011, base3 paper_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 238, 232, 213 | `#EEE8D5` |
+| `--palette-nav-fg`          | 66, 82, 87    | `#425257` |
+| `--palette-nav-dim`         | 143, 150, 144 | `#8F9690` |
+| `--palette-content-bg`      | 253, 246, 227 | `#FDF6E3` |
+| `--palette-content-fg`      | 67, 81, 86    | `#435156` |
+| `--palette-accent`          | 203, 75, 22   | `#CB4B16` |
+| `--palette-content-surface` | 238, 231, 213 | `#EEE7D5` |
+| `--palette-page-bg`         | 221, 135, 94  | `#DD875E` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Solarized Dark
+
+_Schoonover 2011, base03 board_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 7, 54, 66     | `#073642` |
+| `--palette-nav-fg`          | 147, 161, 161 | `#93A1A1` |
+| `--palette-nav-dim`         | 84, 113, 118  | `#547176` |
+| `--palette-content-bg`      | 0, 43, 54     | `#002B36` |
+| `--palette-content-fg`      | 131, 148, 150 | `#839496` |
+| `--palette-accent`          | 181, 137, 0   | `#B58900` |
+| `--palette-content-surface` | 15, 56, 66    | `#0F3842` |
+| `--palette-page-bg`         | 118, 104, 19  | `#766813` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Selenized Light
+
+_Selenized fork, warmer paper_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 238, 231, 208 | `#EEE7D0` |
+| `--palette-nav-fg`          | 83, 103, 109  | `#53676D` |
+| `--palette-nav-dim`         | 153, 161, 154 | `#99A19A` |
+| `--palette-content-bg`      | 251, 243, 219 | `#FBF3DB` |
+| `--palette-content-fg`      | 83, 103, 109  | `#53676D` |
+| `--palette-accent`          | 153, 121, 0   | `#997900` |
+| `--palette-content-surface` | 236, 228, 206 | `#ECE4CE` |
+| `--palette-page-bg`         | 187, 164, 77  | `#BBA44D` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Photonegative Solarized
+
+_Solarized Light with roles inverted_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 253, 246, 227 | `#FDF6E3` |
+| `--palette-nav-fg`          | 138, 51, 15   | `#8A330F` |
+| `--palette-nav-dim`         | 190, 139, 110 | `#BE8B6E` |
+| `--palette-content-bg`      | 0, 43, 54     | `#002B36` |
+| `--palette-content-fg`      | 253, 246, 227 | `#FDF6E3` |
+| `--palette-accent`          | 42, 161, 152  | `#2AA198` |
+| `--palette-content-surface` | 15, 56, 66    | `#0F3842` |
+| `--palette-page-bg`         | 27, 120, 118  | `#1B7876` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+## 🎯 Section Y — Monochromatic Extreme
+
+### Vermilion Only
+
+_One red hue, ramp from 8 to 96_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 238, 211, 211 | `#EED3D3` |
+| `--palette-nav-fg`          | 69, 8, 8      | `#450808` |
+| `--palette-nav-dim`         | 145, 99, 99   | `#916363` |
+| `--palette-content-bg`      | 23, 17, 17    | `#171111` |
+| `--palette-content-fg`      | 241, 228, 228 | `#F1E4E4` |
+| `--palette-accent`          | 250, 66, 66   | `#FA4242` |
+| `--palette-content-surface` | 37, 31, 31    | `#251F1F` |
+| `--palette-page-bg`         | 171, 49, 49   | `#AB3131` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Chlorophyll Only
+
+_One green hue across the ramp_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 211, 238, 222 | `#D3EEDE` |
+| `--palette-nav-fg`          | 8, 69, 33     | `#084521` |
+| `--palette-nav-dim`         | 99, 145, 118  | `#639176` |
+| `--palette-content-bg`      | 17, 23, 20    | `#111714` |
+| `--palette-content-fg`      | 228, 241, 234 | `#E4F1EA` |
+| `--palette-accent`          | 66, 250, 143  | `#42FA8F` |
+| `--palette-content-surface` | 31, 37, 34    | `#1F2522` |
+| `--palette-page-bg`         | 49, 171, 100  | `#31AB64` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Cobalt Only
+
+_One blue hue, black to porcelain_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 211, 222, 238 | `#D3DEEE` |
+| `--palette-nav-fg`          | 8, 33, 69     | `#082145` |
+| `--palette-nav-dim`         | 99, 118, 145  | `#637691` |
+| `--palette-content-bg`      | 17, 20, 23    | `#111417` |
+| `--palette-content-fg`      | 228, 234, 241 | `#E4EAF1` |
+| `--palette-accent`          | 66, 143, 250  | `#428FFA` |
+| `--palette-content-surface` | 31, 34, 37    | `#1F2225` |
+| `--palette-page-bg`         | 49, 100, 171  | `#3164AB` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Gold Only
+
+_One warm ochre, no other colour_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 238, 231, 211 | `#EEE7D3` |
+| `--palette-nav-fg`          | 69, 54, 8     | `#453608` |
+| `--palette-nav-dim`         | 145, 134, 99  | `#918663` |
+| `--palette-content-bg`      | 23, 22, 17    | `#171611` |
+| `--palette-content-fg`      | 241, 238, 228 | `#F1EEE4` |
+| `--palette-accent`          | 250, 204, 66  | `#FACC42` |
+| `--palette-content-surface` | 37, 36, 31    | `#25241F` |
+| `--palette-page-bg`         | 171, 140, 49  | `#AB8C31` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Magenta Only
+
+_One magenta, from ink to bloom_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 238, 211, 231 | `#EED3E7` |
+| `--palette-nav-fg`          | 69, 8, 54     | `#450836` |
+| `--palette-nav-dim`         | 145, 99, 134  | `#916386` |
+| `--palette-content-bg`      | 23, 17, 22    | `#171116` |
+| `--palette-content-fg`      | 241, 228, 238 | `#F1E4EE` |
+| `--palette-accent`          | 250, 66, 204  | `#FA42CC` |
+| `--palette-content-surface` | 37, 31, 36    | `#251F24` |
+| `--palette-page-bg`         | 171, 49, 140  | `#AB318C` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+## 👾 Section Z — Retro Computing
+
+### CGA-1 High
+
+_IBM CGA palette 1, high intensity_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 0, 0, 0       | `#000000` |
+| `--palette-nav-fg`          | 255, 255, 255 | `#FFFFFF` |
+| `--palette-nav-dim`         | 140, 140, 140 | `#8C8C8C` |
+| `--palette-content-bg`      | 0, 0, 0       | `#000000` |
+| `--palette-content-fg`      | 85, 255, 255  | `#55FFFF` |
+| `--palette-accent`          | 255, 85, 255  | `#FF55FF` |
+| `--palette-content-surface` | 15, 15, 15    | `#0F0F0F` |
+| `--palette-page-bg`         | 166, 55, 166  | `#A637A6` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### CGA-2 High
+
+_IBM CGA palette 2, red / green / brown_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 0, 0, 0       | `#000000` |
+| `--palette-nav-fg`          | 255, 255, 255 | `#FFFFFF` |
+| `--palette-nav-dim`         | 140, 140, 140 | `#8C8C8C` |
+| `--palette-content-bg`      | 0, 0, 0       | `#000000` |
+| `--palette-content-fg`      | 85, 255, 85   | `#55FF55` |
+| `--palette-accent`          | 255, 85, 85   | `#FF5555` |
+| `--palette-content-surface` | 15, 15, 15    | `#0F0F0F` |
+| `--palette-page-bg`         | 166, 55, 55   | `#A63737` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Commodore 64
+
+_C64 Pepto palette, boot screen_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 62, 49, 162   | `#3E31A2` |
+| `--palette-nav-fg`          | 199, 194, 239 | `#C7C2EF` |
+| `--palette-nav-dim`         | 137, 129, 204 | `#8981CC` |
+| `--palette-content-bg`      | 62, 49, 162   | `#3E31A2` |
+| `--palette-content-fg`      | 199, 194, 239 | `#C7C2EF` |
+| `--palette-accent`          | 184, 199, 111 | `#B8C76F` |
+| `--palette-content-surface` | 74, 61, 168   | `#4A3DA8` |
+| `--palette-page-bg`         | 141, 147, 129 | `#8D9381` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Amiga Workbench
+
+_Workbench 1.x default, blue over orange_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 0, 85, 170    | `#0055AA` |
+| `--palette-nav-fg`          | 255, 255, 255 | `#FFFFFF` |
+| `--palette-nav-dim`         | 140, 179, 217 | `#8CB3D9` |
+| `--palette-content-bg`      | 170, 170, 170 | `#AAAAAA` |
+| `--palette-content-fg`      | 0, 0, 0       | `#000000` |
+| `--palette-accent`          | 133, 71, 0    | `#854700` |
+| `--palette-content-surface` | 160, 160, 160 | `#A0A0A0` |
+| `--palette-page-bg`         | 146, 106, 59  | `#926A3B` |
+| `--palette-bright`          | 255, 255, 255 | `#FFFFFF` |
+
+### Apple II Hi-Res
+
+_Woz hi-res orange / green / violet_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 0, 0, 0       | `#000000` |
+| `--palette-nav-fg`          | 255, 255, 255 | `#FFFFFF` |
+| `--palette-nav-dim`         | 140, 140, 140 | `#8C8C8C` |
+| `--palette-content-bg`      | 0, 0, 0       | `#000000` |
+| `--palette-content-fg`      | 0, 224, 0     | `#00E000` |
+| `--palette-accent`          | 255, 102, 0   | `#FF6600` |
+| `--palette-content-surface` | 15, 15, 15    | `#0F0F0F` |
+| `--palette-page-bg`         | 166, 66, 0    | `#A64200` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
