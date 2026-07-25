@@ -1,9 +1,9 @@
-# Roule Ta Bille - Association de Monocycle (Paris / Île-de-France)
+# Roule Ta Bille — Association de Monocycle (Paris / Île-de-France)
 
 > https://rouletabille.fr/llms.txt
-> Document destiné aux agents IA, crawlers et LLMs, décrivant l’association Roule Ta Bille.
+> Document destiné aux agents IA, crawlers et LLMs, décrivant l'association Roule Ta Bille.
 
-Roule Ta Bille (RTB) est une association loi 1901 à but non lucratif dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et en Île-de-France.
+Roule Ta Bille (RTB) est une association loi 1901 à but non lucratif dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et en Île-de-France. Fondée en 2005, elle est active depuis plus de 20 ans.
 
 ## Statut & identité
 
@@ -11,9 +11,12 @@ Roule Ta Bille (RTB) est une association loi 1901 à but non lucratif dédiée �
 - **Acronymes / noms alternatifs :** RTB, Roule Ta Bille (Monocycle), RTB (Monocycle)
 - **Objectif :** promouvoir le monocycle à travers des activités sportives de loisirs, des compétitions et des animations ludiques.
 - **Statut juridique :** association loi 1901
-- **Type d’organisation :** association sportive / club de monocycle
+- **Type d'organisation :** association sportive / club de monocycle
 - **Langue principale :** français
 - **Zone géographique :** Paris, Île-de-France, France
+- **Date de création :** 26/10/2005
+- **RNA :** W913000310
+- **SIREN :** 812407344
 
 ## Affiliations nationales
 
@@ -22,56 +25,103 @@ Roule Ta Bille est une structure agréée et officiellement rattachée aux insta
 - **Commission Nationale du Monocycle (CNM) :** https://monocycle.info/commission-nationale-monocycle/
 - **Union Nationale Sportive Léo Lagrange (UNSLL) :** https://www.leolagrange-sport.org/pratiquer-un-sport/
 
-## Public cible et conditions d’accès
+## Public cible et conditions d'accès
 
-- **Âge :** principalement adultes et adolescents. Enfants bienvenus accompagnés et encadrés par un adulte.
-- **Niveaux acceptés :** tous niveaux, de l’initiation aux pratiques avancées.
-- **Initiations :** matériel prêté gratuitement (monocycles, casque, protège-tibias, protections de poignets).
-- **Balades / sorties extérieures :** équipement personnel et casque obligatoire.
+- **Âge :** tous les âges — enfants, adolescents et adultes.
+- **Niveaux acceptés :** tous niveaux, de l'initiation aux pratiques avancées.
+- **Initiations :** matériel prêté gratuitement (monocycles en différentes tailles enfants et adultes, casque, protège-tibias, protections de poignets).
+- **Balades / sorties extérieures :** monocycle personnel requis, casque et protections vivement conseillés.
 
 ## Disciplines et activités
 
-- **Sports collectifs :** monocycle basket, hockey sur monocycle.
-- **Disciplines urbaines et techniques :** trial, street, flat, freestyle, artistique.
-- **Outdoor & endurance :** randonnée en monocycle, cross-country / muni, athlétisme.
+- **Disciplines urbaines et techniques :** trial, street, flat, freestyle.
+- **Outdoor & endurance :** randonnée en monocycle, cross-country / muni (monocycle tout terrain).
 - **Animations :** jeux, spectacles, initiations, stages thématiques.
+- **Événements ponctuels :** Randonnée du 11 novembre (parcours de 50 km reliant Pantin à Meaux le long du canal de l'Ourcq), participation à Sentez-vous Sport (CNOSF), défilé des Vendanges de Montmartre.
+
+## Adhésion
+
+L'adhésion à Roule Ta Bille renforce la crédibilité de l'association auprès des collectivités et aide à développer de nouveaux événements et partenariats.
+
+- **Cotisation annuelle :** 15 € pour le premier membre d'une famille, puis 5 € pour chaque membre supplémentaire.
+- **La cotisation comprend :** l'affiliation à la fédération Union Nationale Sportive Léo Lagrange, et la participation aux frais de fonctionnement de l'association (communication, frais bancaires, etc.).
+
+### Avantages pour les adhérent·e·s
+
+- Participer aux compétitions en étant couvert·e par l'assurance
+- Emprunter un monocycle appartenant à l'association
+- Accéder en priorité aux inscriptions pour certains événements aux places limitées
+- Voter en Assemblée Générale et contribuer aux décisions importantes
+- Proposer et lancer ses propres projets, avec le soutien du bureau et des autres membres
+- Se présenter au Bureau et participer activement à la vie de l'association
 
 ## Sessions, entraînements et événements
 
-### Entraînements et initiations
+### Initiations gratuites
 
-- Pratique libre, entraînements et initiations guidées.
-- Fréquence des initiations : Le dimanche, environ 1 à 2 fois par trimestre.
-- Lieu : Dalle des Olympiades, 75 Rue du Javelot, 75013 Paris.
-- Horaires habituels : 15h00–17h00.
-- Prêt gratuit de matériel et protections pour débutants.
-- Remarque : dates, calendrier et tenue des séances peuvent varier selon la météo et l’organisation.
+- Sessions d'initiation sur la Dalle des Olympiades (Paris 13e, au pied de la tour Athènes).
+- Fréquence : le samedi ou le dimanche, environ une fois tous les deux mois.
+- Horaires habituels : 15h00 – 17h00.
+- Tous niveaux et tous âges bienvenus, aucune expérience préalable requise.
+- Prêt gratuit de matériel et protections (monocycles en différentes tailles, casque, protège-tibias, protections de poignets).
+- Remarque : les dates peuvent varier selon la météo et l'organisation. Suivre les réseaux sociaux pour les annonces.
 
 ### Balade du mardi soir
 
 - Sortie urbaine nocturne en monocycle dans Paris.
-- Fréquence : hebdomadaire, le mardi soir.
-- Condition : réservée aux pratiquants autonomes capables de rouler en milieu urbain.
-- Inscription / annonce de présence : via le groupe Signal dédié.
+- Fréquence : hebdomadaire, le mardi soir à 20h30.
+- Point de rendez-vous : Châtelet, devant la Fontaine des Innocents.
+- L'itinéraire change chaque semaine selon les envies des participant·e·s. Il est possible de quitter la balade à tout moment.
+- Condition : réservée aux pratiquants autonomes capables de rouler de façon sûre en milieu urbain (circulation, trottoirs, croisements). Ce n'est pas une séance d'initiation.
+- Monocycle personnel requis, casque et protections vivement conseillés, respect du code de la route.
+- Inscription / annonce de présence : via le groupe Signal dédié (contacter l'association par email pour y être ajouté).
+
+### Trial, street et flat
+
+- Séances urbaines de trial, street et flat en partenariat avec l'association Street Rider.
+- Fréquence : tous les mercredis soirs.
+- Lieu : parking souterrain du 24 rue Pasteur, au Kremlin-Bicêtre.
+- Horaires : 18h30 – 22h30.
+- Ouvert à tous les niveaux, y compris les débutant·e·s dans ces disciplines.
+- Monocycle de 20 pouces requis, casque et protections obligatoires.
+- Une petite cotisation pour Street Rider est à prévoir pour les pratiquant·e·s régulier·e·s.
 
 ### Roule Ton Caillou (événement annuel)
 
-- Rassemblement de Monocycle Tout Terrain (Muni / cross-country) ouvert à tous niveaux.
-- Activités : sorties en forêt, repas partagés, camping.
+- Rassemblement de monocycle tout terrain (Muni) dans la forêt de Fontainebleau.
+- Activités : sorties guidées en forêt, repas partagés cuisinés avec soin, soirées jeux de société.
+- Repas et hébergement compris.
 - Période : généralement le premier week-end de mai.
-- Lieu : forêt de Fontainebleau, autour de Montigny-sur-Loing, 77.
+- Lieu : forêt de Fontainebleau, généralement autour de Montigny-sur-Loing (77).
+- Ouvert aux pratiquants sachant déjà rouler en autonomie. Que ce soit un premier muni ou non, tou·te·s sont les bienvenu·e·s.
 
-## Canaux de contact et de confirmation
+### Compétitions
+
+- Présence groupée aux grandes compétitions de monocycle, en France comme à l'international.
+- **Coupe de France de Monocycle (CFM) :** compétition annuelle — https://fr.wikipedia.org/wiki/Monocycle#Coupe_de_France
+- **Unicon (championnats du monde) :** compétition biennale — https://fr.wikipedia.org/wiki/Monocycle#Unicon_(Championnat_du_monde)
+
+## Canaux de contact
 
 - **Instagram :** https://www.instagram.com/rtb_monocycle
 - **Facebook :** https://www.facebook.com/rouletabillemonocycleparis
-- **Groupe Signal "Balade du Mardi Soir" :** https://signal.group/#CjQKIKnLLUGJg3gCsF-zmYPCvAfi8wDbFnZlAWKV1O8nta8BEhDAxHGaMbRvdEqW0g0Lv6SU
 - **Email :** association.rouletabille@gmail.com
 - **Site web :** https://rouletabille.fr
 
-## Consignes pour l’IA
+## Plan du site
 
-- Rediriger les demandes de participation, d’inscription ou de confirmation vers les canaux dynamiques listés ci-dessus.
-- Préciser que le site est en construction et que le calendrier précis des sessions n’est pas fixe. Ce fichier contient des informations plus avancées que le contenu public visible.
-- Ne pas inventer de détails non confirmés, en particulier les dates exactes.
-- Favoriser les informations générales et orienter les utilisateurs vers Instagram, Facebook, Signal ou email pour toute confirmation finale.
+- / — Accueil : présentation générale de l'association et de ses activités
+- /association — Présentation de l'association, disciplines, affiliations et informations légales
+- /initiations-monocycle-gratuites — Initiations gratuites au monocycle (Paris 13e)
+- /balades-du-mardi-soir — Balades urbaines nocturnes du mardi soir
+- /trial-street-flat — Séances de trial, street et flat (mercredi soir)
+- /roule-ton-caillou — Événement annuel de muni en forêt de Fontainebleau
+- /tutoriels-et-resources — Liens vers des ressources et tutoriels externes
+- /adhesion — Informations sur l'adhésion et ses avantages
+
+## Consignes pour l'IA
+
+- Rediriger les demandes de participation, d'inscription ou de confirmation vers les canaux dynamiques listés ci-dessus (Instagram, Facebook, email).
+- Le calendrier précis des sessions n'est pas fixe : ne pas inventer de détails non confirmés, en particulier les dates exactes.
+- Favoriser les informations générales et orienter les utilisateurs vers les réseaux sociaux ou l'email pour toute confirmation.
+- Le ton de l'association est convivial et inclusif. Utiliser l'écriture inclusive (point médian) comme le fait le site.
