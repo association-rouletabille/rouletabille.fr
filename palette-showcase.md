@@ -2359,3 +2359,197 @@ _Woz hi-res orange / green / violet_
 | `--palette-content-surface` | 15, 15, 15    | `#0F0F0F` |
 | `--palette-page-bg`         | 166, 66, 0    | `#A64200` |
 | `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+## 🧭 Section AA — Uncharted
+
+### Thermal FLIR
+
+_Sensor imaging, cold indigo → hot orange_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 8, 5, 30      | `#08051E` |
+| `--palette-nav-fg`          | 255, 225, 90  | `#FFE15A` |
+| `--palette-nav-dim`         | 200, 130, 90  | `#C8825A` |
+| `--palette-content-bg`      | 5, 3, 15      | `#05030F` |
+| `--palette-content-fg`      | 255, 235, 200 | `#FFEBC8` |
+| `--palette-accent`          | 255, 100, 30  | `#FF641E` |
+| `--palette-content-surface` | 20, 12, 45    | `#140C2D` |
+| `--palette-page-bg`         | 120, 25, 90   | `#78195A` |
+| `--palette-bright`          | 255, 250, 240 | `#FFFAF0` |
+
+### Bruise & Iodine
+
+_Bandage cream, bruised violet, iodine amber_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 242, 232, 218 | `#F2E8DA` |
+| `--palette-nav-fg`          | 55, 18, 45    | `#37122D` |
+| `--palette-nav-dim`         | 125, 90, 105  | `#7D5A69` |
+| `--palette-content-bg`      | 42, 18, 55    | `#2A1237` |
+| `--palette-content-fg`      | 240, 220, 205 | `#F0DCCD` |
+| `--palette-accent`          | 220, 155, 55  | `#DC9B37` |
+| `--palette-content-surface` | 60, 28, 70    | `#3C1C46` |
+| `--palette-page-bg`         | 115, 65, 95   | `#73415F` |
+| `--palette-bright`          | 255, 250, 240 | `#FFFAF0` |
+
+### Petrichor
+
+_Wet slate, ozone teal, moss shadow_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 232, 228, 215 | `#E8E4D7` |
+| `--palette-nav-fg`          | 22, 32, 30    | `#16201E` |
+| `--palette-nav-dim`         | 95, 108, 100  | `#5F6C64` |
+| `--palette-content-bg`      | 20, 32, 34    | `#142022` |
+| `--palette-content-fg`      | 218, 228, 215 | `#DAE4D7` |
+| `--palette-accent`          | 130, 200, 175 | `#82C8AF` |
+| `--palette-content-surface` | 30, 46, 46    | `#1E2E2E` |
+| `--palette-page-bg`         | 110, 128, 118 | `#6E8076` |
+| `--palette-bright`          | 248, 250, 240 | `#F8FAF0` |
+
+### Malachite Vein
+
+_Marbled jewel green + oxidized brass_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 10, 25, 20    | `#0A1914` |
+| `--palette-nav-fg`          | 200, 235, 215 | `#C8EBD7` |
+| `--palette-nav-dim`         | 95, 145, 120  | `#5F9178` |
+| `--palette-content-bg`      | 12, 35, 28    | `#0C231C` |
+| `--palette-content-fg`      | 215, 240, 225 | `#D7F0E1` |
+| `--palette-accent`          | 210, 165, 65  | `#D2A541` |
+| `--palette-content-surface` | 22, 55, 42    | `#16372A` |
+| `--palette-page-bg`         | 55, 105, 78   | `#37694E` |
+| `--palette-bright`          | 245, 252, 240 | `#F5FCF0` |
+
+### Copper Patina
+
+_Weathered stone, limestone, verdigris_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 232, 220, 200 | `#E8DCC8` |
+| `--palette-nav-fg`          | 40, 25, 15    | `#28190F` |
+| `--palette-nav-dim`         | 110, 85, 60   | `#6E553C` |
+| `--palette-content-bg`      | 242, 236, 224 | `#F2ECE0` |
+| `--palette-content-fg`      | 35, 20, 12    | `#23140C` |
+| `--palette-accent`          | 20, 115, 90   | `#14735A` |
+| `--palette-content-surface` | 222, 218, 205 | `#DEDACD` |
+| `--palette-page-bg`         | 155, 108, 68  | `#9B6C44` |
+| `--palette-bright`          | 252, 250, 240 | `#FCFAF0` |
+
+### Iznik Tile
+
+_Ivory glaze, Persian cobalt, coral red_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 245, 242, 232 | `#F5F2E8` |
+| `--palette-nav-fg`          | 8, 25, 65     | `#081941` |
+| `--palette-nav-dim`         | 90, 115, 155  | `#5A739B` |
+| `--palette-content-bg`      | 10, 30, 85    | `#0A1E55` |
+| `--palette-content-fg`      | 235, 240, 250 | `#EBF0FA` |
+| `--palette-accent`          | 235, 105, 85  | `#EB6955` |
+| `--palette-content-surface` | 22, 48, 110   | `#16306E` |
+| `--palette-page-bg`         | 50, 170, 175  | `#32AAAF` |
+| `--palette-bright`          | 252, 252, 245 | `#FCFCF5` |
+
+### Grotto & Torch
+
+_Cave dark, calcite pale, torch amber_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 12, 12, 15    | `#0C0C0F` |
+| `--palette-nav-fg`          | 220, 210, 190 | `#DCD2BE` |
+| `--palette-nav-dim`         | 110, 100, 85  | `#6E6455` |
+| `--palette-content-bg`      | 16, 18, 22    | `#101216` |
+| `--palette-content-fg`      | 225, 215, 195 | `#E1D7C3` |
+| `--palette-accent`          | 235, 145, 55  | `#EB9137` |
+| `--palette-content-surface` | 26, 30, 34    | `#1A1E22` |
+| `--palette-page-bg`         | 38, 60, 55    | `#263C37` |
+| `--palette-bright`          | 245, 235, 220 | `#F5EBDC` |
+
+### Alpenglow
+
+_Pink-tinged snow, spruce shadow, dawn rose_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 245, 232, 232 | `#F5E8E8` |
+| `--palette-nav-fg`          | 35, 30, 55    | `#231E37` |
+| `--palette-nav-dim`         | 130, 100, 115 | `#826473` |
+| `--palette-content-bg`      | 252, 248, 245 | `#FCF8F5` |
+| `--palette-content-fg`      | 38, 32, 50    | `#262032` |
+| `--palette-accent`          | 180, 55, 90   | `#B4375A` |
+| `--palette-content-surface` | 242, 232, 232 | `#F2E8E8` |
+| `--palette-page-bg`         | 175, 150, 165 | `#AF96A5` |
+| `--palette-bright`          | 255, 253, 250 | `#FFFDFA` |
+
+### Void & Ion
+
+_Ion black, plasma white, electric violet_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 2, 0, 8       | `#020008` |
+| `--palette-nav-fg`          | 235, 220, 255 | `#EBDCFF` |
+| `--palette-nav-dim`         | 140, 100, 200 | `#8C64C8` |
+| `--palette-content-bg`      | 4, 0, 12      | `#04000C` |
+| `--palette-content-fg`      | 240, 225, 255 | `#F0E1FF` |
+| `--palette-accent`          | 180, 80, 255  | `#B450FF` |
+| `--palette-content-surface` | 15, 5, 30     | `#0F051E` |
+| `--palette-page-bg`         | 55, 20, 100   | `#371464` |
+| `--palette-bright`          | 255, 250, 255 | `#FFFAFF` |
+
+### Chromatic Rift
+
+_RGB split — near-black + magenta + cyan_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 8, 8, 12      | `#08080C` |
+| `--palette-nav-fg`          | 240, 240, 245 | `#F0F0F5` |
+| `--palette-nav-dim`         | 125, 125, 135 | `#7D7D87` |
+| `--palette-content-bg`      | 12, 12, 18    | `#0C0C12` |
+| `--palette-content-fg`      | 235, 240, 245 | `#EBF0F5` |
+| `--palette-accent`          | 240, 50, 130  | `#F03282` |
+| `--palette-content-surface` | 24, 22, 32    | `#181620` |
+| `--palette-page-bg`         | 30, 200, 220  | `#1EC8DC` |
+| `--palette-bright`          | 250, 250, 250 | `#FAFAFA` |
+
+### Nebula Drift
+
+_Cosmic navy, starlight, red-giant magenta_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 8, 5, 20      | `#080514` |
+| `--palette-nav-fg`          | 230, 220, 240 | `#E6DCF0` |
+| `--palette-nav-dim`         | 140, 110, 165 | `#8C6EA5` |
+| `--palette-content-bg`      | 10, 8, 28     | `#0A081C` |
+| `--palette-content-fg`      | 235, 225, 245 | `#EBE1F5` |
+| `--palette-accent`          | 230, 80, 140  | `#E6508C` |
+| `--palette-content-surface` | 22, 15, 45    | `#160F2D` |
+| `--palette-page-bg`         | 95, 35, 130   | `#5F2382` |
+| `--palette-bright`          | 250, 245, 255 | `#FAF5FF` |
+
+### Hazmat Trefoil
+
+_Trefoil black, hazmat yellow, warning red_
+
+| Token                       | RGB           | Hex       |
+| --------------------------- | ------------- | --------- |
+| `--palette-nav-bg`          | 15, 15, 12    | `#0F0F0C` |
+| `--palette-nav-fg`          | 255, 220, 30  | `#FFDC1E` |
+| `--palette-nav-dim`         | 175, 155, 45  | `#AF9B2D` |
+| `--palette-content-bg`      | 240, 238, 232 | `#F0EEE8` |
+| `--palette-content-fg`      | 15, 15, 12    | `#0F0F0C` |
+| `--palette-accent`          | 200, 20, 20   | `#C81414` |
+| `--palette-content-surface` | 228, 226, 216 | `#E4E2D8` |
+| `--palette-page-bg`         | 255, 205, 0   | `#FFCD00` |
+| `--palette-bright`          | 255, 255, 245 | `#FFFFF5` |
