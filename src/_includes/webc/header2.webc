@@ -19,6 +19,7 @@
       <li><a href="/adhesion">Adh&eacute;rer</a></li>
       <li><a href="/tutoriels-et-resources">Tutoriels et resources</a></li>
     </ul>
+    <div class="nav-spacer"></div>
     <div class="social-links">
       <a href="mailto:association.rouletabille@gmail.com?subject=Contact%20depuis%20le%20site%20web" aria-label="Email">
         <icon name="social-email"></icon>
@@ -47,6 +48,7 @@
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
     width: 100%;
+    container-type: inline-size;
   }
 
   /* ---- Logo area (row 1 only) ---- */
@@ -57,7 +59,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-inline: 1.5rem;
+    padding-inline-start: max(1.5rem, calc((100cqi - 1200px) / 2 + 1.5rem));
+    padding-inline-end: 1.5rem;
     background-color: rgb(var(--color-topbar-bg));
     text-decoration: none;
     position: relative;
@@ -89,12 +92,14 @@
   .topbar {
     grid-row: 1;
     grid-column: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0;
+    display: grid;
+    grid-template-columns: fit-content(100%);
+    justify-content: end;
+    align-content: center;
     background-color: rgb(var(--color-topbar-bg));
-    padding: 0.75rem 1.5rem;
+    padding-block: 0.15rem;
+    padding-inline: 1.5rem;
+    padding-inline-end: max(1.5rem, calc((100cqi - 1200px) / 2 + 1.5rem));
   }
 
   .nav-row {
@@ -115,7 +120,7 @@
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.04em;
-    padding: 0.2rem 0;
+    padding: 0.1rem 0;
     transition:
       color 0.2s ease,
       text-decoration-color 0.2s ease;
@@ -134,8 +139,11 @@
 
   .nav-row-with-social {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+  }
+
+  .nav-spacer {
+    flex: 1;
   }
 
   .social-links {
@@ -143,7 +151,6 @@
     gap: 0.75rem;
     align-items: center;
     flex-shrink: 0;
-    margin-left: 1.5rem;
   }
 
   .social-links a {
@@ -172,18 +179,9 @@
     height: 0.75rem;
   }
 
-  /* ---- Max-width constraint ---- */
-
-  @media (min-width: 800px) {
-    :host {
-      max-width: 1200px;
-      margin-inline: auto;
-    }
-  }
-
   /* ---- Mobile: stack vertically (placeholder — full mobile deferred) ---- */
 
-  @media (max-width: 799px) {
+  @media (max-width: 1023px) {
     :host {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto;
