@@ -1,0 +1,28 @@
+---
+layout: base2.webc
+title: Nouveau design — Roule Ta Bille
+description: Page de test pour le nouveau design de navigation.
+permalink: /new.html
+---
+
+<article>
+  <h1>Nouveau design de navigation</h1>
+
+  <section>
+    <p>Cette page sert à tester le nouveau header avec la barre cerise et la barre crème.</p>
+    <p>Les liens de navigation sont en haut à droite, sur deux lignes, en majuscules et en gras. Le logo est à gauche, à cheval sur les deux barres, avec un cercle rouge derrière.</p>
+  </section>
+
+  <section>
+    <h2>Liens rapides</h2>
+    <ul>
+      <li><a href="/initiations-monocycle-gratuites">Initiations gratuites</a></li>
+      <li><a href="/balades-du-mardi-soir">Balades du Mardi Soir</a></li>
+      <li><a href="/trial-street-flat">Trial, street et flat</a></li>
+      <li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
+      <li><a href="/association">L'association</a></li>
+      <li><a href="/adhesion">Adhérer</a></li>
+      <li><a href="/tutoriels-et-resources">Tutoriels et resources</a></li>
+    </ul>
+  </section>
+</article>

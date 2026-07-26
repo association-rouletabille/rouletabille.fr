@@ -1,0 +1,214 @@
+<!-- Logo area — row 1 only, logo circle protrudes into cream strip -->
+<a href="/" class="logo-area" aria-label="Accueil">
+  <span class="logo-circle">
+    <icon name="logo"></icon>
+  </span>
+</a>
+
+<!-- Top bar — cherry red, navigation links + social icons -->
+<nav class="topbar" aria-label="Navigation principale">
+  <ul class="nav-row">
+    <li><a href="/initiations-monocycle-gratuites">Initiations gratuites</a></li>
+    <li><a href="/balades-du-mardi-soir">Balades du Mardi Soir</a></li>
+    <li><a href="/trial-street-flat">Trial, street et flat</a></li>
+    <li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
+  </ul>
+  <div class="nav-row-with-social">
+    <ul class="nav-row">
+      <li><a href="/association">L'association</a></li>
+      <li><a href="/adhesion">Adh&eacute;rer</a></li>
+      <li><a href="/tutoriels-et-resources">Tutoriels et resources</a></li>
+    </ul>
+    <div class="social-links">
+      <a href="mailto:association.rouletabille@gmail.com?subject=Contact%20depuis%20le%20site%20web" aria-label="Email">
+        <icon name="social-email"></icon>
+      </a>
+      <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <icon name="social-instagram"></icon>
+      </a>
+      <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <icon name="social-facebook"></icon>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Cream strip (decorative, no content) -->
+<div class="subbar"></div>
+
+<style webc:scoped>
+  /* =====================
+   Two-bar header: cherry top bar + cream decorative strip
+   Logo in row 1, circle protrudes into row 2
+   ===================== */
+
+  :host {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    width: 100%;
+  }
+
+  /* ---- Logo area (row 1 only) ---- */
+
+  .logo-area {
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 1.5rem;
+    background-color: rgb(var(--color-topbar-bg));
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+  }
+
+  .logo-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--logo-size) + 1rem);
+    height: calc(var(--logo-size) + 1rem);
+    border-radius: 50%;
+    background-color: rgb(var(--color-logo-circle));
+    flex-shrink: 0;
+    transform: translateY(25%);
+  }
+
+  .logo-circle svg {
+    display: block;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    color: rgb(var(--color-logo-fill));
+  }
+
+  /* ---- Top bar (cherry red, row 1) ---- */
+
+  .topbar {
+    grid-row: 1;
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    background-color: rgb(var(--color-topbar-bg));
+    padding: 0.75rem 1.5rem;
+  }
+
+  .nav-row {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    justify-content: flex-start;
+  }
+
+  .nav-row a {
+    color: rgb(var(--color-topbar-text));
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    padding: 0.2rem 0;
+    transition:
+      color 0.2s ease,
+      text-decoration-color 0.2s ease;
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 2px;
+  }
+
+  .nav-row a:hover {
+    color: rgb(var(--color-topbar-text-hover));
+    text-decoration-color: rgb(var(--color-topbar-text-hover));
+  }
+
+  /* ---- Second nav row + social links ---- */
+
+  .nav-row-with-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 1.5rem;
+  }
+
+  .social-links a {
+    display: flex;
+    color: rgb(var(--color-topbar-text));
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    color: rgb(var(--color-topbar-text-hover));
+  }
+
+  .social-links a svg {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  /* ---- Cream strip (decorative, row 2, full width) ---- */
+
+  .subbar {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    background-color: rgb(var(--color-subbar-bg));
+    height: 0.75rem;
+  }
+
+  /* ---- Max-width constraint ---- */
+
+  @media (min-width: 800px) {
+    :host {
+      max-width: 1200px;
+      margin-inline: auto;
+    }
+  }
+
+  /* ---- Mobile: stack vertically (placeholder — full mobile deferred) ---- */
+
+  @media (max-width: 799px) {
+    :host {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+    }
+
+    .logo-area {
+      grid-row: 1;
+      grid-column: 1;
+      justify-content: flex-start;
+      background: rgb(var(--color-topbar-bg));
+      padding-block: 0.75rem;
+    }
+
+    .logo-circle {
+      transform: none;
+    }
+
+    .topbar {
+      grid-row: 2;
+      grid-column: 1;
+    }
+
+    .subbar {
+      grid-row: 3;
+      grid-column: 1;
+    }
+  }
+</style>
