@@ -60,7 +60,8 @@
     align-items: center;
     justify-content: center;
     padding-inline-start: max(1.5rem, calc((100cqi - 1200px) / 2 + 1.5rem));
-    padding-inline-end: 1.5rem;
+    padding-inline-end: 2.5rem;
+    min-width: calc(var(--logo-size) + 1rem);
     background-color: rgb(var(--color-topbar-bg));
     text-decoration: none;
     position: relative;
@@ -77,7 +78,10 @@
     border-radius: 50%;
     background-color: rgb(var(--color-logo-circle));
     flex-shrink: 0;
-    transform: translateY(25%);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .logo-circle svg {
@@ -96,8 +100,9 @@
     grid-template-columns: fit-content(100%);
     justify-content: end;
     align-content: center;
+    row-gap: 0;
     background-color: rgb(var(--color-topbar-bg));
-    padding-block: 0.15rem;
+    padding-block: 0.25rem;
     padding-inline: 1.5rem;
     padding-inline-end: max(1.5rem, calc((100cqi - 1200px) / 2 + 1.5rem));
   }
@@ -120,7 +125,7 @@
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.04em;
-    padding: 0.1rem 0;
+    padding: 0;
     transition:
       color 0.2s ease,
       text-decoration-color 0.2s ease;
@@ -176,7 +181,7 @@
     grid-row: 2;
     grid-column: 1 / -1;
     background-color: rgb(var(--color-subbar-bg));
-    height: 0.75rem;
+    height: 0.4rem;
   }
 
   /* ---- Mobile: stack vertically (placeholder — full mobile deferred) ---- */
@@ -196,6 +201,7 @@
     }
 
     .logo-circle {
+      position: static;
       transform: none;
     }
 

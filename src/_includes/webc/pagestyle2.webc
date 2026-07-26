@@ -34,7 +34,7 @@
     --font-body: system-ui, sans-serif;
 
     /* Logo geometry */
-    --logo-size: 5rem;
+    --logo-size: 5.5rem;
   }
 
   /* =====================
