@@ -9,8 +9,11 @@
     --color-topbar-text: 255, 248, 240; /* #FFF8F0  warm cream */
     --color-topbar-text-hover: 255, 255, 255; /* #FFFFFF  white */
     --color-subbar-bg: 255, 248, 240; /* #FFF8F0  cream */
-    --color-logo-circle: 160, 28, 36; /* #A01C24  circle behind logo */
-    --color-logo-fill: 255, 248, 240; /* #FFF8F0  logo on circle */
+
+    /* Triangle geometry — change these to resize the corner triangle */
+    --triangle-width: 22rem;
+    --triangle-height: 30rem;
+    --bar-height: 0.4rem;
 
     /* Content zone — reused from existing palette */
     --palette-content-bg: 15, 23, 42; /* #0F172A */
@@ -32,9 +35,6 @@
     /* Fonts */
     --font-mono: monospace;
     --font-body: system-ui, sans-serif;
-
-    /* Logo geometry */
-    --logo-size: 5.5rem;
   }
 
   /* =====================
