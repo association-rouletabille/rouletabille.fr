@@ -21,7 +21,7 @@
     "globals": "^17.7.0",
     "husky": "^9.1.7",
     "lightningcss": "^1.33.0",
-    "lint-staged": "^17.1.1",
+    "lint-staged": "^17.3.0",
     "prettier": "^3.9.6",
     "wrangler": "^4.113.0"
   },
