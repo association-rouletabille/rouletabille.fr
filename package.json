@@ -23,7 +23,7 @@
     "lightningcss": "^1.33.0",
     "lint-staged": "^17.1.1",
     "prettier": "^3.9.6",
-    "wrangler": "^4.113.0"
+    "wrangler": "^4.123.0"
   },
   "scripts": {
     "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
