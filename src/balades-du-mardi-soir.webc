@@ -2,7 +2,7 @@
 layout: base.webc
 title: Balades du Mardi Soir
 description: >-
-  Sortie urbaine nocturne en monocycle dans Paris, chaque mardi soir.
+  Sortie urbaine nocturne gratuite en monocycle dans Paris, chaque mardi soir.
   Réservée aux pratiquants autonomes capables de rouler en milieu urbain.
 permalink: /balades-du-mardi-soir.html
 ---
@@ -15,7 +15,7 @@ permalink: /balades-du-mardi-soir.html
   </card>
 
   <card heading="Conditions de participation">
-    <p>La balade du mardi soir est réservée aux pratiquants <strong>autonomes</strong>, capables de rouler de façon sûre en milieu urbain (circulation, trottoirs, croisements). Il ne s'agit pas d'une séance d'initiation — si vous débutez, commencez par une <a href="/initiations-monocycle-gratuites">initiation</a> !</p>
+    <p>La balade du mardi soir est un rendez-vous hebdomadaire gratuit, réservé aux pratiquants <strong>autonomes</strong>, capables de rouler de façon sûre en milieu urbain (circulation, trottoirs, croisements). Il ne s'agit pas d'une séance d'initiation — si vous débutez, commencez par une <a href="/initiations-monocycle-gratuites">initiation</a> !</p>
     <ul>
       <li>Casque et protections personnelles vivement conseillés</li>
       <li>Monocycle personnel requis</li>
