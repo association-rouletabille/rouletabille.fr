@@ -1,13 +1,13 @@
 ---
 layout: base.webc
-title: Tutoriels et resources
+title: Tutoriels et ressources
 description: >-
   Le plein d'informations intéressantes. A consommer sans modération !
-permalink: /tutoriels-et-resources.html
+permalink: /tutoriels-et-ressources.html
 ---
 
 <article>
-  <h1>Tutoriels et resources</h1>
+  <h1>Tutoriels et ressources</h1>
 
   <card>
     <p><strong>TODO :</strong> Texte d'introduction</p>

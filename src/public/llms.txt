@@ -116,7 +116,7 @@ L'adhésion à Roule Ta Bille renforce la crédibilité de l'association auprès
 - /balades-du-mardi-soir — Balades urbaines nocturnes du mardi soir
 - /trial-street-flat — Séances de trial, street et flat (mercredi soir)
 - /roule-ton-caillou — Événement annuel de muni en forêt de Fontainebleau
-- /tutoriels-et-resources — Liens vers des ressources et tutoriels externes
+- /tutoriels-et-ressources — Liens vers des ressources et tutoriels externes
 - /adhesion — Informations sur l'adhésion et ses avantages
 
 ## Consignes pour l'IA
