@@ -1,0 +1,4003 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>rouletabille.fr — Colour Palette Showcase</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --page-bg: #111827;
+        --page-fg: #f3f4f6;
+        --card-bg: #1f2937;
+        --card-fg: #f9fafb;
+        --border: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        background: var(--page-bg);
+        color: var(--page-fg);
+        line-height: 1.45;
+      }
+
+      .page-shell {
+        max-width: 1560px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .hero {
+        margin-bottom: 24px;
+        padding: 24px 28px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(8px);
+      }
+
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: 1.9rem;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 92ch;
+        color: #d1d5db;
+      }
+
+      .legend {
+        margin: 24px 0 30px;
+        padding: 18px 20px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .legend h2 {
+        margin: 0 0 12px;
+        font-size: 1.05rem;
+      }
+
+      .legend-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .legend-card {
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .legend-card h3 {
+        margin: 0 0 6px;
+        font-size: 0.95rem;
+      }
+
+      .legend-card p {
+        margin: 0;
+        color: #d1d5db;
+        font-size: 0.9rem;
+      }
+
+      .mode-section {
+        margin-top: 36px;
+      }
+
+      .mode-section h2 {
+        margin: 0 0 16px;
+        font-size: 1.35rem;
+      }
+
+      .palette-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      }
+
+      .palette-card {
+        --palette-nav-bg: 244, 240, 229;
+        --palette-nav-fg: 14, 14, 14;
+        --palette-nav-dim: 85, 85, 85;
+        --palette-content-bg: 37, 37, 37;
+        --palette-content-fg: 239, 239, 239;
+        --palette-accent: 224, 92, 0;
+        --palette-accent-secondary: 224, 92, 0;
+        --palette-content-surface: 47, 42, 40;
+        --palette-page-bg: 160, 153, 135;
+        --palette-bright: 254, 254, 254;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px;
+        border-radius: 16px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04) 0%,
+          rgba(255, 255, 255, 0.02) 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      }
+
+      .palette-card .card-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .palette-card .card-head h3 {
+        margin: 0;
+        font-size: 1rem;
+        /* Always use the page-level bright text color so palette names stay
+           readable over the dark card shell, regardless of the palette's own
+           content-fg token (which can be dark, e.g. Matcha Ceremony). */
+        color: var(--page-fg);
+      }
+
+      .palette-card .card-head .chip {
+        font-size: 0.75rem;
+        padding: 4px 9px;
+        border-radius: 999px;
+        color: rgb(var(--palette-bright));
+        background: rgb(var(--palette-accent));
+        white-space: nowrap;
+      }
+
+      .palette-card .tagline {
+        margin: 0;
+        font-size: 0.86rem;
+        /* Dim variant of the page-level foreground for readable secondary text. */
+        color: rgba(243, 244, 246, 0.72);
+      }
+
+      .demo-shell {
+        display: flex;
+        min-height: 260px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .demo-nav {
+        width: 125px;
+        padding: 14px 12px;
+        background: rgb(var(--palette-nav-bg));
+        color: rgb(var(--palette-nav-fg));
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .demo-nav .icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgb(var(--palette-accent));
+        margin-bottom: 4px;
+      }
+
+      .demo-nav .site-name {
+        font-size: 0.95rem;
+        font-weight: 700;
+        font-family: 'Courier New', Courier, monospace;
+        color: rgb(var(--palette-nav-fg));
+      }
+
+      .demo-nav .site-subtitle {
+        font-size: 0.72rem;
+        color: rgb(var(--palette-nav-dim));
+      }
+
+      .demo-nav hr {
+        border: 0;
+        border-top: 1px solid rgba(var(--palette-nav-fg), 0.15);
+        margin: 4px 0;
+      }
+
+      .demo-nav a {
+        text-decoration: none;
+        color: rgb(var(--palette-nav-fg));
+        font-size: 0.78rem;
+        padding-left: 0.15rem;
+      }
+
+      .demo-nav .nav-link.is-hover::before {
+        content: '⫸';
+        color: rgb(var(--palette-accent));
+        margin-right: 0.35rem;
+      }
+
+      .demo-nav .nav-link.is-hover {
+        padding-left: 0.75rem;
+      }
+
+      .demo-content {
+        flex: 1;
+        padding: 16px;
+        background: rgb(var(--palette-content-bg));
+        color: rgb(var(--palette-content-fg));
+      }
+
+      .demo-content h1 {
+        margin: 0 0 10px;
+        color: rgb(var(--palette-accent-secondary));
+        font-size: 1.2rem;
+      }
+
+      .demo-content p {
+        margin: 0 0 12px;
+        font-size: 0.9rem;
+      }
+
+      .demo-content a {
+        color: rgb(var(--palette-accent));
+        text-decoration: none;
+      }
+
+      .demo-card {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: rgb(var(--palette-content-surface));
+        color: rgb(var(--palette-content-fg));
+      }
+
+      .demo-card h2 {
+        margin: 0 0 6px;
+        font-size: 0.95rem;
+        color: rgb(var(--palette-accent-secondary));
+      }
+
+      .demo-card p {
+        margin: 0;
+        font-size: 0.82rem;
+      }
+
+      .swatches {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px 12px;
+      }
+
+      .swatch-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        font-size: 0.72rem;
+        /* Labels sit on the dark card shell, not on the swatch itself.
+           Pin to the bright page-level foreground so token names stay
+           readable for light palettes (e.g. #61 70s Harvest). */
+        color: var(--page-fg);
+        text-align: left;
+      }
+
+      .swatch-item .swatch {
+        flex: 0 0 34px;
+        width: 34px;
+        height: 24px;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .swatch-item .name {
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      .swatch-item .value {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .swatch-item .hex {
+        margin-left: 4px;
+        color: rgba(243, 244, 246, 0.68);
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 2px;
+      }
+
+      .badge {
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 0.77rem;
+        font-weight: 600;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      /* WCAG badges sit on the dark card shell (rgba white on --page-bg),
+         so pin them to the bright page-level foreground for guaranteed
+         readability. The pass/fail glyph carries the semantic signal. */
+      .badge.nav,
+      .badge.content,
+      .badge.accent {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--page-fg);
+      }
+
+      /* ------------------------------------------------------------ */
+      /* Sticky menu: section anchors + mode filters + responsive     */
+      /* ------------------------------------------------------------ */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .mode-section {
+        scroll-margin-top: 96px;
+      }
+
+      .showcase-menu {
+        position: sticky;
+        top: 8px;
+        z-index: 50;
+        margin: 20px 0 12px;
+        padding: 12px 16px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(17, 24, 39, 0.88);
+        backdrop-filter: blur(12px);
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .menu-hamburger {
+        display: none;
+      }
+
+      .menu-body {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+      }
+
+      .menu-anchors {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .menu-anchors a {
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--page-fg);
+        text-decoration: none;
+        font-size: 0.82rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition:
+          background 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      .menu-anchors a:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .menu-anchors .count {
+        display: inline-block;
+        margin-left: 6px;
+        padding: 1px 6px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        font-size: 0.7rem;
+        color: #cbd5e1;
+      }
+
+      .menu-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-left: auto;
+      }
+
+      .menu-filters .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.82rem;
+        cursor: pointer;
+        user-select: none;
+        color: var(--page-fg);
+        transition: opacity 0.15s ease;
+      }
+
+      .menu-filters .chip input {
+        accent-color: #f59e0b;
+        margin: 0;
+      }
+
+      .menu-filters .chip:has(input:not(:checked)) {
+        opacity: 0.45;
+      }
+
+      /* Filter behaviour: hide cards whose mode is excluded. */
+      body.hide-light-nav .palette-card[data-mode^='LN-'] {
+        display: none;
+      }
+      body.hide-dark-nav .palette-card[data-mode^='DN-'] {
+        display: none;
+      }
+      body.hide-dark-content .palette-card[data-mode$='-DC'] {
+        display: none;
+      }
+      body.hide-light-content .palette-card[data-mode$='-LC'] {
+        display: none;
+      }
+
+      @media (max-width: 760px) {
+        .palette-grid {
+          grid-template-columns: 1fr;
+        }
+        .demo-shell {
+          flex-direction: column;
+        }
+        .demo-nav {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 460px) {
+        .swatches {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .showcase-menu {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+
+        .menu-hamburger {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 22px;
+          height: 18px;
+          cursor: pointer;
+          align-self: flex-end;
+        }
+
+        .menu-hamburger span {
+          display: block;
+          height: 2px;
+          width: 100%;
+          background: var(--page-fg);
+          border-radius: 2px;
+          transition:
+            transform 0.22s ease,
+            opacity 0.18s ease;
+          transform-origin: center;
+        }
+
+        .menu-body {
+          display: none;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 12px;
+        }
+
+        .menu-toggle:checked ~ .menu-body {
+          display: flex;
+        }
+
+        .menu-toggle:checked ~ .menu-hamburger span:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+        .menu-toggle:checked ~ .menu-hamburger span:nth-child(2) {
+          opacity: 0;
+        }
+        .menu-toggle:checked ~ .menu-hamburger span:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .menu-filters {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <h1>rouletabille.fr — Palette Showcase</h1>
+        <p>
+          A curated exploration of colour identities for the static site.
+          Ninety-nine palettes across sixteen themed sections mirror the live
+          navigation, content, card, and footer using the same nine design
+          tokens. Use the filter chips below to browse by nav / content mode.
+        </p>
+      </header>
+
+      <!-- <nav
+        class="showcase-menu"
+        id="showcase-menu"
+        aria-label="Palette navigation and filters"
+      >
+        <input
+          type="checkbox"
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Toggle menu"
+        />
+        <label for="menu-toggle" class="menu-hamburger" aria-hidden="true"
+          ><span></span><span></span><span></span
+        ></label>
+        <div class="menu-body">
+          <div class="menu-anchors" id="menu-anchors"></div>
+          <div class="menu-filters">
+            <label class="chip"
+              ><input type="checkbox" data-filter="light-nav" checked /> Light
+              nav</label
+            >
+            <label class="chip"
+              ><input type="checkbox" data-filter="dark-nav" checked /> Dark
+              nav</label
+            >
+            <label class="chip"
+              ><input type="checkbox" data-filter="dark-content" checked /> Dark
+              content</label
+            >
+            <label class="chip"
+              ><input type="checkbox" data-filter="light-content" checked />
+              Light content</label
+            >
+          </div>
+        </div>
+      </nav> -->
+
+      <section class="legend" aria-label="Palette token legend">
+        <h2>How to read the showcase</h2>
+        <div class="legend-grid">
+          <div class="legend-card">
+            <h3>1. Navigation zone</h3>
+            <p>
+              Uses nav background, text, and dim subtitle colors; hover arrows
+              appear in accent.
+            </p>
+          </div>
+          <div class="legend-card">
+            <h3>2. Content zone</h3>
+            <p>
+              Uses content background, body text, links, and accent headings
+              from the main page.
+            </p>
+          </div>
+          <div class="legend-card">
+            <h3>3. Card block</h3>
+            <p>
+              The surface block reveals how content-surface behaves against the
+              main background.
+            </p>
+          </div>
+          <div class="legend-card">
+            <h3>4. Token roles</h3>
+            <p>
+              The ten swatches map to nav-bg, nav-fg, nav-dim, content-bg,
+              content-fg, accent, accent-secondary, content-surface, page-bg,
+              and bright.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <main id="showcase"></main>
+    </div>
+
+    <script>
+      // ------------------------------------------------------------------
+      // Palette data — single source of truth. Add a new palette by
+      // pushing an object here; the renderer + WCAG badges pick it up.
+      // ------------------------------------------------------------------
+      const SECTION_META = {
+        A: { emoji: '🌑', title: 'Baseline Dark' },
+        B: { emoji: '☀️', title: 'Baseline Light' },
+        C: { emoji: '✨', title: 'Bonus Dark — Trend Research' },
+        D: { emoji: '☀️', title: 'Bonus Light — Trend Research' },
+        E: { emoji: '⚡', title: 'Flashy / Neon / Vibrant' },
+        F: { emoji: '🕯️', title: 'Gloomy / Gothic / Moody' },
+        G: { emoji: '📓', title: 'Manga / Anime' },
+        H: { emoji: '🍵', title: 'Zen / Japandi' },
+        I: { emoji: '⬛', title: 'High Contrast / OLED' },
+        J: { emoji: '📼', title: 'Retro / Nostalgic' },
+        K: { emoji: '🌌', title: 'Nature Phenomena' },
+        L: { emoji: '🎨', title: 'Editorial Art Movements' },
+        M: { emoji: '🌒', title: 'Dark Nav Showcase' },
+        N: { emoji: '🌍', title: 'Cultural Inspirations' },
+        O: { emoji: '☕', title: 'Food & Drink' },
+        P: { emoji: '🚴', title: 'Sport & Performance' },
+        Q: { emoji: '💥', title: 'Chromatic Clash' },
+        R: { emoji: '🖨️', title: 'Riso / Duotone' },
+        S: { emoji: '☢️', title: 'Toxic / Bioluminescent' },
+        T: { emoji: '🎬', title: 'Split-Tone Cinematic' },
+        U: { emoji: '🧱', title: 'Brutalist / Anti-Design' },
+        V: { emoji: '🖌️', title: 'CMYK Registration' },
+        W: { emoji: '🎨', title: 'Neo-Fauvism' },
+        X: { emoji: '☀️', title: 'Solarized Family' },
+        Y: { emoji: '🎯', title: 'Monochromatic Extreme' },
+        Z: { emoji: '👾', title: 'Retro Computing' },
+        AA: { emoji: '🧭', title: 'Uncharted' },
+      };
+
+      const SECTION_ORDER = [
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G',
+        'H',
+        'I',
+        'J',
+        'K',
+        'L',
+        'M',
+        'N',
+        'O',
+        'P',
+        'Q',
+        'R',
+        'S',
+        'T',
+        'U',
+        'V',
+        'W',
+        'X',
+        'Y',
+        'Z',
+        'AA',
+      ];
+
+      // Nav / content brightness classification.
+      //   LN-DC = light nav + dark content   (baseline dark)
+      //   LN-LC = light nav + light content  (baseline light)
+      //   DN-DC = dark nav  + dark content   (cohesive full-dark)
+      //   DN-LC = dark nav  + light content  (dramatic tonal split)
+      const MODE_LABEL = {
+        'LN-DC': 'DARK',
+        'LN-LC': 'LIGHT',
+        'DN-DC': 'DARK',
+        'DN-LC': 'LIGHT',
+      };
+
+      const PALETTES = [
+        {
+          id: 'pAlix1',
+          section: 'A',
+          name: 'Alix Option 1',
+          tagline: 'Test',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#94E694',
+            'nav-fg': '#0F172A',
+            'nav-dim': '#475569',
+            'content-bg': '#FAED8F',
+            'content-fg': '#405416',
+            accent: '#38BDF8',
+            'accent-secondary': '#5C2C45',
+            'content-surface': '#F5F5B8',
+            'page-bg': '#64748B',
+            bright: '#F8FAFC',
+          },
+        },
+        {
+          id: 'pAlix2',
+          section: 'A',
+          name: 'Alix Option 2',
+          tagline: 'Test',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#DA9C5C',
+            'nav-fg': '#0F172A',
+            'nav-dim': '#475569',
+            'content-bg': '#EBD999',
+            'content-fg': '#172713',
+            accent: '#38BDF8',
+            'accent-secondary': '#718600',
+            'content-surface': '#F5F5B8',
+            'page-bg': '#64748B',
+            bright: '#F8FAFC',
+          },
+        },
+        // ---------- Section A — Baseline Dark ----------
+        {
+          id: 'p1',
+          section: 'A',
+          name: 'Charcoal & Ember',
+          tagline: 'Earthy, baseline reference',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F4F0E5',
+            'nav-fg': '#0E0E0E',
+            'nav-dim': '#555555',
+            'content-bg': '#252525',
+            'content-fg': '#EFEFEF',
+            accent: '#E05C00',
+            'accent-secondary': '#D2AA64',
+            'content-surface': '#342F2D',
+            'page-bg': '#A09987',
+            bright: '#FEFEFE',
+          },
+        },
+        {
+          id: 'p2',
+          section: 'A',
+          name: 'Marine & Ivory',
+          tagline: 'Nautical, athletic, clean',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F7F8FA',
+            'nav-fg': '#0F172A',
+            'nav-dim': '#475569',
+            'content-bg': '#0F172A',
+            'content-fg': '#E2E8F0',
+            accent: '#38BDF8',
+            'accent-secondary': '#9BAFD7',
+            'content-surface': '#1E293B',
+            'page-bg': '#64748B',
+            bright: '#F8FAFC',
+          },
+        },
+        {
+          id: 'p3',
+          section: 'A',
+          name: 'Forest & Mist',
+          tagline: 'Nature, outdoors, organic',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F8F9F5',
+            'nav-fg': '#141E14',
+            'nav-dim': '#505F50',
+            'content-bg': '#122816',
+            'content-fg': '#DCF0DE',
+            accent: '#84CC16',
+            'accent-secondary': '#AAD796',
+            'content-surface': '#1C3720',
+            'page-bg': '#5A785A',
+            bright: '#FEFFFE',
+          },
+        },
+        {
+          id: 'p4',
+          section: 'A',
+          name: 'Dusk & Coral',
+          tagline: 'Evening warmth, creative',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F2EDE6',
+            'nav-fg': '#1E1419',
+            'nav-dim': '#645055',
+            'content-bg': '#2D1428',
+            'content-fg': '#F0E1EB',
+            accent: '#FB7185',
+            'accent-secondary': '#C8A5C3',
+            'content-surface': '#41233A',
+            'page-bg': '#875A73',
+            bright: '#FFFAFC',
+          },
+        },
+        {
+          id: 'p5',
+          section: 'A',
+          name: 'Nordic Ice',
+          tagline: 'Scandinavian minimal, crisp',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F5F7FC',
+            'nav-fg': '#0F1932',
+            'nav-dim': '#505F82',
+            'content-bg': '#141E41',
+            'content-fg': '#D2E1F8',
+            accent: '#22D3EE',
+            'accent-secondary': '#A0B9E1',
+            'content-surface': '#1E2D55',
+            'page-bg': '#5F73A0',
+            bright: '#F8FCFF',
+          },
+        },
+        {
+          id: 'p6',
+          section: 'A',
+          name: 'Terra & Sand',
+          tagline: 'Mediterranean, earth, warm',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F3ECDA',
+            'nav-fg': '#2A1E12',
+            'nav-dim': '#6E5541',
+            'content-bg': '#371E14',
+            'content-fg': '#F0E1D2',
+            accent: '#F59E0B',
+            'accent-secondary': '#C38C64',
+            'content-surface': '#4B2D21',
+            'page-bg': '#9B785A',
+            bright: '#FEFAF4',
+          },
+        },
+        {
+          id: 'p7',
+          section: 'A',
+          name: 'Midnight & Gold',
+          tagline: 'Classic, elegant, luxury',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F2F3F4',
+            'nav-fg': '#0C0C0F',
+            'nav-dim': '#5A5A64',
+            'content-bg': '#0A0A0C',
+            'content-fg': '#EBEBE6',
+            accent: '#EAB308',
+            'accent-secondary': '#C3BEAF',
+            'content-surface': '#16161C',
+            'page-bg': '#50505A',
+            bright: '#FEFEFC',
+          },
+        },
+        {
+          id: 'p8',
+          section: 'A',
+          name: 'Jade & Stone',
+          tagline: 'Fresh, organic, spa-like',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F6F7F3',
+            'nav-fg': '#12231C',
+            'nav-dim': '#4B6458',
+            'content-bg': '#0F322D',
+            'content-fg': '#D7F0EB',
+            accent: '#34D399',
+            'accent-secondary': '#96C8BE',
+            'content-surface': '#19463F',
+            'page-bg': '#508276',
+            bright: '#F8FFFC',
+          },
+        },
+        {
+          id: 'p9',
+          section: 'A',
+          name: 'Plum & Rose',
+          tagline: 'Creative, sophisticated, bold',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F5F0FA',
+            'nav-fg': '#26122D',
+            'nav-dim': '#6E5078',
+            'content-bg': '#261237',
+            'content-fg': '#EEE1F8',
+            accent: '#E879F9',
+            'accent-secondary': '#B9A0D2',
+            'content-surface': '#3A204E',
+            'page-bg': '#7D5A91',
+            bright: '#FEFAFF',
+          },
+        },
+        {
+          id: 'p10',
+          section: 'A',
+          name: 'Steel & Arctic',
+          tagline: 'Modern, technical, sharp',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F6F7FA',
+            'nav-fg': '#0F1423',
+            'nav-dim': '#505A73',
+            'content-bg': '#121C37',
+            'content-fg': '#DAE4F8',
+            accent: '#63B3ED',
+            'accent-secondary': '#A5AFCD',
+            'content-surface': '#1C2A50',
+            'page-bg': '#5A6E9B',
+            bright: '#F8FAFF',
+          },
+        },
+
+        // ---------- Section B — Baseline Light ----------
+        {
+          id: 'p11',
+          section: 'B',
+          name: 'Paper & Ink',
+          tagline: 'Classic editorial, timeless',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F4F0E5',
+            'nav-fg': '#0E0E0E',
+            'nav-dim': '#555555',
+            'content-bg': '#FFFFFD',
+            'content-fg': '#161616',
+            accent: '#0D7467',
+            'accent-secondary': '#504B46',
+            'content-surface': '#EEEBE4',
+            'page-bg': '#C8C4BC',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p12',
+          section: 'B',
+          name: 'Blueprint',
+          tagline: 'Technical, structured, precise',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#DBE8F5',
+            'nav-fg': '#0A193C',
+            'nav-dim': '#465F8C',
+            'content-bg': '#F8FAFD',
+            'content-fg': '#0A193C',
+            accent: '#1D4ED8',
+            'accent-secondary': '#37466E',
+            'content-surface': '#E0EAF5',
+            'page-bg': '#A0B9D2',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p13',
+          section: 'B',
+          name: 'Garden Path',
+          tagline: 'Botanical, organic, outdoors',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#D4E4D2',
+            'nav-fg': '#142612',
+            'nav-dim': '#506C4E',
+            'content-bg': '#F8F6F0',
+            'content-fg': '#1C2616',
+            accent: '#AC3A14',
+            'accent-secondary': '#2D5532',
+            'content-surface': '#EAE4D7',
+            'page-bg': '#A2B99E',
+            bright: '#FEFEFA',
+          },
+        },
+        {
+          id: 'p14',
+          section: 'B',
+          name: 'Morning Coffee',
+          tagline: 'Cozy, warm, inviting',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#E1CDB2',
+            'nav-fg': '#23160A',
+            'nav-dim': '#644B32',
+            'content-bg': '#FEFAF3',
+            'content-fg': '#23160A',
+            accent: '#92400E',
+            'accent-secondary': '#50321E',
+            'content-surface': '#F0E8DA',
+            'page-bg': '#BEA88C',
+            bright: '#FFFDF8',
+          },
+        },
+        {
+          id: 'p15',
+          section: 'B',
+          name: 'Birch Forest',
+          tagline: 'Naturalist, Scandinavian-light, airy',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F0ECE4',
+            'nav-fg': '#142016',
+            'nav-dim': '#586655',
+            'content-bg': '#F5F6F5',
+            'content-fg': '#162018',
+            accent: '#155A1E',
+            'accent-secondary': '#4B3C2D',
+            'content-surface': '#E1E4E0',
+            'page-bg': '#AFB9AC',
+            bright: '#FFFFFE',
+          },
+        },
+        {
+          id: 'p16',
+          section: 'B',
+          name: 'Periwinkle',
+          tagline: 'Refined, calm, creative',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#E4E1F5',
+            'nav-fg': '#191232',
+            'nav-dim': '#62558C',
+            'content-bg': '#FCFBFF',
+            'content-fg': '#191232',
+            accent: '#581C87',
+            'accent-secondary': '#413764',
+            'content-surface': '#ECE8F8',
+            'page-bg': '#AFA8D2',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p17',
+          section: 'B',
+          name: 'Seashell',
+          tagline: 'Mediterranean coast, warm, relaxed',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#EED8C6',
+            'nav-fg': '#2D160C',
+            'nav-dim': '#78503C',
+            'content-bg': '#FEF8F2',
+            'content-fg': '#2D160C',
+            accent: '#8C280A',
+            'accent-secondary': '#5F3C28',
+            'content-surface': '#F0E4D7',
+            'page-bg': '#C0A087',
+            bright: '#FFFCF8',
+          },
+        },
+        {
+          id: 'p18',
+          section: 'B',
+          name: 'Misty Mountain',
+          tagline: 'Clean, minimal, focus',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#DCDFE4',
+            'nav-fg': '#0F1623',
+            'nav-dim': '#505D6E',
+            'content-bg': '#FFFFFF',
+            'content-fg': '#0F1623',
+            accent: '#1E50A0',
+            'accent-secondary': '#3C465F',
+            'content-surface': '#EEF1F6',
+            'page-bg': '#ACB2BE',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p19',
+          section: 'B',
+          name: 'Meadow',
+          tagline: 'Fresh, energetic, sporty',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#D2F0DC',
+            'nav-fg': '#0C2312',
+            'nav-dim': '#3C6948',
+            'content-bg': '#F8FCF8',
+            'content-fg': '#0C2312',
+            accent: '#168230',
+            'accent-secondary': '#324B28',
+            'content-surface': '#E4F2E6',
+            'page-bg': '#94C3A2',
+            bright: '#FEFFFE',
+          },
+        },
+        {
+          id: 'p20',
+          section: 'B',
+          name: 'Sunset Blush',
+          tagline: 'Elegant, festive, warm',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F5DCDC',
+            'nav-fg': '#2D0F14',
+            'nav-dim': '#784148',
+            'content-bg': '#FFF9F8',
+            'content-fg': '#2D0F14',
+            accent: '#820F28',
+            'accent-secondary': '#642D37',
+            'content-surface': '#F0E1E0',
+            'page-bg': '#C39E9E',
+            bright: '#FFFFFF',
+          },
+        },
+
+        // ---------- Section C — Bonus Dark (trend research) ----------
+        {
+          id: 'p21',
+          section: 'C',
+          name: 'Cobalt Moonlight',
+          tagline: 'Polished, modern, technical',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F2F6FC',
+            'nav-fg': '#0A122A',
+            'nav-dim': '#4E6291',
+            'content-bg': '#081232',
+            'content-fg': '#D0DEF8',
+            accent: '#32DAFC',
+            'accent-secondary': '#8CAADC',
+            'content-surface': '#12204B',
+            'page-bg': '#345294',
+            bright: '#F8FCFF',
+          },
+        },
+        {
+          id: 'p22',
+          section: 'C',
+          name: 'Velvet Orchard',
+          tagline: 'Moody, organic, earthy',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F6F2E6',
+            'nav-fg': '#181C0E',
+            'nav-dim': '#5C6244',
+            'content-bg': '#162612',
+            'content-fg': '#DEE8D0',
+            accent: '#D49B26',
+            'accent-secondary': '#96AF6E',
+            'content-surface': '#23371C',
+            'page-bg': '#556C3E',
+            bright: '#FFFCEE',
+          },
+        },
+        {
+          id: 'p23',
+          section: 'C',
+          name: 'Saffron Noir',
+          tagline: 'Cinematic, editorial, bold',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F5EEDE',
+            'nav-fg': '#0C0A08',
+            'nav-dim': '#584E3E',
+            'content-bg': '#0F0C0A',
+            'content-fg': '#EEE4D4',
+            accent: '#D75F19',
+            'accent-secondary': '#C8AF6E',
+            'content-surface': '#1C1814',
+            'page-bg': '#483E32',
+            bright: '#FFFAEB',
+          },
+        },
+        {
+          id: 'p24',
+          section: 'C',
+          name: 'Aurora Slate',
+          tagline: 'Modern, tech-forward, crisp',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F4F4FC',
+            'nav-fg': '#140E34',
+            'nav-dim': '#625C9E',
+            'content-bg': '#120E3A',
+            'content-fg': '#D7DAF8',
+            accent: '#2ADAD0',
+            'accent-secondary': '#A5A0D2',
+            'content-surface': '#1E1955',
+            'page-bg': '#55589E',
+            bright: '#F8FAFF',
+          },
+        },
+
+        // ---------- Section D — Bonus Light (trend research) ----------
+        {
+          id: 'p25',
+          section: 'D',
+          name: 'Desert Bloom',
+          tagline: 'Tactile, approachable, warm',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#E4D2C0',
+            'nav-fg': '#371E0F',
+            'nav-dim': '#846248',
+            'content-bg': '#FCF5EB',
+            'content-fg': '#371E0F',
+            accent: '#A8481C',
+            'accent-secondary': '#6E5032',
+            'content-surface': '#EEE4D7',
+            'page-bg': '#C0A88E',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p26',
+          section: 'D',
+          name: 'Misty Orchard',
+          tagline: 'Calm, airy, botanical',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#DAE8D7',
+            'nav-fg': '#122A14',
+            'nav-dim': '#4E7050',
+            'content-bg': '#FAFAF6',
+            'content-fg': '#162A18',
+            accent: '#1C642A',
+            'accent-secondary': '#3C462D',
+            'content-surface': '#E8ECE4',
+            'page-bg': '#A2BCA0',
+            bright: '#FFFFFC',
+          },
+        },
+        {
+          id: 'p27',
+          section: 'D',
+          name: 'Velvet Teal',
+          tagline: 'Restrained, premium, minimal',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#D2E4EE',
+            'nav-fg': '#0E263A',
+            'nav-dim': '#48708A',
+            'content-bg': '#F8FCFE',
+            'content-fg': '#0E263A',
+            accent: '#0C6C8C',
+            'accent-secondary': '#2D465F',
+            'content-surface': '#E4F0F8',
+            'page-bg': '#98BCD0',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p28',
+          section: 'D',
+          name: 'Rose Quartz Studio',
+          tagline: 'Fashion-forward, elegant, warm',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F2DEE4',
+            'nav-fg': '#37121C',
+            'nav-dim': '#8A525F',
+            'content-bg': '#FFFAFC',
+            'content-fg': '#37121C',
+            accent: '#78162D',
+            'accent-secondary': '#5F3241',
+            'content-surface': '#F2E6EB',
+            'page-bg': '#C6A5AF',
+            bright: '#FFFFFF',
+          },
+        },
+        // ---------- Section E — Flashy / Neon / Vibrant ----------
+        {
+          id: 'p29',
+          section: 'E',
+          name: 'Cyberpunk Alley',
+          tagline: 'Magenta + cyan on wet asphalt',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0F051E',
+            'nav-fg': '#F0EBFA',
+            'nav-dim': '#B482DC',
+            'content-bg': '#FAF5FF',
+            'content-fg': '#0F051E',
+            accent: '#BE1482',
+            'accent-secondary': '#5A2878',
+            'content-surface': '#F0E8FA',
+            'page-bg': '#2D143C',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p30',
+          section: 'E',
+          name: 'Vaporwave Miami',
+          tagline: 'Pink/teal sunset, chrome text',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F5DCEB',
+            'nav-fg': '#28143C',
+            'nav-dim': '#825A82',
+            'content-bg': '#190F2D',
+            'content-fg': '#E6FAFF',
+            accent: '#FF64C8',
+            'accent-secondary': '#64DCE1',
+            'content-surface': '#281941',
+            'page-bg': '#50C8D2',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p31',
+          section: 'E',
+          name: 'Rave Acid',
+          tagline: 'Neon green + hot pink, black bg',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#080808',
+            'nav-fg': '#DCFFDC',
+            'nav-dim': '#6EA06E',
+            'content-bg': '#0C0F0C',
+            'content-fg': '#EBFFEB',
+            accent: '#B4FF28',
+            'accent-secondary': '#FF50B4',
+            'content-surface': '#161A16',
+            'page-bg': '#1E281E',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p32',
+          section: 'E',
+          name: 'Synthwave Sunset',
+          tagline: 'Purple → orange gradient, ink content',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#FFEBDC',
+            'nav-fg': '#280F32',
+            'nav-dim': '#825082',
+            'content-bg': '#1E0F37',
+            'content-fg': '#FFF0E6',
+            accent: '#FF8C32',
+            'accent-secondary': '#E682B4',
+            'content-surface': '#2D194B',
+            'page-bg': '#E66482',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p33',
+          section: 'E',
+          name: 'Neon Tokyo',
+          tagline: 'Kanji red + electric blue on charcoal',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#121216',
+            'nav-fg': '#E6EBFF',
+            'nav-dim': '#7882AA',
+            'content-bg': '#F8F8FA',
+            'content-fg': '#0F0F14',
+            accent: '#C81428',
+            'accent-secondary': '#1E2850',
+            'content-surface': '#EBEBF0',
+            'page-bg': '#1E3C82',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p34',
+          section: 'E',
+          name: 'Electric Watermelon',
+          tagline: 'Hot pink + lime on cream',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#192819',
+            'nav-fg': '#EBFFDC',
+            'nav-dim': '#82AA78',
+            'content-bg': '#FFFAF0',
+            'content-fg': '#280F14',
+            accent: '#DC1E5A',
+            'accent-secondary': '#3C6E28',
+            'content-surface': '#FAF0EB',
+            'page-bg': '#8CC85A',
+            bright: '#FFFFFF',
+          },
+        },
+        // ---------- Section F — Gloomy / Gothic / Moody ----------
+        {
+          id: 'p35',
+          section: 'F',
+          name: 'Obsidian & Blood',
+          tagline: 'Ink black + arterial red accent',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#060608',
+            'nav-fg': '#DCDCE1',
+            'nav-dim': '#6E696E',
+            'content-bg': '#0A080A',
+            'content-fg': '#E1DCDC',
+            accent: '#E63232',
+            'accent-secondary': '#A09696',
+            'content-surface': '#160F0F',
+            'page-bg': '#230F0F',
+            bright: '#F5F5F5',
+          },
+        },
+        {
+          id: 'p36',
+          section: 'F',
+          name: 'Storm Cloud',
+          tagline: 'Slate greys, weak yellow lightning',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#DCE1E6',
+            'nav-fg': '#191E28',
+            'nav-dim': '#646E7D',
+            'content-bg': '#282D37',
+            'content-fg': '#DCE1EB',
+            accent: '#E6DC5A',
+            'accent-secondary': '#8C9BB9',
+            'content-surface': '#373C46',
+            'page-bg': '#646973',
+            bright: '#FAFAFF',
+          },
+        },
+        {
+          id: 'p37',
+          section: 'F',
+          name: 'Volcanic Ash',
+          tagline: 'Charcoal + molten orange embers',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0F0C0A',
+            'nav-fg': '#E1DCD7',
+            'nav-dim': '#6E645F',
+            'content-bg': '#16120F',
+            'content-fg': '#E6DCD7',
+            accent: '#FF6E14',
+            'accent-secondary': '#B96446',
+            'content-surface': '#231C16',
+            'page-bg': '#37281E',
+            bright: '#FAF5F0',
+          },
+        },
+        {
+          id: 'p38',
+          section: 'F',
+          name: 'Sepulcher',
+          tagline: 'Deep purple + tomb grey + candlelight',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0F0A16',
+            'nav-fg': '#DCD7E6',
+            'nav-dim': '#736982',
+            'content-bg': '#16121E',
+            'content-fg': '#E1DCEB',
+            accent: '#E6BE64',
+            'accent-secondary': '#AA96BE',
+            'content-surface': '#231C2D',
+            'page-bg': '#372D41',
+            bright: '#FAF5FA',
+          },
+        },
+        {
+          id: 'p39',
+          section: 'F',
+          name: 'Coal Mine',
+          tagline: 'Anthracite + soot + safety-lamp amber',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0C0C0C',
+            'nav-fg': '#D2D2D2',
+            'nav-dim': '#5F5F5F',
+            'content-bg': '#141416',
+            'content-fg': '#DCDCDC',
+            accent: '#FFB41E',
+            'accent-secondary': '#A0A09B',
+            'content-surface': '#202022',
+            'page-bg': '#2D2D2D',
+            bright: '#F5F5F5',
+          },
+        },
+        {
+          id: 'p40',
+          section: 'F',
+          name: 'Black Iris',
+          tagline: 'Very dark violet + iridescent teal',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0C0816',
+            'nav-fg': '#D7D7EB',
+            'nav-dim': '#736E8C',
+            'content-bg': '#120C1E',
+            'content-fg': '#DCDCF0',
+            accent: '#50DCC8',
+            'accent-secondary': '#A59BC8',
+            'content-surface': '#1C162D',
+            'page-bg': '#2D2346',
+            bright: '#F5F5FA',
+          },
+        },
+        // ---------- Section G — Manga / Anime ----------
+        {
+          id: 'p41',
+          section: 'G',
+          name: 'Shonen Impact',
+          tagline: 'Manga ink, screentone grey, action red',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FAF8F5',
+            'nav-fg': '#0F0F0F',
+            'nav-dim': '#787878',
+            'content-bg': '#FFFDFA',
+            'content-fg': '#0A0A0A',
+            accent: '#DC1E28',
+            'accent-secondary': '#2D2D32',
+            'content-surface': '#F5F3F0',
+            'page-bg': '#C8C3BE',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p42',
+          section: 'G',
+          name: 'Shojo Petal',
+          tagline: 'Sparkles pink + lilac + ink',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FFF0F5',
+            'nav-fg': '#461437',
+            'nav-dim': '#AA648C',
+            'content-bg': '#FFFAFD',
+            'content-fg': '#370F2D',
+            accent: '#C82882',
+            'accent-secondary': '#784B6E',
+            'content-surface': '#FAEBF5',
+            'page-bg': '#E6BEDC',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p43',
+          section: 'G',
+          name: 'Studio Night',
+          tagline: 'Ghibli-esque teal + warm lantern ink',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#E8F2F0',
+            'nav-fg': '#1E2D2D',
+            'nav-dim': '#6E8282',
+            'content-bg': '#12282D',
+            'content-fg': '#E1EBE6',
+            accent: '#E6B45A',
+            'accent-secondary': '#82B4AA',
+            'content-surface': '#1C373C',
+            'page-bg': '#5A8282',
+            bright: '#FAFAF5',
+          },
+        },
+        {
+          id: 'p44',
+          section: 'G',
+          name: 'Berserk Iron',
+          tagline: 'Rust brown + steel + parchment',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#1E1916',
+            'nav-fg': '#DCD2C3',
+            'nav-dim': '#827869',
+            'content-bg': '#F2EBDC',
+            'content-fg': '#231914',
+            accent: '#9B3C1E',
+            'accent-secondary': '#504B41',
+            'content-surface': '#EBE1CD',
+            'page-bg': '#6E5A4B',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p45',
+          section: 'G',
+          name: 'Neo-Tokyo Rain',
+          tagline: 'Neon signs on a rainy night',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0A0C14',
+            'nav-fg': '#DCE1F0',
+            'nav-dim': '#6E82AA',
+            'content-bg': '#0F121E',
+            'content-fg': '#E1E6F5',
+            accent: '#FF3CB4',
+            'accent-secondary': '#7896D2',
+            'content-surface': '#191E32',
+            'page-bg': '#2D375A',
+            bright: '#F5FAFF',
+          },
+        },
+        {
+          id: 'p46',
+          section: 'G',
+          name: 'Chibi Pastel',
+          tagline: 'Soft yellow + baby blue + chibi pink',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FFF8E6',
+            'nav-fg': '#322846',
+            'nav-dim': '#8C82A0',
+            'content-bg': '#FAFAFF',
+            'content-fg': '#2D2341',
+            accent: '#C83C82',
+            'accent-secondary': '#4B5F8C',
+            'content-surface': '#EBF0FF',
+            'page-bg': '#B4DCF5',
+            bright: '#FFFFFF',
+          },
+        },
+        // ---------- Section H — Zen / Japandi ----------
+        {
+          id: 'p47',
+          section: 'H',
+          name: 'Sumi-e Ink',
+          tagline: 'Bone white paper, sumi ink, seal red',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FAF7F0',
+            'nav-fg': '#0F0F12',
+            'nav-dim': '#6E6E73',
+            'content-bg': '#FDFAF4',
+            'content-fg': '#0A0A0C',
+            accent: '#AF1E19',
+            'accent-secondary': '#464441',
+            'content-surface': '#F5F0E8',
+            'page-bg': '#C8BEAF',
+            bright: '#FFFDF8',
+          },
+        },
+        {
+          id: 'p48',
+          section: 'H',
+          name: 'Wabi-sabi',
+          tagline: 'Clay + weathered plaster + rust accent',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F5EEE1',
+            'nav-fg': '#281E16',
+            'nav-dim': '#7D6E5F',
+            'content-bg': '#FAF4E8',
+            'content-fg': '#231914',
+            accent: '#9B3C1E',
+            'accent-secondary': '#64503C',
+            'content-surface': '#F0E8DA',
+            'page-bg': '#AF9678',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p49',
+          section: 'H',
+          name: 'Matcha Ceremony',
+          tagline: 'Matcha green + kraft + cast iron',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F2EEE1',
+            'nav-fg': '#1E2819',
+            'nav-dim': '#6E7D64',
+            'content-bg': '#F8F4E8',
+            'content-fg': '#192316',
+            accent: '#506E2D',
+            'accent-secondary': '#3C372D',
+            'content-surface': '#EEE8DA',
+            'page-bg': '#2D3728',
+            bright: '#FFFCF5',
+          },
+        },
+        {
+          id: 'p50',
+          section: 'H',
+          name: 'Ink Wash Night',
+          tagline: 'Deep indigo + rice paper + moonstone',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#16192D',
+            'nav-fg': '#E1E4F0',
+            'nav-dim': '#828CAF',
+            'content-bg': '#F8F6EE',
+            'content-fg': '#161928',
+            accent: '#325091',
+            'accent-secondary': '#413C37',
+            'content-surface': '#F0EEE4',
+            'page-bg': '#828CAF',
+            bright: '#FFFDF8',
+          },
+        },
+        {
+          id: 'p51',
+          section: 'H',
+          name: 'Ryoan-ji Stone',
+          tagline: 'Raked-sand beige + stone grey + moss',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F0E8DA',
+            'nav-fg': '#23231E',
+            'nav-dim': '#737369',
+            'content-bg': '#F6F0E4',
+            'content-fg': '#1E1E19',
+            accent: '#4B643C',
+            'accent-secondary': '#5A554B',
+            'content-surface': '#EBE4D7',
+            'page-bg': '#9B9687',
+            bright: '#FFFCF5',
+          },
+        },
+        {
+          id: 'p52',
+          section: 'H',
+          name: 'Kyoto Twilight',
+          tagline: 'Deep plum sky + lantern gold',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#160C1E',
+            'nav-fg': '#E1D7E6',
+            'nav-dim': '#7D698C',
+            'content-bg': '#1C1226',
+            'content-fg': '#E6DCEB',
+            accent: '#E6AF41',
+            'accent-secondary': '#B48CAF',
+            'content-surface': '#2A1C37',
+            'page-bg': '#412850',
+            bright: '#FAF5FA',
+          },
+        },
+        // ---------- Section I — High Contrast / OLED ----------
+        {
+          id: 'p53',
+          section: 'I',
+          name: 'Pure OLED',
+          tagline: 'True black + pure white + cyan',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#000000',
+            'nav-fg': '#FFFFFF',
+            'nav-dim': '#8C8C8C',
+            'content-bg': '#000000',
+            'content-fg': '#FFFFFF',
+            accent: '#00DCFF',
+            'accent-secondary': '#C8C8C8',
+            'content-surface': '#0F0F0F',
+            'page-bg': '#1E1E1E',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p54',
+          section: 'I',
+          name: 'Traffic Signal',
+          tagline: 'Green/yellow/red on black',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#050505',
+            'nav-fg': '#FAFAF5',
+            'nav-dim': '#878782',
+            'content-bg': '#080808',
+            'content-fg': '#FAFAF5',
+            accent: '#FFC800',
+            'accent-secondary': '#50C850',
+            'content-surface': '#141414',
+            'page-bg': '#282828',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p55',
+          section: 'I',
+          name: 'Newspaper',
+          tagline: 'Newsprint cream + solid black + red ink',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F8F4E8',
+            'nav-fg': '#080808',
+            'nav-dim': '#5F5A55',
+            'content-bg': '#FAF6EA',
+            'content-fg': '#050505',
+            accent: '#B41919',
+            'accent-secondary': '#23231E',
+            'content-surface': '#F2EEE1',
+            'page-bg': '#C8BEAF',
+            bright: '#FFFCF5',
+          },
+        },
+        {
+          id: 'p56',
+          section: 'I',
+          name: 'Blueprint Sharp',
+          tagline: 'Cyan blueprint + chalk white',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0A1E41',
+            'nav-fg': '#EBF5FF',
+            'nav-dim': '#82A5D2',
+            'content-bg': '#0F2855',
+            'content-fg': '#F0F8FF',
+            accent: '#6EDCFF',
+            'accent-secondary': '#B4C8E6',
+            'content-surface': '#193769',
+            'page-bg': '#285082',
+            bright: '#FAFDFF',
+          },
+        },
+        {
+          id: 'p57',
+          section: 'I',
+          name: 'Panda Mono',
+          tagline: 'Pure white nav + pure black content + one blue',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#FFFFFF',
+            'nav-fg': '#000000',
+            'nav-dim': '#6E6E6E',
+            'content-bg': '#0A0A0A',
+            'content-fg': '#FFFFFF',
+            accent: '#50A0FF',
+            'accent-secondary': '#C8C8C3',
+            'content-surface': '#191919',
+            'page-bg': '#828282',
+            bright: '#FFFFFF',
+          },
+        },
+        // ---------- Section J — Retro / Nostalgic ----------
+        {
+          id: 'p58',
+          section: 'J',
+          name: 'CRT Phosphor',
+          tagline: 'Green-on-black terminal',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#030803',
+            'nav-fg': '#B4FFB4',
+            'nav-dim': '#64A564',
+            'content-bg': '#050C05',
+            'content-fg': '#B4FFB4',
+            accent: '#64FF64',
+            'accent-secondary': '#3CA050',
+            'content-surface': '#0F190F',
+            'page-bg': '#192819',
+            bright: '#DCFFDC',
+          },
+        },
+        {
+          id: 'p59',
+          section: 'J',
+          name: 'Amber Terminal',
+          tagline: 'Amber-on-black IBM 3270',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#050300',
+            'nav-fg': '#FFB43C',
+            'nav-dim': '#9B691E',
+            'content-bg': '#080500',
+            'content-fg': '#FFB43C',
+            accent: '#FFD25A',
+            'accent-secondary': '#B47828',
+            'content-surface': '#140F05',
+            'page-bg': '#281E0F',
+            bright: '#FFDC82',
+          },
+        },
+        {
+          id: 'p60',
+          section: 'J',
+          name: '60s Mod',
+          tagline: 'Mustard + teal + cream + brown',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FAF4E1',
+            'nav-fg': '#321E0F',
+            'nav-dim': '#8C6E50',
+            'content-bg': '#FCF6E4',
+            'content-fg': '#2D190C',
+            accent: '#0F6469',
+            'accent-secondary': '#8C691E',
+            'content-surface': '#F4ECD7',
+            'page-bg': '#C89628',
+            bright: '#FFFAEB',
+          },
+        },
+        {
+          id: 'p61',
+          section: 'J',
+          name: '70s Harvest',
+          tagline: 'Avocado + harvest gold + rust',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F8EED7',
+            'nav-fg': '#32230F',
+            'nav-dim': '#8C6E41',
+            'content-bg': '#FAF0DA',
+            'content-fg': '#2D1E0C',
+            accent: '#8C370F',
+            'accent-secondary': '#556428',
+            'content-surface': '#F0E4C8',
+            'page-bg': '#738237',
+            bright: '#FFFAE6',
+          },
+        },
+        {
+          id: 'p62',
+          section: 'J',
+          name: '90s Grunge',
+          tagline: 'Flannel red + moss + denim + bone',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F0EBE1',
+            'nav-fg': '#1E1919',
+            'nav-dim': '#6E6464',
+            'content-bg': '#1E232D',
+            'content-fg': '#E1DCD2',
+            accent: '#EB5050',
+            'accent-secondary': '#919B82',
+            'content-surface': '#2D3241',
+            'page-bg': '#50643C',
+            bright: '#FAF8F0',
+          },
+        },
+        {
+          id: 'p63',
+          section: 'J',
+          name: 'Y2K Chrome',
+          tagline: 'Aqua + silver + iridescent + white',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#EBF0F5',
+            'nav-fg': '#191E37',
+            'nav-dim': '#7382A5',
+            'content-bg': '#F8FAFD',
+            'content-fg': '#141932',
+            accent: '#1E64B4',
+            'accent-secondary': '#505A6E',
+            'content-surface': '#E8F0FA',
+            'page-bg': '#AFD2E1',
+            bright: '#FFFFFF',
+          },
+        },
+        // ---------- Section K — Nature Phenomena ----------
+        {
+          id: 'p64',
+          section: 'K',
+          name: 'Aurora Borealis',
+          tagline: 'Deep navy sky + green/magenta aurora',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#080A1E',
+            'nav-fg': '#DCE6F5',
+            'nav-dim': '#6E82AF',
+            'content-bg': '#0C0F26',
+            'content-fg': '#E1EBF8',
+            accent: '#50F0B4',
+            'accent-secondary': '#C882BE',
+            'content-surface': '#161C37',
+            'page-bg': '#28375A',
+            bright: '#FAFDFF',
+          },
+        },
+        {
+          id: 'p65',
+          section: 'K',
+          name: 'Abyssal Ocean',
+          tagline: 'Trench blues + bioluminescent cyan',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#030814',
+            'nav-fg': '#D7E6F5',
+            'nav-dim': '#6987B4',
+            'content-bg': '#050F1E',
+            'content-fg': '#DCEBFA',
+            accent: '#50E6DC',
+            'accent-secondary': '#789BC3',
+            'content-surface': '#0F1E32',
+            'page-bg': '#193750',
+            bright: '#F5FCFF',
+          },
+        },
+        {
+          id: 'p66',
+          section: 'K',
+          name: 'Sakura Midnight',
+          tagline: 'Midnight blue + cherry-blossom pink',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0F142D',
+            'nav-fg': '#EBE1EB',
+            'nav-dim': '#8C82A5',
+            'content-bg': '#FDF5F8',
+            'content-fg': '#141932',
+            accent: '#C83C78',
+            'accent-secondary': '#282D50',
+            'content-surface': '#F8EBF0',
+            'page-bg': '#F5C3D2',
+            bright: '#FFFAFC',
+          },
+        },
+        {
+          id: 'p67',
+          section: 'K',
+          name: 'Glacier Dawn',
+          tagline: 'Ice blue + pale rose + platinum',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F2F6FA',
+            'nav-fg': '#19283C',
+            'nav-dim': '#6E82A0',
+            'content-bg': '#F8FAFD',
+            'content-fg': '#142337',
+            accent: '#1E5A9B',
+            'accent-secondary': '#785F69',
+            'content-surface': '#EBF2FA',
+            'page-bg': '#F0D2D7',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p68',
+          section: 'K',
+          name: 'Blood Moon',
+          tagline: 'Eclipse red + charcoal + copper',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0C0808',
+            'nav-fg': '#E1D2CD',
+            'nav-dim': '#826964',
+            'content-bg': '#120A0A',
+            'content-fg': '#E6D7D2',
+            accent: '#DC5A1E',
+            'accent-secondary': '#A04B46',
+            'content-surface': '#201412',
+            'page-bg': '#501914',
+            bright: '#F5EBE6',
+          },
+        },
+        {
+          id: 'p69',
+          section: 'K',
+          name: 'Desert Storm',
+          tagline: 'Ochre + sand + dust + sky',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F5EBD7',
+            'nav-fg': '#2D1E0F',
+            'nav-dim': '#8C6E4B',
+            'content-bg': '#FAF0DC',
+            'content-fg': '#281C0C',
+            accent: '#9B4B0F',
+            'accent-secondary': '#55647D',
+            'content-surface': '#F2E6D0',
+            'page-bg': '#AFC3D2',
+            bright: '#FFFAEB',
+          },
+        },
+        // ---------- Section L — Editorial Art Movements ----------
+        {
+          id: 'p70',
+          section: 'L',
+          name: 'Bauhaus',
+          tagline: 'Primary red/yellow/blue + black + white',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FAF8F4',
+            'nav-fg': '#080808',
+            'nav-dim': '#6E6E6C',
+            'content-bg': '#FCFAF6',
+            'content-fg': '#050505',
+            accent: '#DC1E1E',
+            'accent-secondary': '#1E3CB4',
+            'content-surface': '#F4F0E8',
+            'page-bg': '#E6BE28',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p71',
+          section: 'L',
+          name: 'Mondrian',
+          tagline: 'Pure primaries on sharp white',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FFFFFF',
+            'nav-fg': '#0A0A0A',
+            'nav-dim': '#737373',
+            'content-bg': '#FFFFFF',
+            'content-fg': '#050505',
+            accent: '#C81E1E',
+            'accent-secondary': '#E6BE1E',
+            'content-surface': '#F8F8F8',
+            'page-bg': '#1E3CC8',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p72',
+          section: 'L',
+          name: 'Klimt Gold',
+          tagline: 'Gold leaf + burnt umber + jewel accents',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#1E1408',
+            'nav-fg': '#EBDCAF',
+            'nav-dim': '#9B8250',
+            'content-bg': '#FAF4E1',
+            'content-fg': '#23190A',
+            accent: '#9B6414',
+            'accent-secondary': '#1E5A50',
+            'content-surface': '#F2E8D0',
+            'page-bg': '#AF821E',
+            bright: '#FFFAEB',
+          },
+        },
+        {
+          id: 'p73',
+          section: 'L',
+          name: 'Rothko Chapel',
+          tagline: 'Layered dark maroons + charcoal',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#16080A',
+            'nav-fg': '#DCD2CD',
+            'nav-dim': '#826E69',
+            'content-bg': '#1E0C0F',
+            'content-fg': '#E1D7D0',
+            accent: '#C86446',
+            'accent-secondary': '#96464B',
+            'content-surface': '#2D1416',
+            'page-bg': '#461E1E',
+            bright: '#F0E6E1',
+          },
+        },
+        {
+          id: 'p74',
+          section: 'L',
+          name: 'Ukiyo-e',
+          tagline: 'Woodblock ink + prussian blue + coral',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F8F2E4',
+            'nav-fg': '#0C0C0F',
+            'nav-dim': '#6E6E73',
+            'content-bg': '#FCF6E8',
+            'content-fg': '#0A0A0C',
+            accent: '#1E3C78',
+            'accent-secondary': '#BE6450',
+            'content-surface': '#F4EEDC',
+            'page-bg': '#E6826E',
+            bright: '#FFFCF5',
+          },
+        },
+        {
+          id: 'p75',
+          section: 'L',
+          name: 'Art Deco Peacock',
+          tagline: 'Emerald + gold + black + ivory',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#08140F',
+            'nav-fg': '#E6DCC3',
+            'nav-dim': '#8C9182',
+            'content-bg': '#F8F4E6',
+            'content-fg': '#0F1914',
+            accent: '#0F644B',
+            'accent-secondary': '#9B781E',
+            'content-surface': '#F0EBDA',
+            'page-bg': '#AF8C37',
+            bright: '#FFFCF0',
+          },
+        },
+        // ---------- Section M — Dark Nav Showcase ----------
+        {
+          id: 'p76',
+          section: 'M',
+          name: 'Terminal Green',
+          tagline: 'Dark chrome + phosphor green + off-white',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0F140F',
+            'nav-fg': '#DCF0DC',
+            'nav-dim': '#829B82',
+            'content-bg': '#121612',
+            'content-fg': '#E1F0E1',
+            accent: '#64E664',
+            'accent-secondary': '#50B4A0',
+            'content-surface': '#1E261E',
+            'page-bg': '#2D372D',
+            bright: '#F0FAF0',
+          },
+        },
+        {
+          id: 'p77',
+          section: 'M',
+          name: 'Console Amber',
+          tagline: 'Dark chrome + amber CRT + parchment content',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0C0A05',
+            'nav-fg': '#FFBE5A',
+            'nav-dim': '#B48237',
+            'content-bg': '#F8F2E1',
+            'content-fg': '#23190C',
+            accent: '#9B550F',
+            'accent-secondary': '#50371E',
+            'content-surface': '#F0E8D2',
+            'page-bg': '#503C19',
+            bright: '#FFFAEB',
+          },
+        },
+        {
+          id: 'p78',
+          section: 'M',
+          name: 'Deep Ocean',
+          tagline: 'Navy nav + midnight content + coral accent',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#080F1E',
+            'nav-fg': '#DCE6F5',
+            'nav-dim': '#7387AF',
+            'content-bg': '#0C1223',
+            'content-fg': '#E1EBF5',
+            accent: '#FF8264',
+            'accent-secondary': '#78B4BE',
+            'content-surface': '#161E32',
+            'page-bg': '#283C5A',
+            bright: '#F5FCFF',
+          },
+        },
+        {
+          id: 'p79',
+          section: 'M',
+          name: 'Cinema',
+          tagline: 'Theater black nav + charcoal content + red',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#000000',
+            'nav-fg': '#E6E1DC',
+            'nav-dim': '#87827D',
+            'content-bg': '#120F0F',
+            'content-fg': '#EBE1DC',
+            accent: '#DC2828',
+            'accent-secondary': '#C8AA64',
+            'content-surface': '#1E1919',
+            'page-bg': '#2D2323',
+            bright: '#FAF5F0',
+          },
+        },
+        {
+          id: 'p80',
+          section: 'M',
+          name: 'Vault',
+          tagline: 'Steel nav + light concrete content',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#1E2023',
+            'nav-fg': '#DCE1E8',
+            'nav-dim': '#878C94',
+            'content-bg': '#E8E8E6',
+            'content-fg': '#191B1E',
+            accent: '#2D5A9B',
+            'accent-secondary': '#4B505A',
+            'content-surface': '#DCDCDA',
+            'page-bg': '#6E7378',
+            bright: '#F8F8F7',
+          },
+        },
+        {
+          id: 'p81',
+          section: 'M',
+          name: 'Onyx & Copper',
+          tagline: 'Onyx nav + warm ivory content + copper',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0C0A0A',
+            'nav-fg': '#E6DCD2',
+            'nav-dim': '#8C7D73',
+            'content-bg': '#F8F0E4',
+            'content-fg': '#1E160F',
+            accent: '#9B4619',
+            'accent-secondary': '#46372D',
+            'content-surface': '#F2E8DA',
+            'page-bg': '#502D19',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p82',
+          section: 'M',
+          name: 'Slate & Ivory',
+          tagline: 'Slate nav + ivory content + navy accent',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#232832',
+            'nav-fg': '#E1E6F0',
+            'nav-dim': '#8C96A5',
+            'content-bg': '#F8F6F0',
+            'content-fg': '#191E28',
+            accent: '#193782',
+            'accent-secondary': '#414650',
+            'content-surface': '#F0EEE8',
+            'page-bg': '#5A6473',
+            bright: '#FFFDF8',
+          },
+        },
+        {
+          id: 'p83',
+          section: 'M',
+          name: 'Espresso & Cream',
+          tagline: 'Espresso nav + cream content + caramel',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#160F0A',
+            'nav-fg': '#EBDCC8',
+            'nav-dim': '#968269',
+            'content-bg': '#F8F2E4',
+            'content-fg': '#1E140C',
+            accent: '#8C4B14',
+            'accent-secondary': '#5A3C23',
+            'content-surface': '#F0E8D7',
+            'page-bg': '#50371E',
+            bright: '#FFFAEB',
+          },
+        },
+        {
+          id: 'p84',
+          section: 'M',
+          name: 'Midnight Broadsheet',
+          tagline: 'Ink nav + newsprint content + red ink',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#080A0F',
+            'nav-fg': '#EBE6DC',
+            'nav-dim': '#8C8A82',
+            'content-bg': '#FAF5E8',
+            'content-fg': '#080808',
+            accent: '#AF1919',
+            'accent-secondary': '#23231E',
+            'content-surface': '#F2ECDE',
+            'page-bg': '#322D28',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p85',
+          section: 'M',
+          name: 'Gothic Study',
+          tagline: 'Deep green nav + parchment content + gold',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0C1912',
+            'nav-fg': '#E1D7BE',
+            'nav-dim': '#8C917D',
+            'content-bg': '#F5EEDC',
+            'content-fg': '#1E190F',
+            accent: '#8C6419',
+            'accent-secondary': '#283723',
+            'content-surface': '#EEE6D2',
+            'page-bg': '#374632',
+            bright: '#FFFAEB',
+          },
+        },
+        // ---------- Section N — Cultural Inspirations ----------
+        {
+          id: 'p86',
+          section: 'N',
+          name: 'Marrakech Souk',
+          tagline: 'Terracotta + saffron + indigo + bone',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F8F0E1',
+            'nav-fg': '#1E142D',
+            'nav-dim': '#7D6991',
+            'content-bg': '#FCF4E4',
+            'content-fg': '#1C1228',
+            accent: '#AF411E',
+            'accent-secondary': '#37285A',
+            'content-surface': '#F4EAD7',
+            'page-bg': '#C8822D',
+            bright: '#FFFAEB',
+          },
+        },
+        {
+          id: 'p87',
+          section: 'N',
+          name: 'Havana Sunrise',
+          tagline: 'Faded turquoise + coral + mustard',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F8F0E1',
+            'nav-fg': '#1E1E1E',
+            'nav-dim': '#737373',
+            'content-bg': '#FCF5E6',
+            'content-fg': '#191919',
+            accent: '#146E73',
+            'accent-secondary': '#8C4132',
+            'content-surface': '#F4ECDA',
+            'page-bg': '#EB8264',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p88',
+          section: 'N',
+          name: 'Provençal Lavender',
+          tagline: 'Lavender fields + limestone + olive',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F5F0E8',
+            'nav-fg': '#281E37',
+            'nav-dim': '#827396',
+            'content-bg': '#FAF6F0',
+            'content-fg': '#231932',
+            accent: '#5A379B',
+            'accent-secondary': '#5A5032',
+            'content-surface': '#F2ECE8',
+            'page-bg': '#9B87C3',
+            bright: '#FFFDFA',
+          },
+        },
+        {
+          id: 'p89',
+          section: 'N',
+          name: 'Scandi Fika',
+          tagline: 'White + birch + cinnamon + berry',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FCFAF5',
+            'nav-fg': '#1E1916',
+            'nav-dim': '#736E69',
+            'content-bg': '#FEFCF8',
+            'content-fg': '#191614',
+            accent: '#8C1E37',
+            'accent-secondary': '#554637',
+            'content-surface': '#F6F2EB',
+            'page-bg': '#DCCDB4',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p90',
+          section: 'N',
+          name: 'Andes Alpaca',
+          tagline: 'Undyed wool + cochineal red + sky',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F5EEE1',
+            'nav-fg': '#231914',
+            'nav-dim': '#78695F',
+            'content-bg': '#FAF4E8',
+            'content-fg': '#1E160F',
+            accent: '#AF1E28',
+            'accent-secondary': '#5F462D',
+            'content-surface': '#F2EADA',
+            'page-bg': '#8CAFC8',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p91',
+          section: 'N',
+          name: 'Kabuki Curtain',
+          tagline: 'Persimmon + black + moss + gold',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0A0A0A',
+            'nav-fg': '#E6DCC8',
+            'nav-dim': '#8C8273',
+            'content-bg': '#FAF4E8',
+            'content-fg': '#0F0C0A',
+            accent: '#C84619',
+            'accent-secondary': '#324123',
+            'content-surface': '#F2EADA',
+            'page-bg': '#374B2D',
+            bright: '#FFFCF5',
+          },
+        },
+        // ---------- Section O — Food & Drink ----------
+        {
+          id: 'p92',
+          section: 'O',
+          name: 'Matcha Latte',
+          tagline: 'Matcha + oat milk + ceramic',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F8F2E6',
+            'nav-fg': '#192314',
+            'nav-dim': '#6E8264',
+            'content-bg': '#FCF6E8',
+            'content-fg': '#162012',
+            accent: '#4B6E28',
+            'accent-secondary': '#6E5037',
+            'content-surface': '#F4EEDE',
+            'page-bg': '#B4CD9B',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p93',
+          section: 'O',
+          name: 'Blood Orange',
+          tagline: 'Blood-orange flesh + peel + pith',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FAF2E4',
+            'nav-fg': '#32140A',
+            'nav-dim': '#9B5A37',
+            'content-bg': '#FDF6E8',
+            'content-fg': '#2D1208',
+            accent: '#B4371E',
+            'accent-secondary': '#8C6E1E',
+            'content-surface': '#F5ECDC',
+            'page-bg': '#E16428',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p94',
+          section: 'O',
+          name: 'Wine Bar',
+          tagline: 'Bordeaux + candlelight + oak',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#16080C',
+            'nav-fg': '#E1CDC3',
+            'nav-dim': '#8C6E64',
+            'content-bg': '#1C0C0F',
+            'content-fg': '#E6D7C8',
+            accent: '#E6AF5A',
+            'accent-secondary': '#AA505A',
+            'content-surface': '#2A1416',
+            'page-bg': '#46281E',
+            bright: '#F5EBDC',
+          },
+        },
+        {
+          id: 'p95',
+          section: 'O',
+          name: 'Cocoa & Cardamom',
+          tagline: 'Cocoa + cardamom green + cream',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F8F0E1',
+            'nav-fg': '#28160F',
+            'nav-dim': '#825F4B',
+            'content-bg': '#FCF4E4',
+            'content-fg': '#23140C',
+            accent: '#506932',
+            'accent-secondary': '#5F3C23',
+            'content-surface': '#F4ECDA',
+            'page-bg': '#5F371E',
+            bright: '#FFFAEB',
+          },
+        },
+        // ---------- Section P — Sport & Performance ----------
+        {
+          id: 'p96',
+          section: 'P',
+          name: 'Cyclist Neon',
+          tagline: 'Hi-vis yellow + safety orange + carbon',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F5F5EB',
+            'nav-fg': '#0F0F0F',
+            'nav-dim': '#6E6E69',
+            'content-bg': '#0F0F12',
+            'content-fg': '#EBEBE6',
+            accent: '#EBE628',
+            'accent-secondary': '#EB8C28',
+            'content-surface': '#1C1C20',
+            'page-bg': '#FF8219',
+            bright: '#FAFAF5',
+          },
+        },
+        {
+          id: 'p97',
+          section: 'P',
+          name: 'Track Lane',
+          tagline: 'Wood-track amber + white lanes + red',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FCF8F0',
+            'nav-fg': '#1E140C',
+            'nav-dim': '#826E5A',
+            'content-bg': '#FDFAF4',
+            'content-fg': '#19120A',
+            accent: '#B41E1E',
+            'accent-secondary': '#825A14',
+            'content-surface': '#F5F0E4',
+            'page-bg': '#BE7832',
+            bright: '#FFFDF8',
+          },
+        },
+        {
+          id: 'p98',
+          section: 'P',
+          name: 'Alpine',
+          tagline: 'Peak white + rock grey + glacier blue',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FAFCFE',
+            'nav-fg': '#192332',
+            'nav-dim': '#738296',
+            'content-bg': '#FCFDFF',
+            'content-fg': '#141E2D',
+            accent: '#1E5A9B',
+            'accent-secondary': '#4B4641',
+            'content-surface': '#F0F5FA',
+            'page-bg': '#78828C',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p99',
+          section: 'P',
+          name: 'Velodrome',
+          tagline: 'Track blue + medal gold + wood + white',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0F1E4B',
+            'nav-fg': '#E6EBFA',
+            'nav-dim': '#8C9BC3',
+            'content-bg': '#FAF8F4',
+            'content-fg': '#14192D',
+            accent: '#8C5A0F',
+            'accent-secondary': '#283C78',
+            'content-surface': '#F2F0E8',
+            'page-bg': '#9B6437',
+            bright: '#FFFDF8',
+          },
+        },
+        // ---------- Section Q — Chromatic Clash ----------
+        {
+          id: 'p100',
+          section: 'Q',
+          name: 'Crimson vs Teal',
+          tagline: 'Red-blue collision cooled by amber',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#EAB8BC',
+            'nav-fg': '#3A0308',
+            'nav-dim': '#895459',
+            'content-bg': '#152826',
+            'content-fg': '#E6F0EF',
+            accent: '#FACC42',
+            'accent-secondary': '#64D2C8',
+            'content-surface': '#233533',
+            'page-bg': '#AA9338',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p101',
+          section: 'Q',
+          name: 'Ultraviolet Meadow',
+          tagline: 'Violet + acid green, ochre punch',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#DEB8EA',
+            'nav-fg': '#2C033A',
+            'nav-dim': '#7C5489',
+            'content-bg': '#1F2815',
+            'content-fg': '#EBF0E6',
+            accent: '#FA9E42',
+            'accent-secondary': '#AA82D2',
+            'content-surface': '#2C3523',
+            'page-bg': '#AD7532',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p102',
+          section: 'Q',
+          name: 'Ember & Aegean',
+          tagline: 'Rust nav, deep sea reading',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#EAC4B8',
+            'nav-fg': '#3A1103',
+            'nav-dim': '#896254',
+            'content-bg': '#151F28',
+            'content-fg': '#E6EBF0',
+            accent: '#FAEB42',
+            'accent-secondary': '#64A0C8',
+            'content-surface': '#232C35',
+            'page-bg': '#AAA439',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p103',
+          section: 'Q',
+          name: 'Jade & Magenta',
+          tagline: 'Botanical against theatre pink',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#B8EACD',
+            'nav-fg': '#033A1A',
+            'nav-dim': '#54896B',
+            'content-bg': '#281522',
+            'content-fg': '#F0E6EC',
+            accent: '#42BDFA',
+            'accent-secondary': '#50C88C',
+            'content-surface': '#35232F',
+            'page-bg': '#3982AE',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p104',
+          section: 'Q',
+          name: 'Butter & Cobalt',
+          tagline: 'Warm signage, cold long-form',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#EAE6B8',
+            'nav-fg': '#3A3603',
+            'nav-dim': '#898554',
+            'content-bg': '#181528',
+            'content-fg': '#E7E6F0',
+            accent: '#FA5142',
+            'accent-secondary': '#E6D264',
+            'content-surface': '#262335',
+            'page-bg': '#AB3C39',
+            bright: '#FAFAFA',
+          },
+        },
+        // ---------- Section R — Riso / Duotone ----------
+        {
+          id: 'p105',
+          section: 'R',
+          name: 'Riso Pink & Federal',
+          tagline: 'Zine cover, ink still tacky',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F5EFE0',
+            'nav-fg': '#3D5588',
+            'nav-dim': '#909AB0',
+            'content-bg': '#F9F5EB',
+            'content-fg': '#3D5588',
+            accent: '#990057',
+            'accent-secondary': '#324678',
+            'content-surface': '#EAE6DD',
+            'page-bg': '#BB568B',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p106',
+          section: 'R',
+          name: 'Riso Kraft & Aqua',
+          tagline: 'Community poster, deep bordeaux',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#E8DCC4',
+            'nav-fg': '#63364E',
+            'nav-dim': '#9F8183',
+            'content-bg': '#F0E8D9',
+            'content-fg': '#914E72',
+            accent: '#009099',
+            'accent-secondary': '#82415F',
+            'content-surface': '#E2DACC',
+            'page-bg': '#54AFAF',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p107',
+          section: 'R',
+          name: 'Riso Violet & Neon Coral',
+          tagline: 'Punk chapbook, screaming coral',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F5EFE0',
+            'nav-fg': '#765BA7',
+            'nav-dim': '#AF9EC1',
+            'content-bg': '#F9F5EB',
+            'content-fg': '#765BA7',
+            accent: '#990003',
+            'accent-secondary': '#5F4691',
+            'content-surface': '#EAE6DD',
+            'page-bg': '#BB5654',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p108',
+          section: 'R',
+          name: 'Riso Forest & Burgundy',
+          tagline: 'Herbarium plate + wine stain',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F5EFE0',
+            'nav-fg': '#007A3B',
+            'nav-dim': '#6EAF85',
+            'content-bg': '#F9F5EB',
+            'content-fg': '#007A3B',
+            accent: '#914E72',
+            'accent-secondary': '#145F32',
+            'content-surface': '#EAE6DD',
+            'page-bg': '#B5889C',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p109',
+          section: 'R',
+          name: 'Riso Ink & Yellow',
+          tagline: 'Black + hi-vis yellow on kraft',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#E8DCC4',
+            'nav-fg': '#2A2A2A',
+            'nav-dim': '#807A6F',
+            'content-bg': '#F0E8D9',
+            'content-fg': '#2A2A2A',
+            accent: '#8F8200',
+            'accent-secondary': '#323230',
+            'content-surface': '#E2DACC',
+            'page-bg': '#B1A64C',
+            bright: '#FFFFFF',
+          },
+        },
+        // ---------- Section S — Toxic / Bioluminescent ----------
+        {
+          id: 'p110',
+          section: 'S',
+          name: 'Radium Dial',
+          tagline: 'Watchface glow after the lights die',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#11130B',
+            'nav-fg': '#E4EAD7',
+            'nav-dim': '#85897B',
+            'content-bg': '#0B0C08',
+            'content-fg': '#EDF0E6',
+            accent: '#BAFF1A',
+            'accent-secondary': '#B4C88C',
+            'content-surface': '#1A1B17',
+            'page-bg': '#7DAA14',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p111',
+          section: 'S',
+          name: 'Neon Frog',
+          tagline: 'Dendrobates green, do-not-touch bright',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0B130D',
+            'nav-fg': '#D7EADA',
+            'nav-dim': '#7B897E',
+            'content-bg': '#080C09',
+            'content-fg': '#E6F0E7',
+            accent: '#0AFF33',
+            'accent-secondary': '#3C8CDC',
+            'content-surface': '#171B18',
+            'page-bg': '#09AA24',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p112',
+          section: 'S',
+          name: 'UV Reactor',
+          tagline: 'Blacklight violet, subterranean',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#110B13',
+            'nav-fg': '#E5D7EA',
+            'nav-dim': '#867B89',
+            'content-bg': '#0B080C',
+            'content-fg': '#EDE6F0',
+            accent: '#CF3DFF',
+            'accent-secondary': '#50C8E6',
+            'content-surface': '#1A171B',
+            'page-bg': '#8A2AAA',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p113',
+          section: 'S',
+          name: 'Deep Bioluminescence',
+          tagline: 'Anglerfish lure at 800 m',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0B1213',
+            'nav-fg': '#D7E7EA',
+            'nav-dim': '#7B8789',
+            'content-bg': '#080C0C',
+            'content-fg': '#E6EEF0',
+            accent: '#1AD9FF',
+            'accent-secondary': '#64B48C',
+            'content-surface': '#171B1B',
+            'page-bg': '#1491AA',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p114',
+          section: 'S',
+          name: 'Hazmat Yellow',
+          tagline: 'Trefoil sign, keep back three metres',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#13120B',
+            'nav-fg': '#EAE8D7',
+            'nav-dim': '#89887B',
+            'content-bg': '#0C0C08',
+            'content-fg': '#F0EFE6',
+            accent: '#FFEC1A',
+            'accent-secondary': '#E6503C',
+            'content-surface': '#1B1B17',
+            'page-bg': '#AA9E14',
+            bright: '#FAFAFA',
+          },
+        },
+        // ---------- Section T — Split-Tone Cinematic ----------
+        {
+          id: 'p115',
+          section: 'T',
+          name: 'Teal & Orange',
+          tagline: 'Blockbuster grade, standard issue',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#091820',
+            'nav-fg': '#F3BA8A',
+            'nav-dim': '#8A715A',
+            'content-bg': '#0C202A',
+            'content-fg': '#F6CBA7',
+            accent: '#EB8C3C',
+            'accent-secondary': '#3CAAB4',
+            'content-surface': '#1B2D37',
+            'page-bg': '#9D6636',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p116',
+          section: 'T',
+          name: 'Amelie',
+          tagline: 'Magenta shadows, absinthe highlights',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#1E0920',
+            'nav-fg': '#B4EAAE',
+            'nav-dim': '#71856E',
+            'content-bg': '#280C2A',
+            'content-fg': '#C7EFC2',
+            accent: '#82DC78',
+            'accent-secondary': '#C86EAA',
+            'content-surface': '#351B37',
+            'page-bg': '#63935D',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p117',
+          section: 'T',
+          name: 'Blade Runner',
+          tagline: 'Deep noir blue, sodium-lamp gold',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#060F20',
+            'nav-fg': '#FFDEA2',
+            'nav-dim': '#8F8168',
+            'content-bg': '#08142A',
+            'content-fg': '#FFE6B9',
+            accent: '#FFC864',
+            'accent-secondary': '#5096DC',
+            'content-surface': '#172237',
+            'page-bg': '#A98950',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p118',
+          section: 'T',
+          name: 'Fincher Reverse',
+          tagline: 'Sepia gutter, cyan skin',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#220F0B',
+            'nav-fg': '#9CDEEA',
+            'nav-dim': '#658186',
+            'content-bg': '#2D140F',
+            'content-fg': '#B5E6EF',
+            accent: '#5AC8DC',
+            'accent-secondary': '#C89664',
+            'content-surface': '#3A221D',
+            'page-bg': '#4A8994',
+            bright: '#FAFAFA',
+          },
+        },
+        // ---------- Section U — Brutalist / Anti-Design ----------
+        {
+          id: 'p119',
+          section: 'U',
+          name: 'Concrete & Traffic',
+          tagline: 'Brut concrete, road-sign red',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#D6D6D6',
+            'nav-fg': '#0A0A0A',
+            'nav-dim': '#666666',
+            'content-bg': '#EDEDED',
+            'content-fg': '#0A0A0A',
+            accent: '#FF3300',
+            'accent-secondary': '#3C3C3C',
+            'content-surface': '#DFDFDF',
+            'page-bg': '#F97453',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p120',
+          section: 'U',
+          name: 'Bunker & Hi-Vis',
+          tagline: 'Grey slab, high-vis workwear',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#D6D6D6',
+            'nav-fg': '#0A0A0A',
+            'nav-dim': '#666666',
+            'content-bg': '#EDEDED',
+            'content-fg': '#0A0A0A',
+            accent: '#8F8500',
+            'accent-secondary': '#373737',
+            'content-surface': '#DFDFDF',
+            'page-bg': '#B0A953',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p121',
+          section: 'U',
+          name: 'Slab & Cyan',
+          tagline: 'Dark concrete, glowing signage',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#3A3A3A',
+            'nav-fg': '#F5F5F5',
+            'nav-dim': '#A1A1A1',
+            'content-bg': '#2A2A2A',
+            'content-fg': '#F5F5F5',
+            accent: '#00E5FF',
+            'accent-secondary': '#A0A0A0',
+            'content-surface': '#373737',
+            'page-bg': '#0FA4B4',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p122',
+          section: 'U',
+          name: 'Beton & Neon Pink',
+          tagline: 'Anti-design pink screaming out',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#D6D6D6',
+            'nav-fg': '#0A0A0A',
+            'nav-dim': '#666666',
+            'content-bg': '#EDEDED',
+            'content-fg': '#0A0A0A',
+            accent: '#FF00A8',
+            'accent-secondary': '#373737',
+            'content-surface': '#DFDFDF',
+            'page-bg': '#F953C0',
+            bright: '#FFFFFF',
+          },
+        },
+        // ---------- Section V — CMYK Registration ----------
+        {
+          id: 'p123',
+          section: 'V',
+          name: 'Registration Yellow',
+          tagline: 'Yellow plate over kiss-cut white',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FFF200',
+            'nav-fg': '#0A0A0A',
+            'nav-dim': '#787206',
+            'content-bg': '#FDFDF8',
+            'content-fg': '#0A0A0A',
+            accent: '#EC008C',
+            'accent-secondary': '#C8B400',
+            'content-surface': '#EEEEE9',
+            'page-bg': '#F259B2',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p124',
+          section: 'V',
+          name: 'Registration Cyan',
+          tagline: 'Process cyan bar, pink flourish',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#00AEEF',
+            'nav-fg': '#0A0A0A',
+            'nav-dim': '#065471',
+            'content-bg': '#FDFDF8',
+            'content-fg': '#0A0A0A',
+            accent: '#EC008C',
+            'accent-secondary': '#008CC8',
+            'content-surface': '#EEEEE9',
+            'page-bg': '#F259B2',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p125',
+          section: 'V',
+          name: 'Registration Black',
+          tagline: 'Full ink nav, magenta highlight',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0A0A0A',
+            'nav-fg': '#D9D9D9',
+            'nav-dim': '#7C7C7C',
+            'content-bg': '#FDFDF8',
+            'content-fg': '#0A0A0A',
+            accent: '#EC008C',
+            'accent-secondary': '#141419',
+            'content-surface': '#EEEEE9',
+            'page-bg': '#F259B2',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p126',
+          section: 'V',
+          name: 'Registration Magenta',
+          tagline: 'Fuchsia banner, process cyan accent',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#EC008C',
+            'nav-fg': '#0A0A0A',
+            'nav-dim': '#700645',
+            'content-bg': '#FDFDF8',
+            'content-fg': '#0A0A0A',
+            accent: '#006F99',
+            'accent-secondary': '#BE0078',
+            'content-surface': '#EEEEE9',
+            'page-bg': '#59A1BA',
+            bright: '#FFFFFF',
+          },
+        },
+        // ---------- Section W — Neo-Fauvism ----------
+        {
+          id: 'p127',
+          section: 'W',
+          name: 'Charing Cross Bridge',
+          tagline: 'Derain: vermilion Thames, cobalt sky',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F7EFD9',
+            'nav-fg': '#1F0B3A',
+            'nav-dim': '#807282',
+            'content-bg': '#F9F3E3',
+            'content-fg': '#1F0B3A',
+            accent: '#E63946',
+            'accent-secondary': '#32195A',
+            'content-surface': '#EAE4D5',
+            'page-bg': '#ED7A7D',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p128',
+          section: 'W',
+          name: 'Green Stripe',
+          tagline: 'Matisse: pink cheek, seagreen brow',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FDECC8',
+            'nav-fg': '#0E2A47',
+            'nav-dim': '#7A8181',
+            'content-bg': '#FEF1D6',
+            'content-fg': '#0E2A47',
+            accent: '#D81159',
+            'accent-secondary': '#194664',
+            'content-surface': '#EFE3C9',
+            'page-bg': '#E55F85',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p129',
+          section: 'W',
+          name: 'Vlaminck Barges',
+          tagline: 'Violet water, vermilion hulls',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F0E3D0',
+            'nav-fg': '#2A0A3F',
+            'nav-dim': '#836C80',
+            'content-bg': '#F4EADC',
+            'content-fg': '#2A0A3F',
+            accent: '#B4247A',
+            'accent-secondary': '#3C195A',
+            'content-surface': '#E5DCCF',
+            'page-bg': '#CA699C',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p130',
+          section: 'W',
+          name: 'Estaque Trees',
+          tagline: 'Braque hills, jade against orange',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#FFEED0',
+            'nav-fg': '#20174A',
+            'nav-dim': '#847886',
+            'content-bg': '#FFF2DC',
+            'content-fg': '#20174A',
+            accent: '#0F8A6E',
+            'accent-secondary': '#B45F28',
+            'content-surface': '#F0E3CF',
+            'page-bg': '#63AE95',
+            bright: '#FFFFFF',
+          },
+        },
+        // ---------- Section X — Solarized Family ----------
+        {
+          id: 'p131',
+          section: 'X',
+          name: 'Solarized Light',
+          tagline: 'Schoonover 2011, base3 paper',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#EEE8D5',
+            'nav-fg': '#425257',
+            'nav-dim': '#8F9690',
+            'content-bg': '#FDF6E3',
+            'content-fg': '#435156',
+            accent: '#CB4B16',
+            'accent-secondary': '#6C71C4',
+            'content-surface': '#EEE7D5',
+            'page-bg': '#DD875E',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p132',
+          section: 'X',
+          name: 'Solarized Dark',
+          tagline: 'Schoonover 2011, base03 board',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#073642',
+            'nav-fg': '#93A1A1',
+            'nav-dim': '#547176',
+            'content-bg': '#002B36',
+            'content-fg': '#839496',
+            accent: '#B58900',
+            'accent-secondary': '#2AA198',
+            'content-surface': '#0F3842',
+            'page-bg': '#766813',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p133',
+          section: 'X',
+          name: 'Selenized Light',
+          tagline: 'Selenized fork, warmer paper',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#EEE7D0',
+            'nav-fg': '#53676D',
+            'nav-dim': '#99A19A',
+            'content-bg': '#FBF3DB',
+            'content-fg': '#53676D',
+            accent: '#997900',
+            'accent-secondary': '#325F91',
+            'content-surface': '#ECE4CE',
+            'page-bg': '#BBA44D',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p134',
+          section: 'X',
+          name: 'Photonegative Solarized',
+          tagline: 'Solarized Light with roles inverted',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#FDF6E3',
+            'nav-fg': '#8A330F',
+            'nav-dim': '#BE8B6E',
+            'content-bg': '#002B36',
+            'content-fg': '#FDF6E3',
+            accent: '#2AA198',
+            'accent-secondary': '#C87832',
+            'content-surface': '#0F3842',
+            'page-bg': '#1B7876',
+            bright: '#FAFAFA',
+          },
+        },
+        // ---------- Section Y — Monochromatic Extreme ----------
+        {
+          id: 'p135',
+          section: 'Y',
+          name: 'Vermilion Only',
+          tagline: 'One red hue, ramp from 8 to 96',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#EED3D3',
+            'nav-fg': '#450808',
+            'nav-dim': '#916363',
+            'content-bg': '#171111',
+            'content-fg': '#F1E4E4',
+            accent: '#FA4242',
+            'accent-secondary': '#B46464',
+            'content-surface': '#251F1F',
+            'page-bg': '#AB3131',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p136',
+          section: 'Y',
+          name: 'Chlorophyll Only',
+          tagline: 'One green hue across the ramp',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#D3EEDE',
+            'nav-fg': '#084521',
+            'nav-dim': '#639176',
+            'content-bg': '#111714',
+            'content-fg': '#E4F1EA',
+            accent: '#42FA8F',
+            'accent-secondary': '#6EB482',
+            'content-surface': '#1F2522',
+            'page-bg': '#31AB64',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p137',
+          section: 'Y',
+          name: 'Cobalt Only',
+          tagline: 'One blue hue, black to porcelain',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#D3DEEE',
+            'nav-fg': '#082145',
+            'nav-dim': '#637691',
+            'content-bg': '#111417',
+            'content-fg': '#E4EAF1',
+            accent: '#428FFA',
+            'accent-secondary': '#788CC8',
+            'content-surface': '#1F2225',
+            'page-bg': '#3164AB',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p138',
+          section: 'Y',
+          name: 'Gold Only',
+          tagline: 'One warm ochre, no other colour',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#EEE7D3',
+            'nav-fg': '#453608',
+            'nav-dim': '#918663',
+            'content-bg': '#171611',
+            'content-fg': '#F1EEE4',
+            accent: '#FACC42',
+            'accent-secondary': '#BE9B50',
+            'content-surface': '#25241F',
+            'page-bg': '#AB8C31',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p139',
+          section: 'Y',
+          name: 'Magenta Only',
+          tagline: 'One magenta, from ink to bloom',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#EED3E7',
+            'nav-fg': '#450836',
+            'nav-dim': '#916386',
+            'content-bg': '#171116',
+            'content-fg': '#F1E4EE',
+            accent: '#FA42CC',
+            'accent-secondary': '#B964A0',
+            'content-surface': '#251F24',
+            'page-bg': '#AB318C',
+            bright: '#FAFAFA',
+          },
+        },
+        // ---------- Section Z — Retro Computing ----------
+        {
+          id: 'p140',
+          section: 'Z',
+          name: 'CGA-1 High',
+          tagline: 'IBM CGA palette 1, high intensity',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#000000',
+            'nav-fg': '#FFFFFF',
+            'nav-dim': '#8C8C8C',
+            'content-bg': '#000000',
+            'content-fg': '#55FFFF',
+            accent: '#FF55FF',
+            'accent-secondary': '#DCDCDC',
+            'content-surface': '#0F0F0F',
+            'page-bg': '#A637A6',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p141',
+          section: 'Z',
+          name: 'CGA-2 High',
+          tagline: 'IBM CGA palette 2, red / green / brown',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#000000',
+            'nav-fg': '#FFFFFF',
+            'nav-dim': '#8C8C8C',
+            'content-bg': '#000000',
+            'content-fg': '#55FF55',
+            accent: '#FF5555',
+            'accent-secondary': '#FFC855',
+            'content-surface': '#0F0F0F',
+            'page-bg': '#A63737',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p142',
+          section: 'Z',
+          name: 'Commodore 64',
+          tagline: 'C64 Pepto palette, boot screen',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#3E31A2',
+            'nav-fg': '#C7C2EF',
+            'nav-dim': '#8981CC',
+            'content-bg': '#3E31A2',
+            'content-fg': '#C7C2EF',
+            accent: '#B8C76F',
+            'accent-secondary': '#6C86EF',
+            'content-surface': '#4A3DA8',
+            'page-bg': '#8D9381',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p143',
+          section: 'Z',
+          name: 'Amiga Workbench',
+          tagline: 'Workbench 1.x default, blue over orange',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0055AA',
+            'nav-fg': '#FFFFFF',
+            'nav-dim': '#8CB3D9',
+            'content-bg': '#AAAAAA',
+            'content-fg': '#000000',
+            accent: '#854700',
+            'accent-secondary': '#003778',
+            'content-surface': '#A0A0A0',
+            'page-bg': '#926A3B',
+            bright: '#FFFFFF',
+          },
+        },
+        {
+          id: 'p144',
+          section: 'Z',
+          name: 'Apple II Hi-Res',
+          tagline: 'Woz hi-res orange / green / violet',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#000000',
+            'nav-fg': '#FFFFFF',
+            'nav-dim': '#8C8C8C',
+            'content-bg': '#000000',
+            'content-fg': '#00E000',
+            accent: '#FF6600',
+            'accent-secondary': '#9450DC',
+            'content-surface': '#0F0F0F',
+            'page-bg': '#A64200',
+            bright: '#FAFAFA',
+          },
+        },
+        // ---------- Section AA — Uncharted ----------
+        {
+          id: 'p145',
+          section: 'AA',
+          name: 'Thermal FLIR',
+          tagline: 'Sensor imaging, cold indigo → hot orange',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#08051E',
+            'nav-fg': '#FFE15A',
+            'nav-dim': '#C8825A',
+            'content-bg': '#05030F',
+            'content-fg': '#FFEBC8',
+            accent: '#FF641E',
+            'accent-secondary': '#F0D250',
+            'content-surface': '#140C2D',
+            'page-bg': '#78195A',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p146',
+          section: 'AA',
+          name: 'Bruise & Iodine',
+          tagline: 'Bandage cream, bruised violet, iodine amber',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F2E8DA',
+            'nav-fg': '#37122D',
+            'nav-dim': '#7D5A69',
+            'content-bg': '#2A1237',
+            'content-fg': '#F0DCCD',
+            accent: '#DC9B37',
+            'accent-secondary': '#A06EAA',
+            'content-surface': '#3C1C46',
+            'page-bg': '#73415F',
+            bright: '#FFFAF0',
+          },
+        },
+        {
+          id: 'p147',
+          section: 'AA',
+          name: 'Petrichor',
+          tagline: 'Wet slate, ozone teal, moss shadow',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#E8E4D7',
+            'nav-fg': '#16201E',
+            'nav-dim': '#5F6C64',
+            'content-bg': '#142022',
+            'content-fg': '#DAE4D7',
+            accent: '#82C8AF',
+            'accent-secondary': '#96AABE',
+            'content-surface': '#1E2E2E',
+            'page-bg': '#6E8076',
+            bright: '#F8FAF0',
+          },
+        },
+        {
+          id: 'p148',
+          section: 'AA',
+          name: 'Malachite Vein',
+          tagline: 'Marbled jewel green + oxidized brass',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0A1914',
+            'nav-fg': '#C8EBD7',
+            'nav-dim': '#5F9178',
+            'content-bg': '#0C231C',
+            'content-fg': '#D7F0E1',
+            accent: '#D2A541',
+            'accent-secondary': '#50B48C',
+            'content-surface': '#16372A',
+            'page-bg': '#37694E',
+            bright: '#F5FCF0',
+          },
+        },
+        {
+          id: 'p149',
+          section: 'AA',
+          name: 'Copper Patina',
+          tagline: 'Weathered stone, limestone, verdigris',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#E8DCC8',
+            'nav-fg': '#28190F',
+            'nav-dim': '#6E553C',
+            'content-bg': '#F2ECE0',
+            'content-fg': '#23140C',
+            accent: '#14735A',
+            'accent-secondary': '#784628',
+            'content-surface': '#DEDACD',
+            'page-bg': '#9B6C44',
+            bright: '#FCFAF0',
+          },
+        },
+        {
+          id: 'p150',
+          section: 'AA',
+          name: 'Iznik Tile',
+          tagline: 'Ivory glaze, Persian cobalt, coral red',
+          mode: 'LN-DC',
+          tokens: {
+            'nav-bg': '#F5F2E8',
+            'nav-fg': '#081941',
+            'nav-dim': '#5A739B',
+            'content-bg': '#0A1E55',
+            'content-fg': '#EBF0FA',
+            accent: '#EB6955',
+            'accent-secondary': '#50BED2',
+            'content-surface': '#16306E',
+            'page-bg': '#32AAAF',
+            bright: '#FCFCF5',
+          },
+        },
+        {
+          id: 'p151',
+          section: 'AA',
+          name: 'Grotto & Torch',
+          tagline: 'Cave dark, calcite pale, torch amber',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#0C0C0F',
+            'nav-fg': '#DCD2BE',
+            'nav-dim': '#6E6455',
+            'content-bg': '#101216',
+            'content-fg': '#E1D7C3',
+            accent: '#EB9137',
+            'accent-secondary': '#82A0B9',
+            'content-surface': '#1A1E22',
+            'page-bg': '#263C37',
+            bright: '#F5EBDC',
+          },
+        },
+        {
+          id: 'p152',
+          section: 'AA',
+          name: 'Alpenglow',
+          tagline: 'Pink-tinged snow, spruce shadow, dawn rose',
+          mode: 'LN-LC',
+          tokens: {
+            'nav-bg': '#F5E8E8',
+            'nav-fg': '#231E37',
+            'nav-dim': '#826473',
+            'content-bg': '#FCF8F5',
+            'content-fg': '#262032',
+            accent: '#B4375A',
+            'accent-secondary': '#324B3C',
+            'content-surface': '#F2E8E8',
+            'page-bg': '#AF96A5',
+            bright: '#FFFDFA',
+          },
+        },
+        {
+          id: 'p153',
+          section: 'AA',
+          name: 'Void & Ion',
+          tagline: 'Ion black, plasma white, electric violet',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#020008',
+            'nav-fg': '#EBDCFF',
+            'nav-dim': '#8C64C8',
+            'content-bg': '#04000C',
+            'content-fg': '#F0E1FF',
+            accent: '#B450FF',
+            'accent-secondary': '#50AAE6',
+            'content-surface': '#0F051E',
+            'page-bg': '#371464',
+            bright: '#FFFAFF',
+          },
+        },
+        {
+          id: 'p154',
+          section: 'AA',
+          name: 'Chromatic Rift',
+          tagline: 'RGB split — near-black + magenta + cyan',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#08080C',
+            'nav-fg': '#F0F0F5',
+            'nav-dim': '#7D7D87',
+            'content-bg': '#0C0C12',
+            'content-fg': '#EBF0F5',
+            accent: '#F03282',
+            'accent-secondary': '#3CC8DC',
+            'content-surface': '#181620',
+            'page-bg': '#1EC8DC',
+            bright: '#FAFAFA',
+          },
+        },
+        {
+          id: 'p155',
+          section: 'AA',
+          name: 'Nebula Drift',
+          tagline: 'Cosmic navy, starlight, red-giant magenta',
+          mode: 'DN-DC',
+          tokens: {
+            'nav-bg': '#080514',
+            'nav-fg': '#E6DCF0',
+            'nav-dim': '#8C6EA5',
+            'content-bg': '#0A081C',
+            'content-fg': '#EBE1F5',
+            accent: '#E6508C',
+            'accent-secondary': '#7896DC',
+            'content-surface': '#160F2D',
+            'page-bg': '#5F2382',
+            bright: '#FAF5FF',
+          },
+        },
+        {
+          id: 'p156',
+          section: 'AA',
+          name: 'Hazmat Trefoil',
+          tagline: 'Trefoil black, hazmat yellow, warning red',
+          mode: 'DN-LC',
+          tokens: {
+            'nav-bg': '#0F0F0C',
+            'nav-fg': '#FFDC1E',
+            'nav-dim': '#AF9B2D',
+            'content-bg': '#F0EEE8',
+            'content-fg': '#0F0F0C',
+            accent: '#C81414',
+            'accent-secondary': '#BEAA14',
+            'content-surface': '#E4E2D8',
+            'page-bg': '#FFCD00',
+            bright: '#FFFFF5',
+          },
+        },
+      ];
+
+      // ------------------------------------------------------------------
+      // Renderer
+      // ------------------------------------------------------------------
+      function hexToRgb(hex) {
+        const value = hex.replace('#', '');
+        return [
+          parseInt(value.slice(0, 2), 16),
+          parseInt(value.slice(2, 4), 16),
+          parseInt(value.slice(4, 6), 16),
+        ];
+      }
+
+      const TOKEN_ORDER = [
+        'nav-bg',
+        'nav-fg',
+        'nav-dim',
+        'content-bg',
+        'content-fg',
+        'accent',
+        'accent-secondary',
+        'content-surface',
+        'page-bg',
+        'bright',
+      ];
+
+      function injectPaletteVars() {
+        const rules = PALETTES.map((p) => {
+          const vars = TOKEN_ORDER.map(
+            (t) => `--palette-${t}: ${hexToRgb(p.tokens[t]).join(', ')};`,
+          ).join(' ');
+          return `.${p.id} { ${vars} }`;
+        }).join('\n');
+        const styleEl = document.createElement('style');
+        styleEl.id = 'palette-vars';
+        styleEl.textContent = rules;
+        document.head.appendChild(styleEl);
+      }
+
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      function rgbToHex(rgb) {
+        return rgb.toUpperCase();
+      }
+
+      function cardMarkup(p) {
+        const number = p.id.slice(1);
+        const swatches = TOKEN_ORDER.map((t) => {
+          const rgb = p.tokens[t];
+          const hex = rgbToHex(rgb);
+          return `
+              <div class="swatch-item">
+                <span
+                  class="swatch"
+                  style="background: rgb(var(--palette-${t}))"
+                ></span>
+                <span class="value">
+                  <span class="name">${t}</span>
+                  <span class="hex">${hex}</span>
+                </span>
+              </div>`;
+        }).join('');
+        return `
+            <div class="card-head">
+              <h3>#${number} ${escapeHtml(p.name)}</h3>
+              <span class="chip">[${MODE_LABEL[p.mode]}]</span>
+            </div>
+            <p class="tagline">${escapeHtml(p.tagline)}</p>
+            <div
+              class="demo-shell"
+              role="img"
+              aria-label="Preview of the ${escapeHtml(p.name)} palette"
+            >
+              <aside class="demo-nav">
+                <div class="icon"></div>
+                <div class="site-name">🚲 Monocycle</div>
+                <div class="site-subtitle">Paris / IdF</div>
+                <hr />
+                <a class="nav-link is-hover" href="#">L'asso</a>
+                <a href="#">Initiations</a>
+                <a href="#">Balades</a>
+                <hr />
+                <a href="#">Adhérer</a>
+              </aside>
+              <div class="demo-content">
+                <h1>Heading (secondary)</h1>
+                <p>
+                  Body text uses content-fg. Links use accent,
+                  headings use accent-secondary.
+                </p>
+                <a href="#">A link (accent)</a>
+                <div class="demo-card">
+                  <h2>Card heading (secondary)</h2>
+                  <p>
+                    Surface cards use content-surface for structure.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swatches">${swatches}
+            </div>
+            <div class="badges">
+              <span class="badge nav">nav AA —</span>
+              <span class="badge content">content AA —</span>
+              <span class="badge accent">accent note —</span>
+            </div>`;
+      }
+
+      function renderPalettes() {
+        const showcase = document.getElementById('showcase');
+        const bySection = new Map();
+        for (const p of PALETTES) {
+          if (!bySection.has(p.section)) bySection.set(p.section, []);
+          bySection.get(p.section).push(p);
+        }
+        for (const sec of SECTION_ORDER) {
+          const list = bySection.get(sec);
+          if (!list || list.length === 0) continue;
+          const meta = SECTION_META[sec];
+          const section = document.createElement('section');
+          section.className = 'mode-section';
+          section.id = `section-${sec}`;
+          section.innerHTML = `<h2>${meta.emoji} ${escapeHtml(meta.title)}</h2><div class="palette-grid"></div>`;
+          const grid = section.querySelector('.palette-grid');
+          for (const p of list) {
+            const article = document.createElement('article');
+            article.className = `palette-card ${p.id}`;
+            article.dataset.mode = p.mode;
+            article.innerHTML = cardMarkup(p);
+            grid.appendChild(article);
+          }
+          showcase.appendChild(section);
+        }
+      }
+
+      // ------------------------------------------------------------------
+      // WCAG contrast badges — computed once after render.
+      // ------------------------------------------------------------------
+      function luminance(r, g, b) {
+        return [r, g, b]
+          .map((c) => {
+            c /= 255;
+            return c <= 0.04045
+              ? c / 12.92
+              : Math.pow((c + 0.055) / 1.055, 2.4);
+          })
+          .reduce((acc, c, i) => acc + c * [0.2126, 0.7152, 0.0722][i], 0);
+      }
+
+      function contrast(l1, l2) {
+        const [hi, lo] = [Math.max(l1, l2), Math.min(l1, l2)];
+        return (hi + 0.05) / (lo + 0.05);
+      }
+
+      function computeBadges() {
+        document.querySelectorAll('.palette-card').forEach((card) => {
+          const style = getComputedStyle(card);
+          const get = (token) =>
+            style.getPropertyValue(token).trim().split(',').map(Number);
+
+          const navBg = get('--palette-nav-bg');
+          const navFg = get('--palette-nav-fg');
+          const contentBg = get('--palette-content-bg');
+          const contentFg = get('--palette-content-fg');
+          const accent = get('--palette-accent');
+
+          const navRatio = contrast(luminance(...navBg), luminance(...navFg));
+          const contentRatio = contrast(
+            luminance(...contentBg),
+            luminance(...contentFg),
+          );
+          const accentRatio = contrast(
+            luminance(...contentBg),
+            luminance(...accent),
+          );
+
+          const navBadge = card.querySelector('.badge.nav');
+          const contentBadge = card.querySelector('.badge.content');
+          const accentBadge = card.querySelector('.badge.accent');
+
+          // Badge text stays on the bright page-level foreground (set in CSS).
+          // The ✓ / ✗ glyph is the semantic pass/fail indicator.
+          if (navBadge) {
+            navBadge.textContent = `nav AA ${navRatio >= 4.5 ? '✓' : '✗'} ${navRatio.toFixed(2)}:1`;
+          }
+
+          if (contentBadge) {
+            contentBadge.textContent = `content AA ${contentRatio >= 4.5 ? '✓' : '✗'} ${contentRatio.toFixed(2)}:1`;
+          }
+
+          if (accentBadge) {
+            accentBadge.textContent = `accent on content ${accentRatio >= 3 ? '✓' : '✗'} ${accentRatio.toFixed(2)}:1`;
+          }
+        });
+      }
+
+      // ------------------------------------------------------------------
+      // Menu — section anchors + filter chips. Anchors are built after
+      // renderPalettes() so they reflect only sections that actually have
+      // palettes. Filter chips toggle body-level classes that hide cards
+      // via CSS attribute selectors on data-mode.
+      // ------------------------------------------------------------------
+      function renderMenu() {
+        const container = document.getElementById('menu-anchors');
+        if (!container) return;
+        for (const sec of SECTION_ORDER) {
+          const section = document.getElementById(`section-${sec}`);
+          if (!section) continue;
+          const meta = SECTION_META[sec];
+          const link = document.createElement('a');
+          link.href = `#section-${sec}`;
+          link.dataset.section = sec;
+          link.innerHTML = `${sec} \u00b7 ${escapeHtml(meta.title)} <span class="count">0</span>`;
+          container.appendChild(link);
+        }
+      }
+
+      function updateCounts() {
+        // Card display is driven by body.hide-* classes and each card's
+        // data-mode. Use the card's own computed display so a section that
+        // was previously hidden does not mask its children's real state.
+        for (const sec of SECTION_ORDER) {
+          const section = document.getElementById(`section-${sec}`);
+          if (!section) continue;
+          const cards = section.querySelectorAll('.palette-card');
+          let visible = 0;
+          cards.forEach((c) => {
+            if (getComputedStyle(c).display !== 'none') visible++;
+          });
+          section.hidden = visible === 0;
+          const link = document.querySelector(
+            `#menu-anchors a[data-section="${sec}"]`,
+          );
+          if (link) {
+            const countEl = link.querySelector('.count');
+            if (countEl) countEl.textContent = String(visible);
+            link.hidden = visible === 0;
+          }
+        }
+      }
+
+      function initMenu() {
+        const chips = document.querySelectorAll(
+          '.menu-filters input[data-filter]',
+        );
+        chips.forEach((input) => {
+          input.addEventListener('change', () => {
+            document.body.classList.toggle(
+              `hide-${input.dataset.filter}`,
+              !input.checked,
+            );
+            updateCounts();
+          });
+        });
+        updateCounts();
+      }
+
+      injectPaletteVars();
+      renderPalettes();
+      computeBadges();
+      renderMenu();
+      initMenu();
+    </script>
+  </body>
+</html>

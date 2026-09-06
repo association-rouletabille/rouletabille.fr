@@ -1,0 +1,197 @@
+<!-- Top bar — cherry red, navigation links + social icons -->
+<nav class="topbar" aria-label="Navigation principale">
+  <ul class="nav-row">
+    <li><a href="/initiations-monocycle-gratuites">Initiations gratuites</a></li>
+    <li><a href="/balades-du-mardi-soir">Balades du Mardi Soir</a></li>
+    <li><a href="/trial-street-flat">Trial, street et flat</a></li>
+    <li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
+  </ul>
+  <div class="nav-row-with-social">
+    <ul class="nav-row">
+      <li><a href="/association">L'association</a></li>
+      <li><a href="/adhesion">Adh&eacute;rer</a></li>
+      <li><a href="/tutoriels-et-resources">Tutoriels et resources</a></li>
+    </ul>
+    <div class="nav-spacer"></div>
+    <div class="social-links">
+      <a href="mailto:association.rouletabille@gmail.com?subject=Contact%20depuis%20le%20site%20web" aria-label="Email">
+        <icon name="social-email"></icon>
+      </a>
+      <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <icon name="social-instagram"></icon>
+      </a>
+      <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <icon name="social-facebook"></icon>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Decoration: red triangle + cream border (purely visual) -->
+<div class="deco" aria-hidden="true"></div>
+
+<style webc:scoped>
+  /* =====================
+   Header: cherry top bar + red triangle (top-left) + cream border.
+   The .deco element sits at grid row 2 (below topbar). Its ::before
+   draws the red triangle, ::after draws the cream border as one
+   continuous clip-path polygon (horizontal + diagonal). CSS trig
+   functions compute perpendicular offsets for uniform bar thickness.
+   ===================== */
+
+  :host {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 0;
+    width: 100%;
+    container-type: inline-size;
+    position: relative;
+    overflow: visible;
+  }
+
+  /* ---- Top bar (cherry red, full width) ---- */
+
+  .topbar {
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: fit-content(100%);
+    justify-content: end;
+    align-content: center;
+    row-gap: 0;
+    background-color: rgb(var(--color-topbar-bg));
+    padding-block: 0.25rem;
+    padding-inline: 1.5rem;
+    padding-inline-end: max(1.5rem, calc((100cqi - 1200px) / 2 + 1.5rem));
+    position: relative;
+    z-index: 2;
+  }
+
+  .nav-row {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    justify-content: flex-start;
+  }
+
+  .nav-row a {
+    color: rgb(var(--color-topbar-text));
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    padding: 0;
+    transition:
+      color 0.2s ease,
+      text-decoration-color 0.2s ease;
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 2px;
+  }
+
+  .nav-row a:hover {
+    color: rgb(var(--color-topbar-text-hover));
+    text-decoration-color: rgb(var(--color-topbar-text-hover));
+  }
+
+  /* ---- Second nav row + social links ---- */
+
+  .nav-row-with-social {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-spacer {
+    flex: 1;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .social-links a {
+    display: flex;
+    color: rgb(var(--color-topbar-text));
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    color: rgb(var(--color-topbar-text-hover));
+  }
+
+  .social-links a svg {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  /* ---- Decoration container (grid row 2, 0 height, overflows below) ---- */
+
+  .deco {
+    grid-row: 2;
+    grid-column: 1;
+    position: relative;
+    top: -1px;
+    height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 1;
+
+    /* Trig calculations for uniform perpendicular cream bar thickness */
+    --hyp-angle: atan2(var(--triangle-height), var(--triangle-width));
+    --bar-dx: calc(var(--bar-height) * sin(var(--hyp-angle)));
+    --bar-dy: calc(var(--bar-height) * cos(var(--hyp-angle)));
+    --miter-dx: calc(var(--bar-height) * tan(calc(var(--hyp-angle) / 2)) * cos(var(--hyp-angle)));
+  }
+
+  /* ---- Red triangle (extends below header into content area) ---- */
+
+  .deco::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--triangle-width);
+    height: var(--triangle-height);
+    background-color: rgb(var(--color-topbar-bg));
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 1;
+  }
+
+  /* ---- Cream border: horizontal below topbar + diagonal along hypotenuse ---- */
+
+  .deco::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--triangle-height) + var(--bar-dy) + 3rem * sin(var(--hyp-angle)));
+    background-color: rgb(var(--color-subbar-bg));
+    clip-path: polygon(calc(var(--triangle-width) - var(--bar-height)) 0, 100% 0, 100% var(--bar-height), calc(var(--triangle-width) + var(--bar-dx) - var(--miter-dx)) var(--bar-height), calc(var(--bar-dx) - 3rem * cos(var(--hyp-angle))) calc(var(--triangle-height) + var(--bar-dy) + 3rem * sin(var(--hyp-angle))), calc(0px - 3rem * cos(var(--hyp-angle))) calc(var(--triangle-height) + 3rem * sin(var(--hyp-angle))));
+  }
+
+  /* ---- Mobile ---- */
+
+  @media (max-width: 1023px) {
+    :host {
+      --triangle-width: 10rem;
+      --triangle-height: 16rem;
+    }
+
+    .topbar {
+      justify-content: start;
+      padding-inline: 1rem;
+    }
+  }
+</style>

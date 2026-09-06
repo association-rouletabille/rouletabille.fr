@@ -1,0 +1,56 @@
+<footer webc:root="override">
+  <icon name="unicycle"></icon>
+  <ul>
+    <li>
+      <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
+        <icon name="Instagram"></icon>
+        <span>rtb_monocycle</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
+        <icon name="2023_Facebook_icon"></icon>
+        <span>rouletabillemonocycleparis</span>
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<style webc:scoped>
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 2rem max(4rem, env(safe-area-inset-bottom));
+  }
+
+  :host > svg {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  :host ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  :host a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  :host a svg {
+    flex-shrink: 0;
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+</style>

@@ -40,12 +40,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(dirOutputPlugin);
 
   eleventyConfig.addPlugin(pluginIcons, {
-    mode: 'sprite',
+    mode: 'inline',
     sources: [{ name: 'custom', path: './src/assets', default: true }],
-    sprite: {
-      writeFile: './assets/sprites.svg',
-      extraIcons: { all: true },
-    },
   });
 
   eleventyConfig.addPlugin(pluginWebc, {

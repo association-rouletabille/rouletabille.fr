@@ -1,0 +1,22 @@
+---
+layout: base.webc
+title: Tutoriels et ressources
+description: >-
+  Le plein d'informations intéressantes. A consommer sans modération !
+permalink: /tutoriels-et-ressources.html
+---
+
+<article>
+  <h1>Tutoriels et ressources</h1>
+
+  <card>
+    <p>Une s&eacute;lection de ressources en ligne pour d&eacute;couvrir, apprendre et progresser.</p>
+    <ul>
+      <li><a href="https://forum.monocycle.info/" target="_blank" rel="noopener noreferrer">https://forum.monocycle.info/</a> → Forum dédié à l'actualité du monocyle en France, aux échanges entre pratiquants et aux petites annonces</li>
+      <li><a href="https://unicyclist.com/" target="_blank" rel="noopener noreferrer">https://unicyclist.com/</a> → <strong>TODO :</strong> Ajouter description</li>
+      <li><a href="https://www.youtube.com/@CommissionNationaleMonocycle" target="_blank" rel="noopener noreferrer">https://www.youtube.com/@CommissionNationaleMonocycle</a> → Chaîne YouTube du monocycle en France, gérée par la Commission Nationale du Monocycle. Vous y trouverez des vidéos de conventions françaises et internationales, des partages de vidéos, des interviews, des lives, des tutos, etc.</li>
+    </ul>
+
+    <p><strong>TODO :</strong> Compléter les liens</p>
+  </card>
+</article>

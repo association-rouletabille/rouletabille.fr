@@ -1,0 +1,44 @@
+---
+layout: base.webc
+title: Initiations au monocycle
+description: >-
+  Encadrement dans l'apprentissage et le développement de la pratique du monocycle.
+  Séances organisées à Paris 13e, tous niveaux bienvenus.
+permalink: /initiations-monocycle-gratuites.html
+---
+
+<article>
+  <h1>Initiations gratuites</h1>
+
+  <card>
+    <p>Certains week-ends, nous proposons des sessions d'initiations sur la dalle des Olympiades (Paris 13e). Débutants comme pratiquants souhaitant progresser, tout le monde est bienvenu et du matériel est mis à disposition (monocycles d'initiation, trial, distance… tailles enfant et adulte !).</p>
+  </card>
+
+  <card heading="Infos pratiques">
+    <ul>
+      <li><strong>Lieu :</strong> Dalle des Olympiades, dans le 13e arrondissement, <a href="https://maps.app.goo.gl/tna4xEyHVtCZwoA47" target="_blank" rel="noopener noreferrer">au pied de la tour Athènes</a></li>
+      <li><strong>Fréquence :</strong> le samedi ou le dimanche, environ une fois tous les deux mois</li>
+      <li><strong>Horaires :</strong> 15h00 – 17h00</li>
+      <li><strong>Remarque :</strong> les dates peuvent varier selon la météo et l'organisation. Suivez nos réseaux pour les annonces</li>
+    </ul>
+  </card>
+
+  <card heading="Public et niveaux">
+    <p>Les initiations sont ouvertes à tous les niveaux et tous les âges. Aucune expérience préalable n'est requise.</p>
+  </card>
+
+  <card heading="Matériel fourni">
+    <p>Tout le matériel est prêté gratuitement :</p>
+    <ul>
+      <li>Monocycles en différentes tailles enfants et adultes</li>
+      <li>Casque</li>
+      <li>Protège-tibias</li>
+      <li>Protections de poignets</li>
+    </ul>
+    <p>Venez comme vous êtes ! (mais avec un peu de motivation quand même)</p>
+  </card>
+
+  <card heading="Pour participer">
+    <p>Les annonces des prochaines sessions sont publiées sur nos réseaux ! N'hésitez pas à nous contacter pour toute information complémentaire.</p>
+  </card>
+</article>

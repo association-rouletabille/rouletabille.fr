@@ -1,6 +1,6 @@
 ---
 layout: base.webc
-title: Association de monocycle Roule Ta Bille (RTB) - Initiations, balades & autres activités sportives
+title: Association de monocycle Roule Ta Bille (RTB) - Initiations, balades et autres activités sportives
 description: >-
   Site officiel de Roule Ta Bille (RTB), association de monocycle, à Paris et en Ile-de-France.
   Son objectif est de faire découvrir et développer la pratique du monocycle au moyen d'une
@@ -9,4 +9,41 @@ description: >-
   ludiques (jeux, spectacles, initiations, stages...)
 changeFreq: hourly
 ---
-<under-construction></under-construction>
+
+<article>
+  <h1>Le monocycle à Paris et en Île-de-France</h1>
+  <card heading="Qui sommes nous ?">
+    <p><strong>Roule Ta Bille (RTB)</strong> est une association loi 1901 dédiée au monocycle à Paris et en Île-de-France. Depuis 2005, nous accueillons débutants et pratiquants confirmés autour de sorties et d'événements conviviaux.</p>
+    <p>
+      <a href="/association">En savoir plus sur l'association →</a>
+    </p>
+  </card>
+
+  <card heading="Initiations gratuites">
+    <p>L'idéal pour découvrir le monocycle ou se perfectionner. Nos sessions d'initiation accueillent tous les niveaux à Paris 13<sup>e</sup>. Ouvertes à tous, le matériel est fourni !</p>
+    <p>
+      <a href="/initiations-monocycle-gratuites">Découvrir les initiations →</a>
+    </p>
+  </card>
+
+  <card heading="Balades du Mardi Soir">
+    <p>Chaque mardi soir (ou presque !), nous sillonnons les rues de Paris en monocycle…</p>
+    <p>
+      <a href="/balades-du-mardi-soir">Rejoindre la balade →</a>
+    </p>
+  </card>
+
+  <card heading="Trial, street et flat">
+    <p><strong>TODO:</strong> Joli texte résumant la proposition</p>
+    <p>
+      <a href="/trial-street-flat"><strong>TODO:</strong> Texte court de lien →</a>
+    </p>
+  </card>
+
+  <card heading="Roule Ton Caillou">
+    <p>Notre événement annuel dédié au monocycle tout terrain (Muni) dans la forêt de Fontainebleau. Un week-end dans la nature, pour rouler sur du caillou en excellente compagnie.</p>
+    <p>
+      <a href="/roule-ton-caillou">Découvrir l'événement →</a>
+    </p>
+  </card>
+</article>

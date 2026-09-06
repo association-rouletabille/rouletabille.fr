@@ -2,10 +2,10 @@
 layout: root.webc
 ---
 
-<pagestyle webc:nokeep>
-  <header></header>
+<pagestyle2 webc:nokeep>
+  <header2></header2>
   <site-content>
     <main @raw="this.content"></main>
     <footer></footer>
   </site-content>
-</pagestyle>
+</pagestyle2>
