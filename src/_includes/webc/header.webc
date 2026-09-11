@@ -283,6 +283,7 @@
   @media (max-width: 799px) and (max-height: 500px) {
     :host {
       --logo-size: 2.5rem;
+      --header-h: calc(var(--logo-size) + var(--header-pad-block) + var(--safe-top));
     }
   }
 </style>
