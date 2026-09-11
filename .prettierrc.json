@@ -8,6 +8,13 @@
       "options": {
         "trailingComma": "none"
       }
+    },
+    {
+      "files": ["**/*.webc"],
+      "options": {
+        "parser": "html",
+        "printWidth": 9999
+      }
     }
   ]
 }

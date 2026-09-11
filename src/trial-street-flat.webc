@@ -1,0 +1,38 @@
+---
+layout: base.webc
+title: Trial, street et flat
+description: >-
+  TODO: description
+permalink: /trial-street-flat.html
+---
+
+<article>
+  <h1>Trial, street et flat</h1>
+
+  <card>
+    <p>Tous les mercredis soirs, nous donnons rendez-vous aux plus fous d'entre-nous dans le sous-sol reculé du Kremlin Bicêtre pour commettre l'indicible sur monocycle…</p>
+    <p>Trial, street, flat, l'urbain s'invite sous fond de musique grâce à l'association <a href="https://www.instagram.com/club_street_riders" target="_blank" rel="noopener noreferrer">Street Rider</a>. Skates et monocycles se mêlent à la danse.</p>
+    <p><strong>TODO:</strong> Lien vidéo montage</p>
+  </card>
+
+  <card heading="Conditions de participation">
+    <p>Que vous soyez déjà initié à ces disciplines ou que vous souhaitiez les découvrir vous êtes les bienvenu·es ! La session du mercredi est organisée principalement par Street Rider, une petite cotisation pour leur association est à prévoir si vous êtes un mordu de l'urbain.</p>
+
+    <p>Les séances sont ouvertes à tous les niveaux. En revanche, il est nécessaire de venir avec un monocycle adapté : une roue de 20 pouces. Casque et protections évidemment obligatoires (il y a des limites au goût du danger…)</p>
+  </card>
+
+  <card heading="Infos pratiques">
+    <ul>
+      <li><strong>Lieu :</strong> Dans le parking souterrain du <a href="https://maps.app.goo.gl/tsPARngGrHeat5gz8" target="_blank" rel="noopener noreferrer">24 rue Pasteur au Kremlin Bicêtre</a></li>
+      <li><strong>Fréquence :</strong> tous les mercredis</li>
+      <li><strong>Horaires :</strong> 18h30 – 22h30</li>
+    </ul>
+  </card>
+
+  <card heading="Pour participer">
+    <p>Envoyez nous un mail afin que l'on puisse vous mettre en contact avec un habitué du mercredi soir.</p>
+    <ul>
+      <li><a href="mailto:association.rouletabille@gmail.com?subject=Trial,%20street%20et%20flat">association.rouletabille@gmail.com</a></li>
+    </ul>
+  </card>
+</article>
