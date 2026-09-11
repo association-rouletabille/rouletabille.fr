@@ -2,7 +2,7 @@
 layout: base.webc
 title: Trial, street et flat
 description: >-
-  TODO: description
+  Sessions de trial, street et flat, le mercredi soir
 permalink: /trial-street-flat.html
 ---
 
@@ -12,7 +12,6 @@ permalink: /trial-street-flat.html
   <card>
     <p>Tous les mercredis soirs, nous donnons rendez-vous aux plus fous d'entre-nous dans le sous-sol reculé du Kremlin Bicêtre pour commettre l'indicible sur monocycle…</p>
     <p>Trial, street, flat, l'urbain s'invite sous fond de musique grâce à l'association <a href="https://www.instagram.com/club_street_riders" target="_blank" rel="noopener noreferrer">Street Rider</a>. Skates et monocycles se mêlent à la danse.</p>
-    <p><strong>TODO:</strong> Lien vidéo montage</p>
   </card>
 
   <card heading="Conditions de participation">
