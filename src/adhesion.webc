@@ -1,0 +1,32 @@
+---
+layout: base.webc
+title: Adhérer à l'association Roule Ta Bille
+description: >-
+  Adhérer à l’association, c’est soutenir concrètement nos projet
+  et nous aider à développer de nouveaux événements et partenariats.
+permalink: /adhesion.html
+---
+
+<article>
+  <h1>Pourquoi devenir membre de Roule ta Bille ?</h1>
+
+  <card>
+    <p>Adhérer à l'association, c'est soutenir concrètement nos projets : chaque adhésion renforce notre crédibilité auprès des collectivités et nous aide à développer de nouveaux événements et partenariats.</p>
+    <p>La cotisation annuelle est de 15 € pour le premier membre d'une famille, puis 5 € pour chaque membre supplémentaire. Elle comprend :</p>
+    <ul>
+      <li>l'affiliation à la fédération Union Nationale Sportive Léo Lagrange</li>
+      <li>la participation aux frais de fonctionnement de l'association (communication, frais bancaires, etc.)</li>
+    </ul>
+  </card>
+
+  <card heading="Les avantages pour nos adhérent·e·s">
+    <ul>
+      <li>Participer aux compétitions en étant couvert·e par l'assurance</li>
+      <li>Emprunter un monocycle appartenant à l'association</li>
+      <li>Accéder en priorité aux inscriptions pour certains événements aux places limitées</li>
+      <li>Voter en Assemblée Générale et contribuer aux décisions importantes</li>
+      <li>Proposer et lancer ses propres projets, avec le soutien du bureau et des autres membres</li>
+      <li>Se présenter au Bureau et participer activement à la vie de l'association</li>
+    </ul>
+  </card>
+</article>

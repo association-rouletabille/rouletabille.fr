@@ -15,25 +15,28 @@
     "@eslint/js": "^10.0.1",
     "@minify-html/node": "^0.18.1",
     "eleventy-plugin-icons": "^4.6.0",
-    "eslint": "^10.7.0",
+    "eslint": "^10.10.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
-    "globals": "^17.7.0",
+    "globals": "^17.12.0",
     "husky": "^9.1.7",
     "lightningcss": "^1.33.0",
-    "lint-staged": "^17.1.1",
+    "lint-staged": "^17.5.1",
     "prettier": "^3.9.6",
-    "wrangler": "^4.113.0"
+    "wrangler": "^4.131.0"
   },
   "scripts": {
-    "build": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
+    "build:dist": "COMMIT_SHA=$(git rev-parse HEAD) npx @11ty/eleventy",
+    "build:dev": "npx @11ty/eleventy",
+    "clean": "npx rimraf dist",
+    "serve": "npx @11ty/eleventy --serve",
     "lint": "npx eslint . --cache --cache-location .cache/ --fix",
     "format": "npx prettier . --write",
     "lint-staged": "npx lint-staged",
     "prepare": "npx husky"
   },
   "lint-staged": {
-    "(*.js|*.css|*.html|*.md)": [
+    "(*.js|*.css|*.html|*.md|*.webc)": [
       "npm run lint",
       "npm run format"
     ]

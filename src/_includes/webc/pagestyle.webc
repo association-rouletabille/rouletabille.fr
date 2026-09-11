@@ -1,0 +1,153 @@
+<style>
+  /* =====================
+   Global Design Tokens
+   ===================== */
+
+  :root {
+    /* Primitive palette — Garden & Path (raw RGB triplets for rgba() composition) */
+    --palette-nav-bg: 212, 228, 210; /* #D4E4D2 */
+    --palette-nav-fg: 20, 38, 18; /* #142612 */
+    --palette-nav-dim: 80, 108, 78; /* #506C4E */
+    --palette-content-bg: 248, 246, 240; /* #F8F6F0 */
+    --palette-content-fg: 28, 38, 22; /* #1C2616 */
+    --palette-content-surface: 234, 228, 215; /* #EAE4D7 */
+    --palette-accent: 172, 58, 20; /* #AC3A14 */
+    --palette-accent-secondary: 45, 85, 50; /* #2D5532 */
+    --palette-page-bg: 140, 165, 130; /* #8CA582 */
+    --palette-bright: 254, 254, 250; /* #FEFEFA */
+
+    /* Type scale */
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.85rem;
+    --fs-base: 1rem;
+    --fs-md: 1.1rem;
+    --fs-lg: 1.3rem;
+    --fs-xl: 1.5rem;
+    --fs-xxl: 2rem;
+    --fs-hero: 5rem;
+
+    /* Fonts */
+    --font-mono: monospace;
+    --font-body: system-ui, sans-serif;
+
+    /* Layout */
+    --sidebar-w: 300px;
+
+    /* Header geometry — shared with header component */
+    --logo-size: 4.5rem;
+    --header-pad-block: 0.5rem;
+    --safe-top: max(0.5rem, env(safe-area-inset-top));
+    --safe-right: max(1rem, env(safe-area-inset-right));
+    --safe-bottom: max(2rem, env(safe-area-inset-bottom));
+    --safe-left: max(1rem, env(safe-area-inset-left));
+  }
+
+  /* =====================
+   Base reset
+   ===================== */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: rgb(var(--palette-page-bg));
+    background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px), radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 4px 4px;
+    background-position:
+      0 0,
+      2px 2px;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background-color: rgb(var(--palette-content-bg));
+    color: rgb(var(--palette-content-fg));
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+
+  /* =====================
+   Main content area
+   ===================== */
+
+  main {
+    flex: 1;
+    max-width: 100ch;
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--safe-left) var(--safe-right);
+    padding-block: 2rem;
+  }
+
+  /* Headings */
+  main h1 {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xl);
+    font-weight: bold;
+    color: rgb(var(--palette-accent));
+    margin-block: 0 1.5rem;
+    line-height: 1.2;
+  }
+
+  /* Body text */
+  main p {
+    line-height: 1.7;
+    margin-block: 0.75rem;
+  }
+
+  main ul,
+  main ol {
+    padding-inline-start: 1.5rem;
+    line-height: 1.7;
+  }
+
+  main li {
+    margin-block: 0.3rem;
+  }
+
+  /* Links */
+  a {
+    color: rgb(var(--palette-accent));
+    text-underline-offset: 0.2em;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  /* =====================
+   Desktop layout (≥800px): two-column grid
+   ===================== */
+
+  @media (min-width: 800px) {
+    body {
+      display: grid;
+      grid-template-columns: var(--sidebar-w) 1fr;
+      max-width: calc(var(--sidebar-w) + 100ch);
+      margin-inline: auto;
+      box-shadow: 16px 0 16px -16px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  /* Right-column wrapper — explicit display needed (custom elements default to inline) */
+  site-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* =====================
+   Mobile menu open: lock body scroll
+   ===================== */
+
+  @media (max-width: 799px) {
+    body:has(#nav-toggle:checked) {
+      overflow: hidden;
+    }
+  }
+</style>
