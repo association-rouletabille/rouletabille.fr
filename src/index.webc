@@ -10,9 +10,9 @@ description: >-
 changeFreq: hourly
 ---
 
-<article>
-  <content-hero-photo src="/imgs/PXL_20230530_191546981.jpg" alt="Monocyclistes roulant le long de la Seine au coucher du soleil à Paris."> </content-hero-photo>
+<content-hero-photo src="/imgs/PXL_20230530_191546981.jpg" alt="Monocyclistes roulant le long de la Seine au coucher du soleil à Paris." position="50% 50%"></content-hero-photo>
 
+<article>
   <h1>Le monocycle à Paris et en Île-de-France</h1>
 
   <card heading="Qui sommes nous ?">
@@ -50,9 +50,3 @@ changeFreq: hourly
     </p>
   </card>
 </article>
-
-<style>
-  main:has(.content-hero-photo) {
-    padding-block-start: 0;
-  }
-</style>
