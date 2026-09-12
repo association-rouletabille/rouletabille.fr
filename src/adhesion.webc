@@ -19,7 +19,7 @@ permalink: /adhesion.html
     </ul>
   </card>
 
-  <card heading="Les avantages pour nos adhérent·e·s">
+  <card @heading="Les avantages pour nos adhérent·e·s">
     <ul>
       <li>Participer aux compétitions en étant couvert·e par l'assurance</li>
       <li>Emprunter un monocycle appartenant à l'association</li>

@@ -10,40 +10,40 @@ description: >-
 changeFreq: hourly
 ---
 
-<content-hero-photo src="/imgs/PXL_20230530_191546981.jpg" alt="Monocyclistes roulant le long de la Seine au coucher du soleil à Paris." position="50% 50%"></content-hero-photo>
+<content-hero-photo @src="/imgs/PXL_20230530_191546981.jpg" @alt="Monocyclistes roulant le long de la Seine au coucher du soleil à Paris." @position="50% 50%"></content-hero-photo>
 
 <article>
   <h1>Le monocycle à Paris et en Île-de-France</h1>
 
-  <card heading="Qui sommes nous ?">
+  <card @heading="Qui sommes nous ?">
     <p><strong>Roule Ta Bille (RTB)</strong> est une association loi 1901 dédiée au monocycle à Paris et en Île-de-France. Depuis 2005, nous accueillons débutants et pratiquants confirmés autour de sorties et d'événements conviviaux.</p>
     <p>
       <a href="/association">En savoir plus sur l'association →</a>
     </p>
   </card>
 
-  <card heading="Initiations gratuites">
+  <card @heading="Initiations gratuites">
     <p>L'idéal pour découvrir le monocycle ou se perfectionner. Nos sessions d'initiation accueillent tous les niveaux à Paris 13<sup>e</sup>. Ouvertes à tous, le matériel est fourni !</p>
     <p>
       <a href="/initiations-monocycle-gratuites">Découvrir les initiations →</a>
     </p>
   </card>
 
-  <card heading="Balades du Mardi Soir">
+  <card @heading="Balades du Mardi Soir">
     <p>Chaque mardi soir (ou presque !), nous sillonnons les rues de Paris en monocycle…</p>
     <p>
       <a href="/balades-du-mardi-soir">Rejoindre la balade →</a>
     </p>
   </card>
 
-  <card heading="Trial, street et flat">
+  <card @heading="Trial, street et flat">
     <p>Un peu plus d'urbain pour agrémenter la pratique ? Une session trial, street et flat a lieu le mercredi soir en collaboration avec une association de skate.</p>
     <p>
       <a href="/trial-street-flat">Apprendre à faire des sauts et des figures →</a>
     </p>
   </card>
 
-  <card heading="Roule Ton Caillou">
+  <card @heading="Roule Ton Caillou">
     <p>Notre événement annuel dédié au monocycle tout terrain (Muni) dans la forêt de Fontainebleau. Un week-end dans la nature, pour rouler sur du caillou en excellente compagnie.</p>
     <p>
       <a href="/roule-ton-caillou">Découvrir l'événement →</a>
