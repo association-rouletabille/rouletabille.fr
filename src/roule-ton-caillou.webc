@@ -7,6 +7,8 @@ description: >-
 permalink: /roule-ton-caillou.html
 ---
 
+<content-hero-photo @src="/imgs/36139527-8f54-4d4f-88e8-6bcc0d350ba6.jpg" @alt="Trois monocyclistes casqués descendent un sentier rocheux et moussu en forêt." @position="50% 42%"></content-hero-photo>
+
 <article>
   <h1>Roule Ton Caillou</h1>
 
@@ -14,7 +16,7 @@ permalink: /roule-ton-caillou.html
     <p>Une à deux fois par an, nous partons en Seine-et-Marne pour profiter des sentiers escarpés de la forêt de Fontainebleau en monocycle tout-terrain. Repas et hébergement sont compris.</p>
   </card>
 
-  <card heading="Programme">
+  <card @heading="Programme">
     <ul>
       <li>Sorties guidées en forêt</li>
       <li>Repas partagés et cuisinés avec soin</li>
@@ -22,7 +24,7 @@ permalink: /roule-ton-caillou.html
     </ul>
   </card>
 
-  <card heading="Infos pratiques">
+  <card @heading="Infos pratiques">
     <ul>
       <li><strong>Période :</strong> généralement le premier week-end de mai</li>
       <li><strong>Lieu :</strong> forêt de Fontainebleau, généralement autour de Montigny-sur-Loing (77)</li>
@@ -30,7 +32,7 @@ permalink: /roule-ton-caillou.html
     </ul>
   </card>
 
-  <card heading="Pour participer">
+  <card @heading="Pour participer">
     <p>L'événement est ouvert aux pratiquants sachant déjà rouler en autonomie. Que vous soyez déjà à l'aise sur les chemins ou que ce soit votre premier muni, vous êtes les bienvenu·es !</p>
   </card>
 </article>

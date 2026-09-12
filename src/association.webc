@@ -15,7 +15,7 @@ permalink: /association.html
     <p>Notre objectif est de faire connaître et partager la pratique du monocycle, tout en favorisant le lien social autour de notre sport.</p>
   </card>
 
-  <card heading="Disciplines et activités">
+  <card @heading="Disciplines et activités">
     <p>Parmi toutes les <a href="https://fr.wikipedia.org/wiki/Monocycle#Les_disciplines_du_monocycle" target="_blank" rel="noopener noreferrer">disciplines existantes</a>, voici celles* proposées par notre asso :</p>
 
     <ul>
@@ -30,7 +30,7 @@ permalink: /association.html
     <sub>(*) Nous sommes cependant ouverts à toutes propositions extérieures qui nous permettraient d’explorer de nouveaux horizons 😉</sub>
   </card>
 
-  <card heading="Affiliations">
+  <card @heading="Affiliations">
     <p>Roule Ta Bille est officiellement rattachée aux instances suivantes :</p>
     <ul>
       <li>
@@ -42,7 +42,7 @@ permalink: /association.html
     </ul>
   </card>
 
-  <card heading="Informations légales">
+  <card @heading="Informations légales">
     <ul>
       <li><strong>Date de création:</strong> 26/10/2005</li>
       <li><strong>RNA:</strong> W913000310</li>
@@ -50,7 +50,7 @@ permalink: /association.html
     </ul>
   </card>
 
-  <card heading="Nous contacter">
+  <card @heading="Nous contacter">
     <ul>
       <li><a href="mailto:association.rouletabille@gmail.com">association.rouletabille@gmail.com</a></li>
     </ul>

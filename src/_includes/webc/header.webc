@@ -26,7 +26,7 @@
       <li><a href="/trial-street-flat">Trial, street et flat</a></li>
       <li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
       <li class="nav-section-start"><a href="/tutoriels-et-ressources">Tutoriels et ressources</a></li>
-      <li class="nav-section-start"><a href="/adhesion">Adh&eacute;rer</a></li>
+      <li class="nav-section-start"><a href="/adhesion">Adhérer</a></li>
     </ul>
     <social>
       <a href="mailto:association.rouletabille@gmail.com?subject=Contact%20depuis%20le%20site%20web">
@@ -173,7 +173,7 @@
       flex-direction: column;
       width: var(--sidebar-w);
       padding: var(--safe-top) 1rem var(--safe-bottom) var(--safe-left);
-      gap: 2rem;
+      gap: var(--header-pad-block);
       align-items: flex-start;
       box-shadow: -4px 0 12px rgba(var(--palette-nav-fg), 0.2);
     }
@@ -213,20 +213,22 @@
 
     .hamburger {
       position: relative;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 2.75rem;
+      height: 2.75rem;
       cursor: pointer;
       flex-shrink: 0;
     }
 
     /* Bars are centered on the same point and shorter than the box, so
        rotating them into an X (which shrinks their apparent span by cos(45°))
-       still fits the same square the resting bars occupy. */
+       still fits the same square the resting bars occupy. Fixed width (rather
+       than a % of the box) keeps the icon visually unchanged while the box
+       itself grows to give touch screens a larger tap target. */
     .hamburger span {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 80%;
+      width: 1.2rem;
       height: 2px;
       background-color: currentColor;
       border-radius: 2px;
@@ -267,7 +269,7 @@
       z-index: 5;
       background-color: rgb(var(--palette-nav-bg));
       overflow-y: auto;
-      padding: 1.5rem var(--safe-right) var(--safe-bottom) var(--safe-left);
+      padding: 0 var(--safe-right) var(--safe-bottom) var(--safe-left);
     }
 
     .nav-toggle:checked ~ nav {
