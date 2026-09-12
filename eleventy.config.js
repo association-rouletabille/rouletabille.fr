@@ -3,6 +3,7 @@ import { Buffer } from 'node:buffer';
 
 import pluginWebc from '@11ty/eleventy-plugin-webc';
 import dirOutputPlugin from '@11ty/eleventy-plugin-directory-output';
+import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 
 import pluginIcons from 'eleventy-plugin-icons';
 
@@ -38,6 +39,22 @@ function transformHTML(content, outputPath) {
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(dirOutputPlugin);
+
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    // output image formats
+    formats: ['avif', 'webp', 'jpeg'],
+
+    // output image widths
+    widths: ['auto'],
+
+    // optional, attributes assigned on <img> nodes override these values
+    htmlOptions: {
+      imgAttributes: {
+        decoding: 'async',
+      },
+      pictureAttributes: {},
+    },
+  });
 
   eleventyConfig.addPlugin(pluginIcons, {
     mode: 'inline',

@@ -1,6 +1,6 @@
 <figure webc:root="override" class="content-hero-photo" :style="`--object-position: ${this.position}`">
   <div class="photo">
-    <img :src="this.src" :alt="this.alt" decoding="async" fetchpriority="high" />
+    <img :src="this.src" :alt="this.alt" fetchpriority="high" />
   </div>
 </figure>
 
