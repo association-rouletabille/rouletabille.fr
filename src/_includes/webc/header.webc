@@ -213,20 +213,22 @@
 
     .hamburger {
       position: relative;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 2.75rem;
+      height: 2.75rem;
       cursor: pointer;
       flex-shrink: 0;
     }
 
     /* Bars are centered on the same point and shorter than the box, so
        rotating them into an X (which shrinks their apparent span by cos(45°))
-       still fits the same square the resting bars occupy. */
+       still fits the same square the resting bars occupy. Fixed width (rather
+       than a % of the box) keeps the icon visually unchanged while the box
+       itself grows to give touch screens a larger tap target. */
     .hamburger span {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 80%;
+      width: 1.2rem;
       height: 2px;
       background-color: currentColor;
       border-radius: 2px;
