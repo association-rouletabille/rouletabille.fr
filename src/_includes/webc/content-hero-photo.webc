@@ -1,4 +1,4 @@
-<figure webc:root="override" class="content-hero-photo" :style="`--object-position: ${this.position}`">
+<figure webc:root="override" class="content-hero-photo">
   <div class="photo">
     <!---
       sizes = rendered width of .photo, which equals main's border box (the negative
@@ -13,7 +13,10 @@
   </div>
 </figure>
 
-<style webc:scoped>
+<!--- object-position is generated server-side into scoped CSS (not an inline style
+      attribute) so it complies with a `style-src 'self'` Content-Security-Policy. --->
+<script webc:type="js" webc:is="style" webc:scoped>
+  `
   :host {
     display: block;
     margin: 0;
@@ -30,6 +33,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: var(--object-position);
+    object-position: ${this.position};
   }
-</style>
+`;
+</script>
