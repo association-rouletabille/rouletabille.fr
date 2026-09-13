@@ -1,6 +1,15 @@
 <figure webc:root="override" class="content-hero-photo" :style="`--object-position: ${this.position}`">
   <div class="photo">
-    <img :src="this.src" :alt="this.alt" fetchpriority="high" />
+    <!---
+      sizes = rendered width of .photo, which equals main's border box (the negative
+      margins below cancel main's inline padding):
+        < 800px  : single column, main is full width           -> 100vw
+        800-1100 : grid "300px 1fr", column not yet capped      -> 100vw - 300px
+        >= 1100  : body capped at 300px + 100ch, so main = 100ch -> 800px
+      100ch is hardcoded as 800px because font-relative units in `sizes` resolve
+      against the root font, not main's system-ui font.
+    --->
+    <img :src="this.src" :alt="this.alt" sizes="(min-width: 1100px) 800px, (min-width: 800px) calc(100vw - 300px), 100vw" fetchpriority="high" loading="eager" decoding="sync" />
   </div>
 </figure>
 
