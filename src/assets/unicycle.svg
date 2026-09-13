@@ -15,22 +15,26 @@
     >
       <path
         id="m"
-        style="stroke-width:40;stroke-linecap:butt"
+        stroke-width="40"
+        stroke-linecap="butt"
         d="M 518.60798,758.84437 C 370.1846,695.41768 264.21923,642.64848 264.21923,642.64848"
       />
       <path
         id="t"
-        style="stroke-width:55.9;stroke-linecap:round"
+        stroke-width="55.9"
+        stroke-linecap="round"
         d="M 706.01632,208.3948 C 587.90491,525.13074 396.58162,727.48729 396.58162,727.48729"
       />
       <path
         id="lc"
-        style="stroke-width:35;stroke-linecap:round"
+        stroke-width="35"
+        stroke-linecap="round"
         d="M 331.68416,598.44352 209.91028,678.01245"
       />
       <path
         id="rc"
-        style="stroke-width:35;stroke-linecap:round"
+        stroke-width="35"
+        stroke-linecap="round"
         d="M 591.86191,718.4284 455.87929,788.84059"
       />
     </g>
@@ -43,7 +47,8 @@
       id="w"
       fill="none"
       stroke="currentColor"
-      style="stroke-width:30.1433;stroke-linecap:butt"
+      stroke-width="30.1433"
+      stroke-linecap="butt"
       d="m 288.9004,218.35163 c 1.59994,1.16498 3.37736,3.35414 5.01874,5.18633 18.03452,20.13092 42.48766,56.93832 42.48766,108.5427 0,88.30911 -71.77232,159.89779 -160.30795,159.89779 -88.535634,0 -160.30795,-71.58868 -160.307956,-159.89779 0,-88.30912 71.772318,-159.8978 160.307956,-159.8978 29.47055,0 53.30522,7.98988 69.58424,15.81186 2.4152,1.16048 2.78902,1.45739 4.9245,2.61448"
     />
   </g>

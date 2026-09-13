@@ -45,7 +45,7 @@ export default async function (eleventyConfig) {
     formats: ['avif', 'webp', 'jpeg'],
 
     // output image widths
-    widths: ['auto'],
+    widths: [400, 600, 800, 1200, 1600],
 
     // optional, attributes assigned on <img> nodes override these values
     htmlOptions: {

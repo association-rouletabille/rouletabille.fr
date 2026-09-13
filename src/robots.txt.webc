@@ -8,6 +8,3 @@ Allow: /
 Disallow: /404.html
 
 Sitemap: <template webc:nokeep @raw="$data.site.url('/sitemap.xml')"></template>
-
-# AI and LLMs friendly specifications
-Info: <template webc:nokeep @raw="$data.site.url('/llms.txt')"></template>
