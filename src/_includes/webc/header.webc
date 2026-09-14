@@ -29,13 +29,13 @@
       <li class="nav-section-start"><a href="/adhesion">Adhérer</a></li>
     </ul>
     <social>
-      <a href="mailto:association.rouletabille@gmail.com?subject=Contact%20depuis%20le%20site%20web">
+      <a href="mailto:association.rouletabille@gmail.com?subject=Contact%20depuis%20le%20site%20web" aria-label="Contacter Roule Ta Bille par email">
         <icon name="email"></icon>
       </a>
-      <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer" aria-label="Suivre Roule Ta Bille sur Instagram">
         <icon name="Instagram"></icon>
       </a>
-      <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.facebook.com/rouletabillemonocycleparis" target="_blank" rel="noopener noreferrer" aria-label="Suivre Roule Ta Bille sur Facebook">
         <icon name="2023_Facebook_icon"></icon>
       </a>
     </social>
