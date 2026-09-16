@@ -7,7 +7,7 @@ description: >-
 permalink: /balades-du-mardi-soir.html
 ---
 
-<content-hero-photo @src="/imgs/hero-balade.jpg" @alt="Trois monocycles posés le long d'une fontaine, au Louvre, à Paris." @position="50% 55%"></content-hero-photo>
+<content-hero-photo @src="/imgs/hero-balade.jpg" @alt="Trois monocycles posés le long d'une fontaine, au Louvre, à Paris." @position="50% 55%" @caption="Photo : Mona Cara"></content-hero-photo>
 
 <article>
   <h1>Balades du Mardi Soir</h1>
