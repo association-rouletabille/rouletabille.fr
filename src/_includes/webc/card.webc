@@ -7,9 +7,11 @@
   :host {
     display: block;
     margin-block: 2.5rem;
-    background-color: rgb(var(--palette-content-surface));
-    border-radius: 0.75rem;
     padding: 1.25rem 1.5rem;
+    background-color: rgb(var(--palette-content-surface));
+    border: 1px solid rgba(var(--palette-nav-dim), 0.1);
+    border-radius: 0.4rem;
+    box-shadow: 0 0.4rem 0.55rem 0.2rem rgba(var(--palette-nav-fg), 0.05);
   }
 
   :host > h2 {
