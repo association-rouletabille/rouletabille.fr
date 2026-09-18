@@ -1,0 +1,93 @@
+<!---
+  Adapted from lite-youtube by Justin Ribeiro:
+  https://github.com/justinribeiro/lite-youtube
+  Copyright (c) 2019 Justin Ribeiro. Licensed under the MIT License.
+
+  The package is not reused directly because it injects CSS into its Shadow DOM.
+  That runtime inline style is blocked by this site's nonce-free `style-src 'self'`
+  Content Security Policy. This adaptation puts the CSS and JavaScript in WebC's
+  same-origin bundles instead.
+--->
+<div class="video-container">
+  <a class="youtube-embed" :href="`https://www.youtube-nocookie.com/embed/${id}`" :data-video-id="id" :aria-label="`Visionner : ${label}`">
+    <img :src="`https://img.youtube.com/vi/${id}/hqdefault.jpg`" :alt="label" loading="lazy" decoding="async" />
+    <span class="play-button" aria-hidden="true"></span>
+  </a>
+</div>
+
+<style>
+  .video-container {
+    aspect-ratio: 16 / 9;
+    margin-block: 1.5rem;
+    overflow: hidden;
+    background: rgb(var(--palette-nav-fg));
+  }
+
+  .youtube-embed,
+  .video-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .youtube-embed {
+    position: relative;
+  }
+
+  .youtube-embed img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-button {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 4.25rem;
+    height: 3rem;
+    translate: -50% -50%;
+    border-radius: 0.75rem;
+    background: rgb(255, 0, 0);
+  }
+
+  .play-button::after {
+    position: absolute;
+    inset: 50% auto auto 52%;
+    border-block: 0.65rem solid transparent;
+    border-left: 1.1rem solid white;
+    translate: -50% -50%;
+    content: '';
+  }
+
+  .youtube-embed:hover .play-button,
+  .youtube-embed:focus-visible .play-button {
+    background: rgb(var(--palette-accent));
+  }
+
+  .youtube-embed:focus-visible {
+    outline: 0.2rem solid rgb(var(--palette-accent));
+    outline-offset: 0.2rem;
+  }
+</style>
+
+<script>
+  document.addEventListener('click', (event) => {
+    const embed = event.target.closest('.youtube-embed');
+
+    if (!embed) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(embed.dataset.videoId)}?autoplay=1`;
+    iframe.title = embed.querySelector('img').alt;
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+
+    embed.replaceWith(iframe);
+  });
+</script>
