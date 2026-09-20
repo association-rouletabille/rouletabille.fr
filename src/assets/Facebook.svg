@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
   version="1.1"
-  id="svg9"
   viewBox="0 0 666.66668 666.66717"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:svg="http://www.w3.org/2000/svg">
-
-
   <path
     d="m -241.23783,175.52153 c 0,0 -145.73014,-49.71757 -145.73014,-187.788572 0,-117.244998 -1.0347,-207.454688 76.57397,-230.370958 12.43357,-3.67138 58.12914,-11.26738 90.681,-5.531 140.397105,24.74118 166.439875,393.96577 166.439875,393.96577"
     display="inline"
@@ -16,7 +12,6 @@
     fill-opacity="1"
     fill-rule="nonzero"
     stroke="none"
-    id="w"
     transform="matrix(1.3333333,0,0,-1.3333333,666.66665,333.33334)"
   />
   <path
@@ -26,7 +21,6 @@
     fill-opacity="1"
     fill-rule="nonzero"
     stroke="none"
-    id="b"
     transform="matrix(1.3333333,0,0,-1.3333333,666.66665,333.33334)"
   />
 </svg>
