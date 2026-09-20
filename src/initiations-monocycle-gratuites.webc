@@ -7,6 +7,8 @@ description: >-
 permalink: /initiations-monocycle-gratuites.html
 ---
 
+<content-hero-photo @src="/imgs/hero-initiation.jpg" @alt="Apprentissage du monocycle sur la Dalle des Olympiades." @position="50% 17%" @caption="Photo : Alix"></content-hero-photo>
+
 <article>
   <h1>Initiations gratuites</h1>
 
