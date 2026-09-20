@@ -6,6 +6,8 @@ description: >-
 permalink: /trial-street-flat.html
 ---
 
+<content-hero-photo @src="/imgs/hero-trial.jpg" @alt="Assemblage de photos des trois activités." @position="50% 22%" @caption="Photo : Divers"></content-hero-photo>
+
 <article>
   <h1>Trial, street et flat</h1>
 
