@@ -7,6 +7,8 @@ description: >-
 permalink: /association.html
 ---
 
+<content-hero-photo @src="/imgs/hero-association.jpg" @alt="Pavage de T-shirts RouleTaBille 2025." @position="50% 35%" @caption="Photo : Alix"></content-hero-photo>
+
 <article>
   <h1>Qui sommes-nous ?</h1>
 
