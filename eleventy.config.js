@@ -27,6 +27,57 @@ function transformCSS(content) {
   return code;
 }
 
+// The same icon can be inlined several times in one page.
+// Each copy carries the ids of its own gradients and clip paths,
+// so the later copies end up referencing the first copy's definitions.
+// That breaks as soon as the first copy is not rendered:
+// below 800px the header nav is `display: none`, and a hidden subtree exposes
+// no paint servers or clip paths, so the footer logo painted nothing.
+// Renaming the ids of every repeated occurrence makes each inline SVG
+// self-contained.
+function transformSVGIds(content, outputPath) {
+  if (!outputPath.endsWith('.html')) {
+    return content;
+  }
+
+  const seen = new Set();
+  let copy = 0;
+
+  return content.replace(/<svg\b[\s\S]*?<\/svg>/g, (svg) => {
+    const ids = [...svg.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
+    const duplicates = new Set(ids.filter((id) => seen.has(id)));
+
+    for (const id of ids) {
+      seen.add(id);
+    }
+
+    if (duplicates.size === 0) {
+      return svg;
+    }
+
+    const suffix = `-${++copy}`;
+
+    return [...duplicates].reduce((markup, id) => {
+      const escaped = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      seen.add(id + suffix);
+
+      return markup
+        .replace(
+          new RegExp(`(\\sid=")${escaped}(")`, 'g'),
+          `$1${id}${suffix}$2`,
+        )
+        .replace(
+          new RegExp(`url\\(#${escaped}\\)`, 'g'),
+          `url(#${id}${suffix})`,
+        )
+        .replace(
+          new RegExp(`((?:\\sxlink:href|\\shref)=")#${escaped}(")`, 'g'),
+          `$1#${id}${suffix}$2`,
+        );
+    }, svg);
+  });
+}
+
 function transformHTML(content, outputPath) {
   if (!outputPath.endsWith('.html')) {
     return content;
@@ -68,6 +119,7 @@ export default async function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.addTransform('svgids', transformSVGIds);
   eleventyConfig.addTransform('htmlmin', transformHTML);
 
   eleventyConfig.addPassthroughCopy({ 'src/public': '/' });
