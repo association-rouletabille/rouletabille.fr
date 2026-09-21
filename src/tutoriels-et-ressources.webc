@@ -6,6 +6,8 @@ description: >-
 permalink: /tutoriels-et-ressources.html
 ---
 
+<content-hero-photo @src="/imgs/hero-tutoriels.jpg" @alt="Deux monocyclistes en forêt, devant une carte. L'un d'eux, agenouillé, bricole son monocycle." @position="50% 65%" @caption="Photo : Enora"></content-hero-photo>
+
 <article>
   <h1>Tutoriels et ressources</h1>
 
