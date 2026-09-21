@@ -98,6 +98,24 @@ export default async function (eleventyConfig) {
     // output image widths
     widths: [400, 600, 800, 1200, 1600],
 
+    sharpAvifOptions: {
+      quality: 80,
+      effort: 9,
+      chromaSubsampling: '4:4:4',
+    },
+
+    sharpWebpOptions: {
+      quality: 90,
+      effort: 6,
+    },
+
+    sharpJpegOptions: {
+      quality: 92,
+      mozjpeg: true,
+      chromaSubsampling: '4:4:4',
+      progressive: true,
+    },
+
     // optional, attributes assigned on <img> nodes override these values
     htmlOptions: {
       imgAttributes: {
