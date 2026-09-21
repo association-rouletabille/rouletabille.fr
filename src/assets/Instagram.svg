@@ -1102,11 +1102,12 @@
            clip-path="url(#clip-3)"
            id="g213">
           <path
+             display="inline"
+             stroke-width="1"
              fill-rule="nonzero"
              fill="url(#linear-pattern-0)"
              d="M 3936.8719,1113.0434 2731.8713,13.066904 1617.4688,1202.4727 2822.4694,2302.4492 Z m 0,0"
-             id="path213"
-             style="display:inline;fill:url(#linear-pattern-0);stroke-width:1" />
+             id="path213" />
         </g>
       </g>
     </g>
