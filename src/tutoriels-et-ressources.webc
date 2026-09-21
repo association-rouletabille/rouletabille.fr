@@ -6,6 +6,8 @@ description: >-
 permalink: /tutoriels-et-ressources.html
 ---
 
+<content-hero-photo @src="/imgs/hero-tutoriels.jpg" @alt="Rayon de bibliothèque, pris en gros plan, rempli de livres sur le monocycle, son histore et sa pratique." @position="50% 65%" @caption="Photo : Image générée par IA"></content-hero-photo>
+
 <article>
   <h1>Tutoriels et ressources</h1>
 
