@@ -29,4 +29,9 @@ eleventyExcludeFromCollections: true
     transform-box: fill-box;
     transform-origin: center;
   }
+
+  /* This one is parked on its side, not ridden: no crank drive on hover */
+  article svg:hover :is(.unicycle-body, .unicycle-cranks, .unicycle-pedal) {
+    animation: none;
+  }
 </style>
