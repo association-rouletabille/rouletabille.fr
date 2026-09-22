@@ -1,0 +1,219 @@
+<unirunner-scene webc:nokeep></unirunner-scene>
+<div class="uni-scene" aria-hidden="true">
+  <div class="uni-tree-proto"><icon name="pine"></icon></div>
+</div>
+<div class="uni-ground" aria-hidden="true"></div>
+<a class="uni-play" href="/unirunner">Jouer&nbsp;!</a>
+
+<style>
+  /* =====================
+   The footer easter egg: click the unicycle once to wind it up, twice to send
+   it off, after which it plays itself. The scrolling scene it lands in is
+   shared with the game — see unirunner-scene.webc. Keyed off .uni-runner (the
+   footer) rather than scoped, because it has to reach the rider and the links
+   that live there (see footer.webc).
+   ===================== */
+
+  .uni-runner {
+    --uni-speed: 1;
+  }
+
+  .uni-runner[data-uni-stage='1'] {
+    --uni-speed: 2;
+  }
+
+  /* '3' is the running scene, once the flight has landed */
+  .uni-runner[data-uni-stage='2'],
+  .uni-runner[data-uni-stage='3'] {
+    --uni-speed: 4;
+  }
+
+  /* The flight itself is generated in JS as real projectile arcs sampled into
+     keyframes, so these only say when to run it: hence `linear`, the shape is
+     already in the stops. The wrapper carries x and the icon carries y, which
+     keeps each axis on its own curve. */
+  .uni-runner[data-uni-stage='2'] .uni-rider {
+    animation: uni-flight-x var(--uni-flight) linear forwards;
+  }
+
+  .uni-runner[data-uni-stage='2'] .uni-rider svg {
+    animation: uni-flight-y var(--uni-flight) linear forwards;
+  }
+
+  .uni-runner[data-uni-stage='2'] ul {
+    animation: uni-links var(--uni-flight) linear forwards;
+  }
+
+  /* The way out to the real game. The bulb colour is a one-off: nothing else
+     on the site is lit up like a theatre sign. */
+  .uni-play {
+    --bulb: 255, 201, 74;
+    /* How far the ring sits outside the sign, how far a bulb centre sits in
+       from the ring's edge, and the pitch to aim for. The pitches below are
+       fallbacks; unirunner-footer.js replaces them with ones that fit. */
+    --bulb-ring: 9px;
+    --bulb-edge: 5.5px;
+    --bulb-gap: 10px;
+    --bulb-x: var(--bulb-gap);
+    --bulb-y: var(--bulb-gap);
+    position: absolute;
+    top: 0.5rem;
+    right: max(1.5rem, env(safe-area-inset-right));
+    z-index: 3;
+    padding: 0.25rem 0.9rem;
+    border: 8px solid rgb(var(--palette-accent));
+    border-radius: 0.45rem;
+    background-color: rgb(var(--palette-accent));
+    box-shadow: 0 3px 0 rgba(var(--palette-content-fg), 0.3);
+    color: rgb(var(--palette-bright));
+    font-family: var(--font-mono);
+    font-size: var(--fs-md);
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.4s ease,
+      visibility 0.4s;
+  }
+
+  /* Two rings, lit in antiphase: ::before holds the even bulbs, ::after the
+     odd ones. --bulb-x and --bulb-y are the pitches, measured and fitted by
+     unirunner-footer.js so a whole even number of gaps spans each side — that
+     is what puts all four corners in the even ring, blinking together.
+
+     Each corner is drawn twice, once by its row and once by its column. The
+     bulbs are solid discs so the two land on each other exactly and the glow
+     comes from the filter, which sees the composited result. */
+  .uni-play::before,
+  .uni-play::after {
+    content: '';
+    position: absolute;
+    inset: calc(-1 * var(--bulb-ring));
+    background-image: radial-gradient(circle, rgb(var(--bulb)) 0 3.2px, transparent 3.5px), radial-gradient(circle, rgb(var(--bulb)) 0 3.2px, transparent 3.5px), radial-gradient(circle, rgb(var(--bulb)) 0 3.2px, transparent 3.5px), radial-gradient(circle, rgb(var(--bulb)) 0 3.2px, transparent 3.5px);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size:
+      calc(2 * var(--bulb-x)) calc(2 * var(--bulb-edge)),
+      calc(2 * var(--bulb-x)) calc(2 * var(--bulb-edge)),
+      calc(2 * var(--bulb-edge)) calc(2 * var(--bulb-y)),
+      calc(2 * var(--bulb-edge)) calc(2 * var(--bulb-y));
+    filter: drop-shadow(0 0 4px rgba(var(--bulb), 0.8));
+    animation: uni-bulbs 0.9s linear infinite;
+    pointer-events: none;
+  }
+
+  .uni-play::before {
+    background-position:
+      calc(var(--bulb-edge) - var(--bulb-x)) top,
+      calc(var(--bulb-edge) - var(--bulb-x)) bottom,
+      left calc(var(--bulb-edge) - var(--bulb-y)),
+      right calc(var(--bulb-edge) - var(--bulb-y));
+  }
+
+  .uni-play::after {
+    background-position:
+      var(--bulb-edge) top,
+      var(--bulb-edge) bottom,
+      left var(--bulb-edge),
+      right var(--bulb-edge);
+    animation-delay: -0.45s;
+  }
+
+  @keyframes uni-bulbs {
+    0%,
+    49.9% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0.25;
+    }
+  }
+
+  /* Smaller on a phone, where it shares a short footer with the rider. */
+  @media (max-width: 600px) {
+    .uni-play {
+      --bulb-ring: 9px;
+      --bulb-edge: 4px;
+      --bulb-gap: 10px;
+      top: 0.4rem;
+      right: max(1rem, env(safe-area-inset-right));
+      padding: 0.25rem 0.6rem;
+      font-size: var(--fs-sm);
+    }
+  }
+
+  .uni-runner[data-uni-running] .uni-play {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .uni-play:hover,
+  .uni-play:focus-visible {
+    background-color: rgb(var(--palette-bright));
+    color: rgb(var(--palette-accent));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .uni-runner[data-uni-stage='2'] .uni-rider,
+    .uni-runner[data-uni-stage='2'] .uni-rider svg,
+    .uni-runner[data-uni-stage='2'] ul {
+      animation: none;
+    }
+
+    .uni-play {
+      transition: none;
+    }
+
+    .uni-play::before,
+    .uni-play::after {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Just enough to wake the cranks and count presses. The scene itself is
+  // ~15kB of physics and SVG that nobody should download for a footer they
+  // may never touch, so it is fetched on the press that launches the flight.
+  //
+  // A dynamic import also keeps this out of the page's module scope: the WebC
+  // bundler concatenates every component's script into one module, so two
+  // components with the same top-level binding would be a SyntaxError.
+  (() => {
+    const runner = document.querySelector('.uni-runner');
+    const rider = runner?.querySelector('.uni-rider');
+
+    if (!runner || !rider) {
+      return;
+    }
+
+    let stage = 0;
+
+    rider.addEventListener('pointerdown', () => {
+      runner.dataset.uniAwake = '';
+
+      if (stage >= 2) {
+        return; // it plays itself from here
+      }
+
+      stage += 1;
+
+      if (stage < 2) {
+        runner.dataset.uniStage = String(stage);
+        return;
+      }
+
+      import('/js/unirunner-footer.js')
+        .then((module) => module.start(runner))
+        .catch(() => {
+          // Nothing to recover: the cranks keep turning, the flight does not
+          // happen, and the rest of the footer is untouched.
+        });
+    });
+  })();
+</script>
