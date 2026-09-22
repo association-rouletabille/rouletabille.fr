@@ -171,15 +171,15 @@
   }
 
   /* One lean per crank revolution, peaking as each pedal passes the bottom. */
-  svg:hover .unicycle-body {
+  :where(svg, nav ul a):hover .unicycle-body {
     animation: unicycle-wobble 0.75s ease-in-out -0.375s infinite alternate;
   }
 
-  svg:hover .unicycle-cranks {
+  :where(svg, nav ul a):hover .unicycle-cranks {
     animation: unicycle-crank 1.5s linear infinite;
   }
 
-  svg:hover .unicycle-pedal {
+  :where(svg, nav ul a):hover .unicycle-pedal {
     animation: unicycle-pedal 1.5s linear infinite;
   }
 
@@ -205,9 +205,9 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    svg:hover .unicycle-body,
-    svg:hover .unicycle-cranks,
-    svg:hover .unicycle-pedal {
+    :is(svg, nav ul a):hover .unicycle-body,
+    :is(svg, nav ul a):hover .unicycle-cranks,
+    :is(svg, nav ul a):hover .unicycle-pedal {
       animation: none;
     }
   }
