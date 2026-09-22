@@ -1,5 +1,7 @@
 import process from 'node:process';
 import { Buffer } from 'node:buffer';
+import { cpSync, existsSync, mkdirSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 
 import pluginWebc from '@11ty/eleventy-plugin-webc';
 import dirOutputPlugin from '@11ty/eleventy-plugin-directory-output';
@@ -89,6 +91,9 @@ function transformHTML(content, outputPath) {
 }
 
 export default async function (eleventyConfig) {
+  const CACHE_DIR = '.cache/@11ty/img/';
+  const URL_PATH = '/img/';
+
   eleventyConfig.addPlugin(dirOutputPlugin);
 
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
@@ -97,6 +102,10 @@ export default async function (eleventyConfig) {
 
     // output image widths
     widths: [400, 600, 800, 1200, 1600],
+
+    outputDir: CACHE_DIR,
+    urlPath: URL_PATH,
+    useCache: true,
 
     sharpAvifOptions: {
       quality: 80,
@@ -149,6 +158,26 @@ export default async function (eleventyConfig) {
   eleventyConfig.addGlobalData('commitSha', () =>
     (process.env.COMMIT_SHA || 'deadbeefc0ffee').substring(0, 7),
   );
+
+  eleventyConfig.on('eleventy.after', () => {
+    // Skips copying the cache directory when running `eleventy --serve`
+    if (process.env.ELEVENTY_RUN_MODE === 'serve') {
+      return;
+    }
+
+    // First build, or cache unavailable
+    if (!existsSync(CACHE_DIR)) {
+      return;
+    }
+
+    const dest = join(
+      resolve(eleventyConfig.directories.output),
+      ...URL_PATH.split('/').filter((value) => value !== ''),
+    );
+
+    mkdirSync(dest, { recursive: true });
+    cpSync(CACHE_DIR, dest, { recursive: true });
+  });
 
   return {
     htmlTemplateEngine: 'webc',
