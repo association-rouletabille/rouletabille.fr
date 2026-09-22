@@ -137,6 +137,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginIcons, {
     mode: 'inline',
     sources: [{ name: 'custom', path: './src/assets', default: true }],
+
+    // Every icon here is decorative: its link carries an aria-label or visible
+    // text of its own.
+    icon: { attributes: { 'aria-hidden': 'true' } },
   });
 
   eleventyConfig.addPlugin(pluginWebc, {

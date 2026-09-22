@@ -20,13 +20,27 @@
   <!-- Navigation: same HTML for sidebar (desktop) and overlay (mobile) -->
   <nav aria-label="Navigation principale">
     <ul>
-      <li><a href="/association">L'association</a></li>
-      <li class="nav-section-start"><a href="/initiations-monocycle-gratuites">Initiations gratuites</a></li>
-      <li><a href="/balades-du-mardi-soir">Balades du Mardi Soir</a></li>
-      <li><a href="/trial-street-flat">Trial, street et flat</a></li>
-      <li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
-      <li class="nav-section-start"><a href="/tutoriels-et-ressources">Tutoriels et ressources</a></li>
-      <li class="nav-section-start"><a href="/adhesion">Adhérer</a></li>
+      <li>
+        <a href="/association"><icon name="unicycle"></icon>L'association</a>
+      </li>
+      <li class="nav-section-start">
+        <a href="/initiations-monocycle-gratuites"><icon name="unicycle"></icon>Initiations gratuites</a>
+      </li>
+      <li>
+        <a href="/balades-du-mardi-soir"><icon name="unicycle"></icon>Balades du Mardi Soir</a>
+      </li>
+      <li>
+        <a href="/trial-street-flat"><icon name="unicycle"></icon>Trial, street et flat</a>
+      </li>
+      <li>
+        <a href="/roule-ton-caillou"><icon name="unicycle"></icon>Roule Ton Caillou</a>
+      </li>
+      <li class="nav-section-start">
+        <a href="/tutoriels-et-ressources"><icon name="unicycle"></icon>Tutoriels et ressources</a>
+      </li>
+      <li class="nav-section-start">
+        <a href="/adhesion"><icon name="unicycle"></icon>Adhérer</a>
+      </li>
     </ul>
     <social>
       <a href="mailto:association.rouletabille@gmail.com?subject=Contact%20depuis%20le%20site%20web" aria-label="Contacter Roule Ta Bille par email">
@@ -124,27 +138,27 @@
     transition: padding-left 0.25s ease;
   }
 
-  nav ul a::before {
-    content: '⫸';
+  /* Hover marker. The unicycle rocks itself */
+  nav ul a svg {
     color: rgb(var(--palette-accent));
     position: absolute;
     left: 0;
     top: 50%;
+    width: 1.2em;
+    height: 1.2em;
     transform: translateY(-50%) translateX(-0.5em);
     opacity: 0;
     transition:
       opacity 0.2s ease,
       transform 0.2s ease;
     pointer-events: none;
-    font-size: 1em;
-    line-height: 1;
   }
 
   nav ul a:hover {
     padding-left: 1.3em;
   }
 
-  nav ul a:hover::before {
+  nav ul a:hover svg {
     opacity: 1;
     transform: translateY(-50%) translateX(0);
   }
