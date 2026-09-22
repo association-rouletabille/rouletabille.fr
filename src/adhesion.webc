@@ -7,6 +7,8 @@ description: >-
 permalink: /adhesion.html
 ---
 
+<content-hero-photo @src="/imgs/hero-adherer.jpg" @alt="Questionnaire de santé Léo Lagrange pour l'obtention ou le renouvellement d'une licence sportive." @position="50% 15%" @caption="Photo : Alix"></content-hero-photo>
+
 <article>
   <h1>Pourquoi devenir membre de Roule Ta Bille ?</h1>
 
