@@ -33,11 +33,10 @@
     <linearGradient
        id="linear-pattern-0"
        gradientUnits="userSpaceOnUse"
-       x1="-0.097343102"
-       y1="0"
-       x2="1.09734"
-       y2="0"
-       gradientTransform="matrix(-951.457,1028.81,-1028.81,-951.457,3276.09,605.15)">
+       x1="3368.70778"
+       y1="505.00244"
+       x2="2232.01818"
+       y2="1734.10437">
       <stop
          offset="0"
          stop-color="rgb(39.808655%, 29.620361%, 66.499329%)"

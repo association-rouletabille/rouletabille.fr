@@ -153,6 +153,10 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ 'src/public': '/' });
 
+  // The unirunner's maths is unit tested under lib/, and the browser loads the
+  // very same files rather than a copy that could drift from them.
+  eleventyConfig.addPassthroughCopy({ 'lib/unirunner/engine': 'js/unirunner' });
+
   eleventyConfig.addGlobalData('deployedAt', () =>
     new Date().toISOString().substring(0, 10),
   );

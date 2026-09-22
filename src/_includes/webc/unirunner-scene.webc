@@ -1,0 +1,147 @@
+<style>
+  /* =====================
+   The scrolling scene, shared by the footer easter egg and the game at
+   /unirunner. Everything here keys off the state attributes alone rather than
+   a particular root, so both can use it; each root sets its own --uni-speed.
+   Style only — see unirunner.webc and unirunner-game.webc for the markup.
+   ===================== */
+
+  /* Trees behind the rider, ground in front, so a rise hides the tyre. Each
+     clips its own contents, leaving the rider free to rise above. */
+  .uni-stage {
+    /* Terrain colours are mixed down to solids rather than painted with
+       alpha: overlapping trees and rocks read as glass otherwise. --mid is
+       shared by the ground line and the rocks, so a rock is a lump of the
+       same ground. */
+    --terrain-fg: rgb(var(--palette-content-fg));
+    --terrain-bg: rgb(var(--palette-content-bg));
+    --terrain-mid: color-mix(in srgb, var(--terrain-fg) 55%, var(--terrain-bg));
+    --terrain-edge: color-mix(in srgb, var(--terrain-fg) 95%, var(--terrain-bg));
+  }
+
+  .uni-scene,
+  .uni-ground {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .uni-scene {
+    z-index: 0;
+  }
+
+  .uni-ground {
+    z-index: 2;
+  }
+
+  [data-uni-running] .uni-scene,
+  [data-uni-running] .uni-ground {
+    opacity: 1;
+  }
+
+  /* One tile plus a screenful, so it slides by a tile without a seam. The
+     widest thing that moves, so it keeps a layer of its own. */
+  .uni-ground svg {
+    position: absolute;
+    left: 0;
+    display: block;
+    will-change: transform;
+  }
+
+  [data-uni-running] .uni-ground svg {
+    animation-name: uni-ground-scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes uni-ground-scroll {
+    to {
+      transform: translateX(calc(-1 * var(--ground-span, 0px)));
+    }
+  }
+
+  .uni-tree-proto {
+    display: none;
+  }
+
+  /* Parked off the right edge, so the keyframe's translate is the whole
+     journey rather than an offset from an inline transform. */
+  .uni-tree {
+    position: absolute;
+    left: 100%;
+    width: auto;
+    /* Solid, so a nearer tree hides what is behind it. That only reads right
+       if they stack by depth too, hence the z-index the loop sets. */
+    color: color-mix(in srgb, var(--terrain-fg) calc(var(--tint, 0.4) * 100%), var(--terrain-bg));
+    animation-name: uni-tree-pass;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes uni-tree-pass {
+    to {
+      transform: translateX(calc(-1 * var(--travel, 0px)));
+    }
+  }
+
+  /* Positioned frame by frame from the loop, which is the only place that can
+     tell whether the tyre is above a given rock. */
+  .uni-rock {
+    position: absolute;
+    left: 0;
+    z-index: 200; /* above every tree, whatever depth */
+    width: auto;
+    will-change: transform;
+  }
+
+  /* Solid earth below the line, so it occludes the tyre on a rise. */
+  .uni-ground-fill {
+    fill: rgb(var(--palette-content-bg));
+  }
+
+  .uni-ground-line {
+    fill: none;
+    stroke: var(--terrain-mid);
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+
+  /* The same grey as the ground line, under a darker contour. */
+  .uni-rock path {
+    fill: var(--terrain-mid);
+    stroke: var(--terrain-edge);
+  }
+
+  /* The cranks turn whenever the scene is awake. .uni-stage is load-bearing:
+     pagestyle's `svg:hover .unicycle-cranks` scores (0,2,1), so without the
+     class hovering would drop a running scene back to the resting speed. */
+  .uni-stage[data-uni-awake] .unicycle-body {
+    animation: unicycle-wobble calc(0.75s / var(--uni-speed, 1)) ease-in-out calc(-0.375s / var(--uni-speed, 1)) infinite alternate;
+  }
+
+  .uni-stage[data-uni-awake] .unicycle-cranks {
+    animation: unicycle-crank calc(1.5s / var(--uni-speed, 1)) linear infinite;
+  }
+
+  .uni-stage[data-uni-awake] .unicycle-pedal {
+    animation: unicycle-pedal calc(1.5s / var(--uni-speed, 1)) linear infinite;
+  }
+
+  /* Pitches over the contact patch rather than the middle of the box. */
+  [data-uni-running] .uni-rider svg {
+    transform-origin: 50% 95%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .uni-stage[data-uni-awake] .unicycle-body,
+    .uni-stage[data-uni-awake] .unicycle-cranks,
+    .uni-stage[data-uni-awake] .unicycle-pedal,
+    [data-uni-running] .uni-ground svg,
+    .uni-tree {
+      animation: none;
+    }
+  }
+</style>

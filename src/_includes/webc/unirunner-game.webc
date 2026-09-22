@@ -1,0 +1,173 @@
+<unirunner-scene webc:nokeep></unirunner-scene>
+
+<div class="game uni-stage" data-uni-awake>
+  <div class="uni-scene" aria-hidden="true">
+    <div class="uni-tree-proto"><icon name="pine"></icon></div>
+  </div>
+  <span class="uni-rider"><icon name="unicycle"></icon></span>
+  <div class="uni-ground" aria-hidden="true"></div>
+
+  <p class="game-score" aria-live="off">
+    <span class="game-distance">0 m</span>
+    <span class="game-best" hidden></span>
+  </p>
+
+  <div class="game-panel" data-state="start">
+    <h1 class="game-title">Unirunner</h1>
+    <p class="game-tip">Cliquez ou appuyez sur Espace pour sauter.</p>
+    <p class="game-result" hidden></p>
+    <button class="game-go" type="button">Go&nbsp;!</button>
+  </div>
+</div>
+
+<style>
+  /* pagestyle brings the site's two-column body grid, which would trap the
+     game in the sidebar column. */
+  body:has(.game) {
+    display: block;
+    max-width: none;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  /* The scene layers come from unirunner-scene.webc; only what is specific
+     to a full page lives here. */
+  .game {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    background-color: rgb(var(--palette-content-bg));
+    color: rgb(var(--palette-content-fg));
+    touch-action: manipulation;
+    user-select: none;
+    --uni-speed: 4;
+  }
+
+  /* Behind the ground, like the footer: a rise passes in front of the tyre. */
+  .game .uni-rider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: block;
+    line-height: 0;
+    will-change: transform;
+  }
+
+  /* Except once it comes apart, when the pieces fly over the ground line. */
+  .game[data-uni-crashed] .uni-rider {
+    z-index: 5;
+  }
+
+  .game .uni-rider svg {
+    display: block;
+    width: 7rem;
+    height: 7rem;
+    /* An svg root clips by default, and the debris leaves the box. */
+    overflow: visible;
+  }
+
+  .game-score {
+    position: absolute;
+    top: max(1rem, env(safe-area-inset-top));
+    right: max(1rem, env(safe-area-inset-right));
+    z-index: 5;
+    margin: 0;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .game-distance {
+    display: block;
+    font-size: var(--fs-xl);
+    font-weight: bold;
+    color: rgb(var(--palette-accent));
+  }
+
+  .game-best {
+    display: block;
+    font-size: var(--fs-sm);
+    color: rgb(var(--palette-nav-dim));
+  }
+
+  .game-panel {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding-inline: 1rem;
+    text-align: center;
+    background-color: rgba(var(--palette-content-bg), 0.82);
+  }
+
+  .game-panel[data-state='playing'] {
+    display: none;
+  }
+
+  .game-title {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xxl);
+    color: rgb(var(--palette-accent));
+  }
+
+  .game-tip,
+  .game-result {
+    margin: 0;
+    font-family: var(--font-mono);
+  }
+
+  .game-result {
+    font-size: var(--fs-lg);
+    font-weight: bold;
+  }
+
+  .game-go {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.8rem;
+    border: 2px solid rgb(var(--palette-accent));
+    border-radius: 2rem;
+    background-color: rgb(var(--palette-accent));
+    color: rgb(var(--palette-bright));
+    font-family: var(--font-mono);
+    font-size: var(--fs-md);
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .game-go:hover,
+  .game-go:focus-visible {
+    background-color: rgb(var(--palette-bright));
+    color: rgb(var(--palette-accent));
+  }
+
+  /* Above the panel, so the way back out stays reachable on game over. */
+  .game-home {
+    position: absolute;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: max(1rem, env(safe-area-inset-left));
+    z-index: 7;
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: rgb(var(--palette-accent));
+  }
+
+  /* The pieces after a crash, positioned by the loop. */
+  .uni-debris {
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  // The page is the game, so unlike the footer there is nothing to wait for:
+  // load it up front. A static import is safe here because this is the only
+  // component on the page with one — two components sharing a top-level
+  // binding would collide in the single bundled module.
+  import('/js/unirunner-game.js').then((module) => module.start());
+</script>
