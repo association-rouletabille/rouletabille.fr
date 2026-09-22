@@ -1,0 +1,17 @@
+---
+layout: root.webc
+title: Unirunner - le jeu de monocycle de Roule Ta Bille
+description: >-
+  Unirunner, le petit jeu de Roule Ta Bille : franchissez les cailloux en
+  monocycle et poussez la distance le plus loin possible.
+# Nested on purpose. lib/llms-full/index.js walks every top-level dist/*.html
+# and throws on a page with no <main> or no llms.txt entry, so a flat
+# /unirunner.html would fail the production build twice over.
+permalink: /unirunner/index.html
+eleventyExcludeFromCollections: true
+---
+
+<pagestyle webc:nokeep>
+  <unirunner-game webc:nokeep></unirunner-game>
+  <a class="game-home" href="/">&larr; rouletabille.fr</a>
+</pagestyle>
