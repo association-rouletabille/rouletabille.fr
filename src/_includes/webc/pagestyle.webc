@@ -153,4 +153,62 @@
       overflow: hidden;
     }
   }
+
+  /* =====================
+   Unicycle icon: crank drive on hover
+   ===================== */
+
+  /* Both turn on the axle: the cranks all the way round, the uni rocking */
+  .unicycle-body,
+  .unicycle-cranks {
+    transform-box: view-box;
+    transform-origin: 400.524px 717.383px; /* wheel hub, in viewBox units */
+  }
+
+  .unicycle-pedal {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  /* One lean per crank revolution, peaking as each pedal passes the bottom. */
+  svg:hover .unicycle-body {
+    animation: unicycle-wobble 0.75s ease-in-out -0.375s infinite alternate;
+  }
+
+  svg:hover .unicycle-cranks {
+    animation: unicycle-crank 1.5s linear infinite;
+  }
+
+  svg:hover .unicycle-pedal {
+    animation: unicycle-pedal 1.5s linear infinite;
+  }
+
+  @keyframes unicycle-wobble {
+    from {
+      transform: rotate(-2.5deg);
+    }
+    to {
+      transform: rotate(2.5deg);
+    }
+  }
+
+  @keyframes unicycle-crank {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes unicycle-pedal {
+    to {
+      transform: rotate(-1turn);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    svg:hover .unicycle-body,
+    svg:hover .unicycle-cranks,
+    svg:hover .unicycle-pedal {
+      animation: none;
+    }
+  }
 </style>
