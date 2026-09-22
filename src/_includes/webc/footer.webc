@@ -1,5 +1,7 @@
-<footer webc:root="override">
-  <icon name="unicycle"></icon>
+<footer webc:root="override" class="uni-runner">
+  <span class="uni-rider">
+    <icon name="unicycle"></icon>
+  </span>
   <ul>
     <li>
       <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
@@ -14,6 +16,7 @@
       </a>
     </li>
   </ul>
+  <unirunner webc:nokeep></unirunner>
 </footer>
 
 <style webc:scoped>
@@ -24,9 +27,19 @@
     justify-content: center;
     gap: 1.5rem;
     padding-block: 0 max(4rem, env(safe-area-inset-bottom));
+    position: relative;
   }
 
-  :host > svg {
+  /* Both sit above the trees and below the ground (see unirunner.webc) */
+  .uni-rider {
+    display: block;
+    line-height: 0;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .uni-rider svg {
     display: block;
     width: 5rem;
     height: 5rem;
@@ -39,6 +52,8 @@
     gap: 1rem;
     padding: 0;
     margin: 0;
+    position: relative;
+    z-index: 1;
   }
 
   :host a {

@@ -1,0 +1,628 @@
+<div class="uni-scene" aria-hidden="true">
+  <div class="uni-tree-proto"><icon name="pine"></icon></div>
+</div>
+<div class="uni-ground" aria-hidden="true"></div>
+
+<style>
+  /* =====================
+   Easter egg: click the footer unicycle once to wind it up, twice to send it
+   off. Keyed off .uni-runner (the footer) rather than scoped, because it has
+   to reach the rider and the links that live there (see footer.webc).
+   ===================== */
+
+  .uni-runner {
+    --uni-speed: 1;
+  }
+
+  .uni-runner[data-uni-stage='1'] {
+    --uni-speed: 2;
+  }
+
+  /* '3' is the running game, once the flight has landed */
+  .uni-runner[data-uni-stage='2'],
+  .uni-runner[data-uni-stage='3'] {
+    --uni-speed: 4;
+  }
+
+  /* Set on the first press and never cleared, so the cranks keep turning once
+     the pointer has left. Until then the plain hover rules in pagestyle.webc
+     apply on their own, and leaving the icon stops it as it always did.
+     Outranks those rules once set. */
+  .uni-runner[data-uni-awake] .unicycle-body {
+    animation: unicycle-wobble calc(0.75s / var(--uni-speed)) ease-in-out calc(-0.375s / var(--uni-speed)) infinite alternate;
+  }
+
+  .uni-runner[data-uni-awake] .unicycle-cranks {
+    animation: unicycle-crank calc(1.5s / var(--uni-speed)) linear infinite;
+  }
+
+  .uni-runner[data-uni-awake] .unicycle-pedal {
+    animation: unicycle-pedal calc(1.5s / var(--uni-speed)) linear infinite;
+  }
+
+  /* The flight itself is generated in JS as real projectile arcs sampled into
+     keyframes, so these only say when to run it: hence `linear`, the shape is
+     already in the stops. The wrapper carries x and the icon carries y, which
+     keeps each axis on its own curve. */
+  .uni-runner[data-uni-stage='2'] .uni-rider {
+    animation: uni-flight-x var(--uni-flight) linear forwards;
+  }
+
+  .uni-runner[data-uni-stage='2'] .uni-rider svg {
+    animation: uni-flight-y var(--uni-flight) linear forwards;
+  }
+
+  .uni-runner[data-uni-stage='2'] ul {
+    animation: uni-links var(--uni-flight) linear forwards;
+  }
+
+  /* Two layers: trees behind the rider, ground in front of it, so where the
+     ground rises it hides the bottom of the tyre. Each clips its own contents
+     rather than the footer, which leaves the flight free to rise above. */
+  .uni-scene,
+  .uni-ground {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .uni-scene {
+    z-index: 0;
+  }
+
+  .uni-ground {
+    z-index: 2;
+  }
+
+  .uni-runner[data-uni-running] .uni-scene,
+  .uni-runner[data-uni-running] .uni-ground {
+    opacity: 1;
+  }
+
+  /* Drawn in JS as one path two tiles wide, so it can slide by a tile and
+     repeat without a seam. Its vertical offset is set there too, from where
+     the tyre actually meets the ground. */
+  .uni-ground svg {
+    position: absolute;
+    left: 0;
+    display: block;
+  }
+
+  .uni-runner[data-uni-running] .uni-ground svg {
+    animation-name: uni-ground-scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes uni-ground-scroll {
+    to {
+      transform: translateX(calc(-1 * var(--ground-span, 0px)));
+    }
+  }
+
+  .uni-tree-proto {
+    display: none;
+  }
+
+  /* Positioned frame by frame from the loop, which is the only place that can
+     tell whether the tyre is above a given rock. */
+  .uni-rock {
+    position: absolute;
+    left: 0;
+    width: auto;
+  }
+
+  /* Ground-coloured with only the contour showing, so they read as part of the
+     terrain. non-scaling-stroke keeps the outline the same weight whatever the
+     rock's size, and matches the ground line's own. */
+  .uni-rock path {
+    fill: rgb(var(--palette-content-bg));
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-opacity: 0.55;
+    vector-effect: non-scaling-stroke;
+  }
+
+  /* Pitches over the contact patch rather than the middle of the box. */
+  .uni-runner[data-uni-stage='3'] .uni-rider svg {
+    transform-origin: 50% 95%;
+  }
+
+  /* Parked just off the right edge, so the keyframe's translate is the whole
+     journey rather than an offset from an inline starting transform. */
+  .uni-tree {
+    position: absolute;
+    left: 100%;
+    width: auto;
+    animation-name: uni-tree-pass;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes uni-tree-pass {
+    to {
+      transform: translateX(calc(-1 * var(--travel, 0px)));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .uni-runner[data-uni-awake] .unicycle-body,
+    .uni-runner[data-uni-awake] .unicycle-cranks,
+    .uni-runner[data-uni-awake] .unicycle-pedal,
+    .uni-runner[data-uni-stage='2'] .uni-rider,
+    .uni-runner[data-uni-stage='2'] .uni-rider svg,
+    .uni-runner[data-uni-stage='2'] ul,
+    .uni-runner[data-uni-running] .uni-ground svg,
+    .uni-tree {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const runner = document.querySelector('.uni-runner');
+    const rider = runner?.querySelector('.uni-rider');
+    const icon = rider?.querySelector('svg');
+    const list = runner?.querySelector('ul');
+    const scene = runner?.querySelector('.uni-scene');
+    const ground = runner?.querySelector('.uni-ground');
+    const proto = runner?.querySelector('.uni-tree-proto svg');
+
+    if (!runner || !rider || !icon || !list || !scene || !ground || !proto) {
+      return;
+    }
+
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+
+    const GRAVITY = 0.0016; // px/ms²
+    const LAUNCH_MS = 500; // time spent getting up onto the links
+    const BOUNCES = [14, 6]; // apex heights above the links, px
+    const LANDING_HOP = 10; // one last bounce where it meets the ground, px
+    // Tall enough that every rock size is clearable: the tyre has to stay above
+    // a rock for longer than the rock spends inside its hitbox, or the obstacle
+    // would be unwinnable. At 26px a 15px rock was exactly that.
+    const PLAYER_HOP = 40; // apex of the hop the player can trigger, px
+    const PLANT_MS = 520; // faceplant and recovery
+    const PLANT_ANGLE = 74; // degrees pitched over the handlebars
+    const FALL_SHARE = 0.7; // how much of the drop is covered before that hop
+    const STOPS = 24; // keyframe samples per leg of the flight
+
+    // Exponential gaps, so rocks arrive in clusters and lulls instead of on a
+    // near-metronome. The floor keeps two from landing on top of each other,
+    // and the ceiling stops the tail from stalling the run.
+    const ROCK_GAP_MIN = 900; // ms
+    const ROCK_GAP_MEAN = 1700; // ms on top of the floor
+    const ROCK_GAP_MAX = 6000; // ms
+    const ROCK_SIZE = [8, 14]; // visible height in px, all clearable by PLAYER_HOP
+    const ROCK_BOX = [100, 70]; // viewBox each one is drawn in
+    // Well inside that box: the noise pushes corners outwards, and the outline
+    // is 2 non-scaling px, which on the smallest rock is ~18 viewBox units
+    // thick. Too close to the edge and both get clipped.
+    const ROCK_RX = 35;
+    const ROCK_RY = 48;
+    const ROCK_BASE = 70; // the base sits on the box's bottom edge, on the ground
+    const ROCK_ANGLE_NOISE = 9; // degrees either way
+    const ROCK_RADIUS_NOISE = 0.14; // fraction either way
+
+    const EDGE = 8; // gap left between the links and the footer edge
+    const TAIL = 24; // gap left between the links and the landed unicycle
+    // The contact patch, as fractions of the icon's width, deliberately
+    // narrower than the wheel. At full width a descent registers a hit against
+    // a rock the tyre is visibly past, because only the bottom of a round wheel
+    // is ever near the ground.
+    const TYRE_SPAN = [0.25, 0.58];
+    // The icon letterboxes to its height and the tyre's outer edge sits at this
+    // fraction of it; below that is empty viewBox, which is what would make the
+    // unicycle hover over whatever it is supposed to be standing on.
+    const TYRE_BOTTOM = 0.95;
+
+    const GROUND_BOX = 28; // svg box height, most of it fill below the line
+    const GROUND_BASE = 12; // the line's resting depth within that box
+    const GROUND_BUMP = 4; // how far it rises, about one tyre thickness
+    const GROUND_KNOT = 40; // px between noise samples
+    const SCENE_SPEED = 250; // px/s, for the ground and the nearest trees
+
+    // Every arc in the scene comes from these three, so one gravity governs the
+    // flight, the bounces and the player's hop alike.
+    const bounceMs = (rise) => 2 * Math.sqrt((2 * rise) / GRAVITY);
+    const arc =
+      (ms, rise, base = 0) =>
+      (t) =>
+        base - rise + 0.5 * GRAVITY * (t - ms / 2) ** 2;
+    const glide = (from, to, ms) => (t) => from + ((to - from) * t) / ms;
+
+    const svgNode = (tag, attributes) => {
+      const node = document.createElementNS(SVG_NS, tag);
+      for (const [name, value] of Object.entries(attributes)) {
+        node.setAttribute(name, value);
+      }
+      return node;
+    };
+
+    // The site's CSP is `style-src 'self'`, which blocks the contents of a
+    // <style> element even when script creates it (style-src-elem). CSSOM is
+    // not governed by it, so the generated keyframes go in that way, with the
+    // element kept as a fallback for browsers without constructable sheets.
+    const writeKeyframes = (() => {
+      if ('adoptedStyleSheets' in document && 'replaceSync' in CSSStyleSheet.prototype) {
+        const sheet = new CSSStyleSheet();
+        document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+        return (css) => sheet.replaceSync(css);
+      }
+
+      const el = document.createElement('style');
+      document.head.append(el);
+      return (css) => {
+        el.textContent = css;
+      };
+    })();
+
+    let stage = 0;
+
+    // The flight is pure physics, but its distances depend on where the links
+    // actually sit, so they are measured at the last moment.
+    function measure() {
+      const f = runner.getBoundingClientRect();
+      const r = rider.getBoundingClientRect();
+      const l = list.getBoundingClientRect();
+      const box = icon.getBoundingClientRect();
+      const linksX = f.left + EDGE - l.left;
+      const tyre = box.top + box.height * TYRE_BOTTOM;
+
+      return {
+        width: f.width,
+        linksX,
+        // Forward, onto the links where they are now, not where they are about
+        // to slide to, which would send it hopping backwards.
+        jumpX: l.left + l.width / 2 - (r.left + r.width / 2),
+        jumpY: l.top - tyre,
+        // Carried along as the links slide out from under it.
+        rideX: l.left + linksX + l.width / 2 - (r.left + r.width / 2),
+        fallX: l.right + linksX + TAIL - r.left,
+        groundY: tyre - f.top,
+      };
+    }
+
+    // Every leg is a real projectile: horizontal speed constant, vertical
+    // position quadratic. Nothing here stands in for gravity with an easing.
+    function plan(m) {
+      const rideMs = BOUNCES.reduce((total, rise) => total + bounceMs(rise), 0);
+      const fallMs = Math.sqrt((2 * Math.abs(m.jumpY)) / GRAVITY);
+      const touchX = m.rideX + (m.fallX - m.rideX) * FALL_SHARE;
+      const hopMs = bounceMs(LANDING_HOP);
+      // One continuous slide across both bounces, sampled per leg below.
+      const ride = glide(m.jumpX, m.rideX, rideMs);
+      let ridden = 0;
+
+      const legs = [
+        // Thrown up so that it arrives exactly on the links' top edge.
+        {
+          ms: LAUNCH_MS,
+          x: glide(0, m.jumpX, LAUNCH_MS),
+          y: (t) => ((m.jumpY - 0.5 * GRAVITY * LAUNCH_MS ** 2) / LAUNCH_MS) * t + 0.5 * GRAVITY * t * t,
+        },
+        // Bouncing on them while they slide out from underneath.
+        ...BOUNCES.map((rise) => {
+          const ms = bounceMs(rise);
+          const from = ridden;
+          ridden += ms;
+          return { ms, x: (t) => ride(from + t), y: arc(ms, rise, m.jumpY) };
+        }),
+        // Off the end, carrying its speed into the drop. It touches down short
+        // of its final spot so the last bounce still carries it forward.
+        {
+          ms: fallMs,
+          x: glide(m.rideX, touchX, fallMs),
+          y: (t) => m.jumpY + 0.5 * GRAVITY * t * t,
+        },
+        // And one hop on the ground rather than sticking where it lands.
+        { ms: hopMs, x: glide(touchX, m.fallX, hopMs), y: arc(hopMs, LANDING_HOP) },
+      ];
+
+      const landsAt = LAUNCH_MS + rideMs + fallMs;
+
+      return { legs, rideStart: LAUNCH_MS, rideMs, landsAt, total: landsAt + hopMs };
+    }
+
+    const pct = (fraction) => `${(fraction * 100).toFixed(2)}%`;
+
+    function flightKeyframes(name, { legs, total }, axis) {
+      const move = (leg, t) => `transform:translate${axis.toUpperCase()}(${leg[axis](t).toFixed(2)}px)`;
+      let stops = '';
+      let elapsed = 0;
+
+      for (const leg of legs) {
+        for (let i = 0; i < STOPS; i++) {
+          const t = (leg.ms * i) / STOPS;
+          stops += `${pct((elapsed + t) / total)}{${move(leg, t)}}`;
+        }
+        elapsed += leg.ms;
+      }
+
+      const last = legs.at(-1);
+      stops += `100%{${move(last, last.ms)}}`;
+
+      return `@keyframes ${name}{${stops}}`;
+    }
+
+    // The links slide only while the unicycle is up there bouncing on them.
+    function linksKeyframes(name, { rideStart, rideMs, total }, linksX) {
+      return `@keyframes ${name}{0%,${pct(rideStart / total)}{transform:translateX(0)}${pct((rideStart + rideMs) / total)},100%{transform:translateX(${linksX.toFixed(2)}px)}}`;
+    }
+
+    // A continuous line with gentle irregularities: random heights every
+    // GROUND_KNOT px, cosine-interpolated between them so it undulates instead
+    // of zig-zagging. The last knot wraps onto the first and the path is drawn
+    // twice, so sliding it by one tile repeats seamlessly. The noise only ever
+    // rises from the resting depth, so the unicycle runs at the lowest point
+    // and every bump passes in front of the tyre.
+    function buildGround(sceneWidth) {
+      const span = Math.max(1200, Math.ceil(sceneWidth));
+      const knots = Math.round(span / GROUND_KNOT);
+      const rises = Array.from({ length: knots }, () => Math.random() * GROUND_BUMP);
+
+      const yAt = (x) => {
+        const t = (x % span) / GROUND_KNOT;
+        const i = Math.floor(t);
+        const blend = (1 - Math.cos((t - i) * Math.PI)) / 2;
+        return GROUND_BASE - (rises[i % knots] * (1 - blend) + rises[(i + 1) % knots] * blend);
+      };
+
+      let line = `M0 ${yAt(0).toFixed(2)}`;
+      for (let x = 4; x <= span * 2; x += 4) {
+        line += ` L${x} ${yAt(x).toFixed(2)}`;
+      }
+
+      const svg = svgNode('svg', { viewBox: `0 0 ${span * 2} ${GROUND_BOX}`, width: span * 2, height: GROUND_BOX });
+      svg.style.top = `calc(var(--ground-y, 100%) - ${GROUND_BASE}px)`;
+      svg.style.setProperty('--ground-span', `${span}px`);
+      svg.style.animationDuration = `${span / SCENE_SPEED}s`;
+      svg.append(
+        // Solid earth below the line, in the page colour, so it occludes rather
+        // than just draws over. That is what hides the tyre on a rise.
+        svgNode('path', {
+          d: `${line} L${span * 2} ${GROUND_BOX} L0 ${GROUND_BOX} Z`,
+          fill: 'rgb(var(--palette-content-bg))',
+        }),
+        svgNode('path', {
+          d: line,
+          fill: 'none',
+          stroke: 'currentColor',
+          'stroke-width': 2,
+          'stroke-linejoin': 'round',
+          'stroke-opacity': 0.55,
+        }),
+      );
+
+      ground.replaceChildren(svg);
+    }
+
+    function spawnTree(sceneWidth) {
+      const tree = proto.cloneNode(true);
+      // Nearer trees are bigger, more opaque and pass faster: cheap parallax.
+      const depth = Math.random();
+      const height = 26 + depth * 54;
+      const travel = sceneWidth + height * 2;
+
+      tree.removeAttribute('class');
+      tree.classList.add('uni-tree');
+      tree.style.height = `${height}px`;
+      tree.style.opacity = (0.15 + depth * 0.5).toFixed(2);
+      tree.style.top = `calc(var(--ground-y, 100%) - ${height}px)`;
+      tree.style.setProperty('--travel', `${travel}px`);
+      tree.style.animationDuration = `${travel / (90 + depth * (SCENE_SPEED - 90))}s`;
+
+      tree.addEventListener('animationend', () => tree.remove());
+      scene.append(tree);
+    }
+
+    function startTrees(sceneWidth) {
+      const tick = () => {
+        spawnTree(sceneWidth);
+        setTimeout(tick, 260 + Math.random() * 700);
+      };
+      tick();
+    }
+
+    // =====================
+    // The run itself. Rocks and the rider share one rAF loop because they have
+    // to be tested against each other; keyframes cannot answer "is the tyre
+    // above that rock right now".
+    // =====================
+
+    const rocks = [];
+    let tyre = null; // the rider's hitbox, footer-relative and fixed once it lands
+    let hop = null; // { start, ms }, the player's
+    let plant = null; // { start }, the recovery from hitting a rock
+    let nextRockAt = 0;
+    let lastFrame = 0;
+
+    // The top half of an octagon: five corners from one side of the base to the
+    // other, each pushed off its regular angle and radius. The two that meet
+    // the ground keep their exact angle, so the rock still sits flat however
+    // the rest is nudged.
+    function rockPath() {
+      const wobble = (amount) => (Math.random() * 2 - 1) * amount;
+      const corners = [];
+
+      for (let i = 0; i <= 4; i++) {
+        const onGround = i === 0 || i === 4;
+        const radians = ((i * 45 + (onGround ? 0 : wobble(ROCK_ANGLE_NOISE))) * Math.PI) / 180;
+        const reach = 1 + wobble(ROCK_RADIUS_NOISE);
+        corners.push([ROCK_BOX[0] / 2 + Math.cos(radians) * ROCK_RX * reach, ROCK_BASE - Math.sin(radians) * ROCK_RY * reach]);
+      }
+
+      return {
+        d: `M${corners.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join('L')}Z`,
+        left: Math.min(...corners.map(([x]) => x)),
+        right: Math.max(...corners.map(([x]) => x)),
+        top: Math.min(...corners.map(([, y]) => y)),
+      };
+    }
+
+    function spawnRock(sceneWidth) {
+      const shape = rockPath();
+      // ROCK_SIZE is the height you can see, so the box is scaled around the
+      // shape rather than the other way round. The hitbox comes from the same
+      // measurements, so it is exactly the rock that was drawn.
+      const height = ROCK_SIZE[0] + Math.random() * (ROCK_SIZE[1] - ROCK_SIZE[0]);
+      const scale = height / (ROCK_BASE - shape.top);
+      const box = ROCK_BOX[1] * scale;
+
+      const rock = svgNode('svg', { viewBox: `0 0 ${ROCK_BOX[0]} ${ROCK_BOX[1]}`, class: 'uni-rock' });
+      rock.style.height = `${box}px`;
+      rock.style.top = `calc(var(--ground-y, 100%) - ${box}px)`;
+      rock.style.transform = `translateX(${sceneWidth}px)`;
+      rock.append(svgNode('path', { d: shape.d }));
+
+      rocks.push({
+        el: rock,
+        x: sceneWidth,
+        inset: shape.left * scale, // from the svg's left edge to the rock's
+        w: (shape.right - shape.left) * scale,
+        span: ROCK_BOX[0] * scale, // the whole box, for knowing when it is gone
+        h: height,
+        spent: false,
+      });
+      scene.append(rock);
+    }
+
+    // Zero at ground level, negative while airborne.
+    function hopHeight(now) {
+      if (!hop) {
+        return 0;
+      }
+
+      const t = now - hop.start;
+      if (t >= hop.ms) {
+        hop = null;
+        return 0;
+      }
+
+      return hop.at(t);
+    }
+
+    // Over the handlebars quickly, a beat face down, then back up.
+    function plantAngle(now) {
+      if (!plant) {
+        return 0;
+      }
+
+      const p = (now - plant.start) / PLANT_MS;
+      if (p >= 1) {
+        plant = null;
+        return 0;
+      }
+
+      if (p < 0.3) {
+        return PLANT_ANGLE * (p / 0.3);
+      }
+
+      return p < 0.55 ? PLANT_ANGLE : PLANT_ANGLE * (1 - (p - 0.55) / 0.45);
+    }
+
+    function frame(now) {
+      requestAnimationFrame(frame);
+
+      const dt = Math.min(64, now - lastFrame); // a backgrounded tab must not teleport them
+      lastFrame = now;
+      const height = hopHeight(now); // reads once: it clears `hop` when the arc ends
+      const lift = -height;
+
+      for (let i = rocks.length - 1; i >= 0; i--) {
+        const rock = rocks[i];
+        rock.x -= (SCENE_SPEED * dt) / 1000;
+        rock.el.style.transform = `translateX(${rock.x.toFixed(1)}px)`;
+
+        // Timed right, the tyre is higher than the rock as it passes underneath.
+        const left = rock.x + rock.inset;
+        if (!rock.spent && !plant && left < tyre.right && left + rock.w > tyre.left && lift < rock.h) {
+          rock.spent = true;
+          plant = { start: now };
+        }
+
+        if (rock.x + rock.span < 0) {
+          rock.el.remove();
+          rocks.splice(i, 1);
+        }
+      }
+
+      icon.style.transform = `translateY(${height.toFixed(1)}px) rotate(${plantAngle(now).toFixed(1)}deg)`;
+
+      if (now >= nextRockAt) {
+        spawnRock(tyre.sceneWidth);
+        const gap = ROCK_GAP_MIN - Math.log(1 - Math.random()) * ROCK_GAP_MEAN;
+        nextRockAt = now + Math.min(ROCK_GAP_MAX, gap);
+      }
+    }
+
+    // Hand over from the flight's keyframes to the loop. The inline transforms
+    // go on first: the moment the stage changes those animations stop applying,
+    // and without them everything would snap back to where it started.
+    function startRun(m) {
+      rider.style.transform = `translateX(${m.fallX.toFixed(2)}px)`;
+      icon.style.transform = 'translateY(0)';
+      list.style.transform = `translateX(${m.linksX.toFixed(2)}px)`;
+      runner.dataset.uniStage = '3';
+
+      const f = runner.getBoundingClientRect();
+      const box = icon.getBoundingClientRect();
+      tyre = {
+        left: box.left - f.left + box.width * TYRE_SPAN[0],
+        right: box.left - f.left + box.width * TYRE_SPAN[1],
+        sceneWidth: m.width,
+      };
+
+      lastFrame = performance.now();
+      nextRockAt = lastFrame + ROCK_GAP_MIN;
+      requestAnimationFrame(frame);
+    }
+
+    // Everything is in place before the stage attribute flips, so the
+    // animations never start against a half-written stylesheet.
+    function launch() {
+      const m = measure();
+      const flight = plan(m);
+
+      writeKeyframes([flightKeyframes('uni-flight-x', flight, 'x'), flightKeyframes('uni-flight-y', flight, 'y'), linksKeyframes('uni-links', flight, m.linksX)].join(''));
+
+      runner.style.setProperty('--uni-flight', `${Math.round(flight.total)}ms`);
+      runner.style.setProperty('--ground-y', `${m.groundY.toFixed(2)}px`);
+      buildGround(m.width);
+
+      runner.dataset.uniStage = '2';
+      setTimeout(() => {
+        runner.dataset.uniRunning = '';
+        startTrees(m.width);
+      }, flight.landsAt);
+      setTimeout(() => startRun(m), flight.total);
+    }
+
+    // Press rather than release: waiting for the click event adds a delay you
+    // can feel on a jump that has to be timed.
+    rider.addEventListener('pointerdown', () => {
+      runner.dataset.uniAwake = '';
+
+      // Once it is running, a press is the hop rather than another wind-up.
+      if (stage >= 2) {
+        if (tyre && !hop && !plant) {
+          const ms = bounceMs(PLAYER_HOP);
+          hop = { start: performance.now(), ms, at: arc(ms, PLAYER_HOP) };
+        }
+        return;
+      }
+
+      stage += 1;
+
+      if (stage === 2) {
+        launch();
+      } else {
+        runner.dataset.uniStage = String(stage);
+      }
+    });
+  })();
+</script>
