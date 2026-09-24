@@ -1,0 +1,20 @@
+# Rouletabille (fixture)
+
+Site de test pour llms-full.js.
+
+## Pages
+
+-   [Simple Page](https://rouletabille.fr/simple): Une page simple.
+- [Accueil](https://rouletabille.fr/): La page d'accueil.
+- [Galerie](https://rouletabille.fr/media.html): Des photos.
+- [Liens](https://rouletabille.fr/links): Toutes sortes de liens.
+- [Headings](https://rouletabille.fr/headings/): Des titres imbriques.
+- [Expected Title](https://rouletabille.fr/mismatch): A page with mismatched h1 title.
+
+## Contact
+
+Courriel : contact@rouletabille.fr
+
+## Notes
+
+Cette section suit Contact et ne doit pas etre reprise.

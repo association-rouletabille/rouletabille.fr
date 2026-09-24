@@ -1,8 +1,7 @@
+import { canonicalUrl } from '../../lib/canonical-url.js';
+
 export default {
-  url: (path) =>
-    new URL(path, 'https://rouletabille.fr').href
-      .replace(/\/$/, '')
-      .replace(/\.html/, ''),
+  url: canonicalUrl,
   jsonLd: () => {
     const data = {
       '@context': 'https://schema.org',

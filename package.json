@@ -24,6 +24,8 @@
     "lightningcss": "^1.33.0",
     "lint-staged": "^17.5.1",
     "prettier": "^3.9.6",
+    "turndown": "^7.2.4",
+    "vitest": "^5.0.2",
     "wrangler": "^4.131.0"
   },
   "scripts": {
@@ -31,8 +33,12 @@
     "build:dev": "npx @11ty/eleventy",
     "clean": "npx rimraf dist",
     "serve": "npx @11ty/eleventy --serve",
+    "test": "npx vitest run",
+    "test:watch": "npx vitest",
     "lint": "npx eslint . --cache --cache-location .cache/ --fix",
+    "lint:ci": "npx eslint . --max-warnings=0",
     "format": "npx prettier . --write",
+    "format:check": "npx prettier . --check",
     "lint-staged": "npx lint-staged",
     "prepare": "npx husky"
   },

@@ -12,3 +12,13 @@ updates:
       include: 'scope'
     cooldown:
       default-days: 14
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 14
