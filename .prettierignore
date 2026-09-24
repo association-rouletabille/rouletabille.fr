@@ -1,2 +1,6 @@
 # Generated at build time via WebC; keep source formatting intact.
 src/robots.txt.webc
+
+# Test inputs and recorded output; reformatting them would change what is tested.
+lib/llms-full/__fixtures__/
+lib/llms-full/__snapshots__/

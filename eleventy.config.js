@@ -12,6 +12,8 @@ import pluginIcons from 'eleventy-plugin-icons';
 import minifyHtml from '@minify-html/node';
 import { transform } from 'lightningcss';
 
+import { generateLlmsFull } from './lib/llms-full/index.js';
+
 function transformCSS(content) {
   if (this.type !== 'css') {
     return content;
@@ -160,10 +162,12 @@ export default async function (eleventyConfig) {
   );
 
   eleventyConfig.on('eleventy.after', () => {
-    // Skips copying the cache directory when running `eleventy --serve`
-    if (process.env.ELEVENTY_RUN_MODE === 'serve') {
+    // Never apply post processing when in dev mode
+    if (process.env.ELEVENTY_RUN_MODE !== 'build') {
       return;
     }
+
+    generateLlmsFull(eleventyConfig.directories.output, eleventyConfig.logger);
 
     // First build, or cache unavailable
     if (!existsSync(CACHE_DIR)) {
