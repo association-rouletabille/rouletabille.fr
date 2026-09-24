@@ -170,6 +170,11 @@
     transform-origin: center;
   }
 
+  .unicycle-wheel {
+    transform-box: view-box;
+    transform-origin: 400.524px 717.383px; /* wheel hub, in viewBox units */
+  }
+
   /* One lean per crank revolution, peaking as each pedal passes the bottom. */
   svg:hover .unicycle-body {
     animation: unicycle-wobble 0.75s ease-in-out -0.375s infinite alternate;
@@ -204,10 +209,121 @@
     }
   }
 
+  /* =====================
+   Unicycle icon: click tricks (random hop or idle, one-shot)
+   ===================== */
+
+  svg.trick-hop {
+    transform-box: border-box;
+    transform-origin: bottom;
+    animation: unicycle-hop 1.4s ease-in-out;
+  }
+
+  /* Straighten up before hopping (instead of the riding lean), settle back at landing. */
+  svg.trick-hop .unicycle-body {
+    animation: unicycle-hop-straighten 1.4s ease-in-out;
+  }
+
+  /* Held level for the hops: no crank spin, pedals rotated flat against the horizontal crank. */
+  svg.trick-hop .unicycle-cranks {
+    animation: none;
+    transform: rotate(-25deg);
+  }
+
+  svg.trick-hop .unicycle-pedal {
+    animation: none;
+  }
+
+  /* Each pedal is drawn at its own baked-in angle, so each needs its own correction. */
+  svg.trick-hop .unicycle-pedal-a {
+    transform: rotate(58deg);
+  }
+
+  svg.trick-hop .unicycle-pedal-b {
+    transform: rotate(52deg);
+  }
+
+  /* Squash before each launch; the third crunch is deepest, the third bounce highest. */
+  @keyframes unicycle-hop {
+    0%,
+    100% {
+      transform: scaleY(1) scaleX(1) translateY(0);
+    }
+    6% {
+      transform: scaleY(0.85) scaleX(1.1) translateY(2%);
+    }
+    20% {
+      transform: scaleY(1.05) scaleX(0.95) translateY(-18%);
+    }
+    34% {
+      transform: scaleY(0.85) scaleX(1.1) translateY(2%);
+    }
+    50% {
+      transform: scaleY(1.05) scaleX(0.95) translateY(-26%);
+    }
+    64% {
+      transform: scaleY(0.8) scaleX(1.15) translateY(3%);
+    }
+    84% {
+      transform: scaleY(1.08) scaleX(0.92) translateY(-38%);
+    }
+  }
+
+  @keyframes unicycle-hop-straighten {
+    0% {
+      transform: rotate(0deg);
+    }
+    8%,
+    90% {
+      transform: rotate(-25deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  svg.trick-idle .unicycle-body {
+    animation: unicycle-idle-rock 2.4s ease-in-out 2;
+  }
+
+  /* Fixed-gear drive: wheel and cranks/pedals always turn together. */
+  svg.trick-idle .unicycle-wheel,
+  svg.trick-idle .unicycle-cranks,
+  svg.trick-idle .unicycle-pedal {
+    animation: unicycle-idle-drive 2.4s ease-in-out 2;
+  }
+
+  @keyframes unicycle-idle-rock {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
+  @keyframes unicycle-idle-drive {
+    0%,
+    100% {
+      transform: rotate(-180deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     svg:hover .unicycle-body,
     svg:hover .unicycle-cranks,
-    svg:hover .unicycle-pedal {
+    svg:hover .unicycle-pedal,
+    svg.trick-hop,
+    svg.trick-hop .unicycle-body,
+    svg.trick-hop .unicycle-cranks,
+    svg.trick-idle .unicycle-body,
+    svg.trick-idle .unicycle-wheel,
+    svg.trick-idle .unicycle-cranks,
+    svg.trick-idle .unicycle-pedal {
       animation: none;
     }
   }
