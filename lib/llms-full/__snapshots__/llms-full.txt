@@ -1,0 +1,95 @@
+# Rouletabille (fixture)
+
+Site de test pour llms-full.js.
+
+## Simple Page
+
+Description : Une page simple.
+Source : https://rouletabille.fr/simple
+
+### Section
+
+Un paragraphe.
+
+#### Sous-section
+
+Un autre paragraphe.
+
+---
+
+## Accueil
+
+Description : La page d'accueil.
+Source : https://rouletabille.fr
+
+### Bienvenue
+
+Une page d'accueil avec un [lien interne](https://rouletabille.fr/association).
+
+---
+
+## Galerie
+
+Description : Des photos.
+Source : https://rouletabille.fr/media
+
+### Galerie photos
+
+Du texte après la photo.
+
+---
+
+## Liens
+
+Description : Toutes sortes de liens.
+Source : https://rouletabille.fr/links
+
+-   [Relatif](https://rouletabille.fr/association)
+-   [Suffixé en .html](https://rouletabille.fr/media)
+-   [Avec barre oblique](https://rouletabille.fr/headings)
+-   [Externe](https://example.com/page)
+-   [Courriel](mailto:contact@rouletabille.fr)
+-   [Page simple](https://rouletabille.fr/simple)
+-   [/media](https://rouletabille.fr/media)
+-   [Ancre sur la page](https://rouletabille.fr/links#section)
+-   Sans href
+
+---
+
+## Headings
+
+Description : Des titres imbriques.
+Source : https://rouletabille.fr/headings
+
+### Deux
+
+#### Trois
+
+Un niveau imbrique.
+
+### Deux encore
+
+Retour en arrière.
+
+---
+
+## Expected Title
+
+Description : A page with mismatched h1 title.
+Source : https://rouletabille.fr/mismatch
+
+### Actual Page Heading
+
+#### Section One
+
+Content here.
+
+##### Subsection
+
+More content.
+
+---
+
+## Contact
+
+Courriel : contact@rouletabille.fr

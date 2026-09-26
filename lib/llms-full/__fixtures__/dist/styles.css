@@ -1,0 +1,4 @@
+/* Not an .html file: must be ignored when collecting page contents. */
+body {
+  margin: 0;
+}

@@ -3,6 +3,7 @@ import globals from 'globals';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default [
+  { ignores: ['dist/'] },
   eslint.configs.recommended,
   {
     languageOptions: {

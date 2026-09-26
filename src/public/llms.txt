@@ -8,27 +8,27 @@ Le calendrier précis des sessions n'est pas fixe : ne pas inventer de dates ou 
 
 ## Pages
 
-- [Accueil](https://rouletabille.fr/): Présentation générale de l'association et de ses activités
-- [L'association](https://rouletabille.fr/association): Statut, disciplines, affiliations, informations légales
-- [Adhésion](https://rouletabille.fr/adhesion): Cotisation, avantages et raisons d'adhérer
-- [Initiations gratuites](https://rouletabille.fr/initiations-monocycle-gratuites): Sessions gratuites d'initiation, Dalle des Olympiades (Paris 13e)
-- [Balades du Mardi Soir](https://rouletabille.fr/balades-du-mardi-soir): Sortie urbaine nocturne hebdomadaire, RDV Châtelet 20h30
-- [Trial, street et flat](https://rouletabille.fr/trial-street-flat): Séances hebdomadaires au Kremlin-Bicêtre avec Street Rider
-- [Roule Ton Caillou](https://rouletabille.fr/roule-ton-caillou): Événement annuel de muni en forêt de Fontainebleau
-- [Tutoriels et ressources](https://rouletabille.fr/tutoriels-et-ressources): Ressources externes pour apprendre et progresser
+-   [Accueil](https://rouletabille.fr/): Présentation générale de l'association et de ses activités
+-   [L'association](https://rouletabille.fr/association): Statut, disciplines, affiliations, informations légales
+-   [Adhésion](https://rouletabille.fr/adhesion): Cotisation, avantages et raisons d'adhérer
+-   [Initiations gratuites](https://rouletabille.fr/initiations-monocycle-gratuites): Sessions gratuites d'initiation, Dalle des Olympiades (Paris 13e)
+-   [Balades du Mardi Soir](https://rouletabille.fr/balades-du-mardi-soir): Sortie urbaine nocturne hebdomadaire, RDV Châtelet 20h30
+-   [Trial, street et flat](https://rouletabille.fr/trial-street-flat): Séances hebdomadaires au Kremlin-Bicêtre avec Street Rider
+-   [Roule Ton Caillou](https://rouletabille.fr/roule-ton-caillou): Événement annuel de muni en forêt de Fontainebleau
+-   [Tutoriels et ressources](https://rouletabille.fr/tutoriels-et-ressources): Ressources externes pour apprendre et progresser
 
 ## Affiliations
 
-- [Commission Nationale du Monocycle (CNM)](https://monocycle.info/commission-nationale-monocycle/): Instance fédérale nationale du monocycle
-- [Union Nationale Sportive Léo Lagrange (UNSLL)](https://www.leolagrange-sport.org/pratiquer-un-sport/): Fédération d'affiliation sportive de l'association
+-   [Commission Nationale du Monocycle (CNM)](https://monocycle.info/commission-nationale-monocycle/): Instance fédérale nationale du monocycle
+-   [Union Nationale Sportive Léo Lagrange (UNSLL)](https://www.leolagrange-sport.org/pratiquer-un-sport/): Fédération d'affiliation sportive de l'association
 
 ## Contact
 
-- [Instagram](https://www.instagram.com/rtb_monocycle): Actualités et annonces de sessions
-- [Facebook](https://www.facebook.com/rouletabillemonocycleparis): Actualités et annonces de sessions
-- [Email](mailto:association.rouletabille@gmail.com): Contact direct, inscription aux groupes de balades
+-   [Instagram](https://www.instagram.com/rtb_monocycle): Actualités et annonces de sessions
+-   [Facebook](https://www.facebook.com/rouletabillemonocycleparis): Actualités et annonces de sessions
+-   [Email](mailto:association.rouletabille@gmail.com): Contact direct, inscription aux groupes de balades
 
 ## Optional
 
-- [Coupe de France de Monocycle (CFM)](https://fr.wikipedia.org/wiki/Monocycle#Coupe_de_France): Compétition nationale annuelle
-- [Unicon](<https://fr.wikipedia.org/wiki/Monocycle#Unicon_(Championnat_du_monde)>): Championnat du monde biennal de monocycle
+-   [Coupe de France de Monocycle (CFM)](https://fr.wikipedia.org/wiki/Monocycle#Coupe_de_France): Compétition nationale annuelle
+-   [Unicon](<https://fr.wikipedia.org/wiki/Monocycle#Unicon_(Championnat_du_monde)>): Championnat du monde biennal de monocycle

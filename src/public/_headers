@@ -24,5 +24,8 @@ https://:version.:subdomain.workers.dev/*
 /llms.txt
   content-type: text/markdown; charset=utf-8
 
+/llms-full.txt
+  content-type: text/markdown; charset=utf-8
+
 /sitemap.xml
   content-type: application/xml; charset=utf-8
