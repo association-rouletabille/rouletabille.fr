@@ -21,12 +21,12 @@
   <nav aria-label="Navigation principale">
     <ul>
       <li><a href="/association">L'association</a></li>
+      <li><a href="/adhesion">Adhérer</a></li>
       <li class="nav-section-start"><a href="/initiations-monocycle-gratuites">Initiations gratuites</a></li>
       <li><a href="/balades-du-mardi-soir">Balades du Mardi Soir</a></li>
       <li><a href="/trial-street-flat">Trial, street et flat</a></li>
       <li><a href="/roule-ton-caillou">Roule Ton Caillou</a></li>
       <li class="nav-section-start"><a href="/tutoriels-et-ressources">Tutoriels et ressources</a></li>
-      <li class="nav-section-start"><a href="/adhesion">Adhérer</a></li>
       <li class="nav-section-start"></li>
     </ul>
     <social>
