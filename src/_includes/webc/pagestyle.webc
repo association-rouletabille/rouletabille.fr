@@ -158,12 +158,6 @@
    Unicycle icon: click-driven trick sequence (roll, idle, hop)
    ===================== */
 
-  @property --crank-angle {
-    syntax: '<angle>';
-    inherits: true;
-    initial-value: 0turn;
-  }
-
   /* Lengths are in the icon's own viewBox units, so the tricks look identical
      at any rendered size. */
   .icon-unicycle {
@@ -184,8 +178,11 @@
     --idle-backward-factor: 0.8;
     --idle-forward-travel: var(--idle-travel);
     --idle-backward-travel: calc(-1 * var(--idle-travel) * var(--idle-backward-factor));
-    --idle-forward-crank: calc(1turn + var(--idle-crank-travel));
-    --idle-backward-crank: calc(1turn - var(--idle-crank-travel) * var(--idle-backward-factor));
+    --idle-forward-crank: var(--idle-crank-travel);
+    --idle-backward-crank: calc(-1 * var(--idle-crank-travel) * var(--idle-backward-factor));
+    /* The pedals stay level, so they undo whatever the cranks do. */
+    --idle-forward-pedal: calc(-1 * var(--idle-forward-crank));
+    --idle-backward-pedal: calc(-1 * var(--idle-backward-crank));
     --idle-forward-lean: calc(-1 * var(--idle-lean));
     --idle-backward-lean: calc(var(--idle-lean) * var(--idle-backward-factor));
 
@@ -208,10 +205,6 @@
     transform-origin: var(--hub);
   }
 
-  .unicycle-cranks {
-    rotate: var(--crank-angle);
-  }
-
   .unicycle-hop {
     transform-box: view-box;
     transform-origin: var(--contact-patch);
@@ -220,13 +213,16 @@
   .unicycle-pedal {
     transform-box: fill-box;
     transform-origin: center;
-    rotate: calc(-1 * var(--crank-angle));
   }
 
   /* One guard for the whole feature, so no rule has to be repeated to cancel it. */
   @media (prefers-reduced-motion: no-preference) {
     svg.trick-roll .unicycle-cranks {
       animation: unicycle-crank var(--spin-duration) linear var(--roll-turns) both;
+    }
+
+    svg.trick-roll .unicycle-pedal {
+      animation: unicycle-pedal-level var(--spin-duration) linear var(--roll-turns) both;
     }
 
     /* One lean per crank revolution, peaking as each pedal passes the bottom.
@@ -263,6 +259,10 @@
       animation: unicycle-idle-crank var(--idle-duration) linear both;
     }
 
+    svg.trick-idle .unicycle-pedal {
+      animation: unicycle-idle-pedal var(--idle-duration) linear both;
+    }
+
     svg.trick-idle .unicycle-frame {
       animation: unicycle-idle-frame var(--idle-duration) linear both;
     }
@@ -274,10 +274,19 @@
 
   @keyframes unicycle-crank {
     from {
-      --crank-angle: 0turn;
+      rotate: 0turn;
     }
     to {
-      --crank-angle: 1turn;
+      rotate: 1turn;
+    }
+  }
+
+  @keyframes unicycle-pedal-level {
+    from {
+      rotate: 0turn;
+    }
+    to {
+      rotate: -1turn;
     }
   }
 
@@ -290,7 +299,7 @@
     }
   }
 
-  /* The three idle tracks share one rhythm, so their keyframe offsets and
+  /* The four idle tracks share one rhythm, so their keyframe offsets and
      timing functions have to match exactly or the cranks drift out of step
      with the wheel.
 
@@ -298,36 +307,64 @@
      the extremes get `ease-in-out`/`ease-in` so motion dies there, and the
      centre crossings get `ease-out` so the swing leaves again at the speed it
      arrived with. The last backward correction is the exception -- it takes
-     `ease-in-out` to come to rest instead of crossing.
-
-     1turn is the authored pose: right crank slightly below horizontal. */
+     `ease-in-out` to come to rest instead of crossing. */
   @keyframes unicycle-idle-crank {
     0% {
-      --crank-angle: 1turn;
+      rotate: 0deg;
       animation-timing-function: ease-in-out;
     }
     38%,
     69% {
-      --crank-angle: 1turn;
+      rotate: 0deg;
       animation-timing-function: ease-out;
     }
     15%,
     46%,
     77% {
-      --crank-angle: var(--idle-forward-crank);
+      rotate: var(--idle-forward-crank);
       animation-timing-function: ease-in-out;
     }
     31%,
     61% {
-      --crank-angle: var(--idle-backward-crank);
+      rotate: var(--idle-backward-crank);
       animation-timing-function: ease-in;
     }
     92% {
-      --crank-angle: var(--idle-backward-crank);
+      rotate: var(--idle-backward-crank);
       animation-timing-function: ease-in-out;
     }
     100% {
-      --crank-angle: 1turn;
+      rotate: 0deg;
+    }
+  }
+
+  @keyframes unicycle-idle-pedal {
+    0% {
+      rotate: 0deg;
+      animation-timing-function: ease-in-out;
+    }
+    38%,
+    69% {
+      rotate: 0deg;
+      animation-timing-function: ease-out;
+    }
+    15%,
+    46%,
+    77% {
+      rotate: var(--idle-forward-pedal);
+      animation-timing-function: ease-in-out;
+    }
+    31%,
+    61% {
+      rotate: var(--idle-backward-pedal);
+      animation-timing-function: ease-in;
+    }
+    92% {
+      rotate: var(--idle-backward-pedal);
+      animation-timing-function: ease-in-out;
+    }
+    100% {
+      rotate: 0deg;
     }
   }
 
