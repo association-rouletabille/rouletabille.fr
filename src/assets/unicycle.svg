@@ -4,14 +4,12 @@
   viewBox="0 0 1000 1127.1101"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:svg="http://www.w3.org/2000/svg">
-  <g class="unicycle-body">
+  <g transform="matrix(1.9904946,0,0,1.9904946,50.000001,56.378645)">
     <g
-      transform="matrix(1.9904946,0,0,1.9904946,50.000001,56.378645)">
-      <g
-        transform="matrix(0.5023877,0,0,0.5023877,-25.119385,-28.323938)"
-        stroke="currentColor"
-      >
-        <g class="unicycle-cranks">
+      transform="matrix(0.5023877,0,0,0.5023877,-25.119385,-28.323938)"
+      stroke="currentColor"
+    >
+      <g class="unicycle-cranks">
           <path
             stroke-width="40"
             stroke-linecap="butt"
@@ -31,7 +29,13 @@
               d="M 591.86191,718.4284 455.87929,788.84059"
             />
           </g>
-        </g>
+      </g>
+    </g>
+    <g class="unicycle-body">
+      <g
+        transform="matrix(0.5023877,0,0,0.5023877,-25.119385,-28.323938)"
+        stroke="currentColor"
+      >
         <path
           stroke-width="55.9"
           stroke-linecap="round"

@@ -59,11 +59,11 @@
   document.addEventListener('click', (event) => {
     const svg = event.target.closest('footer > svg');
 
-    if (!svg || svg.classList.contains('trick-hop') || svg.classList.contains('trick-idle') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!svg || svg.classList.contains('trick-hop') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
-    const trick = Math.random() < 0.5 ? 'trick-hop' : 'trick-idle';
+    const trick = 'trick-hop';
     svg.classList.add(trick);
 
     Promise.allSettled(svg.getAnimations({ subtree: true }).map((animation) => animation.finished)).then(() => svg.classList.remove(trick));
