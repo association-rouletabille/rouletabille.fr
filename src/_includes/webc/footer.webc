@@ -67,17 +67,18 @@
     // cranks have reached; hand it to CSS so they wind down from where they are.
     const [spin] = svg.querySelector('.unicycle-cranks').getAnimations();
     const from = spin ? spin.effect.getComputedTiming().progress : 1;
-    const trickClass = Math.random() < 0.5 ? 'trick-hop' : 'trick-idle';
+    const tricks = [['trick-hop'], ['trick-idle', 'trick-idle-short'], ['trick-idle', 'trick-idle-long']];
+    const trickClasses = tricks[Math.floor(Math.random() * tricks.length)];
 
     svg.style.setProperty('--crank-from', `${from}turn`);
-    svg.classList.add('trick', trickClass);
+    svg.classList.add('trick', ...trickClasses);
 
     // Infinite animations never resolve `finished`, and under reduced motion
     // there is nothing to wait for, so the trick ends on the next microtask.
     const running = svg.getAnimations({ subtree: true }).filter((animation) => animation.effect.getComputedTiming().iterations !== Infinity);
 
     Promise.allSettled(running.map((animation) => animation.finished)).then(() => {
-      svg.classList.remove('trick', trickClass);
+      svg.classList.remove('trick', ...trickClasses);
       svg.style.removeProperty('--crank-from');
     });
   });

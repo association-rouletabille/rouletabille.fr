@@ -179,7 +179,19 @@
     --trick-duration: 1.6s;
     --idle-duration: 4.8s;
     --idle-travel: 500px;
+    --idle-crank-travel: 0.25turn;
     --idle-lean: 15deg;
+    /* Tweak only these two factors to adjust the asymmetric idle variants. */
+    --idle-short-distance-factor: 0.8;
+    --idle-long-distance-factor: 1.2;
+    --idle-forward-distance-factor: 1;
+    --idle-backward-distance-factor: 1;
+    --idle-forward-travel: calc(var(--idle-travel) * var(--idle-forward-distance-factor));
+    --idle-backward-travel: calc(-1 * var(--idle-travel) * var(--idle-backward-distance-factor));
+    --idle-forward-crank: calc(1turn + var(--idle-crank-travel) * var(--idle-forward-distance-factor));
+    --idle-backward-crank: calc(1turn - var(--idle-crank-travel) * var(--idle-backward-distance-factor));
+    --idle-forward-lean: calc(-1 * var(--idle-lean) * var(--idle-forward-distance-factor));
+    --idle-backward-lean: calc(var(--idle-lean) * var(--idle-backward-distance-factor));
 
     /* The seat tube is drawn 30.8deg off vertical; this sits the rider up
        almost straight while keeping a little of the riding lean. */
@@ -242,6 +254,14 @@
     svg.trick-idle {
       --settle-duration: 0.384s;
       --settle-delay: calc(var(--idle-duration) - var(--settle-duration));
+    }
+
+    svg.trick-idle-short {
+      --idle-backward-distance-factor: var(--idle-short-distance-factor);
+    }
+
+    svg.trick-idle-long {
+      --idle-forward-distance-factor: var(--idle-long-distance-factor);
     }
 
     svg.trick-hop .unicycle-cranks {
@@ -311,13 +331,13 @@
     15%,
     46%,
     77% {
-      --crank-angle: 1.25turn;
+      --crank-angle: var(--idle-forward-crank);
       animation-timing-function: ease-in-out;
     }
     31%,
     61%,
     92% {
-      --crank-angle: 0.75turn;
+      --crank-angle: var(--idle-backward-crank);
       animation-timing-function: ease-in-out;
     }
   }
@@ -334,13 +354,13 @@
     15%,
     46%,
     77% {
-      rotate: calc(-1 * var(--idle-lean));
+      rotate: var(--idle-forward-lean);
       animation-timing-function: ease-in-out;
     }
     31%,
     61%,
     92% {
-      rotate: var(--idle-lean);
+      rotate: var(--idle-backward-lean);
       animation-timing-function: ease-in-out;
     }
   }
@@ -357,13 +377,13 @@
     15%,
     46%,
     77% {
-      translate: var(--idle-travel) 0;
+      translate: var(--idle-forward-travel) 0;
       animation-timing-function: ease-in-out;
     }
     31%,
     61%,
     92% {
-      translate: calc(-1 * var(--idle-travel)) 0;
+      translate: var(--idle-backward-travel) 0;
       animation-timing-function: ease-in-out;
     }
   }
