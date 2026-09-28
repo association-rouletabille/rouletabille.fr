@@ -56,16 +56,28 @@
 </style>
 
 <script>
-  document.addEventListener('click', (event) => {
-    const svg = event.target.closest('footer > svg');
+  document.querySelector('footer').addEventListener('click', (event) => {
+    const svg = event.target.closest('.icon-unicycle');
 
-    if (!svg || svg.classList.contains('trick-hop') || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!svg || svg.classList.contains('trick')) {
       return;
     }
 
-    const trick = 'trick-hop';
-    svg.classList.add(trick);
+    // The hover spin is linear, so its progress *is* the fraction of a turn the
+    // cranks have reached; hand it to CSS so they wind down from where they are.
+    const [spin] = svg.querySelector('.unicycle-cranks').getAnimations();
+    const from = spin ? spin.effect.getComputedTiming().progress : 1;
 
-    Promise.allSettled(svg.getAnimations({ subtree: true }).map((animation) => animation.finished)).then(() => svg.classList.remove(trick));
+    svg.style.setProperty('--crank-from', `${from}turn`);
+    svg.classList.add('trick');
+
+    // Infinite animations never resolve `finished`, and under reduced motion
+    // there is nothing to wait for, so the trick ends on the next microtask.
+    const running = svg.getAnimations({ subtree: true }).filter((animation) => animation.effect.getComputedTiming().iterations !== Infinity);
+
+    Promise.allSettled(running.map((animation) => animation.finished)).then(() => {
+      svg.classList.remove('trick');
+      svg.style.removeProperty('--crank-from');
+    });
   });
 </script>

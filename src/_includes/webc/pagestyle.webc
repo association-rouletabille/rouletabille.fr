@@ -155,14 +155,43 @@
   }
 
   /* =====================
-   Unicycle icon: crank drive on hover
+   Unicycle icon: crank drive on hover, trick hop on click
    ===================== */
 
+  /* Lengths are in the icon's own viewBox units, so the trick looks identical
+     at any rendered size. Selectors stay at `svg:hover` specificity because
+     404.webc parks its copy on its side by overriding them. */
+  .icon-unicycle {
+    --hub: 400.524px 717.383px;
+    --contact-patch: 400.524px 1036px;
+
+    --spin-duration: 1.5s;
+    /* The cranks coast to a stop over a fixed budget, so the trick lasts the
+       same time wherever the spin happened to be interrupted. The rider sits
+       up during that same window, so keep the two in step. */
+    --crank-stop-duration: 0.35s;
+    --trick-duration: 1.6s;
+
+    /* The seat tube is drawn 30.8deg off vertical; this sits the rider up
+       almost straight while keeping a little of the riding lean. */
+    --lean: -25deg;
+    --hop-small: -170px;
+    --hop-big: -540px;
+
+    /* The hop and the squash both reach outside the viewBox. */
+    overflow: visible;
+  }
+
   /* Both turn on the axle: the cranks all the way round, the uni rocking */
-  .unicycle-body,
+  .unicycle-frame,
   .unicycle-cranks {
     transform-box: view-box;
-    transform-origin: 400.524px 717.383px; /* wheel hub, in viewBox units */
+    transform-origin: var(--hub);
+  }
+
+  .unicycle-hop {
+    transform-box: view-box;
+    transform-origin: var(--contact-patch);
   }
 
   .unicycle-pedal {
@@ -170,117 +199,186 @@
     transform-origin: center;
   }
 
-  .unicycle-wheel {
-    transform-box: view-box;
-    transform-origin: 400.524px 717.383px; /* wheel hub, in viewBox units */
-  }
-
-  /* One lean per crank revolution, peaking as each pedal passes the bottom. */
-  svg:hover .unicycle-body {
-    animation: unicycle-wobble 0.75s ease-in-out -0.375s infinite alternate;
-  }
-
-  svg:hover .unicycle-cranks {
-    animation: unicycle-crank 1.5s linear infinite;
-  }
-
-  svg:hover .unicycle-pedal {
-    animation: unicycle-pedal 1.5s linear infinite;
-  }
-
-  @keyframes unicycle-wobble {
-    from {
-      transform: rotate(-2.5deg);
+  /* One guard for the whole feature, so no rule has to be repeated to cancel it. */
+  @media (prefers-reduced-motion: no-preference) {
+    svg:hover:where(:not(.trick)) .unicycle-cranks {
+      animation: unicycle-crank var(--spin-duration) linear infinite;
     }
-    to {
-      transform: rotate(2.5deg);
+
+    svg:hover:where(:not(.trick)) .unicycle-pedal {
+      animation: unicycle-pedal var(--spin-duration) linear infinite;
+    }
+
+    /* One lean per crank revolution, peaking as each pedal passes the bottom. */
+    svg:hover:where(:not(.trick)) .unicycle-frame {
+      animation: unicycle-wobble calc(var(--spin-duration) / 2) ease-in-out calc(var(--spin-duration) / -4) infinite alternate;
+    }
+
+    /* Click: the rider sits up while the cranks coast to rest, then hops.
+       `both` holds each phase's end pose for the rest of the trick. */
+    svg.trick .unicycle-cranks {
+      animation: unicycle-crank-stop var(--crank-stop-duration) ease-out both;
+    }
+
+    svg.trick .unicycle-pedal {
+      animation: unicycle-pedal-stop var(--crank-stop-duration) ease-out both;
+    }
+
+    svg.trick .unicycle-frame {
+      animation: unicycle-lean var(--trick-duration) linear both;
+    }
+
+    svg.trick .unicycle-hop {
+      animation:
+        unicycle-hop var(--trick-duration) linear both,
+        unicycle-squash var(--trick-duration) linear both;
     }
   }
 
   @keyframes unicycle-crank {
+    from {
+      rotate: 0turn;
+    }
     to {
-      transform: rotate(1turn);
+      rotate: 1turn;
     }
   }
 
   @keyframes unicycle-pedal {
+    from {
+      rotate: 0turn;
+    }
     to {
-      transform: rotate(-1turn);
+      rotate: -1turn;
     }
   }
 
-  /* =====================
-  Unicycle icon: click trick (one-shot hop)
-   ===================== */
-
-  svg.trick-hop {
-    transform-box: border-box;
-    transform-origin: bottom;
-    animation: unicycle-hop 1.4s ease-in-out;
+  @keyframes unicycle-wobble {
+    from {
+      rotate: -2.5deg;
+    }
+    to {
+      rotate: 2.5deg;
+    }
   }
 
-  /* Straighten up before hopping (instead of the riding lean), settle back at landing. */
-  svg.trick-hop .unicycle-body {
-    animation: unicycle-hop-straighten 1.4s ease-in-out;
+  /* footer.webc sets --crank-from to wherever the spin got to; the 1turn
+     fallback means a click without a prior hover moves nothing. 1turn is the
+     authored pose: right crank slightly below horizontal. */
+  @keyframes unicycle-crank-stop {
+    from {
+      rotate: var(--crank-from, 1turn);
+    }
+    to {
+      rotate: 1turn;
+    }
   }
 
-  /* Hold the crank assembly in its original SVG pose during the hop. */
-  svg.trick-hop .unicycle-cranks {
-    animation: none;
-    transform: rotate(24.5deg);
+  @keyframes unicycle-pedal-stop {
+    from {
+      rotate: calc(-1 * var(--crank-from, 1turn));
+    }
+    to {
+      rotate: -1turn;
+    }
   }
 
-  svg.trick-hop .unicycle-pedal {
-    animation: none;
+  /* Sit up while the cranks are still coasting (22% of 1.6s ~= the 0.35s
+     wind-down), hold it through all three landings, then settle back. */
+  @keyframes unicycle-lean {
+    0% {
+      rotate: 0deg;
+      animation-timing-function: ease-out;
+    }
+    22%,
+    90% {
+      rotate: var(--lean);
+      animation-timing-function: ease-in-out;
+    }
+    100% {
+      rotate: 0deg;
+    }
   }
 
-  /* Squash before each launch; the third crunch is deepest, the third bounce highest. */
+  /* Two warm-up hops, then the real one. Each takeoff eases out and each
+     descent eases in, so the arcs read as ballistic. */
   @keyframes unicycle-hop {
     0%,
-    100% {
-      transform: scaleY(1) scaleX(1) translateY(0);
-    }
-    6% {
-      transform: scaleY(0.85) scaleX(1.1) translateY(2%);
-    }
-    20% {
-      transform: scaleY(1.05) scaleX(0.95) translateY(-15%);
+    28% {
+      translate: 0 0;
+      animation-timing-function: ease-out;
     }
     34% {
-      transform: scaleY(0.85) scaleX(1.1) translateY(2%);
+      translate: 0 var(--hop-small);
+      animation-timing-function: ease-in;
+    }
+    40%,
+    46% {
+      translate: 0 0;
+      animation-timing-function: ease-out;
+    }
+    52% {
+      translate: 0 var(--hop-small);
+      animation-timing-function: ease-in;
+    }
+    58%,
+    68% {
+      translate: 0 0;
+      animation-timing-function: ease-out;
+    }
+    79% {
+      translate: 0 var(--hop-big);
+      animation-timing-function: ease-in;
+    }
+    90%,
+    100% {
+      translate: 0 0;
+    }
+  }
+
+  /* Squash and stretch, on its own animation so it composes with the hop
+     instead of having to share its keyframes. */
+  @keyframes unicycle-squash {
+    0%,
+    14% {
+      scale: 1 1;
+    }
+    18% {
+      scale: 1.1 0.85; /* crouch */
+    }
+    22% {
+      scale: 0.96 1.05; /* takeoff */
+    }
+    30% {
+      scale: 1 1; /* apex */
+    }
+    34% {
+      scale: 1.1 0.85; /* landing, straight into the next crouch */
+    }
+    42% {
+      scale: 0.96 1.05;
     }
     50% {
-      transform: scaleY(1.05) scaleX(0.95) translateY(-15%);
+      scale: 1 1;
     }
-    64% {
-      transform: scaleY(0.8) scaleX(1.15) translateY(3%);
+    54% {
+      scale: 1.1 0.85;
     }
-    84% {
-      transform: scaleY(1.08) scaleX(0.92) translateY(-48%);
+    61% {
+      scale: 1.16 0.8; /* deeper crouch before the big one */
     }
-  }
-
-  @keyframes unicycle-hop-straighten {
-    0% {
-      transform: rotate(0deg);
+    67% {
+      scale: 0.94 1.08;
     }
-    8%,
-    90% {
-      transform: rotate(-25deg);
+    78% {
+      scale: 1 1;
     }
+    86% {
+      scale: 1.18 0.78; /* impact */
+    }
+    94%,
     100% {
-      transform: rotate(0deg);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    svg:hover .unicycle-body,
-    svg:hover .unicycle-cranks,
-    svg:hover .unicycle-pedal,
-    svg.trick-hop,
-    svg.trick-hop .unicycle-body,
-    svg.trick-hop .unicycle-cranks {
-      animation: none;
+      scale: 1 1;
     }
   }
 </style>

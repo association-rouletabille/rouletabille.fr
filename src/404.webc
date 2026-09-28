@@ -31,7 +31,7 @@ eleventyExcludeFromCollections: true
   }
 
   /* This one is parked on its side, not ridden: no crank drive on hover */
-  article svg:hover :is(.unicycle-body, .unicycle-cranks, .unicycle-pedal) {
+  article svg:hover :is(.unicycle-frame, .unicycle-cranks, .unicycle-pedal) {
     animation: none;
   }
 </style>
