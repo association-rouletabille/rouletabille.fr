@@ -1,5 +1,8 @@
 <footer webc:root="override">
-  <icon name="unicycle"></icon>
+  <span class="unicycle-toy">
+    <icon name="unicycle"></icon>
+    <span class="trick-count" aria-hidden="true" hidden></span>
+  </span>
   <ul>
     <li>
       <a href="https://www.instagram.com/rtb_monocycle" target="_blank" rel="noopener noreferrer">
@@ -26,10 +29,98 @@
     padding-block: 0 max(4rem, env(safe-area-inset-bottom));
   }
 
-  :host > svg {
+  :host > .unicycle-toy {
+    position: relative;
     display: block;
     width: 5rem;
     height: 5rem;
+  }
+
+  /* Positioned so it stacks over the absolutely placed badge. */
+  :host .unicycle-toy > svg {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  :host .trick-count {
+    position: absolute;
+    top: -0.3rem;
+    left: -0.3rem;
+    display: grid;
+    place-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background: rgb(var(--palette-accent));
+    color: rgb(var(--palette-bright));
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  :host .trick-count[hidden] {
+    display: none;
+  }
+
+  /* Two rings blown outwards from under the badge, the second a beat later. */
+  :host .trick-count::before,
+  :host .trick-count::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 0.2rem solid rgb(var(--palette-accent));
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :host .trick-count.pop {
+      animation: trick-count-pop 0.5s cubic-bezier(0.2, 1.7, 0.4, 1) both;
+    }
+
+    :host .trick-count.pop::before {
+      animation: trick-count-burst 0.55s ease-out both;
+    }
+
+    :host .trick-count.pop::after {
+      animation: trick-count-burst 0.55s ease-out 0.12s both;
+    }
+  }
+
+  @keyframes trick-count-pop {
+    0% {
+      scale: 0.2;
+      rotate: -25deg;
+      opacity: 0;
+    }
+    45% {
+      scale: 1.4;
+      rotate: 10deg;
+      opacity: 1;
+    }
+    70% {
+      scale: 0.88;
+      rotate: -5deg;
+    }
+    100% {
+      scale: 1;
+      rotate: 0deg;
+      opacity: 1;
+    }
+  }
+
+  @keyframes trick-count-burst {
+    from {
+      scale: 0.9;
+      opacity: 0.9;
+    }
+    to {
+      scale: 2.8;
+      opacity: 0;
+    }
   }
 
   :host ul {
@@ -56,30 +147,42 @@
 </style>
 
 <script>
-  document.querySelector('footer').addEventListener('click', (event) => {
-    const svg = event.target.closest('.icon-unicycle');
+  (() => {
+    const footer = document.querySelector('footer');
+    const svg = footer.querySelector('.icon-unicycle');
+    const counter = footer.querySelector('.trick-count');
 
-    if (!svg || svg.classList.contains('trick')) {
-      return;
-    }
+    // One click per step of the countdown, then the sequence starts over.
+    const tricks = [
+      { classes: ['trick-roll'], count: 3 },
+      { classes: ['trick-idle'], count: 2 },
+      { classes: ['trick-hop'], count: 1 },
+    ];
+    let step = 0;
 
-    // The hover spin is linear, so its progress *is* the fraction of a turn the
-    // cranks have reached; hand it to CSS so they wind down from where they are.
-    const [spin] = svg.querySelector('.unicycle-cranks').getAnimations();
-    const from = spin ? spin.effect.getComputedTiming().progress : 1;
-    const tricks = [['trick-hop'], ['trick-idle', 'trick-idle-short'], ['trick-idle', 'trick-idle-long']];
-    const trickClasses = tricks[Math.floor(Math.random() * tricks.length)];
+    footer.addEventListener('click', (event) => {
+      if (!event.target.closest('.unicycle-toy') || svg.classList.contains('trick')) {
+        return;
+      }
 
-    svg.style.setProperty('--crank-from', `${from}turn`);
-    svg.classList.add('trick', ...trickClasses);
+      const trick = tricks[step];
+      step = (step + 1) % tricks.length;
 
-    // Infinite animations never resolve `finished`, and under reduced motion
-    // there is nothing to wait for, so the trick ends on the next microtask.
-    const running = svg.getAnimations({ subtree: true }).filter((animation) => animation.effect.getComputedTiming().iterations !== Infinity);
+      svg.classList.add('trick', ...trick.classes);
 
-    Promise.allSettled(running.map((animation) => animation.finished)).then(() => {
-      svg.classList.remove('trick', ...trickClasses);
-      svg.style.removeProperty('--crank-from');
+      // Under reduced motion there is nothing to wait for, so the trick ends on
+      // the next microtask.
+      const running = svg.getAnimations({ subtree: true });
+
+      Promise.allSettled(running.map((animation) => animation.finished)).then(() => {
+        svg.classList.remove('trick', ...trick.classes);
+
+        counter.textContent = trick.count;
+        counter.hidden = false;
+        counter.classList.remove('pop');
+        void counter.offsetWidth; // Forced reflow so the pop replays on every landing.
+        counter.classList.add('pop');
+      });
     });
-  });
+  })();
 </script>

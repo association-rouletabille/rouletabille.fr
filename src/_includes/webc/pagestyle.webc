@@ -155,7 +155,7 @@
   }
 
   /* =====================
-   Unicycle icon: crank drive on hover, trick hop on click
+   Unicycle icon: click-driven trick sequence (roll, idle, hop)
    ===================== */
 
   @property --crank-angle {
@@ -164,34 +164,30 @@
     initial-value: 0turn;
   }
 
-  /* Lengths are in the icon's own viewBox units, so the trick looks identical
-     at any rendered size. Selectors stay at `svg:hover` specificity because
-     404.webc parks its copy on its side by overriding them. */
+  /* Lengths are in the icon's own viewBox units, so the tricks look identical
+     at any rendered size. */
   .icon-unicycle {
     --hub: 400.524px 717.383px;
     --contact-patch: 400.524px 1036px;
 
     --spin-duration: 1.5s;
-    /* The cranks coast to a stop over a fixed budget, so the trick lasts the
-       same time wherever the spin happened to be interrupted. The rider sits
-       up during that same window, so keep the two in step. */
-    --crank-stop-duration: 0.35s;
+    --roll-turns: 2;
+    /* The rider sits up over this budget at the start of a standing trick. */
+    --straighten-duration: 0.35s;
     --trick-duration: 1.6s;
     --idle-duration: 4.8s;
     --idle-travel: 500px;
     --idle-crank-travel: 0.25turn;
     --idle-lean: 15deg;
-    /* Tweak only these two factors to adjust the asymmetric idle variants. */
-    --idle-short-distance-factor: 0.8;
-    --idle-long-distance-factor: 1.2;
-    --idle-forward-distance-factor: 1;
-    --idle-backward-distance-factor: 1;
-    --idle-forward-travel: calc(var(--idle-travel) * var(--idle-forward-distance-factor));
-    --idle-backward-travel: calc(-1 * var(--idle-travel) * var(--idle-backward-distance-factor));
-    --idle-forward-crank: calc(1turn + var(--idle-crank-travel) * var(--idle-forward-distance-factor));
-    --idle-backward-crank: calc(1turn - var(--idle-crank-travel) * var(--idle-backward-distance-factor));
-    --idle-forward-lean: calc(-1 * var(--idle-lean) * var(--idle-forward-distance-factor));
-    --idle-backward-lean: calc(var(--idle-lean) * var(--idle-backward-distance-factor));
+    /* The backward correction is shorter than the forward one, so the idle
+       drifts instead of looking like a metronome. */
+    --idle-backward-factor: 0.8;
+    --idle-forward-travel: var(--idle-travel);
+    --idle-backward-travel: calc(-1 * var(--idle-travel) * var(--idle-backward-factor));
+    --idle-forward-crank: calc(1turn + var(--idle-crank-travel));
+    --idle-backward-crank: calc(1turn - var(--idle-crank-travel) * var(--idle-backward-factor));
+    --idle-forward-lean: calc(-1 * var(--idle-lean));
+    --idle-backward-lean: calc(var(--idle-lean) * var(--idle-backward-factor));
 
     /* The seat tube is drawn 30.8deg off vertical; this sits the rider up
        almost straight while keeping a little of the riding lean. */
@@ -229,20 +225,21 @@
 
   /* One guard for the whole feature, so no rule has to be repeated to cancel it. */
   @media (prefers-reduced-motion: no-preference) {
-    svg:hover:where(:not(.trick)) .unicycle-cranks {
-      animation: unicycle-crank var(--spin-duration) linear infinite;
+    svg.trick-roll .unicycle-cranks {
+      animation: unicycle-crank var(--spin-duration) linear var(--roll-turns) both;
     }
 
-    /* One lean per crank revolution, peaking as each pedal passes the bottom. */
-    svg:hover:where(:not(.trick)) .unicycle-frame {
-      animation: unicycle-wobble calc(var(--spin-duration) / 2) ease-in-out calc(var(--spin-duration) / -4) infinite alternate;
+    /* One lean per crank revolution, peaking as each pedal passes the bottom.
+       The half extra iteration lands the alternating wobble back on level. */
+    svg.trick-roll .unicycle-frame {
+      animation: unicycle-wobble calc(var(--spin-duration) / 2) ease-in-out calc(var(--spin-duration) / -4) calc(2 * var(--roll-turns) + 0.5) alternate both;
     }
 
-    /* Both tricks sit up while the cranks coast to rest. The first animation
-       holds that posture until the delayed settle takes ownership. */
-    svg.trick .unicycle-posture {
+    /* The standing tricks sit up first. The first animation holds that posture
+       until the delayed settle takes ownership. */
+    svg:is(.trick-hop, .trick-idle) .unicycle-posture {
       animation:
-        unicycle-straighten var(--crank-stop-duration) ease-out both,
+        unicycle-straighten var(--straighten-duration) ease-out both,
         unicycle-settle var(--settle-duration) ease-in-out var(--settle-delay) forwards;
     }
 
@@ -254,18 +251,6 @@
     svg.trick-idle {
       --settle-duration: 0.384s;
       --settle-delay: calc(var(--idle-duration) - var(--settle-duration));
-    }
-
-    svg.trick-idle-short {
-      --idle-backward-distance-factor: var(--idle-short-distance-factor);
-    }
-
-    svg.trick-idle-long {
-      --idle-forward-distance-factor: var(--idle-long-distance-factor);
-    }
-
-    svg.trick-hop .unicycle-cranks {
-      animation: unicycle-crank-stop var(--crank-stop-duration) ease-out both;
     }
 
     svg.trick-hop .unicycle-hop {
@@ -305,26 +290,24 @@
     }
   }
 
-  /* footer.webc sets --crank-from to wherever the spin got to; the 1turn
-     fallback means a click without a prior hover moves nothing. 1turn is the
-     authored pose: right crank slightly below horizontal. */
-  @keyframes unicycle-crank-stop {
-    from {
-      --crank-angle: var(--crank-from, 1turn);
-    }
-    to {
-      --crank-angle: 1turn;
-    }
-  }
+  /* The three idle tracks share one rhythm, so their keyframe offsets and
+     timing functions have to match exactly or the cranks drift out of step
+     with the wheel.
 
+     A correction is slowest at its extremes and fastest through the middle:
+     the extremes get `ease-in-out`/`ease-in` so motion dies there, and the
+     centre crossings get `ease-out` so the swing leaves again at the speed it
+     arrived with. The last backward correction is the exception -- it takes
+     `ease-in-out` to come to rest instead of crossing.
+
+     1turn is the authored pose: right crank slightly below horizontal. */
   @keyframes unicycle-idle-crank {
     0% {
-      --crank-angle: var(--crank-from, 1turn);
+      --crank-angle: 1turn;
+      animation-timing-function: ease-in-out;
     }
-    7.3%,
     38%,
-    69%,
-    100% {
+    69% {
       --crank-angle: 1turn;
       animation-timing-function: ease-out;
     }
@@ -335,19 +318,26 @@
       animation-timing-function: ease-in-out;
     }
     31%,
-    61%,
+    61% {
+      --crank-angle: var(--idle-backward-crank);
+      animation-timing-function: ease-in;
+    }
     92% {
       --crank-angle: var(--idle-backward-crank);
       animation-timing-function: ease-in-out;
     }
+    100% {
+      --crank-angle: 1turn;
+    }
   }
 
   @keyframes unicycle-idle-frame {
-    0%,
-    7.3%,
+    0% {
+      rotate: 0deg;
+      animation-timing-function: ease-in-out;
+    }
     38%,
-    69%,
-    100% {
+    69% {
       rotate: 0deg;
       animation-timing-function: ease-out;
     }
@@ -358,19 +348,26 @@
       animation-timing-function: ease-in-out;
     }
     31%,
-    61%,
+    61% {
+      rotate: var(--idle-backward-lean);
+      animation-timing-function: ease-in;
+    }
     92% {
       rotate: var(--idle-backward-lean);
       animation-timing-function: ease-in-out;
     }
+    100% {
+      rotate: 0deg;
+    }
   }
 
   @keyframes unicycle-idle-travel {
-    0%,
-    7.3%,
+    0% {
+      translate: 0 0;
+      animation-timing-function: ease-in-out;
+    }
     38%,
-    69%,
-    100% {
+    69% {
       translate: 0 0;
       animation-timing-function: ease-out;
     }
@@ -381,10 +378,16 @@
       animation-timing-function: ease-in-out;
     }
     31%,
-    61%,
+    61% {
+      translate: var(--idle-backward-travel) 0;
+      animation-timing-function: ease-in;
+    }
     92% {
       translate: var(--idle-backward-travel) 0;
       animation-timing-function: ease-in-out;
+    }
+    100% {
+      translate: 0 0;
     }
   }
 
