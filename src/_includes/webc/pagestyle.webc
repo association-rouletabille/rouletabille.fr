@@ -340,43 +340,43 @@
      instead of having to share its keyframes. */
   @keyframes unicycle-squash {
     0%,
-    14% {
+    22% {
       scale: 1 1;
     }
-    18% {
+    26% {
       scale: 1.1 0.85; /* crouch */
     }
-    22% {
+    30% {
       scale: 0.96 1.05; /* takeoff */
     }
-    30% {
+    36% {
       scale: 1 1; /* apex */
     }
-    34% {
+    41% {
       scale: 1.1 0.85; /* landing, straight into the next crouch */
     }
-    42% {
+    48% {
       scale: 0.96 1.05;
     }
-    50% {
+    54% {
       scale: 1 1;
     }
-    54% {
+    59% {
       scale: 1.1 0.85;
     }
-    61% {
+    65% {
       scale: 1.16 0.8; /* deeper crouch before the big one */
     }
-    67% {
+    70% {
       scale: 0.94 1.08;
     }
-    78% {
+    80% {
       scale: 1 1;
     }
-    86% {
+    91% {
       scale: 1.18 0.78; /* impact */
     }
-    94%,
+    96%,
     100% {
       scale: 1 1;
     }
