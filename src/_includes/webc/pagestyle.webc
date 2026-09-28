@@ -158,6 +158,12 @@
    Unicycle icon: crank drive on hover, trick hop on click
    ===================== */
 
+  @property --crank-angle {
+    syntax: '<angle>';
+    inherits: true;
+    initial-value: 0turn;
+  }
+
   /* Lengths are in the icon's own viewBox units, so the trick looks identical
      at any rendered size. Selectors stay at `svg:hover` specificity because
      404.webc parks its copy on its side by overriding them. */
@@ -171,6 +177,9 @@
        up during that same window, so keep the two in step. */
     --crank-stop-duration: 0.35s;
     --trick-duration: 1.6s;
+    --idle-duration: 4.8s;
+    --idle-travel: 500px;
+    --idle-lean: 15deg;
 
     /* The seat tube is drawn 30.8deg off vertical; this sits the rider up
        almost straight while keeping a little of the riding lean. */
@@ -182,11 +191,17 @@
     overflow: visible;
   }
 
-  /* Both turn on the axle: the cranks all the way round, the uni rocking */
+  /* All turn on the axle: posture sits the uni up, the inner frame rocks,
+      and the cranks turn all the way round. */
+  .unicycle-posture,
   .unicycle-frame,
   .unicycle-cranks {
     transform-box: view-box;
     transform-origin: var(--hub);
+  }
+
+  .unicycle-cranks {
+    rotate: var(--crank-angle);
   }
 
   .unicycle-hop {
@@ -197,6 +212,7 @@
   .unicycle-pedal {
     transform-box: fill-box;
     transform-origin: center;
+    rotate: calc(-1 * var(--crank-angle));
   }
 
   /* One guard for the whole feature, so no rule has to be repeated to cancel it. */
@@ -205,51 +221,58 @@
       animation: unicycle-crank var(--spin-duration) linear infinite;
     }
 
-    svg:hover:where(:not(.trick)) .unicycle-pedal {
-      animation: unicycle-pedal var(--spin-duration) linear infinite;
-    }
-
     /* One lean per crank revolution, peaking as each pedal passes the bottom. */
     svg:hover:where(:not(.trick)) .unicycle-frame {
       animation: unicycle-wobble calc(var(--spin-duration) / 2) ease-in-out calc(var(--spin-duration) / -4) infinite alternate;
     }
 
-    /* Click: the rider sits up while the cranks coast to rest, then hops.
-       `both` holds each phase's end pose for the rest of the trick. */
-    svg.trick .unicycle-cranks {
+    /* Both tricks sit up while the cranks coast to rest. The first animation
+       holds that posture until the delayed settle takes ownership. */
+    svg.trick .unicycle-posture {
+      animation:
+        unicycle-straighten var(--crank-stop-duration) ease-out both,
+        unicycle-settle var(--settle-duration) ease-in-out var(--settle-delay) forwards;
+    }
+
+    svg.trick-hop {
+      --settle-duration: 0.16s;
+      --settle-delay: calc(var(--trick-duration) - var(--settle-duration));
+    }
+
+    svg.trick-idle {
+      --settle-duration: 0.384s;
+      --settle-delay: calc(var(--idle-duration) - var(--settle-duration));
+    }
+
+    svg.trick-hop .unicycle-cranks {
       animation: unicycle-crank-stop var(--crank-stop-duration) ease-out both;
     }
 
-    svg.trick .unicycle-pedal {
-      animation: unicycle-pedal-stop var(--crank-stop-duration) ease-out both;
-    }
-
-    svg.trick .unicycle-frame {
-      animation: unicycle-lean var(--trick-duration) linear both;
-    }
-
-    svg.trick .unicycle-hop {
+    svg.trick-hop .unicycle-hop {
       animation:
         unicycle-hop var(--trick-duration) linear both,
         unicycle-squash var(--trick-duration) linear both;
+    }
+
+    svg.trick-idle .unicycle-cranks {
+      animation: unicycle-idle-crank var(--idle-duration) linear both;
+    }
+
+    svg.trick-idle .unicycle-frame {
+      animation: unicycle-idle-frame var(--idle-duration) linear both;
+    }
+
+    svg.trick-idle .unicycle-hop {
+      animation: unicycle-idle-travel var(--idle-duration) linear both;
     }
   }
 
   @keyframes unicycle-crank {
     from {
-      rotate: 0turn;
+      --crank-angle: 0turn;
     }
     to {
-      rotate: 1turn;
-    }
-  }
-
-  @keyframes unicycle-pedal {
-    from {
-      rotate: 0turn;
-    }
-    to {
-      rotate: -1turn;
+      --crank-angle: 1turn;
     }
   }
 
@@ -267,35 +290,98 @@
      authored pose: right crank slightly below horizontal. */
   @keyframes unicycle-crank-stop {
     from {
-      rotate: var(--crank-from, 1turn);
+      --crank-angle: var(--crank-from, 1turn);
     }
     to {
-      rotate: 1turn;
+      --crank-angle: 1turn;
     }
   }
 
-  @keyframes unicycle-pedal-stop {
-    from {
-      rotate: calc(-1 * var(--crank-from, 1turn));
-    }
-    to {
-      rotate: -1turn;
-    }
-  }
-
-  /* Sit up while the cranks are still coasting (22% of 1.6s ~= the 0.35s
-     wind-down), hold it through all three landings, then settle back. */
-  @keyframes unicycle-lean {
+  @keyframes unicycle-idle-crank {
     0% {
+      --crank-angle: var(--crank-from, 1turn);
+    }
+    7.3%,
+    38%,
+    69%,
+    100% {
+      --crank-angle: 1turn;
+      animation-timing-function: ease-out;
+    }
+    15%,
+    46%,
+    77% {
+      --crank-angle: 1.25turn;
+      animation-timing-function: ease-in-out;
+    }
+    31%,
+    61%,
+    92% {
+      --crank-angle: 0.75turn;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  @keyframes unicycle-idle-frame {
+    0%,
+    7.3%,
+    38%,
+    69%,
+    100% {
       rotate: 0deg;
       animation-timing-function: ease-out;
     }
-    22%,
-    90% {
-      rotate: var(--lean);
+    15%,
+    46%,
+    77% {
+      rotate: calc(-1 * var(--idle-lean));
       animation-timing-function: ease-in-out;
     }
+    31%,
+    61%,
+    92% {
+      rotate: var(--idle-lean);
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  @keyframes unicycle-idle-travel {
+    0%,
+    7.3%,
+    38%,
+    69%,
     100% {
+      translate: 0 0;
+      animation-timing-function: ease-out;
+    }
+    15%,
+    46%,
+    77% {
+      translate: var(--idle-travel) 0;
+      animation-timing-function: ease-in-out;
+    }
+    31%,
+    61%,
+    92% {
+      translate: calc(-1 * var(--idle-travel)) 0;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  @keyframes unicycle-straighten {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: var(--lean);
+    }
+  }
+
+  @keyframes unicycle-settle {
+    from {
+      rotate: var(--lean);
+    }
+    to {
       rotate: 0deg;
     }
   }
