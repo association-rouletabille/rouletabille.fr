@@ -155,14 +155,59 @@
   }
 
   /* =====================
-   Unicycle icon: crank drive on hover
+   Unicycle icon: click-driven trick sequence (roll, idle, hop)
    ===================== */
 
-  /* Both turn on the axle: the cranks all the way round, the uni rocking */
-  .unicycle-body,
+  /* Lengths are in the icon's own viewBox units, so the tricks look identical
+     at any rendered size. */
+  .icon-unicycle {
+    --hub: 400.524px 717.383px;
+    --contact-patch: 400.524px 1036px;
+
+    --spin-duration: 1.5s;
+    --roll-turns: 2;
+    /* The rider sits up over this budget at the start of a standing trick. */
+    --straighten-duration: 0.35s;
+    --trick-duration: 1.6s;
+    --idle-duration: 4.8s;
+    --idle-travel: 500px;
+    --idle-crank-travel: 0.25turn;
+    --idle-lean: 15deg;
+    /* The backward correction is shorter than the forward one, so the idle
+       drifts instead of looking like a metronome. */
+    --idle-backward-factor: 0.8;
+    --idle-forward-travel: var(--idle-travel);
+    --idle-backward-travel: calc(-1 * var(--idle-travel) * var(--idle-backward-factor));
+    --idle-forward-crank: var(--idle-crank-travel);
+    --idle-backward-crank: calc(-1 * var(--idle-crank-travel) * var(--idle-backward-factor));
+    /* The pedals stay level, so they undo whatever the cranks do. */
+    --idle-forward-pedal: calc(-1 * var(--idle-forward-crank));
+    --idle-backward-pedal: calc(-1 * var(--idle-backward-crank));
+    --idle-forward-lean: calc(-1 * var(--idle-lean));
+    --idle-backward-lean: calc(var(--idle-lean) * var(--idle-backward-factor));
+
+    /* The seat tube is drawn 30.8deg off vertical; this sits the rider up
+       almost straight while keeping a little of the riding lean. */
+    --lean: -25deg;
+    --hop-small: -170px;
+    --hop-big: -540px;
+
+    /* The hop and the squash both reach outside the viewBox. */
+    overflow: visible;
+  }
+
+  /* All turn on the axle: posture sits the uni up, the inner frame rocks,
+      and the cranks turn all the way round. */
+  .unicycle-posture,
+  .unicycle-frame,
   .unicycle-cranks {
     transform-box: view-box;
-    transform-origin: 400.524px 717.383px; /* wheel hub, in viewBox units */
+    transform-origin: var(--hub);
+  }
+
+  .unicycle-hop {
+    transform-box: view-box;
+    transform-origin: var(--contact-patch);
   }
 
   .unicycle-pedal {
@@ -170,45 +215,316 @@
     transform-origin: center;
   }
 
-  /* One lean per crank revolution, peaking as each pedal passes the bottom. */
-  svg:hover .unicycle-body {
-    animation: unicycle-wobble 0.75s ease-in-out -0.375s infinite alternate;
-  }
-
-  svg:hover .unicycle-cranks {
-    animation: unicycle-crank 1.5s linear infinite;
-  }
-
-  svg:hover .unicycle-pedal {
-    animation: unicycle-pedal 1.5s linear infinite;
-  }
-
-  @keyframes unicycle-wobble {
-    from {
-      transform: rotate(-2.5deg);
+  /* One guard for the whole feature, so no rule has to be repeated to cancel it. */
+  @media (prefers-reduced-motion: no-preference) {
+    svg.trick-roll .unicycle-cranks {
+      animation: unicycle-crank var(--spin-duration) linear var(--roll-turns) both;
     }
-    to {
-      transform: rotate(2.5deg);
+
+    svg.trick-roll .unicycle-pedal {
+      animation: unicycle-pedal-level var(--spin-duration) linear var(--roll-turns) both;
+    }
+
+    /* One lean per crank revolution, peaking as each pedal passes the bottom.
+       The half extra iteration lands the alternating wobble back on level. */
+    svg.trick-roll .unicycle-frame {
+      animation: unicycle-wobble calc(var(--spin-duration) / 2) ease-in-out calc(var(--spin-duration) / -4) calc(2 * var(--roll-turns) + 0.5) alternate both;
+    }
+
+    /* The standing tricks sit up first. The first animation holds that posture
+       until the delayed settle takes ownership. */
+    svg:is(.trick-hop, .trick-idle) .unicycle-posture {
+      animation:
+        unicycle-straighten var(--straighten-duration) ease-out both,
+        unicycle-settle var(--settle-duration) ease-in-out var(--settle-delay) forwards;
+    }
+
+    svg.trick-hop {
+      --settle-duration: 0.16s;
+      --settle-delay: calc(var(--trick-duration) - var(--settle-duration));
+    }
+
+    svg.trick-idle {
+      --settle-duration: 0.384s;
+      --settle-delay: calc(var(--idle-duration) - var(--settle-duration));
+    }
+
+    svg.trick-hop .unicycle-hop {
+      animation:
+        unicycle-hop var(--trick-duration) linear both,
+        unicycle-squash var(--trick-duration) linear both;
+    }
+
+    svg.trick-idle .unicycle-cranks {
+      animation: unicycle-idle-crank var(--idle-duration) linear both;
+    }
+
+    svg.trick-idle .unicycle-pedal {
+      animation: unicycle-idle-pedal var(--idle-duration) linear both;
+    }
+
+    svg.trick-idle .unicycle-frame {
+      animation: unicycle-idle-frame var(--idle-duration) linear both;
+    }
+
+    svg.trick-idle .unicycle-hop {
+      animation: unicycle-idle-travel var(--idle-duration) linear both;
     }
   }
 
   @keyframes unicycle-crank {
+    from {
+      rotate: 0turn;
+    }
     to {
-      transform: rotate(1turn);
+      rotate: 1turn;
     }
   }
 
-  @keyframes unicycle-pedal {
+  @keyframes unicycle-pedal-level {
+    from {
+      rotate: 0turn;
+    }
     to {
-      transform: rotate(-1turn);
+      rotate: -1turn;
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    svg:hover .unicycle-body,
-    svg:hover .unicycle-cranks,
-    svg:hover .unicycle-pedal {
-      animation: none;
+  @keyframes unicycle-wobble {
+    from {
+      rotate: -2.5deg;
+    }
+    to {
+      rotate: 2.5deg;
+    }
+  }
+
+  /* The four idle tracks share one rhythm, so their keyframe offsets and
+     timing functions have to match exactly or the cranks drift out of step
+     with the wheel.
+
+     A correction is slowest at its extremes and fastest through the middle:
+     the extremes get `ease-in-out`/`ease-in` so motion dies there, and the
+     centre crossings get `ease-out` so the swing leaves again at the speed it
+     arrived with. The last backward correction is the exception -- it takes
+     `ease-in-out` to come to rest instead of crossing. */
+  @keyframes unicycle-idle-crank {
+    0% {
+      rotate: 0deg;
+      animation-timing-function: ease-in-out;
+    }
+    38%,
+    69% {
+      rotate: 0deg;
+      animation-timing-function: ease-out;
+    }
+    15%,
+    46%,
+    77% {
+      rotate: var(--idle-forward-crank);
+      animation-timing-function: ease-in-out;
+    }
+    31%,
+    61% {
+      rotate: var(--idle-backward-crank);
+      animation-timing-function: ease-in;
+    }
+    92% {
+      rotate: var(--idle-backward-crank);
+      animation-timing-function: ease-in-out;
+    }
+    100% {
+      rotate: 0deg;
+    }
+  }
+
+  @keyframes unicycle-idle-pedal {
+    0% {
+      rotate: 0deg;
+      animation-timing-function: ease-in-out;
+    }
+    38%,
+    69% {
+      rotate: 0deg;
+      animation-timing-function: ease-out;
+    }
+    15%,
+    46%,
+    77% {
+      rotate: var(--idle-forward-pedal);
+      animation-timing-function: ease-in-out;
+    }
+    31%,
+    61% {
+      rotate: var(--idle-backward-pedal);
+      animation-timing-function: ease-in;
+    }
+    92% {
+      rotate: var(--idle-backward-pedal);
+      animation-timing-function: ease-in-out;
+    }
+    100% {
+      rotate: 0deg;
+    }
+  }
+
+  @keyframes unicycle-idle-frame {
+    0% {
+      rotate: 0deg;
+      animation-timing-function: ease-in-out;
+    }
+    38%,
+    69% {
+      rotate: 0deg;
+      animation-timing-function: ease-out;
+    }
+    15%,
+    46%,
+    77% {
+      rotate: var(--idle-forward-lean);
+      animation-timing-function: ease-in-out;
+    }
+    31%,
+    61% {
+      rotate: var(--idle-backward-lean);
+      animation-timing-function: ease-in;
+    }
+    92% {
+      rotate: var(--idle-backward-lean);
+      animation-timing-function: ease-in-out;
+    }
+    100% {
+      rotate: 0deg;
+    }
+  }
+
+  @keyframes unicycle-idle-travel {
+    0% {
+      translate: 0 0;
+      animation-timing-function: ease-in-out;
+    }
+    38%,
+    69% {
+      translate: 0 0;
+      animation-timing-function: ease-out;
+    }
+    15%,
+    46%,
+    77% {
+      translate: var(--idle-forward-travel) 0;
+      animation-timing-function: ease-in-out;
+    }
+    31%,
+    61% {
+      translate: var(--idle-backward-travel) 0;
+      animation-timing-function: ease-in;
+    }
+    92% {
+      translate: var(--idle-backward-travel) 0;
+      animation-timing-function: ease-in-out;
+    }
+    100% {
+      translate: 0 0;
+    }
+  }
+
+  @keyframes unicycle-straighten {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: var(--lean);
+    }
+  }
+
+  @keyframes unicycle-settle {
+    from {
+      rotate: var(--lean);
+    }
+    to {
+      rotate: 0deg;
+    }
+  }
+
+  /* Two warm-up hops, then the real one. Each takeoff eases out and each
+     descent eases in, so the arcs read as ballistic. */
+  @keyframes unicycle-hop {
+    0%,
+    28% {
+      translate: 0 0;
+      animation-timing-function: ease-out;
+    }
+    34% {
+      translate: 0 var(--hop-small);
+      animation-timing-function: ease-in;
+    }
+    40%,
+    46% {
+      translate: 0 0;
+      animation-timing-function: ease-out;
+    }
+    52% {
+      translate: 0 var(--hop-small);
+      animation-timing-function: ease-in;
+    }
+    58%,
+    68% {
+      translate: 0 0;
+      animation-timing-function: ease-out;
+    }
+    79% {
+      translate: 0 var(--hop-big);
+      animation-timing-function: ease-in;
+    }
+    90%,
+    100% {
+      translate: 0 0;
+    }
+  }
+
+  /* Squash and stretch, on its own animation so it composes with the hop
+     instead of having to share its keyframes. */
+  @keyframes unicycle-squash {
+    0%,
+    22% {
+      scale: 1 1;
+    }
+    26% {
+      scale: 1.1 0.85; /* crouch */
+    }
+    30% {
+      scale: 0.96 1.05; /* takeoff */
+    }
+    36% {
+      scale: 1 1; /* apex */
+    }
+    41% {
+      scale: 1.1 0.85; /* landing, straight into the next crouch */
+    }
+    48% {
+      scale: 0.96 1.05;
+    }
+    54% {
+      scale: 1 1;
+    }
+    59% {
+      scale: 1.1 0.85;
+    }
+    65% {
+      scale: 1.16 0.8; /* deeper crouch before the big one */
+    }
+    70% {
+      scale: 0.94 1.08;
+    }
+    80% {
+      scale: 1 1;
+    }
+    91% {
+      scale: 1.18 0.78; /* impact */
+    }
+    96%,
+    100% {
+      scale: 1 1;
     }
   }
 </style>
