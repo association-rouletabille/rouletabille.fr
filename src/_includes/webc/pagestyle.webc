@@ -154,6 +154,19 @@
     }
   }
 
+  /* Modal dialog open (carousel fullscreen): lock body scroll */
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  /* Carousel drag offset, in fractions of the stage width. Registered so it
+     substitutes as a typed number inside the slides' transform calc(). */
+  @property --pc-drag {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+  }
+
   /* =====================
    Unicycle icon: crank drive on hover
    ===================== */

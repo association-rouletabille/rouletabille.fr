@@ -1,0 +1,807 @@
+<div webc:root="override" class="pc" webc:if="gallery(this.label, this.photos).length > 0" data-pc :data-pc-count="String(gallery(this.label, this.photos).length)" role="group" aria-roledescription="carrousel" :aria-label="this.heading ? false : this.label" :aria-labelledby="this.heading ? galleryId(this.label) + '-title' : false">
+  <h2 webc:if="this.heading" class="pc-heading" :id="galleryId(this.label) + '-title'" @text="this.heading"></h2>
+
+  <div class="pc-media">
+    <div class="pc-stage" data-pc-stage>
+      <div class="pc-track" data-pc-track>
+        <div webc:for="(photo, index) of gallery(this.label, this.photos)" class="pc-slide" :data-index="String(index)" role="group" aria-roledescription="diapositive" :aria-label="`Photo ${index + 1} sur ${gallery(this.label, this.photos).length}`">
+          <figure class="pc-figure">
+            <div class="pc-frame">
+              <!--- `sizes` follows the measured <article> width: the 300px sidebar sharply
+                  reduces the column from the 800px viewport breakpoint onward. --->
+              <img :src="photo.src" :alt="photo.alt" sizes="(min-width: 1180px) 831px, (min-width: 800px) calc(100vw - 332px), calc(100vw - 32px)" :loading="index === 0 ? 'eager' : 'lazy'" decoding="async" />
+            </div>
+            <!--- Kept in flow for the no-JS fallback; overlaid on the photo once JS is enabled. --->
+            <figcaption webc:if="photo.caption" class="pc-caption" @text="photo.caption"></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="pc-nav pc-expand" data-pc-open>
+      <icon name="carousel-zoom"></icon>
+      <span class="pc-sr">Agrandir la photo</span>
+    </button>
+
+    <div webc:if="gallery(this.label, this.photos).length > 1" class="pc-overlay-nav">
+      <button type="button" class="pc-nav pc-prev" data-pc-prev aria-label="Photo précédente">
+        <icon name="carousel-prev"></icon>
+      </button>
+
+      <button type="button" class="pc-nav pc-next" data-pc-next aria-label="Photo suivante">
+        <icon name="carousel-next"></icon>
+      </button>
+    </div>
+  </div>
+
+  <p webc:if="gallery(this.label, this.photos).length > 1" class="pc-sr" role="status" data-pc-status></p>
+
+  <dialog class="pc-dialog" data-pc-dialog :aria-label="`${this.heading || this.label} — affichage plein écran`">
+    <button type="button" class="pc-nav pcd-close" data-pc-close autofocus aria-label="Fermer l'affichage plein écran">
+      <icon name="carousel-close"></icon>
+    </button>
+    <div class="pcd-body" data-pc-dialog-body></div>
+  </dialog>
+</div>
+
+<style webc:scoped>
+  :host {
+    --pc-h: clamp(12rem, 55svh, 34rem);
+    --pc-dur: 250ms;
+    --pc-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --pc-radius: 0.4rem;
+
+    --pc-matte: rgb(var(--palette-nav-fg));
+    --pc-btn-fg: rgb(var(--palette-bright));
+    --pc-btn-outline: rgb(var(--palette-accent-secondary));
+    --pc-btn-outline-hover: rgb(var(--palette-accent));
+    --pc-focus: rgb(var(--palette-accent));
+    --pc-scrim-start: rgba(var(--palette-nav-fg), 0);
+    --pc-scrim-end: rgba(var(--palette-nav-fg), 0.92);
+
+    display: block;
+    margin-block: 2.5rem;
+    container-type: inline-size;
+    container-name: pc;
+  }
+
+  /* `cqi` must be resolved by a descendant: a container cannot measure itself. */
+  .pc-media {
+    --pc-btn: clamp(2.75rem, 2.4rem + 1.6cqi, 3.25rem);
+  }
+
+  @media (pointer: coarse) {
+    .pc-media {
+      --pc-btn: clamp(3rem, 2.4rem + 1.6cqi, 3.25rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :host {
+      --pc-dur: 0ms;
+    }
+  }
+
+  .pc-heading {
+    font-family: var(--font-mono);
+    font-size: var(--fs-lg);
+    font-weight: bold;
+    color: rgb(var(--palette-accent-secondary));
+    margin-block: 0 0.75rem;
+    line-height: 1.3;
+  }
+
+  /* ===== Stage ===== */
+
+  .pc-media {
+    position: relative;
+  }
+
+  .pc-stage {
+    overflow: hidden;
+    border-radius: var(--pc-radius);
+    background: var(--pc-matte);
+    /* Vertical pan and native pinch-zoom stay with the browser; only
+        horizontal drag is captured by JS (axis-locked in bindStage()). */
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .pc-track {
+    display: grid;
+  }
+
+  /* Grid stacking: the track height is the maximum slide height,
+      so it does not move when the photo changes. */
+  .pc-slide {
+    grid-area: 1 / 1;
+    min-width: 0;
+  }
+
+  .pc-figure {
+    margin: 0;
+    position: relative;
+  }
+
+  .pc-frame {
+    height: var(--pc-h);
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+
+  .pc-frame img {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Overlaid on the photo (not a separate band) to reclaim vertical space.
+      Fixed matte/bright colours keep the contrast deterministic (EF-90). */
+  .pc-caption {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    margin: 0;
+    padding: 1.5rem 0.75rem 0.5rem;
+    font-size: var(--fs-sm);
+    font-style: italic;
+    line-height: 1.4;
+    color: rgb(var(--palette-bright));
+    text-align: center;
+    background: linear-gradient(to top, var(--pc-scrim-end) 0%, var(--pc-scrim-end) 55%, var(--pc-scrim-start) 100%);
+  }
+
+  /* ===== Degraded mode: native horizontal scrolling ===== */
+
+  @media (scripting: none) {
+    .pc-stage {
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      touch-action: auto;
+    }
+
+    .pc-track {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .pc-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+    }
+
+    /* No JS to drive the overlay: the caption returns to a plain band
+        below the photo, still inside the figure. */
+    .pc-caption {
+      position: static;
+      padding: 0.4rem 0.6rem 0;
+      min-height: 2lh;
+      color: rgb(var(--palette-bright));
+      background: none;
+    }
+
+    .pc-expand,
+    .pc-overlay-nav,
+    .pc-dialog {
+      display: none;
+    }
+  }
+
+  /* ===== Enhanced mode ===== */
+
+  @media (scripting: enabled) {
+    :host:not([data-pc-ready]) .pc-slide:not([data-index='0']) {
+      display: none;
+    }
+
+    :host[data-pc-ready] .pc-slide {
+      display: none;
+    }
+
+    :host[data-pc-ready] .pc-slide[data-state='current'],
+    :host[data-pc-ready] .pc-slide[data-state='prev'],
+    :host[data-pc-ready] .pc-slide[data-state='next'] {
+      display: block;
+    }
+
+    .pc-slide[data-state='prev'] {
+      --pc-off: -1;
+    }
+
+    .pc-slide[data-state='current'] {
+      --pc-off: 0;
+    }
+
+    .pc-slide[data-state='next'] {
+      --pc-off: 1;
+    }
+
+    :host[data-pc-ready] .pc-slide {
+      transform: translate3d(calc((var(--pc-off, 0) + var(--pc-drag)) * 100%), 0, 0);
+      transition: transform var(--pc-dur) var(--pc-ease);
+      will-change: transform;
+    }
+
+    :host[data-pc-dragging] .pc-slide {
+      transition: none;
+    }
+  }
+
+  /* ===== Overlaid controls: no background chip; a green outline around the
+      white icon keeps it visible on any photo (EF-91/92, revised 2026-09-29) ===== */
+
+  .pc-nav {
+    position: absolute;
+    inline-size: var(--pc-btn);
+    block-size: var(--pc-btn);
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    /* Without this, a double-tap/double-click on a control triggers the
+        browser's native double-tap-to-zoom gesture instead of two clicks. */
+    touch-action: manipulation;
+    color: var(--pc-btn-fg);
+    cursor: pointer;
+    z-index: 2;
+    /* Four-direction drop-shadow stack: fakes a stroke outline around the
+        icon's rendered silhouette (SVG has no native outside-stroke). */
+    filter: drop-shadow(0 1.5px 0 var(--pc-btn-outline)) drop-shadow(0 -1.5px 0 var(--pc-btn-outline)) drop-shadow(1.5px 0 0 var(--pc-btn-outline)) drop-shadow(-1.5px 0 0 var(--pc-btn-outline));
+  }
+
+  .pc-nav:hover {
+    --pc-btn-outline: var(--pc-btn-outline-hover);
+  }
+
+  .pc-nav:focus-visible {
+    outline: 3px solid var(--pc-focus);
+    outline-offset: 2px;
+  }
+
+  .pc-nav:active {
+    transform: scale(0.94);
+  }
+
+  .pc-nav svg {
+    inline-size: 62%;
+    block-size: 62%;
+    display: block;
+  }
+
+  /* Left/right arrows float on the photo edges instead of a below-photo row. */
+  .pc-overlay-nav {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 0.5rem;
+    pointer-events: none;
+  }
+
+  .pc-overlay-nav .pc-nav {
+    position: static;
+    pointer-events: auto;
+  }
+
+  .pc-expand {
+    inset-block-start: 0.5rem;
+    inset-inline-end: 0.5rem;
+    cursor: zoom-in;
+  }
+
+  .pc-expand svg {
+    inline-size: 55%;
+    block-size: 55%;
+  }
+
+  /* ===== Fullscreen ===== */
+
+  .pc-dialog {
+    position: fixed;
+    inset: 0;
+    inline-size: auto;
+    block-size: auto;
+    max-inline-size: none;
+    max-block-size: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: var(--pc-matte);
+    color: rgb(var(--palette-bright));
+    overscroll-behavior: contain;
+    --pc-btn: 3rem;
+    /* Real device insets only (fallback 0): the page-wide --safe-* tokens
+        enforce oversized minimums meant for nav/links, which would otherwise
+        letterbox the photo on all four sides regardless of its orientation. */
+    --pcd-inset-top: env(safe-area-inset-top, 0px);
+    --pcd-inset-right: env(safe-area-inset-right, 0px);
+    --pcd-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --pcd-inset-left: env(safe-area-inset-left, 0px);
+  }
+
+  @media (min-width: 1024px) {
+    .pc-dialog {
+      --pc-btn: 3.5rem;
+    }
+  }
+
+  .pc-dialog::backdrop {
+    background: var(--pc-matte);
+  }
+
+  /* No reserved header/footer rows: the photo fills the whole dialog and
+      every control is an overlay, so it gets the maximum screen real estate. */
+  .pc-dialog[open] {
+    display: block;
+  }
+
+  .pcd-close {
+    position: absolute;
+    inset-block-start: max(0.75rem, var(--pcd-inset-top));
+    inset-inline-end: max(0.75rem, var(--pcd-inset-right));
+    z-index: 3;
+  }
+
+  /* Edge-to-edge except for a real notch/gesture-bar: the photo's own aspect
+      ratio is then the only source of letterboxing, on at most two opposite
+      sides (never all four). */
+  .pcd-body {
+    position: absolute;
+    inset: 0;
+    padding: var(--pcd-inset-top) var(--pcd-inset-right) var(--pcd-inset-bottom) var(--pcd-inset-left);
+  }
+
+  .pc-dialog .pc-media {
+    block-size: 100%;
+    min-block-size: 0;
+  }
+
+  .pc-dialog .pc-stage {
+    block-size: 100%;
+    min-block-size: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .pc-dialog .pc-track,
+  .pc-dialog .pc-slide,
+  .pc-dialog .pc-figure,
+  .pc-dialog .pc-frame {
+    block-size: 100%;
+    min-block-size: 0;
+  }
+
+  .pc-dialog .pc-expand {
+    display: none;
+  }
+
+  /* Controls get their own clearance from the (now edge-to-edge) frame,
+      instead of the frame reserving space for them. */
+  .pc-dialog .pc-overlay-nav {
+    padding-inline: max(0.5rem, var(--pcd-inset-left)) max(0.5rem, var(--pcd-inset-right));
+  }
+
+  /* ===== Forced colors ===== */
+
+  @media (forced-colors: active) {
+    .pc-nav,
+    .pc-expand {
+      border: 1px solid ButtonBorder;
+      background: ButtonFace;
+      color: ButtonText;
+      filter: none;
+    }
+
+    .pc-stage {
+      border: 1px solid CanvasText;
+    }
+
+    .pc-nav:focus-visible,
+    .pc-expand:focus-visible {
+      outline-color: Highlight;
+    }
+  }
+
+  .pc-sr {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<script>
+  const AXIS_LOCK = 8;
+  const TAP_MAX_MOVE = 8;
+  const TAP_MAX_TIME = 500;
+  const COMMIT_RATIO = 0.15;
+  const COMMIT_SPEED = 0.4;
+  const WHEEL_STEP = 60;
+  const WHEEL_IDLE = 300;
+  const WARM_MARGIN = '200px';
+
+  class PhotoCarousel {
+    constructor(root) {
+      this.root = root;
+      this.count = Number(root.dataset.pcCount) || 0;
+      this.index = 0;
+      this.warm = false;
+      this.bias = 'next';
+      this.dialog = root.querySelector('[data-pc-dialog]');
+      this.dialogBuilt = false;
+      this.opener = null;
+    }
+
+    init() {
+      if (this.count < 1) {
+        return;
+      }
+
+      const canOpen = Boolean(this.dialog && this.dialog.showModal);
+
+      if (!canOpen) {
+        for (const button of this.root.querySelectorAll('[data-pc-open]')) {
+          button.hidden = true;
+        }
+      }
+
+      this.root.addEventListener('click', (event) => this.onClick(event));
+      this.root.addEventListener('keydown', (event) => this.onKeydown(event));
+      this.root.addEventListener('dragstart', (event) => event.preventDefault());
+
+      this.bindStage(this.root.querySelector('[data-pc-stage]'), canOpen);
+
+      if (this.dialog) {
+        this.dialog.addEventListener('close', () => this.onDialogClose());
+        this.dialog.addEventListener('click', (event) => {
+          if (event.target === this.dialog) {
+            this.dialog.close();
+          }
+        });
+      }
+
+      // Nothing is downloaded until the gallery approaches the viewport.
+      const observer = new IntersectionObserver(
+        (entries, instance) => {
+          if (!entries.some((entry) => entry.isIntersecting)) {
+            return;
+          }
+          instance.disconnect();
+          this.warm = true;
+          this.render();
+        },
+        { rootMargin: WARM_MARGIN },
+      );
+
+      observer.observe(this.root);
+
+      this.root.dataset.pcReady = '';
+      this.render();
+    }
+
+    render({ announce = false } = {}) {
+      const total = this.count;
+      const previous = (this.index - 1 + total) % total;
+      const next = (this.index + 1) % total;
+
+      for (const track of this.root.querySelectorAll('[data-pc-track]')) {
+        for (const slide of track.children) {
+          const position = Number(slide.dataset.index);
+          let state = 'far';
+
+          if (position === this.index) {
+            state = 'current';
+          } else if (!this.warm) {
+            state = 'far';
+          } else if (total === 2) {
+            state = this.bias === 'prev' ? 'prev' : 'next';
+          } else if (position === previous) {
+            state = 'prev';
+          } else if (position === next) {
+            state = 'next';
+          }
+
+          slide.dataset.state = state;
+          slide.inert = state !== 'current';
+          slide.setAttribute('aria-hidden', String(state !== 'current'));
+
+          if (state === 'prev' || state === 'next') {
+            const image = slide.querySelector('img');
+
+            if (image && image.decode) {
+              image.decode().catch(() => undefined);
+            }
+          }
+        }
+      }
+
+      if (announce) {
+        this.announce();
+      }
+    }
+
+    to(index) {
+      const total = this.count;
+      this.index = ((index % total) + total) % total;
+      this.render({ announce: true });
+    }
+
+    go(delta) {
+      if (this.count === 2) {
+        this.bias = delta > 0 ? 'next' : 'prev';
+      }
+
+      this.to(this.index + delta);
+    }
+
+    announce() {
+      const status = this.root.querySelector('[data-pc-status]');
+
+      if (!status) {
+        return;
+      }
+
+      const slide = this.root.querySelector(`.pc-slide[data-index="${this.index}"]`);
+      const image = slide && slide.querySelector('img');
+      const caption = slide && slide.querySelector('.pc-caption');
+
+      status.textContent = [`Photo ${this.index + 1} sur ${this.count}.`, image ? image.alt : '', caption ? caption.textContent.trim() : ''].filter(Boolean).join(' ');
+    }
+
+    bindStage(stage, allowOpen) {
+      if (!stage) {
+        return;
+      }
+
+      const track = stage.querySelector('[data-pc-track]');
+      let pointerId = null;
+      let startX = 0;
+      let startY = 0;
+      let startTime = 0;
+      let moved = 0;
+      let axis = null;
+
+      stage.addEventListener('pointerdown', (event) => {
+        if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) {
+          return;
+        }
+
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startY = event.clientY;
+        startTime = event.timeStamp;
+        moved = 0;
+        axis = null;
+      });
+
+      stage.addEventListener('pointermove', (event) => {
+        if (event.pointerId !== pointerId) {
+          return;
+        }
+
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
+
+        if (!axis) {
+          if (Math.abs(deltaX) < AXIS_LOCK && Math.abs(deltaY) < AXIS_LOCK) {
+            return;
+          }
+
+          axis = Math.abs(deltaX) > Math.abs(deltaY) ? 'x' : 'y';
+
+          // Vertical gesture: hand control back to the page's native scrolling.
+          if (axis === 'y') {
+            pointerId = null;
+            return;
+          }
+
+          stage.setPointerCapture(event.pointerId);
+          this.root.dataset.pcDragging = '';
+
+          if (this.count === 2) {
+            this.bias = deltaX > 0 ? 'prev' : 'next';
+            this.render();
+          }
+        }
+
+        moved = deltaX;
+        track.style.setProperty('--pc-drag', String(moved / stage.clientWidth));
+      });
+
+      const finish = (event) => {
+        if (event.pointerId !== pointerId) {
+          return;
+        }
+
+        const duration = event.timeStamp - startTime;
+        const distance = Math.abs(moved);
+        const wasDrag = axis === 'x';
+        pointerId = null;
+
+        if (!wasDrag) {
+          const isTap = distance < TAP_MAX_MOVE && duration < TAP_MAX_TIME;
+          const onChip = event.target.closest('[data-pc-open]');
+
+          if (allowOpen && isTap && !onChip) {
+            this.open();
+          }
+
+          return;
+        }
+
+        delete this.root.dataset.pcDragging;
+        track.style.setProperty('--pc-drag', '0');
+
+        const speed = distance / Math.max(duration, 1);
+
+        if (distance > stage.clientWidth * COMMIT_RATIO || speed > COMMIT_SPEED) {
+          this.go(moved < 0 ? 1 : -1);
+        } else {
+          this.render();
+        }
+      };
+
+      stage.addEventListener('pointerup', finish);
+      stage.addEventListener('pointercancel', finish);
+
+      let wheelTotal = 0;
+      let wheelTimer = 0;
+
+      stage.addEventListener(
+        'wheel',
+        (event) => {
+          if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
+            return;
+          }
+
+          wheelTotal += event.deltaX;
+          clearTimeout(wheelTimer);
+          wheelTimer = setTimeout(() => {
+            wheelTotal = 0;
+          }, WHEEL_IDLE);
+
+          if (Math.abs(wheelTotal) < WHEEL_STEP) {
+            return;
+          }
+
+          this.go(wheelTotal > 0 ? 1 : -1);
+          wheelTotal = 0;
+        },
+        { passive: true },
+      );
+    }
+
+    onClick(event) {
+      const target = event.target;
+
+      if (target.closest('[data-pc-prev]')) {
+        this.go(-1);
+        return;
+      }
+
+      if (target.closest('[data-pc-next]')) {
+        this.go(1);
+        return;
+      }
+
+      if (target.closest('[data-pc-close]')) {
+        this.dialog.close();
+        return;
+      }
+
+      if (target.closest('[data-pc-open]')) {
+        this.open();
+        return;
+      }
+    }
+
+    onKeydown(event) {
+      if (event.altKey || event.ctrlKey || event.metaKey) {
+        return;
+      }
+
+      if (event.target.matches('input, textarea, select')) {
+        return;
+      }
+
+      const inDialog = Boolean(this.dialog && this.dialog.open);
+
+      switch (event.key) {
+        case 'Escape':
+          if (!inDialog) {
+            return;
+          }
+          this.dialog.close();
+          event.preventDefault();
+          return;
+        case 'ArrowLeft':
+          this.go(-1);
+          break;
+        case 'ArrowRight':
+          this.go(1);
+          break;
+        case 'Home':
+          if (!inDialog) {
+            return;
+          }
+          this.to(0);
+          break;
+        case 'End':
+          if (!inDialog) {
+            return;
+          }
+          this.to(this.count - 1);
+          break;
+        default:
+          return;
+      }
+
+      event.preventDefault();
+    }
+
+    open() {
+      if (!this.dialog || !this.dialog.showModal) {
+        return;
+      }
+
+      this.opener = this.root.querySelector('[data-pc-open]');
+
+      if (!this.dialogBuilt) {
+        this.buildDialog();
+      }
+
+      this.dialog.showModal();
+      this.render();
+    }
+
+    buildDialog() {
+      const body = this.dialog.querySelector('[data-pc-dialog-body]');
+      const media = this.root.querySelector('.pc-media').cloneNode(true);
+
+      media.removeAttribute('id');
+
+      for (const element of media.querySelectorAll('[id]')) {
+        element.removeAttribute('id');
+      }
+
+      // Fullscreen: let the browser choose a substantially larger candidate.
+      for (const element of media.querySelectorAll('source, img')) {
+        element.setAttribute('sizes', '100vw');
+
+        if (element.matches('img')) {
+          const slide = element.closest('.pc-slide');
+          element.setAttribute('loading', slide?.dataset.state === 'current' ? 'eager' : 'lazy');
+        }
+      }
+
+      body.append(media);
+      this.bindStage(media.querySelector('[data-pc-stage]'), false);
+      this.dialogBuilt = true;
+    }
+
+    onDialogClose() {
+      this.render();
+
+      if (this.opener) {
+        this.opener.focus();
+      }
+    }
+  }
+
+  for (const root of document.querySelectorAll('[data-pc]')) {
+    new PhotoCarousel(root).init();
+  }
+</script>
