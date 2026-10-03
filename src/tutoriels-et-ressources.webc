@@ -6,7 +6,7 @@ description: >-
 permalink: /tutoriels-et-ressources.html
 ---
 
-<content-hero-photo @src="/imgs/hero-tutoriels.jpg" @alt="Deux monocyclistes en forêt, devant une carte. L'un d'eux, agenouillé, bricole son monocycle." @position="50% 65%" @caption="Photo : Enora"></content-hero-photo>
+<content-hero-photo @src="/imgs/hero-tutoriels.jpg" @alt="Établi de réparation de monocycles en bois. Sur le plan de travail sont disposés de nombreux outils. Une selle de monocycle noire repose au centre de l’établi, à côté de plusieurs manivelles noires." @position="50% 75%" @caption="Photo : Louis Dubalen"></content-hero-photo>
 
 <article>
   <h1>Tutoriels et ressources</h1>
