@@ -13,12 +13,32 @@ permalink: /tutoriels-et-ressources.html
 
   <card>
     <p>Une sélection de ressources en ligne pour découvrir, apprendre et progresser.</p>
+  </card>
+
+  <card>
+    <h2>Sites, forums et ressources en ligne</h2>
     <ul>
       <li><a href="https://monocycle.info" target="_blank" rel="noopener noreferrer">monocycle.info</a> → Site de référence du monocycle en France</li>
-      <li><a href="https://forum.monocycle.info" target="_blank" rel="noopener noreferrer">forum.monocycle.info</a> → Forum dédié à l'actualité du monocyle en France, aux échanges entre pratiquants et aux petites annonces</li>
+      <li><a href="https://forum.monocycle.info" target="_blank" rel="noopener noreferrer">forum.monocycle.info</a> → Forum dédié à l'actualité du monocycle en France, aux échanges entre pratiquants et aux petites annonces</li>
       <li><a href="https://unicycling.org" target="_blank" rel="noopener noreferrer">unicycling.org</a> → Site de la fédération internationale de monocycle</li>
       <li><a href="https://unicyclist.com" target="_blank" rel="noopener noreferrer">unicyclist.com</a> → Forum international pour échanger autour de la pratique du monocycle: conseils, débats, éléments historiques, questions matériel, vous y trouverez votre bonheur si vous aimez échanger en anglais avec d'autres passionnés de monocycle du monde entier</li>
       <li><a href="https://www.youtube.com/@CommissionNationaleMonocycle" target="_blank" rel="noopener noreferrer">youtube.com/@CommissionNationaleMonocycle</a> → Chaîne YouTube du monocycle en France, gérée par la Commission Nationale du Monocycle. Vous y trouverez des vidéos de conventions françaises et internationales, des partages de vidéos, des interviews, des lives, des tutos, etc.</li>
+    </ul>
+  </card>
+
+  <card>
+    <h2>Boutiques spécialisées</h2>
+    <ul>
+      <li><a href="https://www.cdk.fr/monocycle/" target="_blank" rel="noopener noreferrer">cdk.fr</a> → Référence historique basée à Lyon, CDK couvre toutes les disciplines du monocycle (Randonnée, Street, Basket, Initiation). Une boutique idéale pour du matériel spécialisé, des pièces détachées et des conseils d'experts.</li>
+      <li><a href="https://www.monocirk.fr/" target="_blank" rel="noopener noreferrer">monocirk.fr</a> → Issu du monde des arts du cirque et basé près de Nantes, ce magasin passionné offre un accompagnement chaleureux et de proximité. La référence pour trouver du matériel adapté et réaliser des montages sur-mesure.</li>
+    </ul>
+  </card>
+
+  <card>
+    <h2>Matériel d'occasion et petites annonces</h2>
+    <ul>
+      <li><a href="https://www.leboncoin.fr/recherche?text=monocycle" target="_blank" rel="noopener noreferrer">leboncoin.fr</a> → Plateforme généraliste d'annonces entre particuliers, pratique pour trouver un monocycle d'occasion près de chez soi. Pensez à vérifier l'état de la roue, de la selle et des manivelles, et à privilégier une remise en main propre quand c'est possible.</li>
+      <li><a href="https://forum.monocycle.info/c/achats/" target="_blank" rel="noopener noreferrer">forum.monocycle.info/c/achats</a> et <a href="https://forum.monocycle.info/c/ventes/" target="_blank" rel="noopener noreferrer">forum.monocycle.info/c/ventes</a> → Rubriques petites annonces du forum français de monocycle, idéales pour acheter ou vendre du matériel entre pratiquants, avec la possibilité de bénéficier des conseils de la communauté.</li>
     </ul>
   </card>
 </article>
