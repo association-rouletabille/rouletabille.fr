@@ -42,7 +42,7 @@ permalink: /tutoriels-et-ressources.html
   <card @heading="Boutiques spécialisées">
     <ul>
       <li><a href="https://www.cdk.fr/monocycle/" target="_blank" rel="noopener noreferrer">cdk.fr</a> → Référence historique basée à Lyon, CDK couvre toutes les disciplines du monocycle (Randonnée, Street, Basket, Initiation). Une boutique idéale pour du matériel spécialisé, des pièces détachées et des conseils d'experts.</li>
-      <li><a href="https://www.monocirk.fr/" target="_blank" rel="noopener noreferrer">monocirk.fr</a> → Issu du monde des arts du cirque et basé près de Nantes, ce magasin passionné offre un accompagnement chaleureux et de proximité. La référence pour trouver du matériel adapté et réaliser des montages sur-mesure.</li>
+      <li><a href="https://www.monocirk.fr/" target="_blank" rel="noopener noreferrer">monocirk.fr</a> → Issu du monde des arts du cirque et basé à Nantes, ce magasin passionné offre un accompagnement chaleureux et de proximité. La référence pour trouver du matériel adapté et réaliser des montages sur-mesure.</li>
     </ul>
   </card>
 
