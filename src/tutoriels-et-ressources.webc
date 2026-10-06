@@ -25,6 +25,20 @@ permalink: /tutoriels-et-ressources.html
     </ul>
   </card>
 
+  <card @heading="Culture monocycle">
+    <p>Une petite collection de vidéos pour partager et faire découvrir la diversité du monocycle et la culture de ses pratiquants.</p>
+
+    <ul>
+      <li><a href="https://youtu.be/XquNuw8yJh4" target="_blank" rel="noopener noreferrer">Revolution One: A Story of Off-road Unicycling</a> → Film d'aventure consacré au monocycle tout-terrain : Sorties en pleine nature, ascensions et descentes techniques.</li>
+      <li><a href="https://youtu.be/eqTrftGvF3U" target="_blank" rel="noopener noreferrer">High Maintenance: A Unicycling film by Voodoo Unicycles</a> → Film de monocycle produit par Voodoo Unicycles, qui met en scène des pratiquants et leurs figures dans une réalisation très dynamique.</li>
+      <li><a href="https://youtu.be/hxkglYmJwZE" target="_blank" rel="noopener noreferrer">Unicycling: More Than a Wheel</a> → Reportage de Lakeland PBS pour découvrir le monocycle, ses pratiquants et tout ce que cette discipline recouvre au-delà de l'équilibre sur une roue.</li>
+      <li><a href="https://youtu.be/t5co84RLVKg" target="_blank" rel="noopener noreferrer">Mimo Seedler: MAYBE</a> → Vidéo de street monocycle consacrée à Mimo Seedler. Créativité, technique et utilisation du mobilier urbain.</li>
+      <li><a href="https://youtu.be/plCFqsPqUjc" target="_blank" rel="noopener noreferrer">Riding a unicycle part 41: Evolution of balance (or not)</a> → Épisode consacré à l'apprentissage du monocycle et à la persévérance requise pour maîtriser son équilibre quel que soit le terrain.</li>
+      <li><a href="https://vimeo.com/791388187" target="_blank" rel="noopener noreferrer">The Rhythm of One</a> → Portrait du monocycliste canadien Ryan Kremsater, qui explore de nouvelles trajectoires et repousse les limites du monocycle tout-terrain.</li>
+      <li><a href="https://vimeo.com/48152895" target="_blank" rel="noopener noreferrer">JOURNEY: The Film</a> → Film de 35 minutes consacré à un voyage entre monocyclistes, mêlant street, flat et trial, paysages, rencontres et esprit de groupe.</li>
+    </ul>
+  </card>
+
   <card @heading="Boutiques spécialisées">
     <ul>
       <li><a href="https://www.cdk.fr/monocycle/" target="_blank" rel="noopener noreferrer">cdk.fr</a> → Référence historique basée à Lyon, CDK couvre toutes les disciplines du monocycle (Randonnée, Street, Basket, Initiation). Une boutique idéale pour du matériel spécialisé, des pièces détachées et des conseils d'experts.</li>
