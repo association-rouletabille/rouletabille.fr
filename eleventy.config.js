@@ -13,6 +13,7 @@ import minifyHtml from '@minify-html/node';
 import { transform } from 'lightningcss';
 
 import { generateLlmsFull } from './lib/llms-full/index.js';
+import { galleryId, normalizePhotos } from './lib/gallery/index.js';
 
 function transformCSS(content) {
   if (this.type !== 'css') {
@@ -147,6 +148,10 @@ export default async function (eleventyConfig) {
       transforms: [transformCSS],
     },
   });
+
+  // Callable from WebC expressions, including webc:if and webc:for.
+  eleventyConfig.addJavaScriptFunction('gallery', normalizePhotos);
+  eleventyConfig.addJavaScriptFunction('galleryId', galleryId);
 
   eleventyConfig.addTransform('svgids', transformSVGIds);
   eleventyConfig.addTransform('htmlmin', transformHTML);
