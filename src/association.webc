@@ -15,6 +15,9 @@ permalink: /association.html
   <card>
     <p><strong>Roule Ta Bille (RTB)</strong> est une association loi 1901 à but non lucratif dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et en Île-de-France.</p>
     <p>Notre objectif est de faire connaître et partager la pratique du monocycle, tout en favorisant le lien social autour de notre sport.</p>
+    <p>
+      <a href="/adhesion">Rejoignez-nous →</a>
+    </p>
   </card>
 
   <card @heading="Disciplines et activités">
