@@ -31,4 +31,10 @@ permalink: /adhesion.html
       <li>Se présenter au Bureau et participer activement à la vie de l'association</li>
     </ul>
   </card>
+
+  <card @heading="Nous contacter">
+    <ul>
+      <li><a href="mailto:association.rouletabille@gmail.com">association.rouletabille@gmail.com</a></li>
+    </ul>
+  </card>
 </article>
