@@ -24,6 +24,26 @@ permalink: /roule-ton-caillou.html
     </ul>
   </card>
 
+  <!--- Editorial TODO: replace each `alt` with a precise description of THE photo
+      (what it actually shows), and add captions (credit, edition, location).
+      An empty `alt` fails the build. --->
+  <photo-carousel
+    @label="Photos de Roule Ton Caillou"
+    @heading="En images"
+    :@photos="[
+      { src: `/imgs/rtc-01.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu 1` },
+      { src: `/imgs/rtc-02.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu 2` },
+      { src: `/imgs/rtc-03.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu 3` },
+      { src: `/imgs/rtc-04.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu 4` },
+      { src: `/imgs/rtc-05.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu 5` },
+      { src: `/imgs/rtc-06.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu 6` },
+      { src: `/imgs/rtc-07.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu 7` },
+      { src: `/imgs/rtc-08.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu 8` },
+      { src: `/imgs/rtc-09.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu 9` },
+      { src: `/imgs/rtc-10.jpg`, alt: `Monocyclistes tout-terrain dans la forêt de Fontainebleau lors de Roule Ton Caillou.`, caption:`Photo: Inconnu A` }
+    ]"
+  ></photo-carousel>
+
   <card @heading="Infos pratiques">
     <ul>
       <li><strong>Période :</strong> généralement le premier week-end de mai, avec parfois une édition hivernale en janvier ou février</li>
