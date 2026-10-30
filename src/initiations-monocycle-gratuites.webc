@@ -12,9 +12,7 @@ permalink: /initiations-monocycle-gratuites.html
 <article>
   <h1>Initiations gratuites</h1>
 
-  <card>
-    <p>Certains week-ends, nous proposons des sessions d'initiations sur la dalle des Olympiades (Paris 13e). Débutants comme pratiquants souhaitant progresser, tout le monde est bienvenu et du matériel est mis à disposition (monocycles d'initiation, trial, distance… tailles enfant et adulte !).</p>
-  </card>
+  <p>Certains week-ends, nous proposons des sessions d'initiations sur la dalle des Olympiades (Paris 13e). Débutants comme pratiquants souhaitant progresser, tout le monde est bienvenu et du matériel est mis à disposition (monocycles d'initiation, trial, distance… tailles enfant et adulte !).</p>
 
   <card @heading="Infos pratiques">
     <ul>
