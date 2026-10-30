@@ -12,13 +12,11 @@ permalink: /association.html
 <article>
   <h1>Qui sommes-nous ?</h1>
 
-  <card>
-    <p><strong>Roule Ta Bille (RTB)</strong> est une association loi 1901 à but non lucratif dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et en Île-de-France.</p>
-    <p>Notre objectif est de faire connaître et partager la pratique du monocycle, tout en favorisant le lien social autour de notre sport.</p>
-    <p>
-      <a href="/adhesion">Rejoignez-nous →</a>
-    </p>
-  </card>
+  <p><strong>Roule Ta Bille (RTB)</strong> est une association loi 1901 à but non lucratif dédiée à la découverte, au partage et au développement de la pratique du monocycle à Paris et en Île-de-France.</p>
+  <p>Notre objectif est de faire connaître et partager la pratique du monocycle, tout en favorisant le lien social autour de notre sport.</p>
+  <p>
+    <a href="/adhesion">Rejoignez-nous →</a>
+  </p>
 
   <card @heading="Disciplines et activités">
     <p>Parmi toutes les <a href="https://fr.wikipedia.org/wiki/Monocycle#Les_disciplines_du_monocycle" target="_blank" rel="noopener noreferrer">disciplines existantes</a>, voici celles* proposées par notre asso :</p>

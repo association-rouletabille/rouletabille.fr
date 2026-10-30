@@ -12,9 +12,7 @@ permalink: /balades-du-mardi-soir.html
 <article>
   <h1>Balades du Mardi Soir</h1>
 
-  <card>
-    <p>Le mardi à 20h30, rendez-vous à Châtelet devant la <a href="https://maps.app.goo.gl/qmmyf3NRYmyetsEX8" target="_blank" rel="noopener noreferrer">Fontaine des Innocents</a> pour une balade de plusieurs kilomètres. L'itinéraire change chaque semaine selon les envies des participant·e·s, et il est possible de quitter la balade à tout moment de la soirée.</p>
-  </card>
+  <p>Le mardi à 20h30, rendez-vous à Châtelet devant la <a href="https://maps.app.goo.gl/qmmyf3NRYmyetsEX8" target="_blank" rel="noopener noreferrer">Fontaine des Innocents</a> pour une balade de plusieurs kilomètres. L'itinéraire change chaque semaine selon les envies des participant·e·s, et il est possible de quitter la balade à tout moment de la soirée.</p>
 
   <card @heading="Conditions de participation">
     <p>La balade du mardi soir est un rendez-vous hebdomadaire gratuit, réservé aux pratiquants <strong>autonomes</strong>, capables de rouler de façon sûre en milieu urbain (circulation, trottoirs, croisements). Il ne s'agit pas d'une séance d'initiation — si vous débutez, commencez par une <a href="/initiations-monocycle-gratuites">initiation</a> !</p>
