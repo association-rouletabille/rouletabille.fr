@@ -11,9 +11,7 @@ permalink: /tutoriels-et-ressources.html
 <article>
   <h1>Tutoriels et ressources</h1>
 
-  <card>
-    <p>Une sélection de ressources en ligne pour découvrir, apprendre et progresser.</p>
-  </card>
+  <p>Une sélection de ressources en ligne pour découvrir, apprendre et progresser.</p>
 
   <card @heading="Sites, forums et ressources en ligne">
     <ul>

@@ -12,9 +12,7 @@ permalink: /roule-ton-caillou.html
 <article>
   <h1>Roule Ton Caillou</h1>
 
-  <card>
-    <p>Une à deux fois par an, nous partons en Seine-et-Marne pour profiter des sentiers escarpés de la forêt de Fontainebleau en monocycle tout-terrain.</p>
-  </card>
+  <p>Une à deux fois par an, nous partons en Seine-et-Marne pour profiter des sentiers escarpés de la forêt de Fontainebleau en monocycle tout-terrain.</p>
 
   <card @heading="Programme">
     <ul>
