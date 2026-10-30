@@ -1,7 +1,14 @@
 import process from 'node:process';
 import { Buffer } from 'node:buffer';
-import { cpSync, existsSync, mkdirSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import {
+  cpSync,
+  existsSync,
+  globSync,
+  mkdirSync,
+  readFileSync,
+  writeFileSync,
+} from 'node:fs';
+import { basename, join, resolve } from 'node:path';
 
 import pluginWebc from '@11ty/eleventy-plugin-webc';
 import dirOutputPlugin from '@11ty/eleventy-plugin-directory-output';
@@ -13,6 +20,18 @@ import minifyHtml from '@minify-html/node';
 import { transform } from 'lightningcss';
 
 import { generateLlmsFull } from './lib/llms-full/index.js';
+import {
+  canonicalHeaders,
+  createHtmlRenderer,
+  createMarkdownRenderer,
+  hasMarkdownVersion,
+  markdownUrl,
+  resolvePermalink,
+} from './lib/markdown-pages/index.js';
+import markdownComponents from './src/_config/markdown-components.js';
+
+const WEBC_COMPONENTS = './src/_includes/webc/*.webc';
+const HEADERS = './src/public/_headers';
 
 function transformCSS(content) {
   if (this.type !== 'css') {
@@ -142,9 +161,75 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(pluginWebc, {
-    components: ['./src/_includes/webc/*.webc'],
+    components: [WEBC_COMPONENTS],
     bundlePluginOptions: {
       transforms: [transformCSS],
+    },
+  });
+
+  // Pages are authored in Markdown and published twice: as HTML, and as
+  // Markdown at /<page>.md. See lib/markdown-pages/README.md.
+  //
+  // The component names are listed again before each page is rendered, so
+  // that a component added while serving is recognised without a restart.
+  const componentNames = new Set();
+  const refreshComponentNames = () => {
+    componentNames.clear();
+
+    for (const file of globSync(WEBC_COMPONENTS)) {
+      componentNames.add(basename(file, '.webc'));
+    }
+  };
+  const renderHtml = createHtmlRenderer(componentNames);
+  const renderMarkdown = createMarkdownRenderer(
+    componentNames,
+    markdownComponents,
+  );
+
+  // The Markdown is turned into HTML first, then compiled by the WebC engine
+  // (which inlines the components and bundles their CSS and JS). The other way
+  // around, WebC would mangle the Markdown before it gets rendered. The
+  // source is kept aside for the page's Markdown version.
+  //
+  // Every template is therefore rendered by WebC, .md ones included. WebC
+  // would then also render front matter permalinks as templates and fail on
+  // them, so permalinks are plain strings.
+  eleventyConfig.addGlobalData('templateEngineOverride', 'webc');
+  eleventyConfig.addGlobalData('dynamicPermalink', false);
+  eleventyConfig.addPreprocessor('markdown-pages', 'md', (data, content) => {
+    // Runs before Eleventy computes the page's output path from it.
+    data.permalink = resolvePermalink(data);
+    data.markdownSource = content;
+    refreshComponentNames();
+
+    return renderHtml(content, data.page.inputPath);
+  });
+
+  eleventyConfig.addCollection('markdownPages', (collectionApi) =>
+    collectionApi.getAll().filter((item) => hasMarkdownVersion(item.data)),
+  );
+
+  eleventyConfig.addTemplate('markdown-pages.11ty.js', {
+    data: {
+      pagination: {
+        data: 'collections.markdownPages',
+        size: 1,
+        alias: 'source',
+      },
+      permalink: ({ source }) => markdownUrl(source.url),
+      eleventyExcludeFromCollections: true,
+      // Opts out of the WebC defaults set as global data above.
+      templateEngineOverride: '11ty.js',
+      dynamicPermalink: true,
+    },
+    render: ({ source, collections }) => {
+      refreshComponentNames();
+
+      return renderMarkdown(
+        source.data.markdownSource,
+        source.page,
+        collections.markdownPages.map((item) => item.url),
+      );
     },
   });
 
@@ -165,11 +250,23 @@ export default async function (eleventyConfig) {
     (process.env.COMMIT_SHA || 'deadbeefc0ffee').substring(0, 7),
   );
 
-  eleventyConfig.on('eleventy.after', () => {
+  eleventyConfig.on('eleventy.after', ({ results }) => {
     // Never apply post processing when in dev mode
     if (process.env.ELEVENTY_RUN_MODE !== 'build') {
       return;
     }
+
+    // The Markdown versions' canonical links are added to the copy of
+    // src/public/_headers, which is built from the source each time so they
+    // are never appended twice.
+    const markdownUrls = results
+      .map(({ url }) => url)
+      .filter((url) => typeof url === 'string' && url.endsWith('.md'));
+
+    writeFileSync(
+      join(eleventyConfig.directories.output, '_headers'),
+      `${readFileSync(HEADERS, 'utf8').trimEnd()}\n\n${canonicalHeaders(markdownUrls)}`,
+    );
 
     generateLlmsFull(eleventyConfig.directories.output, eleventyConfig.logger);
 

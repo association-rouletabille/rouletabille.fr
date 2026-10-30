@@ -5,7 +5,7 @@ Site de test pour llms-full.js.
 ## Simple Page
 
 Description : Une page simple.
-Source : https://rouletabille.fr/simple
+Source : https://rouletabille.fr/simple.md
 
 ### Section
 
@@ -24,42 +24,47 @@ Source : https://rouletabille.fr
 
 ### Bienvenue
 
-Une page d'accueil avec un [lien interne](https://rouletabille.fr/association).
+Une page d'accueil avec un [lien interne](https://rouletabille.fr/association.md).
 
 ---
 
 ## Galerie
 
 Description : Des photos.
-Source : https://rouletabille.fr/media
+Source : https://rouletabille.fr/media.md
 
 ### Galerie photos
 
-Du texte après la photo.
+Du texte après la photo, et un [lien](https://rouletabille.fr/headings.md).
 
 ---
 
 ## Liens
 
 Description : Toutes sortes de liens.
-Source : https://rouletabille.fr/links
+Source : https://rouletabille.fr/links.md
 
--   [Relatif](https://rouletabille.fr/association)
--   [Suffixé en .html](https://rouletabille.fr/media)
--   [Avec barre oblique](https://rouletabille.fr/headings)
+-   [Relatif](https://rouletabille.fr/association.md)
+-   [Suffixé en .html](https://rouletabille.fr/media.md)
+-   [Avec barre oblique](https://rouletabille.fr/headings.md)
 -   [Externe](https://example.com/page)
 -   [Courriel](mailto:contact@rouletabille.fr)
--   [Page simple](https://rouletabille.fr/simple)
--   [/media](https://rouletabille.fr/media)
--   [Ancre sur la page](https://rouletabille.fr/links#section)
+-   [](https://rouletabille.fr/media.md)
+-   [Ancre ailleurs](https://rouletabille.fr/imgs/plan.pdf#page=2)
 -   Sans href
+-   [Parenthèses](https://fr.wikipedia.org/wiki/Monocycle#Unicon_(Championnat_du_monde))
+-   [Espace](https://example.com/a%20b)
+-   [Avec titre](https://example.com/titre "Un titre")
+-   [Référence][r] et <https://example.com/autolien>
+
+[r]: https://rouletabille.fr/simple.md
 
 ---
 
 ## Headings
 
 Description : Des titres imbriques.
-Source : https://rouletabille.fr/headings
+Source : https://rouletabille.fr/headings.md
 
 ### Deux
 
@@ -76,7 +81,7 @@ Retour en arrière.
 ## Expected Title
 
 Description : A page with mismatched h1 title.
-Source : https://rouletabille.fr/mismatch
+Source : https://rouletabille.fr/mismatch.md
 
 ### Actual Page Heading
 
@@ -87,6 +92,44 @@ Content here.
 ##### Subsection
 
 More content.
+
+---
+
+## Code
+
+Description : Du code.
+Source : https://rouletabille.fr/code.md
+
+Un exemple :
+
+```markdown
+# Pas un titre
+
+## Toujours pas
+```
+
+### Après
+
+-   Une liste avec du _formatage_ conservé
+
+---
+
+## Listes
+
+Description : Des listes.
+Source : https://rouletabille.fr/lists.md
+
+-   Simple
+-   Avec suite
+
+    Un second paragraphe.
+
+    -   Imbriquée
+    -   Encore
+
+1.  Un
+2.  Deux
+    suite
 
 ---
 
