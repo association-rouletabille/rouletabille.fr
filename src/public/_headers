@@ -27,5 +27,11 @@ https://:version.:subdomain.workers.dev/*
 /llms-full.txt
   content-type: text/markdown; charset=utf-8
 
+/*.md
+  content-type: text/markdown; charset=utf-8
+
+# Each /<page>.md also gets a `link: <…>; rel="canonical"` header pointing to
+# its HTML page, added by the build (see lib/markdown-pages/README.md).
+
 /sitemap.xml
   content-type: application/xml; charset=utf-8

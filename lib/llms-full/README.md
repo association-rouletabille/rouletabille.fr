@@ -1,22 +1,24 @@
-# scripts/
+# llms-full.txt generation
 
-## llms-full.txt generation
-
-Generates [`llms-full.txt`](../src/public/llms-full.txt), a Markdown companion
-to the hand-maintained [`llms.txt`](../src/public/llms.txt). It runs from
-Eleventy's `eleventy.after` hook after the site's HTML has been built.
+Generates [`llms-full.txt`](../../src/public/llms-full.txt), a Markdown companion
+to the hand-maintained [`llms.txt`](../../src/public/llms.txt). It runs from
+Eleventy's `eleventy.after` hook after the site has been built.
 
 ### Generation flow
 
-1. Read the top-level `dist/*.html` files and extract each page's `<main>`
-   content. `/404.html` is excluded.
+1. Read the `dist/**/*.md` files: the Markdown version of each content
+   page, rendered from its source (see
+   [`lib/markdown-pages`](../markdown-pages/README.md)). Their components are
+   already replaced and their site links already absolute, pointing to the
+   pages' `.md` versions.
 2. Read the built `dist/llms.txt`. Its intro, `## Pages` entries, order, titles,
    descriptions, and `## Contact` section define the generated document.
-3. Convert each page fragment from HTML to Markdown with `turndown`.
-4. Add one `## <page title>` section per manifest entry, followed by its
-   description, canonical source URL, and converted content.
-5. Append the contact section after a horizontal rule.
-6. During build, write the result to `dist/llms-full.txt` and to
+3. Add one `## <page title>` section per manifest entry, followed by its
+   description, source URL (the page's `.md` version, or the site root for
+   the home page), and the page's Markdown, with its headings nested under
+   the section.
+4. Append the contact section after a horizontal rule.
+5. During build, write the result to `dist/llms-full.txt` and to
    `src/public/llms-full.txt`.
 
 The generated file combines curated metadata from `llms.txt` with content from
@@ -29,29 +31,39 @@ into llms-full.txt. Other manifest sections—Affiliations, Optional, Notes—ar
 summaries of website content and would duplicate the full page content already
 included via the Pages index. To prevent redundancy, those sections are not extracted.
 
+`## Pages` entries link to the pages' `.md` versions
+(`https://rouletabille.fr/association.md`), as llms.txt readers expect.
+
 ### Content tweaks
 
-The HTML-to-Markdown step applies three site-specific rules:
+Each page is parsed into a Markdown syntax tree (mdast), transformed, and
+serialized back with [`mdast-util-to-markdown`](https://github.com/syntax-tree/mdast-util-to-markdown):
 
-- **Headings:** the first on-page heading must be an `h1`. When its text is
-  identical to the manifest title, it is removed to avoid duplicate titles;
-  every following heading, including nested ones, shifts up by one level.
-- **Images:** `img` and `figcaption` elements are removed. The document is
+- **Headings:** the first heading must be an `h1`. When its text is identical
+  to the manifest title, it is removed to avoid duplicate titles; every
+  following heading shifts up by one level.
+- **Images:** removed, along with the space around them, the paragraphs they
+  leave empty, and the reference definitions only they used. The document is
   intended as text context, not a media export.
-- **Links:** internal links are rewritten to absolute `https://rouletabille.fr` URLs.
-  External and `mailto:` links pass through unchanged; links without visible
-  text use their `aria-label` or raw `href` as fallback text.
+- **Inline HTML:** its tags are removed, its text kept (`<a>texte</a>` →
+  `texte`). HTML blocks are kept as is.
+- **Layout:** the serialization keeps the one llms-full.txt always had (it used
+  to be converted from HTML): `-   item` and `1.  item` lists, `_emphasis_`,
+  `**strong**`, `#` headings, trailing-spaces hard breaks, and link
+  destinations as written. Being rebuilt from the tree, a page may otherwise
+  be normalised slightly (escaping, ordered lists past 9 using `10. item`).
 
 ### Validation and development
 
-The build fails when a manifest page has no rendered HTML, when a rendered page
-has no manifest entry, when a page does not contain exactly one `<main>`, or
-when the `Pages` section contains a malformed, invalid, external, or duplicate
-URL. This keeps the curated page list and generated content in sync. The
-script currently expects the site's flat output layout.
+The build fails when a manifest page has no Markdown version, when a Markdown
+page has no manifest entry, when a page doesn't have exactly one `h1`, or when
+the `Pages` section contains a malformed, invalid, external, non-`.md` or
+duplicate URL. This keeps the curated page list and generated content in sync.
 
 During `npm run serve`, no generation is done to avoid triggering another
-watched rebuild.
+watched rebuild. A page renamed while serving leaves its former `.md` in
+`dist/`, which then fails the next build as having no manifest entry: run
+`npm run clean` first.
 
 After changing page content or `llms.txt`, regenerate and add the new `llms-full.txt` version to your commit. This way it'll be reviewed by a human and give us an extra chance to catch a unexpected drift or regression:
 

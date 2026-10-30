@@ -17,38 +17,38 @@ Source : https://rouletabille.fr
 
 **Roule Ta Bille (RTB)** est une association loi 1901 dédiée au monocycle à Paris et en Île-de-France. Depuis 2005, nous accueillons débutants et pratiquants confirmés autour de sorties et d'événements conviviaux.
 
-[En savoir plus sur l'association →](https://rouletabille.fr/association)
+[En savoir plus sur l'association →](https://rouletabille.fr/association.md)
 
 #### Initiations gratuites
 
-L'idéal pour découvrir le monocycle ou se perfectionner. Nos sessions d'initiation accueillent tous les niveaux à Paris 13e. Ouvertes à tous, le matériel est fourni !
+L'idéal pour découvrir le monocycle ou se perfectionner. Nos sessions d'initiation accueillent tous les niveaux à Paris 13ᵉ. Ouvertes à tous, le matériel est fourni !
 
-[Découvrir les initiations →](https://rouletabille.fr/initiations-monocycle-gratuites)
+[Découvrir les initiations →](https://rouletabille.fr/initiations-monocycle-gratuites.md)
 
 #### Balades du Mardi Soir
 
 Chaque mardi soir (ou presque !), nous sillonnons les rues de Paris en monocycle…
 
-[Rejoindre la balade →](https://rouletabille.fr/balades-du-mardi-soir)
+[Rejoindre la balade →](https://rouletabille.fr/balades-du-mardi-soir.md)
 
 #### Trial, street et flat
 
 Un peu plus d'urbain pour agrémenter la pratique ? Une session trial, street et flat a lieu le mercredi soir en collaboration avec une association de skate.
 
-[Apprendre à faire des sauts et des figures →](https://rouletabille.fr/trial-street-flat)
+[Apprendre à faire des sauts et des figures →](https://rouletabille.fr/trial-street-flat.md)
 
 #### Roule Ton Caillou
 
 Notre événement annuel dédié au monocycle tout terrain (Muni) dans la forêt de Fontainebleau. Un week-end dans la nature, pour rouler sur du caillou en excellente compagnie.
 
-[Découvrir l'événement →](https://rouletabille.fr/roule-ton-caillou)
+[Découvrir l'événement →](https://rouletabille.fr/roule-ton-caillou.md)
 
 ---
 
 ## L'association
 
 Description : Statut, disciplines, affiliations, informations légales
-Source : https://rouletabille.fr/association
+Source : https://rouletabille.fr/association.md
 
 ### Qui sommes-nous ?
 
@@ -56,20 +56,20 @@ Source : https://rouletabille.fr/association
 
 Notre objectif est de faire connaître et partager la pratique du monocycle, tout en favorisant le lien social autour de notre sport.
 
-[Rejoignez-nous →](https://rouletabille.fr/adhesion)
+[Rejoignez-nous →](https://rouletabille.fr/adhesion.md)
 
 #### Disciplines et activités
 
 Parmi toutes les [disciplines existantes](https://fr.wikipedia.org/wiki/Monocycle#Les_disciplines_du_monocycle), voici celles\* proposées par notre asso :
 
--   [Balade](https://rouletabille.fr/balades-du-mardi-soir) parisienne les mardis soir
--   [Trial, street, flat](https://rouletabille.fr/trial-street-flat) les mercredis soir
--   [Muni (tout terrain)](https://rouletabille.fr/roule-ton-caillou) en Île de France lors d'événements ponctuels
+-   [Balade](https://rouletabille.fr/balades-du-mardi-soir.md) parisienne les mardis soir
+-   [Trial, street, flat](https://rouletabille.fr/trial-street-flat.md) les mercredis soir
+-   [Muni (tout terrain)](https://rouletabille.fr/roule-ton-caillou.md) en Île de France lors d'événements ponctuels
 -   Randonnée du 11 novembre : parcours de 50 km reliant Pantin à Meaux, le long du canal de l’Ourcq.
 -   Participation à des rendez-vous sportifs et festifs comme Sentez-vous Sport (CNOSF) ou le défilé des vendanges de Montmartre.
 -   Présence groupée aux grandes compétitions du monocycle, en France comme à l’international : la [CFM](https://fr.wikipedia.org/wiki/Monocycle#Coupe_de_France) (Coupe de France de Monocycle, annuelle) et [l’Unicon](https://fr.wikipedia.org/wiki/Monocycle#Unicon_(Championnat_du_monde)) (championnats du monde, tous les deux ans).
 
-(\*) Nous sommes cependant ouverts à toutes propositions extérieures qui nous permettraient d’explorer de nouveaux horizons 😉
+_(\*) Nous sommes cependant ouverts à toutes propositions extérieures qui nous permettraient d’explorer de nouveaux horizons 😉_
 
 #### Affiliations
 
@@ -93,7 +93,7 @@ Roule Ta Bille est officiellement rattachée aux instances suivantes :
 ## Adhésion
 
 Description : Cotisation, avantages et raisons d'adhérer
-Source : https://rouletabille.fr/adhesion
+Source : https://rouletabille.fr/adhesion.md
 
 ### Pourquoi devenir membre de Roule Ta Bille ?
 
@@ -122,7 +122,7 @@ La cotisation annuelle est de 15 € pour le premier membre d'une famille, puis 
 ## Initiations gratuites
 
 Description : Sessions gratuites d'initiation, Dalle des Olympiades (Paris 13e)
-Source : https://rouletabille.fr/initiations-monocycle-gratuites
+Source : https://rouletabille.fr/initiations-monocycle-gratuites.md
 
 Certains week-ends, nous proposons des sessions d'initiations sur la dalle des Olympiades (Paris 13e). Débutants comme pratiquants souhaitant progresser, tout le monde est bienvenu et du matériel est mis à disposition (monocycles d'initiation, trial, distance… tailles enfant et adulte !).
 
@@ -157,13 +157,13 @@ Les annonces des prochaines sessions sont publiées sur nos réseaux ! N'hésite
 ## Balades du Mardi Soir
 
 Description : Sortie urbaine nocturne hebdomadaire, RDV Châtelet 20h30
-Source : https://rouletabille.fr/balades-du-mardi-soir
+Source : https://rouletabille.fr/balades-du-mardi-soir.md
 
 Le mardi à 20h30, rendez-vous à Châtelet devant la [Fontaine des Innocents](https://maps.app.goo.gl/qmmyf3NRYmyetsEX8) pour une balade de plusieurs kilomètres. L'itinéraire change chaque semaine selon les envies des participant·e·s, et il est possible de quitter la balade à tout moment de la soirée.
 
 ### Conditions de participation
 
-La balade du mardi soir est un rendez-vous hebdomadaire gratuit, réservé aux pratiquants **autonomes**, capables de rouler de façon sûre en milieu urbain (circulation, trottoirs, croisements). Il ne s'agit pas d'une séance d'initiation — si vous débutez, commencez par une [initiation](https://rouletabille.fr/initiations-monocycle-gratuites) !
+La balade du mardi soir est un rendez-vous hebdomadaire gratuit, réservé aux pratiquants **autonomes**, capables de rouler de façon sûre en milieu urbain (circulation, trottoirs, croisements). Il ne s'agit pas d'une séance d'initiation — si vous débutez, commencez par une [initiation](https://rouletabille.fr/initiations-monocycle-gratuites.md) !
 
 -   Casque et protections personnelles vivement conseillés
 -   Monocycle personnel requis
@@ -180,7 +180,7 @@ Les annonces de présence et les détails de chaque sortie se font via le groupe
 ## Trial, street et flat
 
 Description : Séances hebdomadaires au Kremlin-Bicêtre avec Street Rider
-Source : https://rouletabille.fr/trial-street-flat
+Source : https://rouletabille.fr/trial-street-flat.md
 
 Tous les mercredis soirs, nous donnons rendez-vous aux plus fous d'entre-nous dans le sous-sol reculé du Kremlin Bicêtre pour commettre l'indicible sur monocycle…
 
@@ -211,7 +211,7 @@ Envoyez nous un mail afin que l'on puisse vous mettre en contact avec un habitu�
 ## Roule Ton Caillou
 
 Description : Événement annuel de muni en forêt de Fontainebleau
-Source : https://rouletabille.fr/roule-ton-caillou
+Source : https://rouletabille.fr/roule-ton-caillou.md
 
 Une à deux fois par an, nous partons en Seine-et-Marne pour profiter des sentiers escarpés de la forêt de Fontainebleau en monocycle tout-terrain.
 
@@ -236,16 +236,16 @@ L'événement est ouvert aux pratiquants sachant déjà rouler en autonomie. Que
 ## Tutoriels et ressources
 
 Description : Ressources externes pour apprendre et progresser
-Source : https://rouletabille.fr/tutoriels-et-ressources
+Source : https://rouletabille.fr/tutoriels-et-ressources.md
 
 Une sélection de ressources en ligne pour découvrir, apprendre et progresser.
 
 ### Sites, forums et ressources en ligne
 
--   [monocycle.info](https://monocycle.info/) → Site de référence du monocycle en France
--   [forum.monocycle.info](https://forum.monocycle.info/) → Forum dédié à l'actualité du monocycle en France, aux échanges entre pratiquants et aux petites annonces
--   [unicycling.org](https://unicycling.org/) → Site de la fédération internationale de monocycle
--   [unicyclist.com](https://unicyclist.com/) → Forum international pour échanger autour de la pratique du monocycle: conseils, débats, éléments historiques, questions matériel, vous y trouverez votre bonheur si vous aimez échanger en anglais avec d'autres passionnés de monocycle du monde entier
+-   [monocycle.info](https://monocycle.info) → Site de référence du monocycle en France
+-   [forum.monocycle.info](https://forum.monocycle.info) → Forum dédié à l'actualité du monocycle en France, aux échanges entre pratiquants et aux petites annonces
+-   [unicycling.org](https://unicycling.org) → Site de la fédération internationale de monocycle
+-   [unicyclist.com](https://unicyclist.com) → Forum international pour échanger autour de la pratique du monocycle: conseils, débats, éléments historiques, questions matériel, vous y trouverez votre bonheur si vous aimez échanger en anglais avec d'autres passionnés de monocycle du monde entier
 -   [youtube.com/@CommissionNationaleMonocycle](https://www.youtube.com/@CommissionNationaleMonocycle) → Chaîne YouTube du monocycle en France, gérée par la Commission Nationale du Monocycle. Vous y trouverez des vidéos de conventions françaises et internationales, des partages de vidéos, des interviews, des lives, des tutos, etc.
 
 ### Culture monocycle
