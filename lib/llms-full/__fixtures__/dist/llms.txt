@@ -4,12 +4,14 @@ Site de test pour llms-full.js.
 
 ## Pages
 
--   [Simple Page](https://rouletabille.fr/simple): Une page simple.
-- [Accueil](https://rouletabille.fr/): La page d'accueil.
-- [Galerie](https://rouletabille.fr/media.html): Des photos.
-- [Liens](https://rouletabille.fr/links): Toutes sortes de liens.
-- [Headings](https://rouletabille.fr/headings/): Des titres imbriques.
-- [Expected Title](https://rouletabille.fr/mismatch): A page with mismatched h1 title.
+-   [Simple Page](https://rouletabille.fr/simple.md): Une page simple.
+- [Accueil](https://rouletabille.fr/index.md): La page d'accueil.
+- [Galerie](https://rouletabille.fr/media.md): Des photos.
+- [Liens](https://rouletabille.fr/links.md): Toutes sortes de liens.
+- [Headings](https://rouletabille.fr/headings.md): Des titres imbriques.
+- [Expected Title](https://rouletabille.fr/mismatch.md): A page with mismatched h1 title.
+- [Code](https://rouletabille.fr/code.md): Du code.
+- [Listes](https://rouletabille.fr/lists.md): Des listes.
 
 ## Contact
 

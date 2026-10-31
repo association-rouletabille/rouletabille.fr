@@ -9,6 +9,12 @@ npm install
 npx @11ty/eleventy --serve
 ```
 
+## Pages
+
+Content pages are authored in Markdown (`src/*.md`) and published both as HTML
+and as Markdown (`/<page>.md`). See
+[lib/markdown-pages](lib/markdown-pages/README.md).
+
 ## Checks
 
 ```shell
