@@ -1,7 +1,13 @@
 import { canonicalUrl } from '../../lib/canonical-url.js';
+import {
+  hasMarkdownVersion,
+  markdownUrl,
+} from '../../lib/markdown-pages/index.js';
 
 export default {
   url: canonicalUrl,
+  hasMarkdownVersion,
+  markdownUrl,
   jsonLd: () => {
     const data = {
       '@context': 'https://schema.org',
