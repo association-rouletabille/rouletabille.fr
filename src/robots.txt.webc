@@ -6,7 +6,4 @@ User-Agent: *
 Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 
-Disallow: /404.html
-Disallow: /404
-
 Sitemap: <template webc:nokeep @raw="$data.site.url('/sitemap.xml')"></template>

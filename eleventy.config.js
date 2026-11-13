@@ -29,6 +29,7 @@ import {
   hasMarkdownVersion,
   markdownUrl,
 } from './lib/markdown-pages/index.js';
+import { preventIndexingHeaders } from './lib/prevent-indexing.js';
 import markdownComponents from './src/_config/markdown-components.js';
 
 const WEBC_COMPONENTS = './src/_includes/webc/*.webc';
@@ -205,6 +206,16 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPreprocessor('template-defaults', '*', (data) => {
     assertTemplateDefaults(data, data.page.inputPath);
   });
+
+  // Pages that set `preventIndexing: true` get an `x-robots-tag` header (see
+  // `eleventy.after`), on top of the robots meta tag of the root layout. Their
+  // URL isn't computed yet here, so they are matched to it by input path.
+  const preventIndexingInputPaths = new Set();
+  eleventyConfig.addPreprocessor('prevent-indexing', '*', (data) => {
+    if (data.preventIndexing) {
+      preventIndexingInputPaths.add(data.page.inputPath);
+    }
+  });
   eleventyConfig.addPreprocessor('markdown-pages', 'md', (data, content) => {
     // Runs before Eleventy computes the page's output path from it.
     applyPermalink(data);
@@ -261,16 +272,27 @@ export default async function (eleventyConfig) {
       return;
     }
 
-    // The Markdown versions' canonical links are added to the copy of
-    // src/public/_headers, which is built from the source each time so they
-    // are never appended twice.
+    // The Markdown versions' canonical links and the pages' robots headers
+    // are added to the copy of src/public/_headers, which is built from the
+    // source each time so they are never appended twice.
     const markdownUrls = results
       .map(({ url }) => url)
       .filter((url) => typeof url === 'string' && url.endsWith('.md'));
+    const preventIndexingUrls = results
+      .filter(({ inputPath }) => preventIndexingInputPaths.has(inputPath))
+      .map(({ url }) => url)
+      .filter((url) => typeof url === 'string');
 
     writeFileSync(
       join(eleventyConfig.directories.output, '_headers'),
-      `${readFileSync(HEADERS, 'utf8').trimEnd()}\n\n${canonicalHeaders(markdownUrls)}`,
+      `${[
+        readFileSync(HEADERS, 'utf8'),
+        canonicalHeaders(markdownUrls),
+        preventIndexingHeaders(preventIndexingUrls),
+      ]
+        .map((rules) => rules.trimEnd())
+        .filter((rules) => rules !== '')
+        .join('\n\n')}\n`,
     );
 
     generateLlmsFull(
