@@ -32,6 +32,9 @@ https://:version.:subdomain.workers.dev/*
 
 # Each /<page>.md also gets a `link: <…>; rel="canonical"` header pointing to
 # its HTML page, added by the build (see lib/markdown-pages/README.md).
+# Each page setting `preventIndexing: true` also gets an
+# `x-robots-tag: noindex, nofollow` header, added by the build
+# (see lib/prevent-indexing.js).
 
 /sitemap.xml
   content-type: application/xml; charset=utf-8

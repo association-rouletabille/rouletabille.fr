@@ -6,6 +6,7 @@ description: >-
   monocycle et poussez la distance le plus loin possible.
 permalink: /unirunner/index.html
 eleventyExcludeFromCollections: true
+preventIndexing: true
 ---
 
 <pagestyle webc:nokeep>

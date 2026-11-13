@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="version" :content="`v${deployedAt}+${commitSha}`" />
     <meta name="description" :content="`${description}`" />
+    <meta webc:if="$data.preventIndexing" name="robots" content="noindex, nofollow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" :href="getBundleFileUrl('css')" as="style" webc:keep />
     <link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />

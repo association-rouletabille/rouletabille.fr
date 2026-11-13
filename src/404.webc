@@ -4,6 +4,7 @@ title: 404 :-(
 description: Page non disponible
 permalink: /404.html
 eleventyExcludeFromCollections: true
+preventIndexing: true
 ---
 
 <article>
