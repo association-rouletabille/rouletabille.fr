@@ -43,6 +43,12 @@ Notre événement annuel dédié au monocycle tout terrain (Muni) dans la forêt
 
 [Découvrir l'événement →](https://rouletabille.fr/roule-ton-caillou.md)
 
+#### Tutoriels et ressources
+
+Envie d'apprendre une nouvelle figure ou de découvrir la culture monocycle ? Tutoriels vidéo, forums, films et boutiques spécialisées : une sélection de ressources pour progresser à son rythme.
+
+[Explorer les ressources →](https://rouletabille.fr/tutoriels-et-ressources.md)
+
 ---
 
 ## L'association
@@ -252,8 +258,11 @@ Une sélection de ressources en ligne pour découvrir, apprendre et progresser.
 
 Des séries de tutoriels pour apprendre à rouler, gagner en assurance et progresser à son rythme.
 
--   [Tutos Monocycle Freestyle - Commission Nationale Monocycle](https://www.youtube.com/playlist?list=PLS8McmZoNb40hlHieq7XBjuDtn6D5hBOd) → Le freestyle en français, en trois niveaux : débutant (montées, sur-place, sauts, figures statiques, manipulations), intermédiaire (wheel walk, glide, toupie, drag seat…) et avancé (coast, side-ride, crossover, handwalk…).
+-   [Tutos Monocycle Freestyle - Commission Nationale Monocycle](https://www.youtube.com/playlist?list=PLS8McmZoNb40hlHieq7XBjuDtn6D5hBOd) → Le freestyle en trois niveaux : débutant (montées, sur-place, sauts, figures statiques, manipulations), intermédiaire (wheel walk, glide, toupie, drag seat…) et avancé (coast, side-ride, crossover, handwalk…).
+-   [Tutos monocycle - Pierre S](https://www.youtube.com/playlist?list=PLB06MLyOvv9bW6bopRMptPJ8-UsI5rpxX) → Une courte série pour passer des premiers tours de roue au flat : apprendre à rouler, à sauter, le leg around, le saut sur le pneu, le 180 unispin, et même un tuto pour rayonner sa roue.
 -   [UniQuest - Chris Huriwai](https://www.youtube.com/playlist?list=PL-cykddDwi53A0l5YuAIzl0sLa4y5eED_) → Le monocycliste néo-zélandais détaille, pas à pas, les bases puis des figures plus avancées.
+-   [Learn to Unicycle! - Hobo Dan](https://www.youtube.com/playlist?list=PLlT81XOGbn02crwuTUQ4CqeryDymjZwUM) → Une série entièrement consacrée aux débutants : réglage de la selle, montée libre, sur-place, apprendre à tourner, à reculer, à sauter, à rouler sur un pied, à monter et descendre une pente, et même à bien tomber.
+-   [Unicycle School - Eli Brill](https://www.youtube.com/playlist?list=PLdKARu4d6vwXYhdoLgOQNKOfvj8NVhnMa) → Une progression depuis les premiers tours de roue jusqu'aux bases du street : unispins 180, 360 et 540, crankflip, hickflip, crankgrab, grind, late tricks.
 -   [Mountain Unicycling Tutorials - Finn Harwege](https://www.youtube.com/playlist?list=PLjuucJWaD9A7ugWLBfZAX30M5OMjVRjyt) → Le monocycle tout-terrain : monter sur la roue, conseils de pilotage, sauts, freinage, réglage du monocycle, choix de l'équipement, roue libre, jusqu'à quelques figures pour impressionner.
 
 ### Culture monocycle
@@ -262,6 +271,7 @@ Une petite collection de vidéos pour partager et faire découvrir la diversité
 
 -   [Unicycling: More Than a Wheel](https://youtu.be/hxkglYmJwZE) → Reportage de Lakeland PBS pour découvrir le monocycle, ses pratiquants et tout ce que cette discipline recouvre au-delà de l'équilibre sur une roue.
 -   [Riding a unicycle part 41: Evolution of balance (or not)](https://youtu.be/plCFqsPqUjc) → Épisode consacré à l'apprentissage du monocycle et à la persévérance requise pour maîtriser son équilibre quel que soit le terrain.
+-   [I learned to unicycle - Berm Peak](https://www.youtube.com/playlist?list=PL5S7V5NhM8JRSJ3bMKsqd3pqQ5wFCwZTT) → Seth, vidéaste VTT américain, se lance dans l'apprentissage du monocycle et en tire une série vlog : premières séances, premiers tours de roue, montée libre, première sortie tout-terrain jusqu'aux sentiers VTT, et pour finir ses 10 conseils pour apprendre.
 -   [Revolution One: A Story of Off-road Unicycling](https://youtu.be/XquNuw8yJh4) → Film d'aventure consacré au monocycle tout-terrain : Sorties en pleine nature, ascensions et descentes techniques.
 -   [The Rhythm of One](https://vimeo.com/791388187) → Portrait du monocycliste canadien Ryan Kremsater, qui explore de nouvelles trajectoires et repousse les limites du monocycle tout-terrain.
 -   [STOMP Munifest 2024 - The Film](https://youtu.be/rbKbZO-T9Ts) → Un aperçu de ce rassemblement américain de monocycle tout-terrain : rides sur sentiers, trial et esprit de communauté.
