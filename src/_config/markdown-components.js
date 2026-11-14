@@ -13,6 +13,10 @@ export default {
   // with the surrounding prose.
   'content-hero-photo': () => null,
 
+  // The sections' headings already outline the page, and its Markdown
+  // version can't link to their anchors.
+  'table-of-contents': () => null,
+
   // Same text and link as the component's own HTML (its aria-label and href).
   'youtube-embed': ({ id, label }) =>
     `[Visionner : ${escapeLinkText(label)}](https://www.youtube-nocookie.com/embed/${id})`,

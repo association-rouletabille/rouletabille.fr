@@ -1,0 +1,10 @@
+<!---
+  Links to the page's "## heading" sections (their cards). Meant to sit before
+  the first of them, in a page authored in Markdown: the markdown-pages
+  preprocessor lists them in `pageSections`.
+--->
+<nav webc:root="override" aria-label="Sommaire">
+  <ul>
+    <li webc:for="section of $data.pageSections"><a :href="`#${section.id}`" @text="section.heading"></a></li>
+  </ul>
+</nav>

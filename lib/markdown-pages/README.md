@@ -39,7 +39,13 @@ Une à deux fois par an, nous partons en Seine-et-Marne…
 - **One `# heading` per page.** It and everything after it make up the page's
   `<article>`. Whatever comes before it (the hero photo) sits above it.
 - **Each `## heading` section becomes a `<card>`** titled with the heading,
-  which must therefore be plain text.
+  which must therefore be plain text. The card's id is the heading in
+  lowercase ASCII, words joined by `-` (`## Matériel d'occasion` →
+  `materiel-d-occasion`), so it must be unique within the page.
+- **A table of contents** linking to these cards is added with
+  `<table-of-contents></table-of-contents>`, before the first `##` heading.
+  It lists every section of the page and is left out of the Markdown
+  version.
 - **External links** open in a new tab (`target="_blank"`,
   `rel="noopener noreferrer"`).
 - **WebC components** (any `src/_includes/webc/*.webc`) can be used as
