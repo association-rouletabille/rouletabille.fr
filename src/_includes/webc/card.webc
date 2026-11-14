@@ -1,4 +1,5 @@
-<section webc:root="override">
+<!--- The id is the one <table-of-contents> links to. --->
+<section webc:root="override" :id="this.heading && $data.site.sectionId(this.heading)">
   <h2 webc:if="this.heading" @text="this.heading"></h2>
   <slot></slot>
 </section>
@@ -12,6 +13,14 @@
     border: 1px solid rgba(var(--palette-nav-dim), 0.1);
     border-radius: 0.4rem;
     box-shadow: 0 0.4rem 0.55rem 0.2rem rgba(var(--palette-nav-fg), 0.05);
+    scroll-margin-top: 1rem;
+  }
+
+  /* Keeps a card reached through a link clear of the sticky header. */
+  @media (max-width: 799px) {
+    :host {
+      scroll-margin-top: calc(var(--safe-top) + var(--logo-size) + var(--header-pad-block) + 1rem);
+    }
   }
 
   :host > h2 {

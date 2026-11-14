@@ -17,6 +17,8 @@ permalink: /tutoriels-et-ressources
 
 Une sélection de ressources en ligne pour découvrir, apprendre et progresser.
 
+<table-of-contents></table-of-contents>
+
 ## Sites, forums et ressources en ligne
 
 - [monocycle.info](https://monocycle.info) → Site de référence du monocycle en France

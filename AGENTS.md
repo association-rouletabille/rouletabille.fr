@@ -46,6 +46,9 @@ Keep this file short, practical, and focused on repository-specific habits.
 - Prefer targeted commands such as:
   - `npx vitest run lib/llms-full`
   - `npx vitest run lib/unirunner/score.test.js -t "<test name>"`
+- On Windows, run Vitest from a path with an uppercase drive letter
+  (`D:\…`). From `d:\…`, every suite fails with "Cannot read properties of
+  undefined (reading 'config')".
 
 ## Session wrap-up
 

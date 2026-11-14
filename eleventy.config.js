@@ -220,8 +220,10 @@ export default async function (eleventyConfig) {
     // Runs before Eleventy computes the page's output path from it.
     applyPermalink(data);
     data.markdownSource = content;
+    // Listed by <table-of-contents>.
+    data.pageSections = [];
 
-    return renderHtml(content, data.page.inputPath);
+    return renderHtml(content, data.page.inputPath, data.pageSections);
   });
 
   eleventyConfig.addCollection('markdownPages', (collectionApi) =>
